@@ -1,0 +1,30 @@
+{% extends "main/base.html" %}
+{% load static i18n %}
+
+{% block bread %}
+<ul class="breadcrumb list-bread">
+    <li><a href="{% url 'home_page' %}"> {% trans 'Home' %} </a></li>/
+    <li><a href="{{ country.continent.get_absolute_url }}"> {{ country.continent.title }} </a></li>/
+    <li><a href="{{ country.get_absolute_url }}"> {{ country.title }} </a></li>/
+</ul>
+{% endblock %}
+
+{% block content %}
+<div class="last">{{ country.title }}</div>
+    <section class="sample">
+        <div class="container">
+            <div class="row">
+                {% for league in leagues %}
+                <a class="item" href="{{ league.get_absolute_url }}">
+                    {% if league.picture %}
+                        <img class="images" src="{{ league.picture.url }}"> 
+                    {% else %}
+                        <img class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
+                    {% endif %}
+                    <div class="title">{{league.title}}</div>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

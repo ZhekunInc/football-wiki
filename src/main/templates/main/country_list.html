@@ -1,0 +1,31 @@
+{% extends "main/base.html" %}
+{% load static i18n %}
+
+{% block bread %}
+
+<ul class="breadcrumb list-bread">
+    <li><a href="{% url 'home_page' %}"> {% trans 'Home' %} </a></li>/
+    <li><a href="{{ continent.get_absolute_url }}"> {{ continent.title }} </a></li>/
+</ul>
+{% endblock %}
+
+{% block content %}
+
+    <div class="last">{{ continent.title }}</div>
+        <section class="sample">
+            <div class="container">
+                <div class="row">
+                    {% for country in countries %}
+                    <a class="item" href="{{ country.get_absolute_url }}">
+                        {% if country.picture %}
+                            <img class="images" src="{{ country.picture.url }}"> 
+                        {% else %}
+                            <img class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
+                        {% endif %}
+                        <div class="title">{{country.title}}</div>
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+{% endblock %}

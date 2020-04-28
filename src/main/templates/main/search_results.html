@@ -1,0 +1,32 @@
+{% extends "main/base.html" %}
+{% load static i18n %}
+
+{% block content %}
+<div class="last">
+    {% if query %}
+        <h4>{% trans "Search results for a query: " %} <i>"{{ query }}"</i>.</h4>
+    {% else %}
+        <h4>{% trans "Please enter a search query." %}
+    {% endif %}
+</div>
+<section class="sample">
+    <div class="container">
+        <div class="row">
+            {% if query %}
+                {% for club in search_result %}
+                <a class="item" href="{{ club.get_absolute_url }}">
+                    {% if club.picture %}
+                        <img class="images" src="{{ club.picture.url }}"> 
+                    {% else %}
+                        <img class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
+                    {% endif %}
+                    <div class="title">{{club.title}}</div>
+                </a>
+                {% empty %}       
+                    <div class="last row">{% trans "Nothing found." %}</div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+</section>
+{% endblock %}
