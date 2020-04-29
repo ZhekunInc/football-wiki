@@ -16,7 +16,7 @@
     <div class="last">{{club.title}}</div>
     <div class="info">
         {% if club.picture %}
-            <img class="img-club" src="{{club.picture.url}}">
+            <img class="img-club" src="{{club.picture.url}}" alt="{{club.title}}">
         {% else %}
             <img class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
         {% endif %}
@@ -26,7 +26,7 @@
             <p>{% trans "Founded:" %} {{club.founded|date:'d F Y'}}</p>
             <p>{% trans "Stadium:" %} {{club.stadium}}</p>
             <p>{% trans "Manager:" %} {{club.manager}}</p>
-            <p>{% trans "Website" %} <a href="{{ club.website }}" target="_blank">{{club.website}}</a></p>
+            <p>{% trans "Website" %} <a href="{{ club.website }}" target="_blank">{{ club.website }}</a></p>
         {% endif %}
     </div>
     <div class="text-club">
@@ -49,7 +49,7 @@
                         {% for cup in club.cups.all %}
                         <a class="item" href="">
                             {% if cup.image %}
-                                <img class="images" src="{{ cup.image.url }}"> 
+                                <img class="images" src="{{ cup.image.url }}" alt="{{ cup.title }}"> 
                             {% else %}
                                 <img class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
                             {% endif %}
@@ -70,7 +70,7 @@
                         {% for player in club.famous_players.all %}
                         <a class="item" href="">
                             {% if player.image %}
-                                <img class="images" src="{{ player.image.url }}"> 
+                                <img class="images" src="{{ player.image.url }}" alt="{{ player.title }}"> 
                             {% else %}
                                 <img class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
                             {% endif %}

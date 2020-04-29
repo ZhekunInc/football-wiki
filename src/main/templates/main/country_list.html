@@ -18,7 +18,7 @@
                     {% for country in countries %}
                     <a class="item" href="{{ country.get_absolute_url }}">
                         {% if country.picture %}
-                            <img class="images" src="{{ country.picture.url }}"> 
+                            <img class="images" src="{{ country.picture.url }}" alt="{{ country.title }}"> 
                         {% else %}
                             <img class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
                         {% endif %}
