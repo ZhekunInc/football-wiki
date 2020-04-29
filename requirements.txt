@@ -1,10 +1,14 @@
+asgiref==3.2.7
 dj-database-url==0.5.0
-Django==3.0.5
+django==3.0.5
+django-heroku==0.3.1
 django-allauth==0.41.0
+django-modeltranslation==0.15
 gunicorn==20.0.4
 oauth==1.0.1
 oauthlib==3.1.0
 Pillow==6.2.2
 psycopg2==2.8.5
+pytz==2020.1
+sqlparse-0.3.1 
 whitenoise==5.0.1
-django-modeltranslation==0.15
