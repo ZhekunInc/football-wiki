@@ -96,7 +96,7 @@ class Player(models.Model):
     title = models.CharField(max_length=200)
     image = models.ImageField(
         'Image', blank=True, null=True,
-        upload_to='images/plaayer',
+        upload_to='images/player',
         help_text=("Recomended size 512x512px")
     )
 
@@ -112,7 +112,6 @@ class Club(models.Model):
         ('slug'), unique=True, max_length=255,
         help_text=("Used to build the category's URL.")
     )
-    active = models.BooleanField(('active'), default=False)
     league = models.ForeignKey(
         'League', related_name='club',
         verbose_name=('league'), on_delete=models.CASCADE,

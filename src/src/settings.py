@@ -145,9 +145,9 @@ def gettext(s):
 
 
 LANGUAGES = (
-    ('en', gettext('English')),
     ('uk', gettext('Ukraine')),
-    ('ru', gettext('Russian'))
+    ('en', gettext('English')),
+    ('ru', gettext('Russian')),
 )
 
 

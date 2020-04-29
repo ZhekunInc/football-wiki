@@ -446,7 +446,7 @@ msgstr "Трофеи"
 
 #: src/main/templates/main/club_detail.html:60
 msgid "This club has never won trophies"
-msgstr "Это клуб никогда не выигрывал трофеи"
+msgstr "Этот клуб никогда не выигрывал трофеи"
 
 #: src/main/templates/main/club_detail.html:65
 msgid "Famous Players"
