@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-25 20:28+0300\n"
+"POT-Creation-Date: 2020-04-29 13:38+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -172,9 +172,7 @@ msgid ""
 msgstr ""
 
 #: src/main/templates/account/login.html:25
-#: src/main/templates/main/club_detail.html:36
-#: src/main/templates/main/club_detail.html:87
-#: src/main/templates/main/club_detail.html:92
+#: src/main/templates/main/club_detail.html:38
 msgid "or"
 msgstr "или"
 
@@ -376,99 +374,89 @@ msgid ""
 "mail address</a>."
 msgstr ""
 
-#: src/main/templates/main/base.html:25
+#: src/main/templates/main/base.html:28
 msgid " Menu"
 msgstr "Меню"
 
-#: src/main/templates/main/base.html:27
+#: src/main/templates/main/base.html:30
 #: src/main/templates/main/club_detail.html:6
 #: src/main/templates/main/club_list.html:6
 #: src/main/templates/main/country_list.html:7
+#: src/main/templates/main/homepage.html:4
 #: src/main/templates/main/league_list.html:6
 msgid "Home"
 msgstr "Главная"
 
-#: src/main/templates/main/base.html:48
+#: src/main/templates/main/base.html:51
+#: src/main/templates/main/search_results.html:3
 msgid "Search"
 msgstr "Поиск"
 
-#: src/main/templates/main/base.html:54
+#: src/main/templates/main/base.html:57
 msgid "Welcome back, "
 msgstr "С возвращением, "
 
-#: src/main/templates/main/base.html:57
+#: src/main/templates/main/base.html:60
 msgid "Logout"
 msgstr "Выйти"
 
-#: src/main/templates/main/base.html:61
+#: src/main/templates/main/base.html:64
 msgid "Login"
 msgstr "Ввойти"
 
-#: src/main/templates/main/base.html:64
+#: src/main/templates/main/base.html:67
 msgid "Restration"
 msgstr "Регистрация"
 
-#: src/main/templates/main/club_detail.html:23
+#: src/main/templates/main/club_detail.html:24
 msgid "Nickname(s):"
 msgstr "Прозвище:"
 
-#: src/main/templates/main/club_detail.html:24
+#: src/main/templates/main/club_detail.html:25
 msgid "Short name:"
 msgstr "Короткое имя:"
 
-#: src/main/templates/main/club_detail.html:25
+#: src/main/templates/main/club_detail.html:26
 msgid "Founded:"
 msgstr "Основан:"
 
-#: src/main/templates/main/club_detail.html:26
+#: src/main/templates/main/club_detail.html:27
 msgid "Stadium:"
 msgstr "Стадион:"
 
-#: src/main/templates/main/club_detail.html:27
+#: src/main/templates/main/club_detail.html:28
 msgid "Manager:"
 msgstr "Тренер:"
 
-#: src/main/templates/main/club_detail.html:28
+#: src/main/templates/main/club_detail.html:29
 msgid "Website"
 msgstr "Сайт:"
 
-#: src/main/templates/main/club_detail.html:36
+#: src/main/templates/main/club_detail.html:38
 msgid "Resitration for read more "
 msgstr "Зарегистрироватся, чтобы читать больше"
 
-#: src/main/templates/main/club_detail.html:37
+#: src/main/templates/main/club_detail.html:39
 msgid " Login for read more"
 msgstr "Войти, чтобы читать больше"
 
-#: src/main/templates/main/club_detail.html:42
-#: src/main/templates/main/club_detail.html:85
+#: src/main/templates/main/club_detail.html:44
 msgid "Trophies"
 msgstr "Трофеи"
 
-#: src/main/templates/main/club_detail.html:58
+#: src/main/templates/main/club_detail.html:60
 msgid "This club has never won trophies"
 msgstr "Это клуб никогда не выигрывал трофеи"
 
-#: src/main/templates/main/club_detail.html:63
-#: src/main/templates/main/club_detail.html:90
+#: src/main/templates/main/club_detail.html:65
 msgid "Famous Players"
 msgstr "Известные игроки"
 
-#: src/main/templates/main/club_detail.html:79
+#: src/main/templates/main/club_detail.html:81
 msgid "There are no famous Players for this club"
 msgstr "У этого клуба нет известных игроков"
 
-#: src/main/templates/main/club_detail.html:87
-#: src/main/templates/main/club_detail.html:92
-msgid "Resitration for watch more "
-msgstr "Зарегистрироватся, чтобы посмортеть больше"
-
-#: src/main/templates/main/club_detail.html:88
-#: src/main/templates/main/club_detail.html:93
-msgid " Login for watch more"
-msgstr "Войти, чтобы посмортеть больше"
-
-#: src/main/templates/main/homepage.html:6
+#: src/main/templates/main/homepage.html:7
 msgid "New add clubs"
 msgstr "Новые добавлиные клубы"
 
@@ -485,6 +473,24 @@ msgstr "Пожалуйста введите запрос"
 #: src/main/templates/main/search_results.html:26
 msgid "Nothing found."
 msgstr "Ничего не найдено (поиск по русскому чувствительный к регистру)"
+
+#: src/src/settings.py:148
+msgid "English"
+msgstr ""
+
+#: src/src/settings.py:149
+msgid "Ukraine"
+msgstr ""
+
+#: src/src/settings.py:150
+msgid "Russian"
+msgstr ""
+
+#~ msgid "Resitration for watch more "
+#~ msgstr "Зарегистрироватся, чтобы посмортеть больше"
+
+#~ msgid " Login for watch more"
+#~ msgstr "Войти, чтобы посмортеть больше"
 
 #~ msgid "Select"
 #~ msgstr "Выбрать"

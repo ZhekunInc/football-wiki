@@ -1,6 +1,6 @@
 {% extends "main/base.html" %}
 {% load static i18n %}
-
+{% block title %}{{country.title}}{% endblock %}
 {% block bread %}
 <ul class="breadcrumb list-bread">
     <li><a href="{% url 'home_page' %}"> {% trans 'Home' %} </a></li>/
