@@ -32,8 +32,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'modeltranslation',
     'main',
-    'tof',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -140,11 +140,15 @@ LOCALE_PATHS= [
     os.path.join(BASE_DIR, 'locale')
 ]
 
-LANGUAGES = [
-    ('uk', 'Ukrainian'),
-    ('en', 'English'),
-    ('ru', 'Russian'),
-]
+def gettext(s):
+    return s
+
+
+LANGUAGES = (
+    ('en', gettext('English')),
+    ('uk', gettext('Ukraine')),
+    ('ru', gettext('Russian'))
+)
 
 
 DATABASE_OPTIONS = 'charset=utf8'

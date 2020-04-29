@@ -6,11 +6,11 @@ try:
 except:
     from django.contrib.admin.options import ModelAdmin as TranslationAdmin
 
-from tof.admin import TofAdmin
+
 
 
 @admin.register(Continent)
-class ContinentAdmin(TofAdmin):
+class ContinentAdmin(admin.ModelAdmin):
     list_display = (
         'title', 'slug'
     )
@@ -18,7 +18,7 @@ class ContinentAdmin(TofAdmin):
     prepopulated_fields = {'slug': ('title',)}
 
 @admin.register(Country)
-class CountryAdmin(TofAdmin):
+class CountryAdmin(admin.ModelAdmin):
     list_display = (
         'title', 'slug', 'continent'
     )
@@ -26,7 +26,7 @@ class CountryAdmin(TofAdmin):
     prepopulated_fields = {'slug': ('title',)}
 
 @admin.register(League)
-class LeagueAdmin(TofAdmin):
+class LeagueAdmin(admin.ModelAdmin):
     list_display = (
         'title', 'reputation', 'slug', 'country'
     )
@@ -34,7 +34,7 @@ class LeagueAdmin(TofAdmin):
     prepopulated_fields = {'slug': ('title',)}
 
 @admin.register(Club)
-class ClubAdmin(TofAdmin):
+class ClubAdmin(TranslationAdmin):
     list_display = (
         'id', 'title', 'slug', 'league'
     )
@@ -43,13 +43,13 @@ class ClubAdmin(TofAdmin):
 
 
 @admin.register(Cup)
-class CupAdmin(TofAdmin):
+class CupAdmin(admin.ModelAdmin):
     list_display = (
         'title', 'image'
     )
 
 @admin.register(Player)
-class PlayerAdmin(TofAdmin):
+class PlayerAdmin(admin.ModelAdmin):
     list_display = (
         'title', 'image'
     )
