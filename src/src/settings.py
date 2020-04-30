@@ -147,6 +147,7 @@ TRANSLATABLE_MODEL_MODULES = ["main.models"]
 def gettext(s):
     return s
 
+TRANSLATABLE_MODEL_MODULES = ["main.models"]
 
 LANGUAGES = (
     ('uk', gettext('Ukraine')),
@@ -169,4 +170,3 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 SITE_ID = 1
-
