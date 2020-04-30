@@ -11,8 +11,6 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-import dj_database_url
-import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -45,7 +43,6 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'allauth.socialaccount.providers.facebook',
     'django_extensions',
 ]
 
@@ -148,6 +145,7 @@ LOCALE_PATHS= [
 def gettext(s):
     return s
 
+TRANSLATABLE_MODEL_MODULES = ["main.models"]
 
 LANGUAGES = (
     ('uk', gettext('Ukraine')),
@@ -170,9 +168,3 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 SITE_ID = 1
-
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)
-
-# Activate Django-Heroku.
-django_heroku.settings(locals())
