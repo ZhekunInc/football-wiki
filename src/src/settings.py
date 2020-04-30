@@ -11,8 +11,6 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-import dj_database_url
-import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -27,14 +25,14 @@ SECRET_KEY = '=c%putkgs%4@c(#4y!nvef!xbzjvd7q5)##h&bg+y@x0suds#_'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['zhekun.pythonanywhere.com']
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    'modeltranslation',
     'main',
+    'modeltranslation',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -45,7 +43,6 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'allauth.socialaccount.providers.facebook',
     'django_extensions',
 ]
 
@@ -145,6 +142,8 @@ LOCALE_PATHS= [
     os.path.join(BASE_DIR, 'locale')
 ]
 
+TRANSLATABLE_MODEL_MODULES = ["main.models"]
+
 def gettext(s):
     return s
 
@@ -171,8 +170,3 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 SITE_ID = 1
 
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)
-
-# Activate Django-Heroku.
-django_heroku.settings(locals())
