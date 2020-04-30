@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-29 13:38+0300\n"
+"POT-Creation-Date: 2020-04-29 21:21+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -442,19 +442,27 @@ msgid " Login for read more"
 msgstr "Увійдіть, щоб читати більше"
 
 #: src/main/templates/main/club_detail.html:44
+msgid "Kits"
+msgstr "Форми"
+
+#: src/main/templates/main/club_detail.html:60
+msgid "There are no kits in this club"
+msgstr "У цього клуба немає форми"
+
+#: src/main/templates/main/club_detail.html:65
 msgid "Trophies"
 msgstr "Трофеї"
 
-#: src/main/templates/main/club_detail.html:60
+#: src/main/templates/main/club_detail.html:81
 msgid "This club has never won trophies"
 msgstr "Цей клуб не виграв жодного трофея"
 
-#: src/main/templates/main/club_detail.html:65
+#: src/main/templates/main/club_detail.html:86
 msgid "Famous Players"
 msgstr "Відомі гравці"
 
-#: src/main/templates/main/club_detail.html:81
-msgid "There are no famous Players for this club"
+#: src/main/templates/main/club_detail.html:102
+msgid "There are no famous players in this club"
 msgstr "У цього клуба немає відомих гравців"
 
 #: src/main/templates/main/homepage.html:7
@@ -473,15 +481,15 @@ msgstr "Будь-ласка введіть запит."
 msgid "Nothing found."
 msgstr "Нічого не знайдено (пошук українською чутливий до регістру)"
 
-#: src/src/settings.py:148
-msgid "English"
-msgstr ""
-
-#: src/src/settings.py:149
+#: src/src/settings.py:153
 msgid "Ukraine"
 msgstr ""
 
-#: src/src/settings.py:150
+#: src/src/settings.py:154
+msgid "English"
+msgstr ""
+
+#: src/src/settings.py:155
 msgid "Russian"
 msgstr ""
 

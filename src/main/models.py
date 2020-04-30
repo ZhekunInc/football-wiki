@@ -138,11 +138,32 @@ class Club(models.Model):
         'Player', related_name='club',
         verbose_name=('player'), blank=True
     )
+
+    class Meta:
+        verbose_name = ("Club")
     
     def __str__(self):
         return self.title
+
+    def get_kits(self):
+        return Kits.objects.filter(club_id=self.pk)
 
     def get_absolute_url(self):
         """Return category's URL"""
         return reverse('club_detail', kwargs={'continent': self.league.country.continent.slug,
          'country': self.league.country.slug, 'league': self.league.slug, 'club': self.slug, 'pk': self.id})
+
+class Kits(models.Model):
+    club = models.ForeignKey(Club, on_delete=models.CASCADE, verbose_name=("Club"))
+    title = models.CharField(max_length=200, default='Kits')
+    kits = models.ImageField(("Kits"), upload_to="images/kits", null=True, blank=True)
+
+    def get_extension(self):
+        file_extension=os.path.splitext(self.kits.path)
+        return file_extension[1]
+
+    def get_filename(self):
+        return os.path.basename(self.kits.name)
+
+    class Meta: 
+        verbose_name = ("Kit")
