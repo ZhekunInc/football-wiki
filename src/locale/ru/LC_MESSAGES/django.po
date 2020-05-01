@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-29 21:21+0300\n"
+"POT-Creation-Date: 2020-05-01 13:39+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -464,13 +464,29 @@ msgstr "Известные игроки"
 msgid "There are no famous players in this club"
 msgstr "У этого клуба нет известных игроков"
 
+#: src/main/templates/main/club_list.html:31
+msgid "No clubs added to "
+msgstr "Ни одного клуба не добавлено к "
+
+#: src/main/templates/main/club_list.html:31
+#: src/main/templates/main/country_list.html:30
+#: src/main/templates/main/league_list.html:29
+msgid ", please contact the administrator by e-mail: golovchak.evgen@gmail.com"
+msgstr ", пожалуйста свяжитесь с администратором по почте: golovchak.evgen@gmail.com"
+
+#: src/main/templates/main/country_list.html:30
+msgid "No countries added to "
+msgstr "Ни одной страны не добавлено к "
+
 #: src/main/templates/main/homepage.html:7
 msgid "New add clubs"
 msgstr "Новые добавлиные клубы"
 
+#: src/main/templates/main/league_list.html:29
+msgid "No leagues added to "
+msgstr "Ни одной лиги не добавлено к "
+
 #: src/main/templates/main/search_results.html:7
-#, fuzzy
-#| msgid "Search results for a query:"
 msgid "Search results for a query: "
 msgstr "Результати по поиску: "
 
