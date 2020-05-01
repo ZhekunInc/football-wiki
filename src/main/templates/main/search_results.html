@@ -9,24 +9,47 @@
         <h4>{% trans "Please enter a search query." %}
     {% endif %}
 </div>
-<section class="sample">
-    <div class="container">
-        <div class="row">
-            {% if query %}
-                {% for club in search_result %}
-                <a class="item" href="{{ club.get_absolute_url }}">
-                    {% if club.picture %}
-                        <img class="images" src="{{ club.picture.url }}" alt="{{ club.title }}"> 
-                    {% else %}
-                        <img class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
-                    {% endif %}
-                    <div class="title">{{ club.title }}</div>
-                </a>
-                {% empty %}       
-                    <div class="last row">{% trans "Nothing found." %}</div>
-                {% endfor %}
-            {% endif %}
-        </div>
-    </div>
-</section>
+{% if query %}
+    {% if not search_club and not search_player %}       
+        <div class="last row">{% trans "Nothing found." %}</div>
+    {% endif %}
+    {% if search_club %}
+        <div class="last">{% trans 'Clubs' %}</div>
+        <section class="sample">
+            <div class="container">
+                <div class="row">
+                    {% for club in search_club %}
+                    <a class="item" href="{{ club.get_absolute_url }}">
+                        {% if club.picture %}
+                            <img class="images" src="{{ club.picture.url }}" alt="{{ club.title }}"> 
+                        {% else %}
+                            <img class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
+                        {% endif %}
+                        <div class="title">{{ club.title }}</div>
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+    {% endif %}
+    {% if search_player %}
+        <div class="last">{% trans 'Players' %}</div>
+        <section class="sample">
+            <div class="container">
+                <div class="row">
+                    {% for player in search_player %}
+                    <a class="item" href="">
+                        {% if player.image %}
+                            <img class="images" src="{{ player.image.url }}" alt="{{ player.title }}"> 
+                        {% else %}
+                            <img class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
+                        {% endif %}
+                        <div class="title">{{ player.title }}</div>
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+    {% endif %}
+{% endif %}
 {% endblock %}

@@ -41,32 +41,30 @@
         {% endif %}
     </div>
     {% if user.is_authenticated %}
-        <div class="last">{% trans "Kits" %} </div>
-        <section class="sample">
-            <div class="container">
-                <div class="row">
-                    {% if club.get_kits %}
+        {% if club.get_kits %}
+            <div class="last">{% trans "Kit" %} </div>
+            <section class="sample">
+                <div class="container">
+                    <div class="row">
                         {% for kit in club.get_kits %}
-                        <a class="item" href="">
+                        <div class="item">
                             {% if kit.kits %}
                                 <img class="images" src="{{ kit.kits.url }}" alt="{{ kit.title }}"> 
                             {% else %}
                                 <img class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
                             {% endif %}
                             <div class="title">{{ kit.title }}</div>
-                        </a>
+                        </div>
                         {% endfor %}
-                    {% else %}
-                        <p>{% trans "There are no kits in this club" %}</p>
-                    {% endif %}
+                    </div>
                 </div>
-            </div>
-        </section>
-        <div class="last">{% trans "Trophies" %}</div>
-        <section class="sample">
-            <div class="container">
-                <div class="row">
-                    {% if club.cups.all %}
+            </section>
+        {% endif %}
+        {% if club.cups.all %}
+            <div class="last">{% trans "Trophies" %}</div>
+            <section class="sample">
+                <div class="container">
+                    <div class="row">
                         {% for cup in club.cups.all %}
                         <a class="item" href="">
                             {% if cup.image %}
@@ -77,19 +75,17 @@
                             <div class="title">{{ cup.title }}</div>
                         </a>
                         {% endfor %}
-                    {% else %}
-                        <p>{% trans "This club has never won trophies" %}</p>
-                    {% endif %}
+                    </div>
                 </div>
-            </div>
-        </section>
-        <div class="last">{% trans "Famous Players" %} </div>
-        <section class="sample">
-            <div class="container">
-                <div class="row">
-                    {% if club.famous_players.all %}
+            </section>
+        {% endif %}
+        {% if club.famous_players.all %}
+            <div class="last">{% trans "Famous Players" %} </div>
+            <section class="sample">
+                <div class="container">
+                    <div class="row">
                         {% for player in club.famous_players.all %}
-                        <a class="item" href="">
+                        <a href="" class="item">
                             {% if player.image %}
                                 <img class="images" src="{{ player.image.url }}" alt="{{ player.title }}"> 
                             {% else %}
@@ -98,12 +94,10 @@
                             <div class="title">{{ player.title }}</div>
                         </a>
                         {% endfor %}
-                    {% else %}
-                        <p>{% trans "There are no famous players in this club" %}</p>
-                    {% endif %}
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        {% endif %}
     {% endif %}
 </div>
 {% endblock %}

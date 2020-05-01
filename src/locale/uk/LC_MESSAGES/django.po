@@ -442,8 +442,8 @@ msgid " Login for read more"
 msgstr "Увійдіть, щоб читати більше"
 
 #: src/main/templates/main/club_detail.html:44
-msgid "Kits"
-msgstr "Форми"
+msgid "Kit"
+msgstr "Форма"
 
 #: src/main/templates/main/club_detail.html:60
 msgid "There are no kits in this club"

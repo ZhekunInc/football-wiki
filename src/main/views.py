@@ -4,7 +4,7 @@ from django.views.generic.base import View
 from django.shortcuts import get_object_or_404
 from datetime import datetime
 from django.core.paginator import Paginator
-from main.models import Country, Continent, League, Club
+from main.models import Country, Continent, League, Club, Player, Cup
 from django.db.models import Q
 
 def get_continent_or_404(continent):
@@ -120,15 +120,20 @@ class SearchResultsView(ListView):
         query = request.GET.get('q')
 
         retval = Club.objects.none()
+        player = Player.objects.none()
         if query:
             retval = Club.objects.all().filter(
                 Q(title__icontains=query) | Q(stadium__icontains=query)
+            )
+            player = Player.objects.all().filter(
+                Q(title__icontains=query)
             )
         return render(
             self.request,
             self.template_name,
             context={
                 'query': query,
-                'search_result': retval,
+                'search_club': retval,
+                'search_player': player,
             }
         )
