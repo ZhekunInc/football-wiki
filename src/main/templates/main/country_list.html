@@ -15,16 +15,20 @@
         <section class="sample">
             <div class="container">
                 <div class="row">
-                    {% for country in countries %}
-                    <a class="item" href="{{ country.get_absolute_url }}">
-                        {% if country.picture %}
-                            <img class="images" src="{{ country.picture.url }}" alt="{{ country.title }}"> 
-                        {% else %}
-                            <img class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
-                        {% endif %}
-                        <div class="title">{{country.title}}</div>
-                    </a>
-                    {% endfor %}
+                    {% if countries %}
+                        {% for country in countries %}
+                        <a class="item" href="{{ country.get_absolute_url }}">
+                            {% if country.picture %}
+                                <img class="images" src="{{ country.picture.url }}" alt="{{ country.title }}"> 
+                            {% else %}
+                                <img class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
+                            {% endif %}
+                            <div class="title">{{country.title}}</div>
+                        </a>
+                        {% endfor %}
+                    {% else %}
+                        <div class="last row">{% trans "No countries added to " %} {{ continent.title }} {% trans ', please contact the administrator by e-mail: golovchak.evgen@gmail.com' %}</div>
+                    {% endif %}
                 </div>
             </div>
         </section>

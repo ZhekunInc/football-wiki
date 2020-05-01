@@ -14,16 +14,20 @@
     <section class="sample">
         <div class="container">
             <div class="row">
-                {% for league in leagues %}
-                <a class="item" href="{{ league.get_absolute_url }}">
-                    {% if league.picture %}
-                        <img class="images" src="{{ league.picture.url }}" alt="{{ league.title }}"> 
-                    {% else %}
-                        <img class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
-                    {% endif %}
-                    <div class="title">{{ league.title }}</div>
-                </a>
-                {% endfor %}
+                {% if leagues %}
+                    {% for league in leagues %}
+                    <a class="item" href="{{ league.get_absolute_url }}">
+                        {% if league.picture %}
+                            <img class="images" src="{{ league.picture.url }}" alt="{{ league.title }}"> 
+                        {% else %}
+                            <img class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
+                        {% endif %}
+                        <div class="title">{{ league.title }}</div>
+                    </a>
+                    {% endfor %}
+                {% else %}
+                    <div class="last row">{% trans "No leagues added to " %} {{ country.title }} {% trans ', please contact the administrator by e-mail: golovchak.evgen@gmail.com' %}</div>
+                {% endif %}
             </div>
         </div>
     </section>
