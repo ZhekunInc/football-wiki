@@ -6,7 +6,7 @@ body{
 }
 
 main{
-  min-height: 640px;
+  min-height: 770px;
 }
 
 .row a{
@@ -240,3 +240,36 @@ main{
   margin: 0 15px 0 15px;
 }
 
+.registration {
+  margin-left: auto;
+  margin-right: auto;
+  width: 43%;
+}
+
+.registration input {
+  width: 100%;
+}
+
+.registration input[type=checkbox] {
+  width: auto;
+}
+
+.resp-title {
+  font-size: 33px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.btn-center {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.btn-dark{
+  width: 75%;
+  height: 40px;
+}
+
+.logout-text {
+  text-align: center;
+}

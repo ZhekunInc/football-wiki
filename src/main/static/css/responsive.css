@@ -80,6 +80,16 @@
       width: calc(50% - 30px);
       height: 50%;
     }
+    .registration {
+      width: 50%;
+    }
+  }
+
+  @media only screen  
+  and (max-width : 679px) {
+    .registration {
+      width: 60%;
+    }
   }
 
   @media only screen and (max-width : 600px){
@@ -92,5 +102,8 @@
     .item{
       width: calc(100% - 30px);
       height: 100%;
+    }
+    .registration {
+      width: 80%;
     }
   }
