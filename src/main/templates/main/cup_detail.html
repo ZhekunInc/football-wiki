@@ -1,0 +1,96 @@
+{% extends "main/base.html" %}
+{% load static i18n %}
+{% block title %}{{ cup.title }}{% endblock %}
+{% block bread %}
+<ul class="breadcrumb list-bread">
+    <li><a href="{% url 'home_page' %}"> {% trans 'Home' %} </a></li>/
+    <li><a href="{{ player.get_absolute_url }}"> {{ cup.title }} </a></li>
+</ul>
+{% endblock %}
+{% block content %}
+<div class="club-content">
+    <div class="last">{{ cup.title }}</div>
+    <div class="info">
+        {% if cup.image %}
+            <img class="img-club" src="{{ cup.image.url }}" alt="{{cup.title}}">
+        {% else %}
+            <img class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
+        {% endif %}
+        {% if user.is_authenticated %}
+            <p>{% trans "Founded:" %} {{cup.founded|date:'Y'}}</p>
+            <p>{% trans "Region:" %} {{cup.region}}</p>
+            <p>{% trans "Website" %}<a href="{{ cup.website }}" target="_blank"> {{ cup.website }}</a></p>
+        {% endif %}
+    </div>
+    <div class="text-club">
+        {% if user.is_authenticated %}
+            <p class="text">{{ cup.main_text|linebreaks }}</p>
+        {% else %}
+            <p class="text">{{ cup.main_text|linebreaks|truncatechars:250 }}</p>
+            <div class="text-center">
+                <a href="{% url 'account_signup' %}" class="btn btn-dark btn-dark-2">{% trans "Resitration for read more " %}</a> {% trans "or" %}
+                <a href="{% url 'account_login' %}" class="btn btn-dark btn-dark-2">{% trans " Login for read more" %}</a>
+            </div>
+        {% endif %}
+    </div>
+    {% if user.is_authenticated %}
+        {% if cup.player.all %}
+            <div class="last">{% trans "Wins by player" %} </div>
+            <section class="sample">
+                <div class="container">
+                    <div class="row">
+                        {% for player in cup.player.all %}
+                        <a href="{{ player.get_absolute_url }}" class="item">
+                            {% if player.image %}
+                                <img class="images" src="{{ player.image.url }}" alt="{{ player.title }}"> 
+                            {% else %}
+                                <img class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
+                            {% endif %}
+                            <div class="title">{{ player.title }} {% if cup.slug == 'ballon-dor' %} x{{player.gb}} {% endif %}</div>
+                        </a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </section>
+        {% endif %}
+        {% if cup.clubs.all %}
+            <div class="last">{% trans "Wins by club" %} </div>
+            <section class="sample">
+                <div class="container">
+                    <div class="row">
+                        {% for club in cup.clubs.all %}
+                        <a href="{{ club.get_absolute_url }}" class="item">
+                            {% if club.picture %}
+                                <img class="images" src="{{ club.picture.url }}" alt="{{ club.title }}"> 
+                            {% else %}
+                                <img class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
+                            {% endif %}
+                            <div class="title">{{ club.title }} {% if cup.slug == 'ballon-dor' %} x{{club.gb}} {% endif %}</div>
+                        </a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </section>
+        {% endif %}
+        {% if cup.countrys.all %}
+            <div class="last">{% trans "Wins by country" %} </div>
+            <section class="sample">
+                <div class="container">
+                    <div class="row">
+                        {% for country in cup.countrys.all %}
+                        <a href="{{ country.get_absolute_url }}" class="item">
+                            {% if country.picture %}
+                                <img class="images" src="{{ country.picture.url }}" alt="{{ country.title }}"> 
+                            {% else %}
+                                <img class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
+                            {% endif %}
+                            <div class="title">{{ country.title }} {% if cup.slug == 'ballon-dor' %} x{{country.gb}} {% endif %}</div>
+                        </a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </section>
+        {% endif %}
+    {% endif %}
+</div>
+{% endblock %}

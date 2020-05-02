@@ -10,7 +10,7 @@
     {% endif %}
 </div>
 {% if query %}
-    {% if not search_club and not search_player %}       
+    {% if not search_club and not search_player and not search_cup %}       
         <div class="last row">{% trans "Nothing found." %}</div>
     {% endif %}
     {% if search_club %}
@@ -38,13 +38,32 @@
             <div class="container">
                 <div class="row">
                     {% for player in search_player %}
-                    <a class="item" href="">
+                    <a class="item" href="{{ player.get_absolute_url }}">
                         {% if player.image %}
                             <img class="images" src="{{ player.image.url }}" alt="{{ player.title }}"> 
                         {% else %}
                             <img class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
                         {% endif %}
                         <div class="title">{{ player.title }}</div>
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+    {% endif %}
+    {% if search_cup %}
+        <div class="last">{% trans "Trophies and award" %}</div>
+        <section class="sample">
+            <div class="container">
+                <div class="row">
+                    {% for cup in search_cup %}
+                    <a class="item" href="{{ cup.get_absolute_url }}">
+                        {% if cup.image %}
+                            <img class="images" src="{{ cup.image.url }}" alt="{{ cup.title }}"> 
+                        {% else %}
+                            <img class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
+                        {% endif %}
+                        <div class="title">{{ cup.title }}</div>
                     </a>
                     {% endfor %}
                 </div>

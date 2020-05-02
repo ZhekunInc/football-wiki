@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-01 13:39+0300\n"
+"POT-Creation-Date: 2020-05-02 21:55+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -173,6 +173,8 @@ msgstr ""
 
 #: src/main/templates/account/login.html:25
 #: src/main/templates/main/club_detail.html:38
+#: src/main/templates/main/cup_detail.html:31
+#: src/main/templates/main/player_detail.html:35
 msgid "or"
 msgstr "или"
 
@@ -255,7 +257,7 @@ msgstr ""
 #: src/main/templates/account/password_reset.html:6
 #: src/main/templates/account/password_reset.html:10
 #: src/main/templates/account/password_reset_done.html:6
-#: src/main/templates/account/password_reset_done.html:9
+#: src/main/templates/account/password_reset_done.html:10
 msgid "Password Reset"
 msgstr ""
 
@@ -273,7 +275,7 @@ msgstr ""
 msgid "Please contact us if you have any trouble resetting your password."
 msgstr ""
 
-#: src/main/templates/account/password_reset_done.html:15
+#: src/main/templates/account/password_reset_done.html:16
 msgid ""
 "We have sent you an e-mail. Please contact us if you do not receive it "
 "within a few minutes."
@@ -310,12 +312,12 @@ msgstr ""
 msgid "Signup"
 msgstr ""
 
-#: src/main/templates/account/signup.html:8
-#: src/main/templates/account/signup.html:18
+#: src/main/templates/account/signup.html:10
+#: src/main/templates/account/signup.html:20
 msgid "Sign Up"
 msgstr ""
 
-#: src/main/templates/account/signup.html:10
+#: src/main/templates/account/signup.html:12
 #, python-format
 msgid ""
 "Already have an account? Then please <a href=\"%(login_url)s\">sign in</a>."
@@ -382,8 +384,10 @@ msgstr "Меню"
 #: src/main/templates/main/club_detail.html:6
 #: src/main/templates/main/club_list.html:6
 #: src/main/templates/main/country_list.html:7
+#: src/main/templates/main/cup_detail.html:6
 #: src/main/templates/main/homepage.html:4
 #: src/main/templates/main/league_list.html:6
+#: src/main/templates/main/player_detail.html:6
 msgid "Home"
 msgstr "Главная"
 
@@ -409,6 +413,7 @@ msgid "Restration"
 msgstr "Регистрация"
 
 #: src/main/templates/main/club_detail.html:24
+#: src/main/templates/main/player_detail.html:22
 msgid "Nickname(s):"
 msgstr "Прозвище:"
 
@@ -417,6 +422,7 @@ msgid "Short name:"
 msgstr "Короткое имя:"
 
 #: src/main/templates/main/club_detail.html:26
+#: src/main/templates/main/cup_detail.html:20
 msgid "Founded:"
 msgstr "Основан:"
 
@@ -429,40 +435,33 @@ msgid "Manager:"
 msgstr "Тренер:"
 
 #: src/main/templates/main/club_detail.html:29
+#: src/main/templates/main/cup_detail.html:22
 msgid "Website"
 msgstr "Сайт:"
 
 #: src/main/templates/main/club_detail.html:38
+#: src/main/templates/main/cup_detail.html:31
+#: src/main/templates/main/player_detail.html:35
 msgid "Resitration for read more "
 msgstr "Зарегистрироватся, чтобы читать больше"
 
 #: src/main/templates/main/club_detail.html:39
+#: src/main/templates/main/cup_detail.html:32
+#: src/main/templates/main/player_detail.html:36
 msgid " Login for read more"
 msgstr "Войти, чтобы читать больше"
 
-#: src/main/templates/main/club_detail.html:44
+#: src/main/templates/main/club_detail.html:45
 msgid "Kit"
 msgstr "Форма"
 
-#: src/main/templates/main/club_detail.html:60
-msgid "There are no kits in this club"
-msgstr "У этого клуба нет форм"
-
-#: src/main/templates/main/club_detail.html:65
+#: src/main/templates/main/club_detail.html:64
 msgid "Trophies"
 msgstr "Трофеи"
 
-#: src/main/templates/main/club_detail.html:81
-msgid "This club has never won trophies"
-msgstr "Этот клуб никогда не выигрывал трофеи"
-
-#: src/main/templates/main/club_detail.html:86
+#: src/main/templates/main/club_detail.html:83
 msgid "Famous Players"
 msgstr "Известные игроки"
-
-#: src/main/templates/main/club_detail.html:102
-msgid "There are no famous players in this club"
-msgstr "У этого клуба нет известных игроков"
 
 #: src/main/templates/main/club_list.html:31
 msgid "No clubs added to "
@@ -472,11 +471,28 @@ msgstr "Ни одного клуба не добавлено к "
 #: src/main/templates/main/country_list.html:30
 #: src/main/templates/main/league_list.html:29
 msgid ", please contact the administrator by e-mail: golovchak.evgen@gmail.com"
-msgstr ", пожалуйста свяжитесь с администратором по почте: golovchak.evgen@gmail.com"
+msgstr ""
+", пожалуйста свяжитесь с администратором по почте: golovchak.evgen@gmail.com"
 
 #: src/main/templates/main/country_list.html:30
 msgid "No countries added to "
 msgstr "Ни одной страны не добавлено к "
+
+#: src/main/templates/main/cup_detail.html:21
+msgid "Region:"
+msgstr "Регион:"
+
+#: src/main/templates/main/cup_detail.html:38
+msgid "Wins by player"
+msgstr "Победы по игрокам"
+
+#: src/main/templates/main/cup_detail.html:57
+msgid "Wins by club"
+msgstr "Победы по клубам"
+
+#: src/main/templates/main/cup_detail.html:76
+msgid "Wins by country"
+msgstr "Победы по странам"
 
 #: src/main/templates/main/homepage.html:7
 msgid "New add clubs"
@@ -486,6 +502,40 @@ msgstr "Новые добавлиные клубы"
 msgid "No leagues added to "
 msgstr "Ни одной лиги не добавлено к "
 
+#: src/main/templates/main/player_detail.html:23
+msgid "Nationality:"
+msgstr "Гражданство"
+
+#: src/main/templates/main/player_detail.html:24
+msgid "Date of birth:"
+msgstr "Родился:"
+
+#: src/main/templates/main/player_detail.html:25
+msgid "Height:"
+msgstr "Рост:"
+
+#: src/main/templates/main/player_detail.html:25
+msgid "cm"
+msgstr "см"
+
+#: src/main/templates/main/player_detail.html:26
+msgid "Playing position(s):"
+msgstr "Позиция(и):"
+
+#: src/main/templates/main/player_detail.html:42
+#: src/main/templates/main/search_results.html:17
+msgid "Clubs"
+msgstr "Клубы"
+
+#: src/main/templates/main/player_detail.html:61
+#: src/main/templates/main/search_results.html:55
+msgid "Trophies and award"
+msgstr "Трофеи и награды"
+
+#: src/main/templates/main/player_detail.html:80
+msgid "FUT"
+msgstr "ФУТ"
+
 #: src/main/templates/main/search_results.html:7
 msgid "Search results for a query: "
 msgstr "Результати по поиску: "
@@ -494,9 +544,13 @@ msgstr "Результати по поиску: "
 msgid "Please enter a search query."
 msgstr "Пожалуйста введите запрос"
 
-#: src/main/templates/main/search_results.html:26
+#: src/main/templates/main/search_results.html:14
 msgid "Nothing found."
 msgstr "Ничего не найдено (поиск по русскому чувствительный к регистру)"
+
+#: src/main/templates/main/search_results.html:36
+msgid "Players"
+msgstr "Игроки"
 
 #: src/src/settings.py:153
 msgid "Ukraine"
@@ -509,6 +563,18 @@ msgstr ""
 #: src/src/settings.py:155
 msgid "Russian"
 msgstr ""
+
+#~ msgid "Countries"
+#~ msgstr "Страны"
+
+#~ msgid "There are no kits in this club"
+#~ msgstr "У этого клуба нет форм"
+
+#~ msgid "This club has never won trophies"
+#~ msgstr "Этот клуб никогда не выигрывал трофеи"
+
+#~ msgid "There are no famous players in this club"
+#~ msgstr "У этого клуба нет известных игроков"
 
 #~ msgid "Resitration for watch more "
 #~ msgstr "Зарегистрироватся, чтобы посмортеть больше"

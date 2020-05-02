@@ -16,7 +16,7 @@
     <div class="last">{{club.title}}</div>
     <div class="info">
         {% if club.picture %}
-            <img class="img-club" src="{{club.picture.url}}" alt="{{club.title}}">
+            <img class="img-club" src="{{ club.picture.url }}" alt="{{club.title}}">
         {% else %}
             <img class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
         {% endif %}
@@ -35,8 +35,8 @@
         {% else %}
             <p class="text">{{club.main_text|linebreaks|truncatechars:250}}</p>
             <div class="text-center">
-                <a href="{% url 'account_signup' %}" class="btn btn-dark">{% trans "Resitration for read more " %}</a> {% trans "or" %}
-                <a href="{% url 'account_login' %}" class="btn btn-dark">{% trans " Login for read more" %}</a>
+                <a href="{% url 'account_signup' %}" class="btn btn-dark btn-dark-2">{% trans "Resitration for read more " %}</a> {% trans "or" %}
+                <a href="{% url 'account_login' %}" class="btn btn-dark btn-dark-2">{% trans " Login for read more" %}</a>
             </div>
         {% endif %}
     </div>
@@ -85,7 +85,7 @@
                 <div class="container">
                     <div class="row">
                         {% for player in club.famous_players.all %}
-                        <a href="" class="item">
+                        <a href="{{ player.get_absolute_url }}" class="item">
                             {% if player.image %}
                                 <img class="images" src="{{ player.image.url }}" alt="{{ player.title }}"> 
                             {% else %}

@@ -113,19 +113,31 @@ class ClubDetail(DetailView):
     model = Club
     template_name = 'main/club_detail.html'
 
+class PlayerDetail(DetailView):
+    model = Player
+    template_name = 'main/player_detail.html'
+
+class CupDetail(DetailView):
+    model = Cup
+    template_name = 'main/cup_detail.html'
+
 class SearchResultsView(ListView):
     template_name = "main/search_results.html"
 
     def get(self, request, *args, **kwargs):
         query = request.GET.get('q')
 
-        retval = Club.objects.none()
+        club = Club.objects.none()
         player = Player.objects.none()
+        cup = Cup.objects.none()
         if query:
-            retval = Club.objects.all().filter(
+            club = Club.objects.all().filter(
                 Q(title__icontains=query) | Q(stadium__icontains=query)
             )
             player = Player.objects.all().filter(
+                Q(title__icontains=query) | Q(nickname__icontains=query)
+            )
+            cup = Cup.objects.all().filter(
                 Q(title__icontains=query)
             )
         return render(
@@ -133,7 +145,8 @@ class SearchResultsView(ListView):
             self.template_name,
             context={
                 'query': query,
-                'search_club': retval,
+                'search_club': club,
                 'search_player': player,
+                'search_cup': cup,
             }
         )

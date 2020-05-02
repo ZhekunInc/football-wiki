@@ -83,6 +83,12 @@ main{
   object-fit: cover;
 }
 
+.images-fut{
+  width: 85%;
+  height: 85%;
+  object-fit: cover;
+}
+
 .title{
   font-size: 30px;
   color: black;
@@ -134,9 +140,11 @@ main{
 }
 
 .info .img-club{
+  width: 200px;
   display: block;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 20px;
 }
 
 .text-club{
@@ -268,6 +276,10 @@ main{
 .btn-dark{
   width: 75%;
   height: 40px;
+}
+
+.btn-dark-2 {
+  width: auto;
 }
 
 .logout-text {

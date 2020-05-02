@@ -1,6 +1,6 @@
 from modeltranslation.translator import translator, TranslationOptions
 
-from .models import Country, Continent, League, Club, Cup, Player, Kits
+from .models import Country, Continent, League, Club, Cup, Player, Kits, Fifa
 
 class ContinentTranslation(TranslationOptions):
     fields = ('title',)
@@ -23,12 +23,12 @@ class ClubTranslation(TranslationOptions):
 translator.register(Club, ClubTranslation)
 
 class CupTranslation(TranslationOptions):
-    fields = ('title',)
+    fields = ('title', 'main_text')
 
 translator.register(Cup, CupTranslation)
 
 class PlayerTranslation(TranslationOptions):
-    fields = ('title',)
+    fields = ('title', 'main_text', 'nickname', 'positions')
 
 translator.register(Player, PlayerTranslation)
 

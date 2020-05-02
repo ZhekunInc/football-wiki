@@ -1,5 +1,5 @@
 from django.contrib import admin
-from main.models import Continent, Country, League, Club, Cup, Player, Kits
+from main.models import Continent, Country, League, Club, Cup, Player, Kits, Fifa
 
 try:
     from modeltranslation.admin import TranslationAdmin
@@ -41,6 +41,10 @@ class KitsAdmin(TranslationAdmin):
         'title',
     )
 
+class FifaInlinePost(admin.TabularInline):
+    model=Fifa
+    extra=0 
+
 @admin.register(Club)
 class ClubAdmin(TranslationAdmin):
     list_display = (
@@ -57,8 +61,15 @@ class CupAdmin(TranslationAdmin):
         'title', 'image'
     )
 
+    filter_horizontal = ('players', 'clubs', 'countrys')
+    prepopulated_fields = {'slug': ('title_en',)}
+
 @admin.register(Player)
 class PlayerAdmin(TranslationAdmin):
     list_display = (
         'title', 'image'
     )
+
+    filter_horizontal = ('clubs', 'cups')
+    inlines=[FifaInlinePost]
+    prepopulated_fields = {'slug': ('title_en',)}
