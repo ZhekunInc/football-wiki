@@ -130,6 +130,7 @@ main{
 }
 
 .info{
+  margin-right: 10px;
   float: left;
   width: 320px;
   min-height: 250px;

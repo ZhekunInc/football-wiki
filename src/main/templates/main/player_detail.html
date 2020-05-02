@@ -18,32 +18,21 @@
         {% else %}
             <img class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
         {% endif %}
-        {% if user.is_authenticated %}
             <p>{% trans "Nickname(s):" %} {{player.nickname}}</p>
             <p>{% trans "Nationality:" %} {{player.country}}</p>
             <p>{% trans "Date of birth:" %} {{player.date_of_birth|date:'d F Y'}}</p>
             <p>{% trans "Height:" %} {{player.height}} {% trans "cm" %}</p>
             <p>{% trans "Playing position(s):" %} {{player.positions}}</p>
-        {% endif %}
     </div>
     <div class="text-club">
-        {% if user.is_authenticated %}
-            <p class="text">{{ player.main_text|linebreaks }}</p>
-        {% else %}
-            <p class="text">{{ player.main_text|linebreaks|truncatechars:250 }}</p>
-            <div class="text-center">
-                <a href="{% url 'account_signup' %}" class="btn btn-dark btn-dark-2">{% trans "Resitration for read more " %}</a> {% trans "or" %}
-                <a href="{% url 'account_login' %}" class="btn btn-dark btn-dark-2">{% trans " Login for read more" %}</a>
-            </div>
-        {% endif %}
+        <p class="text">{{ player.main_text|linebreaks }}</p>
     </div>
-    {% if user.is_authenticated %}
-        {% if player.clubs.all %}
-            <div class="last">{% trans "Clubs" %} </div>
-            <section class="sample">
-                <div class="container">
-                    <div class="row">
-                        {% for club in player.clubs.all %}
+    {% if player.clubs.all %}
+        <div class="last">{% trans "Clubs" %} </div>
+        <section class="sample">
+            <div class="container">
+                <div class="row">
+                    {% for club in player.clubs.all %}
                         <a href="{{ club.get_absolute_url }}" class="item">
                             {% if club.picture %}
                                 <img class="images" src="{{ club.picture.url }}" alt="{{ club.title }}"> 
@@ -52,48 +41,47 @@
                             {% endif %}
                             <div class="title">{{ club.title }}</div>
                         </a>
-                        {% endfor %}
-                    </div>
+                    {% endfor %}
                 </div>
-            </section>
-        {% endif %}
-        {% if player.cups.all %}
-            <div class="last">{% trans "Trophies and award" %}</div>
-            <section class="sample">
-                <div class="container">
-                    <div class="row">
-                        {% for cup in player.cups.all %}
-                        <a class="item" href="{{ cup.get_absolute_url }}">
-                            {% if cup.image %}
-                                <img class="images" src="{{ cup.image.url }}" alt="{{ cup.title }}"> 
-                            {% else %}
-                                <img class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
-                            {% endif %}
-                            <div class="title">{{ cup.title }} {% if cup.slug == 'ballon-dor' %} x{{player.gb}} {% endif %}</div>
-                        </a>
-                        {% endfor %}
-                    </div>
+            </div>
+        </section>
+    {% endif %}
+    {% if player.cups.all %}
+        <div class="last">{% trans "Trophies and award" %}</div>
+        <section class="sample">
+            <div class="container">
+                <div class="row">
+                    {% for cup in player.cups.all %}
+                    <a class="item" href="{{ cup.get_absolute_url }}">
+                        {% if cup.image %}
+                            <img class="images" src="{{ cup.image.url }}" alt="{{ cup.title }}"> 
+                        {% else %}
+                            <img class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
+                        {% endif %}
+                        <div class="title">{{ cup.title }} {% if cup.slug == 'ballon-dor' %} x{{player.gb}} {% endif %}</div>
+                    </a>
+                    {% endfor %}
                 </div>
-            </section>
-        {% endif %}
-        {% if player.get_fifa %}
-            <div class="last">{% trans "FUT" %} </div>
-            <section class="sample">
-                <div class="container">
-                    <div class="row">
-                        {% for fifa in player.get_fifa %}
-                        <div class="item">
-                            {% if fifa.cards %}
-                                <img class="images-fut" src="{{ fifa.cards.url }}" alt="{{ fifa.title }}"> 
-                            {% else %}
-                                <img class="images-fut" src="{% static 'images/placeholder.png' %}" alt="holderplace">
-                            {% endif %}
-                        </div>
-                        {% endfor %}
+            </div>
+        </section>
+    {% endif %}
+    {% if player.get_fifa %}
+        <div class="last">{% trans "FUT" %} </div>
+        <section class="sample">
+            <div class="container">
+                <div class="row">
+                    {% for fifa in player.get_fifa %}
+                    <div class="item">
+                        {% if fifa.cards %}
+                            <img class="images-fut" src="{{ fifa.cards.url }}" alt="{{ fifa.title }}"> 
+                        {% else %}
+                            <img class="images-fut" src="{% static 'images/placeholder.png' %}" alt="holderplace">
+                        {% endif %}
                     </div>
+                    {% endfor %}
                 </div>
-            </section>
-        {% endif %}
+            </div>
+        </section>
     {% endif %}
 </div>
 {% endblock %}
