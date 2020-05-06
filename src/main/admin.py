@@ -12,7 +12,7 @@ class ContinentAdmin(TranslationAdmin):
     list_display = (
         'title', 'slug'
     )
-
+    ordering = ('title',)
     prepopulated_fields = {'slug': ('title_en',)}
 
 @admin.register(Country)
@@ -20,7 +20,7 @@ class CountryAdmin(TranslationAdmin):
     list_display = (
         'title', 'slug', 'continent'
     )
-
+    ordering = ('title',)
     prepopulated_fields = {'slug': ('title_en',)}
 
 @admin.register(League)
@@ -28,12 +28,12 @@ class LeagueAdmin(TranslationAdmin):
     list_display = (
         'title', 'reputation', 'slug', 'country'
     )
-
+    ordering = ('title',)
     prepopulated_fields = {'slug': ('title_en',)}
 
 class KitsInlinePost(admin.TabularInline):
     model=Kits
-    extra=0 
+    extra=0
 
 @admin.register(Kits)
 class KitsAdmin(TranslationAdmin):
@@ -43,14 +43,14 @@ class KitsAdmin(TranslationAdmin):
 
 class FifaInlinePost(admin.TabularInline):
     model=Fifa
-    extra=0 
+    extra=0
 
 @admin.register(Club)
 class ClubAdmin(TranslationAdmin):
     list_display = (
         'title', 'slug', 'league'
     )
-
+    ordering = ('title',)
     filter_horizontal = ('cups', 'famous_players',)
     inlines=[KitsInlinePost]
     prepopulated_fields = {'slug': ('title_en',)}
@@ -60,7 +60,7 @@ class CupAdmin(TranslationAdmin):
     list_display = (
         'title', 'image'
     )
-
+    ordering = ('title',)
     filter_horizontal = ('players', 'clubs', 'countrys')
     prepopulated_fields = {'slug': ('title_en',)}
 
@@ -69,7 +69,7 @@ class PlayerAdmin(TranslationAdmin):
     list_display = (
         'title', 'image'
     )
-
+    ordering = ('title',)
     filter_horizontal = ('clubs', 'cups')
     inlines=[FifaInlinePost]
     prepopulated_fields = {'slug': ('title_en',)}
