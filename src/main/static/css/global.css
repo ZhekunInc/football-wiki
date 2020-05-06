@@ -301,11 +301,14 @@ main{
   right: 300px;
   bottom: 150px;
   opacity: 1;
-  display: block;
+  display: inline-flex;
   z-index: 10;
   color: #000000;
+  border: none;
 }
 
 .anchor:hover {
   color: #000000;
+  text-decoration: none;
+  border: none;
 }
