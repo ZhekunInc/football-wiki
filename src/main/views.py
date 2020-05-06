@@ -127,10 +127,18 @@ class SearchResultsView(ListView):
     def get(self, request, *args, **kwargs):
         query = request.GET.get('q')
 
+        country = Country.objects.none()
+        league = League.objects.none()
         club = Club.objects.none()
         player = Player.objects.none()
         cup = Cup.objects.none()
         if query:
+            country = Country.objects.all().filter(
+                Q(title__icontains=query)
+            )
+            league = League.objects.all().filter(
+                Q(title__icontains=query)
+            )
             club = Club.objects.all().filter(
                 Q(title__icontains=query) | Q(stadium__icontains=query)
             )
@@ -145,6 +153,8 @@ class SearchResultsView(ListView):
             self.template_name,
             context={
                 'query': query,
+                'search_country': country,
+                'search_league': league,
                 'search_club': club,
                 'search_player': player,
                 'search_cup': cup,

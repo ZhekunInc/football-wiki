@@ -10,8 +10,46 @@
     {% endif %}
 </div>
 {% if query %}
-    {% if not search_club and not search_player and not search_cup %}       
+    {% if not search_country and not search_league and not search_club and not search_player and not search_cup %}       
         <div class="last row">{% trans "Nothing found." %}</div>
+    {% endif %}
+    {% if search_country %}
+        <div class="last">{% trans 'Countries' %}</div>
+        <section class="sample">
+            <div class="container">
+                <div class="row">
+                    {% for country in search_country %}
+                    <a class="item" href="{{ country.get_absolute_url }}">
+                        {% if country.picture %}
+                            <img class="images" src="{{ country.picture.url }}" alt="{{ country.title }}"> 
+                        {% else %}
+                            <img class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
+                        {% endif %}
+                        <div class="title">{{ country.title }}</div>
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+    {% endif %}
+    {% if search_league %}
+        <div class="last">{% trans 'Leagues' %}</div>
+        <section class="sample">
+            <div class="container">
+                <div class="row">
+                    {% for league in search_league %}
+                    <a class="item" href="{{ league.get_absolute_url }}">
+                        {% if league.picture %}
+                            <img class="images" src="{{ league.picture.url }}" alt="{{ league.title }}"> 
+                        {% else %}
+                            <img class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
+                        {% endif %}
+                        <div class="title">{{ league.title }}</div>
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
     {% endif %}
     {% if search_club %}
         <div class="last">{% trans 'Clubs' %}</div>

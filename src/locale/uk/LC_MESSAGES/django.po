@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-02 21:55+0300\n"
+"POT-Creation-Date: 2020-05-06 20:54+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -173,9 +173,6 @@ msgid ""
 msgstr ""
 
 #: src/main/templates/account/login.html:25
-#: src/main/templates/main/club_detail.html:38
-#: src/main/templates/main/cup_detail.html:31
-#: src/main/templates/main/player_detail.html:35
 msgid "or"
 msgstr "або"
 
@@ -315,6 +312,7 @@ msgstr "Увійти"
 
 #: src/main/templates/account/signup.html:10
 #: src/main/templates/account/signup.html:20
+#: src/main/templates/main/base.html:67
 msgid "Sign Up"
 msgstr "Зареєструватися"
 
@@ -409,58 +407,42 @@ msgstr "Вийти"
 msgid "Login"
 msgstr "Увійти"
 
-#: src/main/templates/main/base.html:67
-msgid "Restration"
-msgstr "Реєстрація"
-
-#: src/main/templates/main/club_detail.html:24
-#: src/main/templates/main/player_detail.html:22
+#: src/main/templates/main/club_detail.html:23
+#: src/main/templates/main/player_detail.html:21
 msgid "Nickname(s):"
 msgstr "Прізвисько:"
 
-#: src/main/templates/main/club_detail.html:25
+#: src/main/templates/main/club_detail.html:24
 msgid "Short name:"
 msgstr "Коротка назва:"
 
-#: src/main/templates/main/club_detail.html:26
-#: src/main/templates/main/cup_detail.html:20
+#: src/main/templates/main/club_detail.html:25
+#: src/main/templates/main/cup_detail.html:19
 msgid "Founded:"
 msgstr "Заснований:"
 
-#: src/main/templates/main/club_detail.html:27
+#: src/main/templates/main/club_detail.html:26
 msgid "Stadium:"
 msgstr "Стадіон:"
 
-#: src/main/templates/main/club_detail.html:28
+#: src/main/templates/main/club_detail.html:27
 msgid "Manager:"
 msgstr "Тренер:"
 
-#: src/main/templates/main/club_detail.html:29
-#: src/main/templates/main/cup_detail.html:22
+#: src/main/templates/main/club_detail.html:28
+#: src/main/templates/main/cup_detail.html:21
 msgid "Website"
 msgstr "Сайт:"
 
-#: src/main/templates/main/club_detail.html:38
-#: src/main/templates/main/cup_detail.html:31
-#: src/main/templates/main/player_detail.html:35
-msgid "Resitration for read more "
-msgstr "Зареєструйтесь, щоб читати більше"
-
-#: src/main/templates/main/club_detail.html:39
-#: src/main/templates/main/cup_detail.html:32
-#: src/main/templates/main/player_detail.html:36
-msgid " Login for read more"
-msgstr "Увійдіть, щоб читати більше"
-
-#: src/main/templates/main/club_detail.html:45
+#: src/main/templates/main/club_detail.html:34
 msgid "Kit"
 msgstr "Форма"
 
-#: src/main/templates/main/club_detail.html:64
+#: src/main/templates/main/club_detail.html:53
 msgid "Trophies"
 msgstr "Трофеї"
 
-#: src/main/templates/main/club_detail.html:83
+#: src/main/templates/main/club_detail.html:72
 msgid "Famous Players"
 msgstr "Відомі гравці"
 
@@ -480,19 +462,19 @@ msgstr ""
 msgid "No countries added to "
 msgstr "Жодної країни не додано до "
 
-#: src/main/templates/main/cup_detail.html:21
+#: src/main/templates/main/cup_detail.html:20
 msgid "Region:"
 msgstr "Регіон:"
 
-#: src/main/templates/main/cup_detail.html:38
+#: src/main/templates/main/cup_detail.html:27
 msgid "Wins by player"
 msgstr "Перемоги по гравцям"
 
-#: src/main/templates/main/cup_detail.html:57
+#: src/main/templates/main/cup_detail.html:46
 msgid "Wins by club"
 msgstr "Перемоги по клубах"
 
-#: src/main/templates/main/cup_detail.html:76
+#: src/main/templates/main/cup_detail.html:65
 msgid "Wins by country"
 msgstr "Перемоги по країнах"
 
@@ -504,37 +486,37 @@ msgstr "Нові додані клуби"
 msgid "No leagues added to "
 msgstr "Жодної ліги не додано до "
 
-#: src/main/templates/main/player_detail.html:23
+#: src/main/templates/main/player_detail.html:22
 msgid "Nationality:"
 msgstr "Громадянство:"
 
-#: src/main/templates/main/player_detail.html:24
+#: src/main/templates/main/player_detail.html:23
 msgid "Date of birth:"
 msgstr "Народився:"
 
-#: src/main/templates/main/player_detail.html:25
+#: src/main/templates/main/player_detail.html:24
 msgid "Height:"
 msgstr "Зріст:"
 
-#: src/main/templates/main/player_detail.html:25
+#: src/main/templates/main/player_detail.html:24
 msgid "cm"
 msgstr "см"
 
-#: src/main/templates/main/player_detail.html:26
+#: src/main/templates/main/player_detail.html:25
 msgid "Playing position(s):"
 msgstr "Позиція(ї):"
 
-#: src/main/templates/main/player_detail.html:42
-#: src/main/templates/main/search_results.html:17
+#: src/main/templates/main/player_detail.html:31
+#: src/main/templates/main/search_results.html:55
 msgid "Clubs"
 msgstr "Клуби"
 
-#: src/main/templates/main/player_detail.html:61
-#: src/main/templates/main/search_results.html:55
+#: src/main/templates/main/player_detail.html:50
+#: src/main/templates/main/search_results.html:93
 msgid "Trophies and award"
 msgstr "Трофеї і нарогоди"
 
-#: src/main/templates/main/player_detail.html:80
+#: src/main/templates/main/player_detail.html:69
 msgid "FUT"
 msgstr "ФУТ"
 
@@ -550,7 +532,15 @@ msgstr "Будь-ласка введіть запит."
 msgid "Nothing found."
 msgstr "Нічого не знайдено (пошук українською чутливий до регістру)"
 
+#: src/main/templates/main/search_results.html:17
+msgid "Countries"
+msgstr "Країни"
+
 #: src/main/templates/main/search_results.html:36
+msgid "Leagues"
+msgstr "Ліги"
+
+#: src/main/templates/main/search_results.html:74
 msgid "Players"
 msgstr "Гравці"
 
@@ -566,8 +556,14 @@ msgstr ""
 msgid "Russian"
 msgstr ""
 
-#~ msgid "Countries"
-#~ msgstr "Країни"
+#~ msgid "Restration"
+#~ msgstr "Реєстрація"
+
+#~ msgid "Resitration for read more "
+#~ msgstr "Зареєструйтесь, щоб читати більше"
+
+#~ msgid " Login for read more"
+#~ msgstr "Увійдіть, щоб читати більше"
 
 #~ msgid "There are no kits in this club"
 #~ msgstr "У цього клуба немає форми"

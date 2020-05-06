@@ -22,7 +22,7 @@
 <body>
     <div class="wrapper">
         {% block header %}
-        <header>
+        <header id="header">
         <nav id="gekasante-rnational" class="sanukagdes">
             <input type="checkbox" name="toggle" id="toggle" />
             <label for="toggle"><i class="icon-reorder"></i>{% trans " Menu" %}</label>
@@ -76,6 +76,9 @@
         <main>
             {% block content %}
             {% endblock %}
+            <a href="#header" class="js-scrollTop link-next-style" id="js-up">
+                <i class="fas fa-chevron-up"></i>
+            </a>
         </main>
         <footer>
             <div class="footer">
@@ -84,6 +87,8 @@
         </footer>
     </div>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script defer src="{% static 'js/main.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
     <script defer src="{% static 'js/all.js' %}"></script>
     <script defer src="{% static 'js/brands.js' %}"></script>
