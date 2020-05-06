@@ -28,7 +28,7 @@ class LeagueAdmin(TranslationAdmin):
     list_display = (
         'title', 'reputation', 'slug', 'country'
     )
-    ordering = ('title',)
+    ordering = ('country', 'reputation')
     prepopulated_fields = {'slug': ('title_en',)}
 
 class KitsInlinePost(admin.TabularInline):
@@ -50,7 +50,7 @@ class ClubAdmin(TranslationAdmin):
     list_display = (
         'title', 'slug', 'league'
     )
-    ordering = ('title',)
+    ordering = ('league', 'title')
     filter_horizontal = ('cups', 'famous_players',)
     inlines=[KitsInlinePost]
     prepopulated_fields = {'slug': ('title_en',)}
