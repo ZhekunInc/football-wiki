@@ -128,11 +128,16 @@
       width: 50%;
     }
   }
-
   @media only screen  
   and (max-width : 679px) {
     .registration {
       width: 60%;
+    }
+  }
+  @media only screen  
+  and (max-width : 600px) {
+    .info {
+      width: 100%;
     }
   }
   @media only screen and (max-width : 510px){
