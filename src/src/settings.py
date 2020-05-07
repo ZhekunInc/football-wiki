@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'django_extensions',
+    'django.contrib.sitemaps',
 ]
 
 ACCOUNT_DEFAULT_HTTP_PROTOCOL = "https"
