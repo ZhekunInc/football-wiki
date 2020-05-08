@@ -140,7 +140,7 @@ class SearchResultsView(ListView):
                 Q(title__icontains=query)
             ).order_by("title")
             club = Club.objects.all().filter(
-                Q(title__icontains=query) | Q(stadium__icontains=query)
+                Q(title__icontains=query) | Q(nickname__icontains=query) | Q(short_name__icontains=query) | Q(stadium__icontains=query) | Q(manager__icontains=query)
             ).order_by("title")
             player = Player.objects.all().filter(
                 Q(title__icontains=query) | Q(nickname__icontains=query)

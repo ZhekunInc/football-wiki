@@ -12,6 +12,8 @@ class ContinentAdmin(TranslationAdmin):
     list_display = (
         'title', 'slug'
     )
+    list_filter = ('is_published',)
+    search_fields = ['title',]
     ordering = ('title',)
     prepopulated_fields = {'slug': ('title_en',)}
 
@@ -20,6 +22,8 @@ class CountryAdmin(TranslationAdmin):
     list_display = (
         'title', 'slug', 'continent'
     )
+    list_filter = ('continent',)
+    search_fields = ['title',]
     ordering = ('title',)
     prepopulated_fields = {'slug': ('title_en',)}
 
@@ -28,7 +32,9 @@ class LeagueAdmin(TranslationAdmin):
     list_display = (
         'title', 'reputation', 'slug', 'country'
     )
-    ordering = ('country', 'reputation')
+    list_filter = ('country',)
+    search_fields = ['title',]
+    ordering = ('title',)
     prepopulated_fields = {'slug': ('title_en',)}
 
 class KitsInlinePost(admin.TabularInline):
@@ -50,7 +56,9 @@ class ClubAdmin(TranslationAdmin):
     list_display = (
         'title', 'slug', 'league'
     )
-    ordering = ('league', 'title')
+    list_filter = ('league',)
+    search_fields = ('title',)
+    ordering = ('title',)
     filter_horizontal = ('cups', 'famous_players',)
     inlines=[KitsInlinePost]
     prepopulated_fields = {'slug': ('title_en',)}
@@ -58,8 +66,10 @@ class ClubAdmin(TranslationAdmin):
 @admin.register(Cup)
 class CupAdmin(TranslationAdmin):
     list_display = (
-        'title', 'image'
+        'title', 'image', 'region'
     )
+    list_filter = ('region',)
+    search_fields = ['title',]
     ordering = ('title',)
     filter_horizontal = ('players', 'clubs', 'countrys')
     prepopulated_fields = {'slug': ('title_en',)}
@@ -67,8 +77,10 @@ class CupAdmin(TranslationAdmin):
 @admin.register(Player)
 class PlayerAdmin(TranslationAdmin):
     list_display = (
-        'title', 'image'
+        'title', 'image', 'country'
     )
+    list_filter = ('country',)
+    search_fields = ['title',]
     ordering = ('title',)
     filter_horizontal = ('clubs', 'cups')
     inlines=[FifaInlinePost]

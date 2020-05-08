@@ -22,7 +22,7 @@
         {% endif %}
         <p>{% trans "Nickname(s):" %} {{club.nickname}}</p>
         <p>{% trans "Short name:" %} {{club.short_name}}</p>
-        <p>{% trans "Founded:" %} {{club.founded|date:'d F Y'}}</p>
+        <p>{% trans "Founded:" %} {% if club.founded|date:'d' == club.published_at|date:'d' and club.founded|date:'F' == club.published_at|date:'F' %} {{club.founded|date:'Y'}} {% else %} {{club.founded|date:'d F Y'}} {% endif %}</p>
         <p>{% trans "Stadium:" %} {{club.stadium}}</p>
         <p>{% trans "Manager:" %} {{club.manager}}</p>
         <p>{% trans "Website" %} <a href="{{ club.website }}" target="_blank">{{ club.website }}</a></p>
@@ -38,7 +38,7 @@
                     {% for kit in club.get_kits %}
                     <div class="item">
                         {% if kit.kits %}
-                            <img class="images" src="{{ kit.kits.url }}" alt="{{ kit.title }}"> 
+                            <img class="images" src="{{ kit.kits.url }}" alt="{{ kit.title }}">
                         {% else %}
                             <img class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
                         {% endif %}
@@ -57,7 +57,7 @@
                     {% for cup in club.cups.all %}
                     <a class="item" href="">
                         {% if cup.image %}
-                            <img class="images" src="{{ cup.image.url }}" alt="{{ cup.title }}"> 
+                            <img class="images" src="{{ cup.image.url }}" alt="{{ cup.title }}">
                         {% else %}
                             <img class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
                         {% endif %}
@@ -76,7 +76,7 @@
                     {% for player in club.famous_players.all %}
                     <a href="{{ player.get_absolute_url }}" class="item">
                         {% if player.image %}
-                            <img class="images" src="{{ player.image.url }}" alt="{{ player.title }}"> 
+                            <img class="images" src="{{ player.image.url }}" alt="{{ player.title }}">
                         {% else %}
                             <img class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
                         {% endif %}
