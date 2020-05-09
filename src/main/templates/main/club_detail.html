@@ -7,13 +7,17 @@
     <li><a href="{{ club.league.country.continent.get_absolute_url }}"> {{ club.league.country.continent.title }} </a></li>/
     <li><a href="{{ club.league.country.get_absolute_url }}"> {{ club.league.country.title }} </a></li>/
     <li><a href="{{ club.league.get_absolute_url }}"> {{ club.league.title }} </a></li>/
-    <li><a href="{{ club.get_absolute_url }}"> {{ club.title }} </a></li>/
+    <li><a href="{{ club.get_absolute_url }}"> {{ club.title }} </a></li>
 </ul>
 {% endblock %}
 
 {% block content %}
 <div class="club-content">
-    <div class="last">{{club.title}}</div>
+    <div class="last">{{club.title}}
+        {% if user.is_authenticated %}
+            <sup><a href="{{ club.get_absolute_url }}club-title-update/"> {% trans 'change' %} </a></sup>
+        {% endif %}
+    </div>
     <div class="info">
         {% if club.picture %}
             <img class="img-club" src="{{ club.picture.url }}" alt="{{club.title}}">
@@ -26,6 +30,11 @@
         <p>{% trans "Stadium:" %} {{club.stadium}}</p>
         <p>{% trans "Manager:" %} {{club.manager}}</p>
         <p>{% trans "Website" %} <a href="{{ club.website }}" target="_blank">{{ club.website }}</a></p>
+        {% if user.is_authenticated %}
+            <p>
+                <a href="{{ club.get_absolute_url }}club-info-update/"> {% trans 'change' %} </a>
+            </p>
+        {% endif %}
     </div>
     <div class="text-club">
         <p class="text">{{club.main_text|linebreaks}}</p>
@@ -50,12 +59,16 @@
         </section>
     {% endif %}
     {% if club.cups.all %}
-        <div class="last">{% trans "Trophies" %}</div>
+        <div class="last">{% trans "Trophies" %}
+        {% if user.is_authenticated %}
+            <sup><a href="{{ club.get_absolute_url }}club-trophy-update/"> {% trans 'change' %} </a></sup>
+        {% endif %}
+        </div>
         <section class="sample">
             <div class="container">
                 <div class="row">
                     {% for cup in club.cups.all %}
-                    <a class="item" href="">
+                    <a class="item" href="{{ cup.get_absolute_url }}">
                         {% if cup.image %}
                             <img class="images" src="{{ cup.image.url }}" alt="{{ cup.title }}">
                         {% else %}
@@ -69,7 +82,11 @@
         </section>
     {% endif %}
     {% if club.famous_players.all %}
-        <div class="last">{% trans "Famous Players" %} </div>
+        <div class="last">{% trans "Famous Players" %} 
+        {% if user.is_authenticated %}
+            <sup><a href="{{ club.get_absolute_url }}club-player-update/"> {% trans 'change' %} </a></sup>
+        {% endif %}
+        </div>
         <section class="sample">
             <div class="container">
                 <div class="row">

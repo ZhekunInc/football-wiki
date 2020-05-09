@@ -3,11 +3,12 @@ from django.db import models
 from django.urls import reverse
 from django.utils import timezone
 
+from django.utils.translation import gettext_lazy as _
+
 class Continent(models.Model):
     title = models.CharField(max_length=200)
     slug = models.SlugField(
-        ('slug'), unique=True, max_length=255,
-        help_text=("Used to build the category's URL.")
+        ('slug'), unique=True, max_length=255
     )
     is_published = models.BooleanField(('published'), default=True)
 
@@ -24,8 +25,7 @@ class Continent(models.Model):
 class Country(models.Model):
     title = models.CharField(max_length=200)
     slug = models.SlugField(
-        ('slug'), unique=True, max_length=255,
-        help_text=("Used to build the category's URL.")
+        ('slug'), unique=True, max_length=255
     )
     continent = models.ForeignKey(
         'Continent', related_name='country',
@@ -55,8 +55,7 @@ class Country(models.Model):
 class League(models.Model):
     title = models.CharField(max_length=200)
     slug = models.SlugField(
-        ('slug'), unique=True, max_length=255,
-        help_text=("Used to build the category's URL.")
+        ('slug'), unique=True, max_length=255
     )
     country = models.ForeignKey(
         'Country', related_name='league',
@@ -84,8 +83,7 @@ class League(models.Model):
 class Cup(models.Model):
     title = models.CharField(max_length=200)
     slug = models.SlugField(
-        ('slug'), unique=True, max_length=255,
-        help_text=("Used to build the category's URL."), null=True
+        ('slug'), unique=True, max_length=255, null=True
     )
     image = models.ImageField(
         'Image', blank=True, null=True,
@@ -125,8 +123,7 @@ class Cup(models.Model):
 class Player(models.Model):
     title = models.CharField(max_length=200)
     slug = models.SlugField(
-        ('slug'), unique=True, max_length=255,
-        help_text=("Used to build the category's URL."), null=True
+        ('slug'), unique=True, max_length=255, null=True
     )
     image = models.ImageField(
         'Image', blank=True, null=True,
@@ -168,39 +165,40 @@ class Player(models.Model):
         verbose_name = ('player')
 
 class Club(models.Model):
-    title = models.CharField(max_length=200)
+    title = models.CharField(_('title'), max_length=200)
     slug = models.SlugField(
-        ('slug'), unique=True, max_length=255,
-        help_text=("Used to build the category's URL.")
+        _('slug'), unique=True, max_length=255
     )
     league = models.ForeignKey(
         'League', related_name='club',
-        verbose_name=('league'), on_delete=models.CASCADE,
+        verbose_name=_('league'), on_delete=models.CASCADE,
     )
-    main_text = models.TextField(null=True)
-    published_at = models.DateTimeField(('published at'), default=timezone.now)
-    is_published = models.BooleanField(('published'), default=True)
+    main_text = models.TextField(_('main text'),null=True)
+    published_at = models.DateTimeField(_('published at'), default=timezone.now)
+    is_published = models.BooleanField(_('published'), default=True)
     picture = models.ImageField(
-        'Image', blank=True, null=True,
+        _('Club emblem'), blank=True, null=True,
         upload_to='images/club',
-        help_text=("Recomended size 512x512px")
+        help_text=_("Recomended size 512x512px")
     )
-    nickname = models.CharField(null=True, max_length=255)
-    short_name = models.CharField(null=True, max_length=255)
-    founded = models.DateTimeField(default=timezone.now)
-    stadium = models.CharField(null=True, max_length=255)
-    manager = models.CharField(null=True, max_length=255)
-    website = models.URLField(null=True, max_length=255)
+    nickname = models.CharField(_('Nickname'), null=True, max_length=255)
+    short_name = models.CharField(_('Short name'), null=True, max_length=255)
+    founded = models.DateTimeField(_('Founded'), default=timezone.now)
+    stadium = models.CharField(_('Stadium'), null=True, max_length=255)
+    manager = models.CharField(_('Manager'), null=True, max_length=255)
+    website = models.URLField(_('Website'), null=True, max_length=255)
     cups = models.ManyToManyField(
         'Cup', related_name='club',
-        verbose_name=('cup'), blank=True
+        verbose_name=_('cup'), blank=True,
+        help_text=_("Use CTRL for select more than one")
     )
     famous_players = models.ManyToManyField(
         'Player', related_name='club',
-        verbose_name=('player'), blank=True
+        verbose_name=_('player'), blank=True,
+        help_text=_("Use CTRL for select more than one")
     )
-    cl = models.IntegerField(default=0)
-    gb = models.IntegerField(default=0)
+    cl = models.IntegerField(_('Champions League'), default=0)
+    gb = models.IntegerField(_('Golden ball'), default=0)
 
     class Meta:
         verbose_name = ("Club")

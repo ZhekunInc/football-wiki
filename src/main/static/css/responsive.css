@@ -127,10 +127,16 @@
     .registration {
       width: 50%;
     }
+    .create {
+      width: 50%;
+    }
   }
   @media only screen  
   and (max-width : 679px) {
     .registration {
+      width: 60%;
+    }
+    .create {
       width: 60%;
     }
   }
@@ -146,6 +152,9 @@
       height: 100%;
     }
     .registration {
+      width: 80%;
+    }
+    .create {
       width: 80%;
     }
   }

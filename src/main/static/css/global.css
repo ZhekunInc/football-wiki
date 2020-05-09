@@ -122,6 +122,12 @@ main{
   font-weight: bold;
 }
 
+.last sup {
+  font-size: 15px;
+  font-weight: normal;
+  text-transform: none;
+  top: -.99em;
+}
 
 /* DETAIL CLUB */
 
@@ -311,4 +317,25 @@ main{
   color: #000000;
   text-decoration: none;
   border: none;
+}
+
+.create {
+  margin-left: auto;
+  margin-right: auto;
+  width: 75%;
+}
+
+.create p label {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.create p input[type=text],
+.create p input[type=url],
+.create p input[type=number],
+.create p input[type=file],
+.create p textarea,
+.create p select,
+.helptext {
+  width: 100%;
 }

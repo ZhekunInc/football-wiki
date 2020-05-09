@@ -1,0 +1,24 @@
+{% extends "main/base.html" %}
+{% load static i18n %}
+{% block title %}{{ user.username }}{% endblock %}
+{% block bread %}
+
+<ul class="breadcrumb list-bread">
+    <li><a href="{% url 'home_page' %}"> {% trans 'Home' %} </a></li>/
+    <li><a href="{% url 'create_center' %}"> {{ user.username }} </a></li>/
+</ul>
+{% endblock %}
+
+{% block content %}
+    <div class="last">{{ user.username }}, {% trans "welcome to create center" %}</div>
+    <section class="sample">
+        <div class="container">
+            <div class="row">
+                <a class="item" href="{% url 'club_create' %}">
+                    <img class="images" src="{% static 'images/create-club.jpg' %}" alt="holderplace">
+                    <div class="title">{% trans 'Create new club' %}</div>
+                </a>
+            </div>
+        </div>
+    </section>
+{% endblock %}
