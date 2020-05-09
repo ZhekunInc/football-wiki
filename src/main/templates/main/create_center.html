@@ -1,11 +1,11 @@
 {% extends "main/base.html" %}
 {% load static i18n %}
-{% block title %}{{ user.username }}{% endblock %}
+{% block title %}{% trans 'Create center' %}{% endblock %}
 {% block bread %}
 
 <ul class="breadcrumb list-bread">
     <li><a href="{% url 'home_page' %}"> {% trans 'Home' %} </a></li>/
-    <li><a href="{% url 'create_center' %}"> {{ user.username }} </a></li>/
+    <li><a href="{% url 'create_center' %}"> {% trans 'Create center' %} </a></li>/
 </ul>
 {% endblock %}
 

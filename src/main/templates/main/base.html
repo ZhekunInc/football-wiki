@@ -54,13 +54,17 @@
                     <i class="fas fa-search white" aria-hidden="true"></i>
                 </form></li>
                 {% if user.is_authenticated %}
+                    <li><span> {% trans "Welcome back, " %} {{ user.username }} </span></li>
                     <a href="{% url 'create_center' %}">
-                        <li><span> {% trans "Welcome back, " %} {{ user.username }} </span></li>
+                        <li>{% trans "Add" %}</li>
                     </a>
                     <a href="{% url 'account_logout' %}">
                         <li>{% trans "Logout" %}</li>
                     </a>
                 {% else %}
+                    <a href="{% url 'account_login' %}">
+                        <li>{% trans "Add" %}</li>
+                    </a>
                    <a href="{% url 'account_login' %}">
                        <li>{% trans "Login" %}</li>
                     </a>
