@@ -16,6 +16,8 @@
     <div class="last">{{club.title}}
         {% if user.is_authenticated %}
             <sup><a href="{{ club.get_absolute_url }}club-title-update/"> {% trans 'change' %} </a></sup>
+        {% else %}
+            <sup><a href="{% url 'account_login' %}"> {% trans 'change' %} </a></sup>
         {% endif %}
     </div>
     <div class="info">
@@ -34,6 +36,8 @@
             <p>
                 <a href="{{ club.get_absolute_url }}club-info-update/"> {% trans 'change' %} </a>
             </p>
+        {% else %}
+            <p><a href="{% url 'account_login' %}"> {% trans 'change' %} </a></p>
         {% endif %}
     </div>
     <div class="text-club">
@@ -62,6 +66,8 @@
         <div class="last">{% trans "Trophies" %}
         {% if user.is_authenticated %}
             <sup><a href="{{ club.get_absolute_url }}club-trophy-update/"> {% trans 'change' %} </a></sup>
+        {% else %}
+            <sup><a href="{% url 'account_login' %}"> {% trans 'change' %} </a></sup>
         {% endif %}
         </div>
         <section class="sample">
@@ -85,6 +91,8 @@
         <div class="last">{% trans "Famous Players" %} 
         {% if user.is_authenticated %}
             <sup><a href="{{ club.get_absolute_url }}club-player-update/"> {% trans 'change' %} </a></sup>
+        {% else %}
+            <sup><a href="{% url 'account_login' %}"> {% trans 'change' %} </a></sup>
         {% endif %}
         </div>
         <section class="sample">
