@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-09 21:28+0300\n"
+"POT-Creation-Date: 2020-05-10 17:37+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -459,6 +459,7 @@ msgstr "Меню"
 #: src/main/templates/main/base.html:31
 #: src/main/templates/main/change-club/club_create.html:8
 #: src/main/templates/main/change-club/club_info_update.html:7
+#: src/main/templates/main/change-club/club_main_update.html:7
 #: src/main/templates/main/change-club/club_player_update.html:7
 #: src/main/templates/main/change-club/club_title_update.html:7
 #: src/main/templates/main/change-club/club_trophy_update.html:7
@@ -509,6 +510,7 @@ msgstr "Творчий центр"
 
 #: src/main/templates/main/change-club/club_create.html:22
 #: src/main/templates/main/change-club/club_info_update.html:23
+#: src/main/templates/main/change-club/club_main_update.html:23
 #: src/main/templates/main/change-club/club_player_update.html:23
 #: src/main/templates/main/change-club/club_title_update.html:23
 #: src/main/templates/main/change-club/club_trophy_update.html:23
@@ -523,6 +525,15 @@ msgstr "Змінити коротку інформацію"
 #: src/main/templates/main/change-club/club_info_update.html:18
 msgid "Change short info for "
 msgstr "Змінити коротку інформацію для"
+
+#: src/main/templates/main/change-club/club_main_update.html:3
+#: src/main/templates/main/change-club/club_main_update.html:12
+msgid "Change main text"
+msgstr "Змінити основний тест"
+
+#: src/main/templates/main/change-club/club_main_update.html:18
+msgid "Change main text for "
+msgstr "Змінити основний тест для"
 
 #: src/main/templates/main/change-club/club_player_update.html:3
 #: src/main/templates/main/change-club/club_player_update.html:12

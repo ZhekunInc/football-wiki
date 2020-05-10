@@ -1,10 +1,10 @@
 from django.urls import path, include
 from django.views.generic import TemplateView
-from .views import HomePageView
+from main.views.main import HomePageView
 from django.views.generic import ListView, DetailView
 from main.models import Continent, Country
-from .views import ContinentDetail, CountryDetail, LeagueDetail, ClubDetail, SearchResultsView, PlayerDetail, CupDetail
-from .views import ClubCreateView, ClubTitleUpdateView, ClubInfoUpdateView, ClubTrophyUpdateView, ClubPlayerUpdateView
+from main.views.main import ContinentDetail, CountryDetail, LeagueDetail, ClubDetail, SearchResultsView, PlayerDetail, CupDetail
+from main.views.club_change import ClubCreateView, ClubTitleUpdateView, ClubInfoUpdateView, ClubTrophyUpdateView, ClubPlayerUpdateView, ClubMainUpdateView
 
 
 urlpatterns = [
@@ -32,4 +32,5 @@ urlpatterns += [
     path('<continent>/<country>/<league>/<club>-<pk>/club-info-update/', ClubInfoUpdateView.as_view(), name='club_info_update'),
     path('<continent>/<country>/<league>/<club>-<pk>/club-trophy-update/', ClubTrophyUpdateView.as_view(), name='club_trophy_update'),
     path('<continent>/<country>/<league>/<club>-<pk>/club-player-update/', ClubPlayerUpdateView.as_view(), name='club_player_update'),
+    path('<continent>/<country>/<league>/<club>-<pk>/club-main-update/', ClubMainUpdateView.as_view(), name='club_main_update'),
 ]

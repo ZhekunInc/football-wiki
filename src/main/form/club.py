@@ -82,3 +82,12 @@ class ClubPlayerUpdateModelForm(forms.ModelForm):
         fields = [
             'famous_players',
         ]
+
+class ClubMainUpdateModelForm(forms.ModelForm):
+    class Meta:
+        model = Club
+        fields = [
+            'main_text_uk',
+            'main_text_en',
+            'main_text_ru',
+        ]
