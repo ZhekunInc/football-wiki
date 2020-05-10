@@ -12,6 +12,9 @@
 {% block content %}
 
     <div class="last">{{ continent.title }}</div>
+    <div class="btn-center">
+        <a href="{{ continent.get_absolute_about_url }}" class="btn-dark history">{% trans "Read more about" %} {{ continent.title }}</a>
+    </div>
         <section class="sample">
             <div class="container">
                 <div class="row">

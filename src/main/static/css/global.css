@@ -278,11 +278,20 @@ main{
 .btn-center {
   margin-top: 20px;
   text-align: center;
+  margin-bottom: 20px;
 }
 
-.btn-dark{
+.btn-dark {
   width: 75%;
   height: 40px;
+}
+
+.history {
+  padding: 10px;
+}
+
+.history:hover {
+  text-decoration: none;
 }
 
 .btn-dark-2 {

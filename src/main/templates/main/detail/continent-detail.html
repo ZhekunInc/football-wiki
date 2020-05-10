@@ -1,0 +1,50 @@
+{% extends "main/base.html" %}
+{% load static i18n %}
+{% block title %}{% trans 'About' %} {{ continent.title }}{% endblock %}
+{% block bread %}
+<ul class="breadcrumb list-bread">
+    <li><a href="{% url 'home_page' %}"> {% trans 'Home' %} </a></li>/
+    <li><a href="{{ continent.get_absolute_url }}"> {{ continent.title }} </a></li>/
+    <li><a href="{{ continent.get_absolute_about_url }}"> {% trans 'About' %} {{ continent.title }} </a></li>/
+</ul>
+{% endblock %}
+
+{% block content %}
+<div class="club-content">
+    <div class="last">{{continent.title}}
+        <!--{% if user.is_authenticated %}
+            <sup><a href="{{ continent.get_absolute_url }}continent-title-update/"> {% trans 'change' %} </a></sup>
+        {% else %}
+            <sup><a href="{% url 'account_login' %}"> {% trans 'change' %} </a></sup>
+        {% endif %}-->
+    </div>
+    <div class="info">
+        {% if continent.picture %}
+            <img class="img-club" src="{{ continent.image.url }}" alt="{{continent.title}}">
+        {% else %}
+            <img class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
+        {% endif %}
+        <p>{% trans "Founded:" %} {% if continent.founded|date:'d' == continent.published_at|date:'d' and continent.founded|date:'F' == continent.published_at|date:'F' %} {{continent.founded|date:'Y'}} {% else %} {{continent.founded|date:'d F Y'}} {% endif %}</p>
+        <p>{% trans "Located:" %} {{continent.located}}</p>
+        <p>{% trans "Region:" %} {{continent.region}}</p>
+        <p>{% trans "Count of associations:" %} {{continent.associations}}</p>
+        <p>{% trans "President:" %} {{continent.president}}</p>
+        <p>{% trans "Website" %} <a href="{{ continent.website }}" target="_blank">{{ continent.website }}</a></p>
+        <!--{% if user.is_authenticated %}
+            <p>
+                <a href="{{ club.get_absolute_url }}club-info-update/"> {% trans 'change' %} </a>
+            </p>
+        {% else %}
+            <p><a href="{% url 'account_login' %}"> {% trans 'change' %} </a></p>
+        {% endif %}-->
+    </div>
+    <div class="text-club">
+        <p class="text">{{continent.main_text|linebreaks}}</p>
+        <!--{% if user.is_authenticated %}
+            <sup><a href="{{ club.get_absolute_url }}club-main-update/"> {% trans 'change' %} </a></sup>
+        {% else %}
+            <sup><a href="{% url 'account_login' %}"> {% trans 'change' %} </a></sup>
+        {% endif %}-->
+    </div>
+</div>
+{% endblock %}

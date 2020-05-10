@@ -3,7 +3,7 @@ from modeltranslation.translator import translator, TranslationOptions
 from .models import Country, Continent, League, Club, Cup, Player, Kits, Fifa
 
 class ContinentTranslation(TranslationOptions):
-    fields = ('title',)
+    fields = ('title', 'main_text', 'located', 'region', 'president',)
 
 translator.register(Continent, ContinentTranslation)
 

@@ -5,6 +5,7 @@ from django.views.generic import ListView, DetailView
 from main.models import Continent, Country
 from main.views.main import ContinentDetail, CountryDetail, LeagueDetail, ClubDetail, SearchResultsView, PlayerDetail, CupDetail
 from main.views.club_change import ClubCreateView, ClubTitleUpdateView, ClubInfoUpdateView, ClubTrophyUpdateView, ClubPlayerUpdateView, ClubMainUpdateView
+from main.views.detail import ContinentAbout
 
 
 urlpatterns = [
@@ -20,6 +21,7 @@ urlpatterns = [
     path('trophies_and_awards/<cup>-<pk>/', CupDetail.as_view(), name='cup_detail'),
     path('search/', SearchResultsView.as_view(), name='search_results'),
     path('players/<player>-<pk>/', PlayerDetail.as_view(), name='player_detail'),
+    path('about-<continent>-<pk>/', ContinentAbout.as_view(), name='continent_about'),
 ]
 
 urlpatterns += [

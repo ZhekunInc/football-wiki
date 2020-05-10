@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-10 17:37+0300\n"
+"POT-Creation-Date: 2020-05-10 22:00+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,80 +21,104 @@ msgstr ""
 "100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
 "(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
 
-#: src/main/models.py:168
+#: src/main/models.py:9 src/main/models.py:185
 msgid "title"
 msgstr "Назва"
 
-#: src/main/models.py:170
+#: src/main/models.py:11 src/main/models.py:187
 msgid "slug"
 msgstr "Назва-мітки (Для URL):"
 
-#: src/main/models.py:174
-msgid "league"
-msgstr "Ліга"
+#: src/main/models.py:14
+msgid "Image"
+msgstr ""
 
-#: src/main/models.py:176
-msgid "main text"
-msgstr "Основний текст"
-
-#: src/main/models.py:177
-msgid "published at"
-msgstr "Опубліковано в"
-
-#: src/main/models.py:178
-msgid "published"
-msgstr "Публікувати"
-
-#: src/main/models.py:180
-msgid "Club emblem"
-msgstr "Емблема клубу"
-
-#: src/main/models.py:182
+#: src/main/models.py:16 src/main/models.py:199
 msgid "Recomended size 512x512px"
 msgstr "Рекомендований розмір 512х512px"
 
-#: src/main/models.py:184
-msgid "Nickname"
-msgstr "Прізвисько:"
+#: src/main/models.py:18 src/main/models.py:193
+msgid "main text"
+msgstr "Основний текст"
 
-#: src/main/models.py:185
-msgid "Short name"
-msgstr "Коротка назва:"
-
-#: src/main/models.py:186
+#: src/main/models.py:19 src/main/models.py:203
 msgid "Founded"
 msgstr "Заснований:"
 
-#: src/main/models.py:187
-msgid "Stadium"
-msgstr "Стадіон:"
+#: src/main/models.py:20
+msgid "Located"
+msgstr ""
 
-#: src/main/models.py:188
-msgid "Manager"
-msgstr "Тренер:"
+#: src/main/models.py:21
+#, fuzzy
+#| msgid "Region:"
+msgid "Region"
+msgstr "Регіон:"
 
-#: src/main/models.py:189 src/main/templates/main/club_detail.html:34
+#: src/main/models.py:22
+msgid "Count of associations"
+msgstr ""
+
+#: src/main/models.py:23
+msgid "President"
+msgstr ""
+
+#: src/main/models.py:24 src/main/models.py:206
+#: src/main/templates/main/club_detail.html:34
 #: src/main/templates/main/cup_detail.html:21
+#: src/main/templates/main/detail/continent-detail.html:32
 msgid "Website"
 msgstr "Сайт:"
 
-#: src/main/models.py:192
+#: src/main/models.py:191
+msgid "league"
+msgstr "Ліга"
+
+#: src/main/models.py:194
+msgid "published at"
+msgstr "Опубліковано в"
+
+#: src/main/models.py:195
+msgid "published"
+msgstr "Публікувати"
+
+#: src/main/models.py:197
+msgid "Club emblem"
+msgstr "Емблема клубу"
+
+#: src/main/models.py:201
+msgid "Nickname"
+msgstr "Прізвисько:"
+
+#: src/main/models.py:202
+msgid "Short name"
+msgstr "Коротка назва:"
+
+#: src/main/models.py:204
+msgid "Stadium"
+msgstr "Стадіон:"
+
+#: src/main/models.py:205
+msgid "Manager"
+msgstr "Тренер:"
+
+#: src/main/models.py:209
 msgid "cup"
 msgstr "Трофеї"
 
-#: src/main/models.py:193 src/main/models.py:198
+#: src/main/models.py:210 src/main/models.py:215
 msgid "Use CTRL for select more than one"
 msgstr "Щоб вибрати більше одного використовуйте CTRL"
 
-#: src/main/models.py:197
+#: src/main/models.py:214
 msgid "player"
 msgstr "Гравці"
 
-#: src/main/models.py:200
+#: src/main/models.py:217
 msgid "Champions League"
 msgstr "Ліга Чемпіонів"
 
-#: src/main/models.py:201
+#: src/main/models.py:218
 msgid "Golden ball"
 msgstr "Золотий м'яч"
 
@@ -468,6 +492,7 @@ msgstr "Меню"
 #: src/main/templates/main/country_list.html:7
 #: src/main/templates/main/create_center.html:7
 #: src/main/templates/main/cup_detail.html:6
+#: src/main/templates/main/detail/continent-detail.html:6
 #: src/main/templates/main/homepage.html:4
 #: src/main/templates/main/league_list.html:6
 #: src/main/templates/main/player_detail.html:6
@@ -485,7 +510,7 @@ msgstr "З поверненням, "
 
 #: src/main/templates/main/base.html:59 src/main/templates/main/base.html:66
 msgid "Add"
-msgstr ""
+msgstr "Додати"
 
 #: src/main/templates/main/base.html:62
 msgid "Logout"
@@ -566,10 +591,18 @@ msgstr "Змінити трофеї для"
 #: src/main/templates/main/club_detail.html:20
 #: src/main/templates/main/club_detail.html:37
 #: src/main/templates/main/club_detail.html:40
-#: src/main/templates/main/club_detail.html:68
-#: src/main/templates/main/club_detail.html:70
-#: src/main/templates/main/club_detail.html:93
-#: src/main/templates/main/club_detail.html:95
+#: src/main/templates/main/club_detail.html:46
+#: src/main/templates/main/club_detail.html:48
+#: src/main/templates/main/club_detail.html:73
+#: src/main/templates/main/club_detail.html:75
+#: src/main/templates/main/club_detail.html:98
+#: src/main/templates/main/club_detail.html:100
+#: src/main/templates/main/detail/continent-detail.html:16
+#: src/main/templates/main/detail/continent-detail.html:18
+#: src/main/templates/main/detail/continent-detail.html:35
+#: src/main/templates/main/detail/continent-detail.html:38
+#: src/main/templates/main/detail/continent-detail.html:44
+#: src/main/templates/main/detail/continent-detail.html:46
 msgid "change"
 msgstr "змінити"
 
@@ -584,6 +617,7 @@ msgstr "Коротка назва:"
 
 #: src/main/templates/main/club_detail.html:31
 #: src/main/templates/main/cup_detail.html:19
+#: src/main/templates/main/detail/continent-detail.html:27
 msgid "Founded:"
 msgstr "Заснований:"
 
@@ -595,15 +629,15 @@ msgstr "Стадіон:"
 msgid "Manager:"
 msgstr "Тренер:"
 
-#: src/main/templates/main/club_detail.html:47
+#: src/main/templates/main/club_detail.html:52
 msgid "Kit"
 msgstr "Форма"
 
-#: src/main/templates/main/club_detail.html:66
+#: src/main/templates/main/club_detail.html:71
 msgid "Trophies"
 msgstr "Трофеї"
 
-#: src/main/templates/main/club_detail.html:91
+#: src/main/templates/main/club_detail.html:96
 msgid "Famous Players"
 msgstr "Відомі гравці"
 
@@ -612,14 +646,18 @@ msgid "No clubs added to "
 msgstr "Жодного клубу не додано до "
 
 #: src/main/templates/main/club_list.html:31
-#: src/main/templates/main/country_list.html:30
+#: src/main/templates/main/country_list.html:33
 #: src/main/templates/main/league_list.html:29
 msgid ", please contact the administrator by e-mail: golovchak.evgen@gmail.com"
 msgstr ""
 ", будь-ласка зверніться до адміністратора за електроною поштою: golovchak."
 "evgen@gmail.com"
 
-#: src/main/templates/main/country_list.html:30
+#: src/main/templates/main/country_list.html:16
+msgid "Read more about"
+msgstr "Прочитати більше про"
+
+#: src/main/templates/main/country_list.html:33
 msgid "No countries added to "
 msgstr "Жодної країни не додано до "
 
@@ -628,6 +666,7 @@ msgid "welcome to create center"
 msgstr "ласкаво просимо до творчого центру"
 
 #: src/main/templates/main/cup_detail.html:20
+#: src/main/templates/main/detail/continent-detail.html:29
 msgid "Region:"
 msgstr "Регіон:"
 
@@ -642,6 +681,23 @@ msgstr "Перемоги по клубах"
 #: src/main/templates/main/cup_detail.html:65
 msgid "Wins by country"
 msgstr "Перемоги по країнах"
+
+#: src/main/templates/main/detail/continent-detail.html:3
+#: src/main/templates/main/detail/continent-detail.html:8
+msgid "About"
+msgstr "Про"
+
+#: src/main/templates/main/detail/continent-detail.html:28
+msgid "Located:"
+msgstr "Розташування"
+
+#: src/main/templates/main/detail/continent-detail.html:30
+msgid "Count of associations:"
+msgstr "Кількість ассоціацій"
+
+#: src/main/templates/main/detail/continent-detail.html:31
+msgid "President:"
+msgstr "Президент"
 
 #: src/main/templates/main/homepage.html:7
 msgid "New add clubs"

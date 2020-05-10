@@ -6,11 +6,24 @@ from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
 class Continent(models.Model):
-    title = models.CharField(max_length=200)
+    title = models.CharField(_('title'), max_length=200)
     slug = models.SlugField(
-        ('slug'), unique=True, max_length=255
+        _('slug'), unique=True, max_length=255
     )
+    image = models.ImageField(
+        _('Image'), blank=True, null=True,
+        upload_to='images/continent',
+        help_text=_("Recomended size 512x512px")
+    )
+    main_text = models.TextField(_('main text'), null=True)
+    founded = models.DateTimeField(_('Founded'), default=timezone.now)
+    located = models.CharField(_('Located'), null=True, max_length=255)
+    region = models.CharField(_('Region'), null=True, max_length=255)
+    associations = models.IntegerField(_('Count of associations'), default=1)
+    president = models.CharField(_('President'), null=True, max_length=255)
+    website = models.URLField(_('Website'), null=True, max_length=255)
     is_published = models.BooleanField(('published'), default=True)
+    published_at = models.DateTimeField(('published at'), default=timezone.now)
 
     def __str__(self):
         return self.title
@@ -18,6 +31,10 @@ class Continent(models.Model):
     def get_absolute_url(self):
         """Return category's URL"""
         return reverse('country_list', kwargs={'continent': self.slug})
+
+    def get_absolute_about_url(self):
+        """Return category's URL"""
+        return reverse('continent_about', kwargs={'continent': self.slug, 'pk': self.id})
     
     class Meta:
         verbose_name = ('continent')
