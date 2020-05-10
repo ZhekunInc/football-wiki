@@ -1,0 +1,27 @@
+{% extends "main/base.html" %}
+{% load i18n %}
+{% block title %}{% trans 'Change main text' %}{% endblock %}
+
+{% block bread %}
+<ul class="breadcrumb list-bread">
+    <li><a href="{% url 'home_page' %}"> {% trans 'Home' %} </a></li>/
+    <li><a href="{{ club.league.country.continent.get_absolute_url }}"> {{ club.league.country.continent.title }} </a></li>/
+    <li><a href="{{ club.league.country.get_absolute_url }}"> {{ club.league.country.title }} </a></li>/
+    <li><a href="{{ club.league.get_absolute_url }}"> {{ club.league.title }} </a></li>/
+    <li><a href="{{ club.get_absolute_url }}"> {{ club.title }} </a></li>/
+    <li><a href="{{ club.get_absolute_url }}club-info-update/"> {% trans "Change main text" %} </a></li>/
+</ul>
+{% endblock %}
+
+{% block content %}
+
+<div class="last">{% trans "Change main text for " %} {{ club.title }}</div>
+<form action="." method="POST" class="create">
+
+    {% csrf_token %}
+    {{ form.as_p }}
+    <div class="btn-center"><button class="primaryAction btn-dark" type="submit">{% trans "Save" %}</button></div>
+
+</form>
+
+{% endblock %}
