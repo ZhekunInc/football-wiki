@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-10 22:00+0300\n"
+"POT-Creation-Date: 2020-05-13 19:44+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -594,8 +594,12 @@ msgstr "Изменить трофеи для"
 #: src/main/templates/main/club_detail.html:48
 #: src/main/templates/main/club_detail.html:73
 #: src/main/templates/main/club_detail.html:75
-#: src/main/templates/main/club_detail.html:98
-#: src/main/templates/main/club_detail.html:100
+#: src/main/templates/main/club_detail.html:99
+#: src/main/templates/main/club_detail.html:101
+#: src/main/templates/main/club_detail.html:109
+#: src/main/templates/main/club_detail.html:111
+#: src/main/templates/main/club_detail.html:135
+#: src/main/templates/main/club_detail.html:137
 #: src/main/templates/main/detail/continent-detail.html:16
 #: src/main/templates/main/detail/continent-detail.html:18
 #: src/main/templates/main/detail/continent-detail.html:35
@@ -633,12 +637,27 @@ msgid "Kit"
 msgstr "Форма"
 
 #: src/main/templates/main/club_detail.html:71
+#: src/main/templates/main/club_detail.html:95
 msgid "Trophies"
 msgstr "Трофеи"
 
-#: src/main/templates/main/club_detail.html:96
+#: src/main/templates/main/club_detail.html:97
+msgid "No trophies added, click "
+msgstr "Ни одного трофея не добавлено, нажмите "
+
+#: src/main/templates/main/club_detail.html:103
+#: src/main/templates/main/club_detail.html:139
+msgid "to add"
+msgstr ", чтобы добавить"
+
+#: src/main/templates/main/club_detail.html:107
+#: src/main/templates/main/club_detail.html:131
 msgid "Famous Players"
 msgstr "Известные игроки"
+
+#: src/main/templates/main/club_detail.html:133
+msgid "No players added, click "
+msgstr "Ни одного игрока не добавлено, нажмите "
 
 #: src/main/templates/main/club_list.html:31
 msgid "No clubs added to "

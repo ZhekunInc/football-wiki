@@ -165,6 +165,11 @@ main{
   opacity: 1;
 }
 
+.nope {
+  text-align: center;
+  font-size: 20px;
+}
+
 .pagination{
   text-align: center;
   margin-top: 1em;
