@@ -35,7 +35,7 @@
                         {% else %}
                             <img class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
                         {% endif %}
-                        <div class="title">{{ player.title }} {% if cup.slug == 'ballon-dor' %} x{{player.gb}} {% endif %}</div>
+                        <div class="title">{{ player.title }} {% if cup.slug == 'ballon-dor' %} x{{player.gb}} {% elif cup.slug == 'world-cup' %} x{{player.wc}} {% elif cup.slug == 'uefa-champions-league' %} x{{player.cl}}  {% endif %}</div>
                     </a>
                     {% endfor %}
                 </div>
@@ -54,7 +54,7 @@
                         {% else %}
                             <img class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
                         {% endif %}
-                        <div class="title">{{ club.title }} {% if cup.slug == 'ballon-dor' %} x{{club.gb}} {% endif %}</div>
+                        <div class="title">{{ club.title }} {% if cup.slug == 'ballon-dor' %} x{{club.gb}} {% elif cup.slug == 'world-cup' %} x{{club.wc}} {% elif cup.slug == 'uefa-champions-league' %} x{{club.cl}} {% endif %}</div>
                     </a>
                     {% endfor %}
                 </div>
@@ -73,7 +73,7 @@
                         {% else %}
                             <img class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
                         {% endif %}
-                        <div class="title">{{ country.title }} {% if cup.slug == 'ballon-dor' %} x{{country.gb}} {% elif cup.slug == 'world-cup' %} x{{country.wc}} {% endif %}</div>
+                        <div class="title">{{ country.title }} {% if cup.slug == 'ballon-dor' %} x{{country.gb}} {% elif cup.slug == 'world-cup' %} x{{country.wc}} {% elif cup.slug == 'uefa-champions-league' %} x{{country.cl}} {% endif %}</div>
                     </a>
                     {% endfor %}
                 </div>

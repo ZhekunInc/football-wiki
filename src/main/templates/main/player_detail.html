@@ -35,7 +35,7 @@
                     {% for club in player.clubs.all %}
                         <a href="{{ club.get_absolute_url }}" class="item">
                             {% if club.picture %}
-                                <img class="images" src="{{ club.picture.url }}" alt="{{ club.title }}"> 
+                                <img class="images" src="{{ club.picture.url }}" alt="{{ club.title }}">
                             {% else %}
                                 <img class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
                             {% endif %}
@@ -54,11 +54,11 @@
                     {% for cup in player.cups.all %}
                     <a class="item" href="{{ cup.get_absolute_url }}">
                         {% if cup.image %}
-                            <img class="images" src="{{ cup.image.url }}" alt="{{ cup.title }}"> 
+                            <img class="images" src="{{ cup.image.url }}" alt="{{ cup.title }}">
                         {% else %}
                             <img class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
                         {% endif %}
-                        <div class="title">{{ cup.title }} {% if cup.slug == 'ballon-dor' %} x{{player.gb}} {% endif %}</div>
+                        <div class="title">{{ cup.title }} {% if cup.slug == 'ballon-dor' %} x{{player.gb}} {% elif cup.slug == 'world-cup' %} x{{player.wc}} {% elif cup.slug == 'uefa-champions-league' %} x{{player.cl}}  {% endif %}</div>
                     </a>
                     {% endfor %}
                 </div>
@@ -73,7 +73,7 @@
                     {% for fifa in player.get_fifa %}
                     <div class="item">
                         {% if fifa.cards %}
-                            <img class="images-fut" src="{{ fifa.cards.url }}" alt="{{ fifa.title }}"> 
+                            <img class="images-fut" src="{{ fifa.cards.url }}" alt="{{ fifa.title }}">
                         {% else %}
                             <img class="images-fut" src="{% static 'images/placeholder.png' %}" alt="holderplace">
                         {% endif %}

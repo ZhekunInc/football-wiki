@@ -85,7 +85,7 @@
                         {% else %}
                             <img class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
                         {% endif %}
-                        <div class="title">{{ cup.title }}</div>
+                        <div class="title">{{ cup.title }} {% if cup.slug == 'ballon-dor' %} x{{club.gb}} {% elif cup.slug == 'world-cup' %} x{{club.wc}} {% elif cup.slug == 'uefa-champions-league' %} x{{club.cl}}  {% endif %}</div>
                     </a>
                     {% endfor %}
                 </div>
@@ -94,7 +94,7 @@
     {% else %}
         <div class="last">{% trans "Trophies" %}</div>
         <div class="nope">
-            <p>{% blocktrans %}No trophies added, click {% endblocktrans %} 
+            <p>{% blocktrans %}No trophies added, click {% endblocktrans %}
                 {% if user.is_authenticated %}
                     <a href="{{ club.get_absolute_url }}club-trophy-update/"> {% trans 'change' %} </a>
                 {% else %}
@@ -104,7 +104,7 @@
         </div>
     {% endif %}
     {% if club.famous_players.all %}
-        <div class="last">{% trans "Famous Players" %} 
+        <div class="last">{% trans "Famous Players" %}
             {% if user.is_authenticated %}
                 <sup><a href="{{ club.get_absolute_url }}club-player-update/"> {% trans 'change' %} </a></sup>
             {% else %}
@@ -130,7 +130,7 @@
     {% else %}
         <div class="last">{% trans "Famous Players" %}</div>
         <div class="nope">
-            <p>{% blocktrans %}No players added, click {% endblocktrans %} 
+            <p>{% blocktrans %}No players added, click {% endblocktrans %}
                 {% if user.is_authenticated %}
                     <a href="{{ club.get_absolute_url }}club-player-update/"> {% trans 'change' %} </a>
                 {% else %}
