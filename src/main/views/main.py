@@ -34,7 +34,7 @@ class HomePageView(ListView):
 
     def get(self, request):
         clubs = Club.objects.all().order_by("-published_at")
-        paginator = Paginator(clubs, 20)
+        paginator = Paginator(clubs, 12)
         page = request.GET.get('page')
         clubs = paginator.get_page(page)
         return render(request, "main/homepage.html", {'clubs': clubs})
