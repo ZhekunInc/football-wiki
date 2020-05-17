@@ -16,7 +16,7 @@
 {% block content %}
 
 <div class="last">{% trans "Change short info for " %} {{ club.title }}</div>
-<form action="." method="POST" class="create">
+<form action="." method="POST" enctype="multipart/form-data" class="create">
 
     {% csrf_token %}
     {{ form.as_p }}
