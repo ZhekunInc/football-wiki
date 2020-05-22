@@ -27,7 +27,7 @@ class Continent(models.Model):
 
     def __str__(self):
         return self.title
-    
+
     def get_absolute_url(self):
         """Return category's URL"""
         return reverse('country_list', kwargs={'continent': self.slug})
@@ -35,7 +35,7 @@ class Continent(models.Model):
     def get_absolute_about_url(self):
         """Return category's URL"""
         return reverse('continent_about', kwargs={'continent': self.slug, 'pk': self.id})
-    
+
     class Meta:
         verbose_name = ('continent')
 
@@ -93,7 +93,7 @@ class League(models.Model):
     country = models.ForeignKey(
         'Country', related_name='league',
         verbose_name=('country'), on_delete=models.CASCADE
-    )    
+    )
     founded = models.DateTimeField(_('Founded'), default=timezone.now)
     count_team = models.IntegerField(default=1)
     reputation = models.IntegerField(default=1)
@@ -155,7 +155,7 @@ class Cup(models.Model):
 
     class Meta:
         verbose_name = ('cup')
-    
+
 class Player(models.Model):
     title = models.CharField(_('title'), max_length=200)
     slug = models.SlugField(
@@ -188,7 +188,7 @@ class Player(models.Model):
     wc = models.IntegerField(_('World Cup'), default=0)
     cl = models.IntegerField(_('Champions League'), default=0)
     gb = models.IntegerField(_('Golden ball'), default=0)
-    
+
     def get_absolute_url(self):
         """Return category's URL"""
         return reverse('player_detail', kwargs={'player': self.slug, 'pk': self.id})
@@ -240,7 +240,7 @@ class Club(models.Model):
 
     class Meta:
         verbose_name = ("Club")
-    
+
     def __str__(self):
         return self.title
 
@@ -264,7 +264,7 @@ class Kits(models.Model):
     def get_filename(self):
         return os.path.basename(self.kits.name)
 
-    class Meta: 
+    class Meta:
         verbose_name = ("Kit")
 
 class Fifa(models.Model):
@@ -278,5 +278,5 @@ class Fifa(models.Model):
     def get_filename(self):
         return os.path.basename(self.fifa.name)
 
-    class Meta: 
+    class Meta:
         verbose_name = ("Fifa")
