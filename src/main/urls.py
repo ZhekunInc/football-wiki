@@ -6,7 +6,7 @@ from main.models import Continent, Country
 from main.views.main import ContinentDetail, CountryDetail, LeagueDetail, ClubDetail, SearchResultsView, PlayerDetail, CupDetail
 from main.views.club_change import ClubCreateView, ClubTitleUpdateView, ClubInfoUpdateView, ClubTrophyUpdateView, ClubPlayerUpdateView, ClubMainUpdateView
 from main.views.player_change import PlayerCreateView, PlayerTitleUpdateView, PlayerInfoUpdateView, PlayerTrophyUpdateView, PlayerClubUpdateView, PlayerMainUpdateView
-from main.views.detail import ContinentAbout
+from main.views.detail import ContinentAbout, CountryAbout, LeagueAbout
 
 
 urlpatterns = [
@@ -24,6 +24,8 @@ urlpatterns = [
     path('search/', SearchResultsView.as_view(), name='search_results'),
     path('players/<player>-<pk>/', PlayerDetail.as_view(), name='player_detail'),
     path('about-<continent>-<pk>/', ContinentAbout.as_view(), name='continent_about'),
+    path('<continent>/about-<country>-<pk>/', CountryAbout.as_view(), name='country_about'),
+    path('<continent>/<country>/about-<league>-<pk>/', LeagueAbout.as_view(), name='league_about'),
     path('players/<player>-<pk>/player-title-update/', PlayerTitleUpdateView.as_view(), name='player_title_update'),
     path('players/<player>-<pk>/player-info-update/', PlayerInfoUpdateView.as_view(), name='player_info_update'),
     path('players/<player>-<pk>/player-main-update/', PlayerMainUpdateView.as_view(), name='player_main_update'),

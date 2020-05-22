@@ -8,12 +8,12 @@ class ContinentTranslation(TranslationOptions):
 translator.register(Continent, ContinentTranslation)
 
 class CountryTranslation(TranslationOptions):
-    fields = ('title',)
+    fields = ('title', 'main_text', 'president',)
 
 translator.register(Country, CountryTranslation)
 
 class LeagueTranslation(TranslationOptions):
-    fields = ('title',)
+    fields = ('title', 'main_text', 'last')
 
 translator.register(League, LeagueTranslation)
 

@@ -1,0 +1,50 @@
+{% extends "main/base.html" %}
+{% load static i18n %}
+{% block title %}{% trans 'About' %} {{ country.title }}{% endblock %}
+{% block bread %}
+<ul class="breadcrumb list-bread">
+    <li><a href="{% url 'home_page' %}"> {% trans 'Home' %} </a></li>/
+    <li><a href="{{ country.continent.get_absolute_url }}"> {{ country.continent.title }} </a></li>/
+    <li><a href="{{ country.get_absolute_url }}">{{ country.title }} </a></li>/
+    <li><a href="{{ country.get_absolute_about_url }}"> {% trans 'About' %} {{ country.title }} </a></li>/
+</ul>
+{% endblock %}
+
+{% block content %}
+<div class="club-content">
+    <div class="last">{{country.title}}
+        <!--{% if user.is_authenticated %}
+            <sup><a href="{{ country.get_absolute_url }}country-title-update/"> {% trans 'change' %} </a></sup>
+        {% else %}
+            <sup><a href="{% url 'account_login' %}"> {% trans 'change' %} </a></sup>
+        {% endif %}-->
+    </div>
+    <div class="info">
+        {% if country.picture %}
+            <img class="img-club" src="{{ country.picture.url }}" alt="{{country.title}}">
+        {% else %}
+            <img class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
+        {% endif %}
+        <p>{% trans "Founded:" %} {% if country.founded|date:'d' == country.published_at|date:'d' and country.founded|date:'F' == country.published_at|date:'F' %} {{country.founded|date:'Y'}} {% else %} {{country.founded|date:'d F Y'}} {% endif %}</p>
+        <p>{% trans "FIFA affiliation:" %} {{country.fifa|date:'Y'}}</p>
+        <p>{% trans "UEFA affiliation:" %} {{country.uefa|date:'Y'}}</p>
+        <p>{% trans "President:" %} {{country.president}}</p>
+        <p>{% trans "Website" %} <a href="{{ country.website }}" target="_blank">{{ country.website }}</a></p>
+        <!--{% if user.is_authenticated %}
+            <p>
+                <a href="{{ country.get_absolute_url }}country-info-update/"> {% trans 'change' %} </a>
+            </p>
+        {% else %}
+            <p><a href="{% url 'account_login' %}"> {% trans 'change' %} </a></p>
+        {% endif %}-->
+    </div>
+    <div class="text-club">
+        <p class="text">{{country.main_text|linebreaks}}</p>
+        <!--{% if user.is_authenticated %}
+            <sup><a href="{{ country.get_absolute_url }}country-main-update/"> {% trans 'change' %} </a></sup>
+        {% else %}
+            <sup><a href="{% url 'account_login' %}"> {% trans 'change' %} </a></sup>
+        {% endif %}-->
+    </div>
+</div>
+{% endblock %}

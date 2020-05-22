@@ -32,7 +32,7 @@
         <p>{% trans "Website" %} <a href="{{ continent.website }}" target="_blank">{{ continent.website }}</a></p>
         <!--{% if user.is_authenticated %}
             <p>
-                <a href="{{ club.get_absolute_url }}club-info-update/"> {% trans 'change' %} </a>
+                <a href="{{ continent.get_absolute_url }}continent-info-update/"> {% trans 'change' %} </a>
             </p>
         {% else %}
             <p><a href="{% url 'account_login' %}"> {% trans 'change' %} </a></p>
@@ -41,7 +41,7 @@
     <div class="text-club">
         <p class="text">{{continent.main_text|linebreaks}}</p>
         <!--{% if user.is_authenticated %}
-            <sup><a href="{{ club.get_absolute_url }}club-main-update/"> {% trans 'change' %} </a></sup>
+            <sup><a href="{{ continent.get_absolute_url }}continent-main-update/"> {% trans 'change' %} </a></sup>
         {% else %}
             <sup><a href="{% url 'account_login' %}"> {% trans 'change' %} </a></sup>
         {% endif %}-->

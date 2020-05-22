@@ -48,6 +48,7 @@ class Country(models.Model):
         'Continent', related_name='country',
         verbose_name=('continent'), on_delete=models.CASCADE,
     )
+    main_text = models.TextField(_('main text'), null=True)
     published_at = models.DateTimeField(('published at'), default=timezone.now)
     is_published = models.BooleanField(('published'), default=True)
     picture = models.ImageField(
@@ -55,6 +56,11 @@ class Country(models.Model):
         upload_to='images/country',
         help_text=("Recomended size 512x512px")
     )
+    founded = models.DateTimeField(_('Founded'), default=timezone.now)
+    fifa = models.DateField(_('FIFA affiliation'), default=timezone.now)
+    uefa = models.DateField(_('UEFA affiliation'), default=timezone.now)
+    president = models.CharField(_('President'), null=True, max_length=255)
+    website = models.URLField(_('Website'), null=True, max_length=255)
     wc = models.IntegerField(default=0)
     cl = models.IntegerField(default=0)
     gb = models.IntegerField(default=0)
@@ -66,6 +72,10 @@ class Country(models.Model):
         """Return category's URL"""
         return reverse('league_list', kwargs={'continent': self.continent.slug, 'country': self.slug})
 
+    def get_absolute_about_url(self):
+        """Return category's URL"""
+        return reverse('country_about', kwargs={'continent': self.continent.slug, 'country': self.slug, 'pk': self.id})
+
     class Meta:
         verbose_name = ('country')
 
@@ -74,18 +84,23 @@ class League(models.Model):
     slug = models.SlugField(
         ('slug'), unique=True, max_length=255
     )
-    country = models.ForeignKey(
-        'Country', related_name='league',
-        verbose_name=('country'), on_delete=models.CASCADE
-    )
-    reputation = models.IntegerField(default=1)
-    published_at = models.DateTimeField(('published at'), default=timezone.now)
-    is_published = models.BooleanField(('published'), default=True)
     picture = models.ImageField(
         'Image', blank=True, null=True,
         upload_to='images/league',
         help_text=("Recomended size 512x512px")
     )
+    main_text = models.TextField(_('main text'), null=True)
+    country = models.ForeignKey(
+        'Country', related_name='league',
+        verbose_name=('country'), on_delete=models.CASCADE
+    )    
+    founded = models.DateTimeField(_('Founded'), default=timezone.now)
+    count_team = models.IntegerField(default=1)
+    reputation = models.IntegerField(default=1)
+    last = models.CharField(_('Last winner'), null=True, max_length=255)
+    website = models.URLField(_('Website'), null=True, max_length=255)
+    published_at = models.DateTimeField(('published at'), default=timezone.now)
+    is_published = models.BooleanField(('published'), default=True)
 
     def __str__(self):
         return self.title
@@ -93,6 +108,10 @@ class League(models.Model):
     def get_absolute_url(self):
         """Return category's URL"""
         return reverse('club_list', kwargs={'continent': self.country.continent.slug, 'country': self.country.slug, 'league': self.slug})
+
+    def get_absolute_about_url(self):
+        """Return category's URL"""
+        return reverse('league_about', kwargs={'continent': self.country.continent.slug, 'country': self.country.slug, 'league': self.slug, 'pk': self.id})
 
     class Meta:
         verbose_name = ('league')

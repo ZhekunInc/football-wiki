@@ -13,6 +13,9 @@
 
 {% block content %}
 <div class="last">{{ league.title }}</div>
+    <div class="btn-center">
+        <a href="{{ league.get_absolute_about_url }}" class="btn-dark history">{% trans "Read more about" %} {{ league.title }}</a>
+    </div>
     <section class="sample">
         <div class="container">
             <div class="row">
