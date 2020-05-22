@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-22 20:23+0300\n"
+"POT-Creation-Date: 2020-05-22 21:44+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -72,12 +72,12 @@ msgid "Website"
 msgstr "Сайт:"
 
 #: src/main/models.py:60
-msgid "FIFA affiliation"
-msgstr "Вступление в ФИФА"
+msgid "Belonging to FIFA since"
+msgstr "Принадлежит к ФИФА с"
 
 #: src/main/models.py:61
-msgid "UEFA affiliation"
-msgstr "Вступление в УЕФА"
+msgid "Belonging to since"
+msgstr "Принадлежит к с"
 
 #: src/main/models.py:100
 msgid "Last winner"
@@ -847,12 +847,16 @@ msgid "President:"
 msgstr "Президент:"
 
 #: src/main/templates/main/detail/country-detail.html:29
-msgid "FIFA affiliation:"
-msgstr "Вступление в ФИФА"
+msgid "Belonging to FIFA since "
+msgstr "Принадлежит к ФИФА с"
 
 #: src/main/templates/main/detail/country-detail.html:30
-msgid "UEFA affiliation:"
-msgstr "Вступление в УЕФА"
+msgid "Belonging to "
+msgstr "Принадлежит к "
+
+#: src/main/templates/main/detail/country-detail.html:30
+msgid " since "
+msgstr " с "
 
 #: src/main/templates/main/detail/league-detail.html:30
 msgid "Number of teams:"
@@ -949,6 +953,18 @@ msgstr ""
 #: src/src/settings.py:156
 msgid "Russian"
 msgstr ""
+
+#~ msgid "FIFA affiliation"
+#~ msgstr "Вступление в ФИФА"
+
+#~ msgid "UEFA affiliation"
+#~ msgstr "Вступление в УЕФА"
+
+#~ msgid "FIFA affiliation:"
+#~ msgstr "Вступление в ФИФА"
+
+#~ msgid "UEFA affiliation:"
+#~ msgstr "Вступление в УЕФА"
 
 #~ msgid "Restration"
 #~ msgstr "Регистрация"
