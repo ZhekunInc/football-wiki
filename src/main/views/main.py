@@ -1,3 +1,4 @@
+# -- coding:utf-8 --
 from django.shortcuts import render
 from django.views.generic import DetailView, ListView, CreateView, UpdateView
 from django.views.generic.base import View
