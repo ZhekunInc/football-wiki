@@ -55,9 +55,9 @@ class Country(models.Model):
         upload_to='images/country',
         help_text=("Recomended size 512x512px")
     )
-    wc = models.IntegerField(default=1)
-    cl = models.IntegerField(default=1)
-    gb = models.IntegerField(default=1)
+    wc = models.IntegerField(default=0)
+    cl = models.IntegerField(default=0)
+    gb = models.IntegerField(default=0)
 
     def __str__(self):
         return self.title
@@ -138,35 +138,37 @@ class Cup(models.Model):
         verbose_name = ('cup')
     
 class Player(models.Model):
-    title = models.CharField(max_length=200)
+    title = models.CharField(_('title'), max_length=200)
     slug = models.SlugField(
-        ('slug'), unique=True, max_length=255, null=True
+        _('slug'), unique=True, max_length=255, null=True
     )
     image = models.ImageField(
-        'Image', blank=True, null=True,
+        _('Image'), blank=True, null=True,
         upload_to='images/player',
-        help_text=("Recomended size 512x512px")
+        help_text=_("Recomended size 512x512px")
     )
-    main_text = models.TextField(null=True)
+    main_text = models.TextField(_('main text'), null=True)
     country = models.ForeignKey(
         'Country', related_name='player',
-        verbose_name=('country'), on_delete=models.CASCADE, null=True
+        verbose_name=_('country'), on_delete=models.CASCADE, null=True
     )
     clubs = models.ManyToManyField(
         'Club', related_name='player',
-        verbose_name=('club'), blank=True
+        verbose_name=_('club'), blank=True,
+        help_text=_("Use CTRL for select more than one")
     )
     cups = models.ManyToManyField(
         'Cup', related_name='player',
-        verbose_name=('cup'), blank=True
+        verbose_name=_('cup'), blank=True,
+        help_text=_("Use CTRL for select more than one")
     )
-    nickname = models.CharField(null=True, max_length=255)
-    date_of_birth = models.DateTimeField(default=timezone.now)
-    height = models.FloatField(null=True)
-    positions = models.CharField(max_length=50, null=True)
-    wc = models.IntegerField(default=1)
-    cl = models.IntegerField(default=1)
-    gb = models.IntegerField(default=1)
+    nickname = models.CharField(_('nickname'), null=True, max_length=255)
+    date_of_birth = models.DateTimeField(_('date of birth'), default=timezone.now)
+    height = models.FloatField(_('height'), null=True)
+    positions = models.CharField(_('positions'), max_length=50, null=True)
+    wc = models.IntegerField(_('World Cup'), default=0)
+    cl = models.IntegerField(_('Champions League'), default=0)
+    gb = models.IntegerField(_('Golden ball'), default=0)
     
     def get_absolute_url(self):
         """Return category's URL"""

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-13 19:44+0300\n"
+"POT-Creation-Date: 2020-05-22 17:26+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,106 +20,133 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: src/main/models.py:9 src/main/models.py:185
+#: src/main/models.py:9 src/main/models.py:141 src/main/models.py:187
 msgid "title"
 msgstr "Название"
 
-#: src/main/models.py:11 src/main/models.py:187
+#: src/main/models.py:11 src/main/models.py:143 src/main/models.py:189
 msgid "slug"
 msgstr ""
 
-#: src/main/models.py:14
+#: src/main/models.py:14 src/main/models.py:146
 msgid "Image"
-msgstr ""
+msgstr "Фотография"
 
-#: src/main/models.py:16 src/main/models.py:199
+#: src/main/models.py:16 src/main/models.py:148 src/main/models.py:201
 msgid "Recomended size 512x512px"
 msgstr "Рекомендуемый розмер 512х512px"
 
-#: src/main/models.py:18 src/main/models.py:193
+#: src/main/models.py:18 src/main/models.py:150 src/main/models.py:195
 msgid "main text"
 msgstr "Основной текст"
 
-#: src/main/models.py:19 src/main/models.py:203
+#: src/main/models.py:19 src/main/models.py:205
 msgid "Founded"
 msgstr "Основан:"
 
 #: src/main/models.py:20
 msgid "Located"
-msgstr ""
+msgstr "Штаб квартира"
 
 #: src/main/models.py:21
-#, fuzzy
-#| msgid "Region:"
 msgid "Region"
 msgstr "Регион:"
 
 #: src/main/models.py:22
 msgid "Count of associations"
-msgstr ""
+msgstr "Количество ассоциаций"
 
 #: src/main/models.py:23
 msgid "President"
-msgstr ""
+msgstr "Президент"
 
-#: src/main/models.py:24 src/main/models.py:206
+#: src/main/models.py:24 src/main/models.py:208
 #: src/main/templates/main/club_detail.html:34
 #: src/main/templates/main/cup_detail.html:21
 #: src/main/templates/main/detail/continent-detail.html:32
 msgid "Website"
 msgstr "Сайт:"
 
-#: src/main/models.py:191
-msgid "league"
-msgstr "Лига"
+#: src/main/models.py:153
+msgid "country"
+msgstr "страна"
 
-#: src/main/models.py:194
-msgid "published at"
-msgstr "Опубликовано в"
+#: src/main/models.py:157
+msgid "club"
+msgstr "клуб"
 
-#: src/main/models.py:195
-msgid "published"
-msgstr "Публиковать"
-
-#: src/main/models.py:197
-msgid "Club emblem"
-msgstr "Эмблема клуба"
-
-#: src/main/models.py:201
-msgid "Nickname"
-msgstr "Прозвище:"
-
-#: src/main/models.py:202
-msgid "Short name"
-msgstr "Короткое имя:"
-
-#: src/main/models.py:204
-msgid "Stadium"
-msgstr "Стадион:"
-
-#: src/main/models.py:205
-msgid "Manager"
-msgstr "Тренер:"
-
-#: src/main/models.py:209
-msgid "cup"
-msgstr "Трофеи"
-
-#: src/main/models.py:210 src/main/models.py:215
+#: src/main/models.py:158 src/main/models.py:163 src/main/models.py:212
+#: src/main/models.py:217
 msgid "Use CTRL for select more than one"
 msgstr "Чтобы выбрать больше чем один используйте CTRL"
 
-#: src/main/models.py:214
-msgid "player"
-msgstr "Игроки"
+#: src/main/models.py:162 src/main/models.py:211
+msgid "cup"
+msgstr "Трофеи"
 
-#: src/main/models.py:217
+#: src/main/models.py:165
+msgid "nickname"
+msgstr "Прозвище:"
+
+#: src/main/models.py:166
+msgid "date of birth"
+msgstr "Родился:"
+
+#: src/main/models.py:167
+msgid "height"
+msgstr "Рост:"
+
+#: src/main/models.py:168
+msgid "positions"
+msgstr "Позиция(и):"
+
+#: src/main/models.py:169
+msgid "World Cup"
+msgstr "Чемпионат мира"
+
+#: src/main/models.py:170 src/main/models.py:219
 msgid "Champions League"
 msgstr "Лига чемпионов"
 
-#: src/main/models.py:218
+#: src/main/models.py:171 src/main/models.py:220
 msgid "Golden ball"
 msgstr "Золотой мяч"
+
+#: src/main/models.py:193
+msgid "league"
+msgstr "Лига"
+
+#: src/main/models.py:196
+msgid "published at"
+msgstr "Опубликовано в"
+
+#: src/main/models.py:197
+msgid "published"
+msgstr "Публиковать"
+
+#: src/main/models.py:199
+msgid "Club emblem"
+msgstr "Эмблема клуба"
+
+#: src/main/models.py:203
+msgid "Nickname"
+msgstr "Прозвище:"
+
+#: src/main/models.py:204
+msgid "Short name"
+msgstr "Короткое имя:"
+
+#: src/main/models.py:206
+msgid "Stadium"
+msgstr "Стадион:"
+
+#: src/main/models.py:207
+msgid "Manager"
+msgstr "Тренер:"
+
+#: src/main/models.py:216
+msgid "player"
+msgstr "Игроки"
 
 #: src/main/templates/account/account_inactive.html:5
 #: src/main/templates/account/account_inactive.html:8
@@ -486,6 +513,12 @@ msgstr "Меню"
 #: src/main/templates/main/change-club/club_player_update.html:7
 #: src/main/templates/main/change-club/club_title_update.html:7
 #: src/main/templates/main/change-club/club_trophy_update.html:7
+#: src/main/templates/main/change-player/player_club_update.html:7
+#: src/main/templates/main/change-player/player_create.html:8
+#: src/main/templates/main/change-player/player_info_update.html:7
+#: src/main/templates/main/change-player/player_main_update.html:7
+#: src/main/templates/main/change-player/player_title_update.html:7
+#: src/main/templates/main/change-player/player_trophy_update.html:7
 #: src/main/templates/main/club_detail.html:6
 #: src/main/templates/main/club_list.html:6
 #: src/main/templates/main/country_list.html:7
@@ -527,6 +560,7 @@ msgid "Create new club"
 msgstr "Создать новый клуб"
 
 #: src/main/templates/main/change-club/club_create.html:9
+#: src/main/templates/main/change-player/player_create.html:9
 #: src/main/templates/main/create_center.html:3
 #: src/main/templates/main/create_center.html:8
 msgid "Create center"
@@ -538,24 +572,36 @@ msgstr "Творческий центр"
 #: src/main/templates/main/change-club/club_player_update.html:23
 #: src/main/templates/main/change-club/club_title_update.html:23
 #: src/main/templates/main/change-club/club_trophy_update.html:23
+#: src/main/templates/main/change-player/player_club_update.html:22
+#: src/main/templates/main/change-player/player_create.html:22
+#: src/main/templates/main/change-player/player_info_update.html:22
+#: src/main/templates/main/change-player/player_main_update.html:22
+#: src/main/templates/main/change-player/player_title_update.html:22
+#: src/main/templates/main/change-player/player_trophy_update.html:22
 msgid "Save"
 msgstr "Сохранить"
 
 #: src/main/templates/main/change-club/club_info_update.html:3
 #: src/main/templates/main/change-club/club_info_update.html:12
+#: src/main/templates/main/change-player/player_info_update.html:3
+#: src/main/templates/main/change-player/player_info_update.html:11
 msgid "Change short info"
 msgstr "Изменить краткую информацию"
 
 #: src/main/templates/main/change-club/club_info_update.html:18
+#: src/main/templates/main/change-player/player_info_update.html:17
 msgid "Change short info for "
 msgstr "Изменить краткую информацию для"
 
 #: src/main/templates/main/change-club/club_main_update.html:3
 #: src/main/templates/main/change-club/club_main_update.html:12
+#: src/main/templates/main/change-player/player_main_update.html:3
+#: src/main/templates/main/change-player/player_main_update.html:11
 msgid "Change main text"
 msgstr "Изменить основной тескт"
 
 #: src/main/templates/main/change-club/club_main_update.html:18
+#: src/main/templates/main/change-player/player_main_update.html:17
 msgid "Change main text for "
 msgstr "Изменить основной тескт для"
 
@@ -579,12 +625,40 @@ msgstr "Изменить название для"
 
 #: src/main/templates/main/change-club/club_trophy_update.html:3
 #: src/main/templates/main/change-club/club_trophy_update.html:12
+#: src/main/templates/main/change-player/player_trophy_update.html:3
+#: src/main/templates/main/change-player/player_trophy_update.html:11
 msgid "Change trophy"
 msgstr "Изменить трофеи"
 
 #: src/main/templates/main/change-club/club_trophy_update.html:18
+#: src/main/templates/main/change-player/player_trophy_update.html:17
 msgid "Change trophy for "
 msgstr "Изменить трофеи для"
+
+#: src/main/templates/main/change-player/player_club_update.html:3
+#: src/main/templates/main/change-player/player_club_update.html:11
+msgid "Change clubs"
+msgstr "Изменить клубы"
+
+#: src/main/templates/main/change-player/player_club_update.html:17
+msgid "Change clubs for "
+msgstr "Изменить клубы для"
+
+#: src/main/templates/main/change-player/player_create.html:3
+#: src/main/templates/main/change-player/player_create.html:10
+#: src/main/templates/main/change-player/player_create.html:17
+#: src/main/templates/main/create_center.html:
+msgid "Create new player"
+msgstr "Создать нового игрока"
+
+#: src/main/templates/main/change-player/player_title_update.html:3
+#: src/main/templates/main/change-player/player_title_update.html:11
+msgid "Change name"
+msgstr "Изменить имя"
+
+#: src/main/templates/main/change-player/player_title_update.html:17
+msgid "Change name for "
+msgstr "Изменить имя для"
 
 #: src/main/templates/main/club_detail.html:18
 #: src/main/templates/main/club_detail.html:20
@@ -606,11 +680,25 @@ msgstr "Изменить трофеи для"
 #: src/main/templates/main/detail/continent-detail.html:38
 #: src/main/templates/main/detail/continent-detail.html:44
 #: src/main/templates/main/detail/continent-detail.html:46
+#: src/main/templates/main/player_detail.html:16
+#: src/main/templates/main/player_detail.html:18
+#: src/main/templates/main/player_detail.html:33
+#: src/main/templates/main/player_detail.html:35
+#: src/main/templates/main/player_detail.html:41
+#: src/main/templates/main/player_detail.html:43
+#: src/main/templates/main/player_detail.html:49
+#: src/main/templates/main/player_detail.html:51
+#: src/main/templates/main/player_detail.html:75
+#: src/main/templates/main/player_detail.html:77
+#: src/main/templates/main/player_detail.html:85
+#: src/main/templates/main/player_detail.html:87
+#: src/main/templates/main/player_detail.html:111
+#: src/main/templates/main/player_detail.html:113
 msgid "change"
 msgstr "изменить"
 
 #: src/main/templates/main/club_detail.html:29
-#: src/main/templates/main/player_detail.html:21
+#: src/main/templates/main/player_detail.html:27
 msgid "Nickname(s):"
 msgstr "Прозвище:"
 
@@ -642,11 +730,14 @@ msgid "Trophies"
 msgstr "Трофеи"
 
 #: src/main/templates/main/club_detail.html:97
+#: src/main/templates/main/player_detail.html:109
 msgid "No trophies added, click "
 msgstr "Ни одного трофея не добавлено, нажмите "
 
 #: src/main/templates/main/club_detail.html:103
 #: src/main/templates/main/club_detail.html:139
+#: src/main/templates/main/player_detail.html:79
+#: src/main/templates/main/player_detail.html:115
 msgid "to add"
 msgstr ", чтобы добавить"
 
@@ -724,37 +815,43 @@ msgstr "Новые добавлиные клубы"
 msgid "No leagues added to "
 msgstr "Ни одной лиги не добавлено к "
 
-#: src/main/templates/main/player_detail.html:22
+#: src/main/templates/main/player_detail.html:28
 msgid "Nationality:"
 msgstr "Гражданство"
 
-#: src/main/templates/main/player_detail.html:23
+#: src/main/templates/main/player_detail.html:29
 msgid "Date of birth:"
 msgstr "Родился:"
 
-#: src/main/templates/main/player_detail.html:24
+#: src/main/templates/main/player_detail.html:30
 msgid "Height:"
 msgstr "Рост:"
 
-#: src/main/templates/main/player_detail.html:24
+#: src/main/templates/main/player_detail.html:30
 msgid "cm"
 msgstr "см"
 
-#: src/main/templates/main/player_detail.html:25
+#: src/main/templates/main/player_detail.html:31
 msgid "Playing position(s):"
 msgstr "Позиция(и):"
 
-#: src/main/templates/main/player_detail.html:31
+#: src/main/templates/main/player_detail.html:47
+#: src/main/templates/main/player_detail.html:71
 #: src/main/templates/main/search_results.html:55
 msgid "Clubs"
 msgstr "Клубы"
 
-#: src/main/templates/main/player_detail.html:50
+#: src/main/templates/main/player_detail.html:73
+msgid "No clubs added, click "
+msgstr "Ни одного клуба не добавлено, нажмите "
+
+#: src/main/templates/main/player_detail.html:83
+#: src/main/templates/main/player_detail.html:107
 #: src/main/templates/main/search_results.html:93
 msgid "Trophies and award"
 msgstr "Трофеи и награды"
 
-#: src/main/templates/main/player_detail.html:69
+#: src/main/templates/main/player_detail.html:119
 msgid "FUT"
 msgstr "ФУТ"
 
