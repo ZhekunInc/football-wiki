@@ -353,3 +353,32 @@ main{
 .helptext {
   width: 100%;
 }
+
+#player-name,
+#close {
+  display: none;
+}
+
+.extremum-slide,
+.down-icon {
+	display:none;
+}
+
+.down-icon,
+.up-icon {
+  margin-left: -25px;
+  color: white;
+}
+
+.block {
+  text-align: center;
+}
+
+.btn-country {
+  height: 60px;
+  width: 98%;
+  margin: 20px 0 20px 0;
+  font-size: 30px;
+  font-family: 'Cormorant Infant', serif;
+  font-weight: bold;
+}

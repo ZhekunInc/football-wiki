@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-22 21:44+0300\n"
+"POT-Creation-Date: 2020-06-06 02:22+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -456,7 +456,7 @@ msgstr "Увійти"
 
 #: src/main/templates/account/signup.html:10
 #: src/main/templates/account/signup.html:20
-#: src/main/templates/main/base.html:72
+#: src/main/templates/main/base.html:78
 msgid "Sign Up"
 msgstr "Зареєструватися"
 
@@ -550,24 +550,36 @@ msgstr "Меню"
 msgid "Home"
 msgstr "Домівка"
 
-#: src/main/templates/main/base.html:52
+#: src/main/templates/main/base.html:34
+#: src/main/templates/main/player-list.html:4
+#: src/main/templates/main/player-list.html:7
+#: src/main/templates/main/search_results.html:74
+msgid "Players"
+msgstr "Гравці"
+
+#: src/main/templates/main/base.html:37 src/main/templates/main/cup-list.html:4
+#: src/main/templates/main/cup-list.html:7
+msgid "Cups"
+msgstr ""
+
+#: src/main/templates/main/base.html:58
 #: src/main/templates/main/search_results.html:3
 msgid "Search"
 msgstr "Пошук"
 
-#: src/main/templates/main/base.html:57
+#: src/main/templates/main/base.html:63
 msgid "Welcome back, "
 msgstr "З поверненням, "
 
-#: src/main/templates/main/base.html:59 src/main/templates/main/base.html:66
+#: src/main/templates/main/base.html:65 src/main/templates/main/base.html:72
 msgid "Add"
 msgstr "Додати"
 
-#: src/main/templates/main/base.html:62
+#: src/main/templates/main/base.html:68
 msgid "Logout"
 msgstr "Вийти"
 
-#: src/main/templates/main/base.html:69
+#: src/main/templates/main/base.html:75
 msgid "Login"
 msgstr "Увійти"
 
@@ -667,6 +679,8 @@ msgstr "Змінити клуби для"
 #: src/main/templates/main/change-player/player_create.html:10
 #: src/main/templates/main/change-player/player_create.html:17
 #: src/main/templates/main/create_center.html:23
+#: src/main/templates/main/cup-list.html:38
+#: src/main/templates/main/player-list.html:38
 msgid "Create new player"
 msgstr "Створити нового гравця"
 
@@ -939,10 +953,6 @@ msgstr "Країни"
 #: src/main/templates/main/search_results.html:36
 msgid "Leagues"
 msgstr "Ліги"
-
-#: src/main/templates/main/search_results.html:74
-msgid "Players"
-msgstr "Гравці"
 
 #: src/src/settings.py:154
 msgid "Ukraine"

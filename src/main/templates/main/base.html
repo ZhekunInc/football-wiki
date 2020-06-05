@@ -30,6 +30,12 @@
             <ul id="nalcanemakeg">
                 <a href="{% url 'home_page' %}"><li>{% trans "Home" %}</li></a>
                 {% continent_on_home %}
+                <a href="{% url 'players_page' %}">
+                    <li>{% trans 'Players' %}</li>
+                </a>
+                <a href="{% url 'cups_page' %}">
+                    <li>{% trans 'Trophies and award' %}</li>
+                </a>
                 <li>
                     <form action="{% url 'set_language' %}" method="post">
                         {% csrf_token %}

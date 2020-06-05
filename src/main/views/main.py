@@ -1,4 +1,3 @@
-# -- coding:utf-8 --
 from django.shortcuts import render
 from django.views.generic import DetailView, ListView, CreateView, UpdateView
 from django.views.generic.base import View
@@ -40,9 +39,25 @@ class HomePageView(ListView):
         clubs = paginator.get_page(page)
         return render(request, "main/homepage.html", {'clubs': clubs})
 
+class PlayerList(ListView):
+
+    def get(self, request):
+        countries = Country.objects.all().order_by("title")
+        return render(
+            request, "main/player-list.html", {'countries': countries}
+        )
+
+class CupList(ListView):
+
+    def get(self, request):
+        continents = Continent.objects.all().order_by("title")
+        return render(
+            request, "main/cup-list.html", {'continents': continents}
+        )
+
 class ContinentDetail(ListView):
     template_name = 'main/country_list.html'
-    context_object_name = "countries"
+    context_object_name = "players"
 
     def get_queryset(self):
         """

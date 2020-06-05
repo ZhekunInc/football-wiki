@@ -3,7 +3,7 @@ from django.views.generic import TemplateView
 from main.views.main import HomePageView
 from django.views.generic import ListView, DetailView
 from main.models import Continent, Country
-from main.views.main import ContinentDetail, CountryDetail, LeagueDetail, ClubDetail, SearchResultsView, PlayerDetail, CupDetail
+from main.views.main import ContinentDetail, CountryDetail, LeagueDetail, ClubDetail, SearchResultsView, PlayerDetail, CupDetail, PlayerList, CupList
 from main.views.club_change import ClubCreateView, ClubTitleUpdateView, ClubInfoUpdateView, ClubTrophyUpdateView, ClubPlayerUpdateView, ClubMainUpdateView
 from main.views.player_change import PlayerCreateView, PlayerTitleUpdateView, PlayerInfoUpdateView, PlayerTrophyUpdateView, PlayerClubUpdateView, PlayerMainUpdateView
 from main.views.detail import ContinentAbout, CountryAbout, LeagueAbout
@@ -17,6 +17,16 @@ urlpatterns = [
             get_context_data=lambda: {'is_create_center': True}
         ),
         name='create_center'
+    ),
+    path(
+        'players/',
+        PlayerList.as_view(),
+        name='players_page'
+    ),
+    path(
+        'cups/',
+        CupList.as_view(),
+        name='cups_page'
     ),
     path('create-club/', ClubCreateView.as_view(), name='club_create'),
     path('create-player/', PlayerCreateView.as_view(), name='player_create'),
