@@ -57,7 +57,7 @@ class CupList(ListView):
 
 class ContinentDetail(ListView):
     template_name = 'main/country_list.html'
-    context_object_name = "players"
+    context_object_name = "countries"
 
     def get_queryset(self):
         """
