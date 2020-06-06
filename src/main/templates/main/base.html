@@ -54,11 +54,13 @@
                     </form>
                 </li>
 
-                <li><form action="{% url 'search_results' %}" method="get" class="form-inline d-flex justify-content-left md-form form-sm">
-                    <input name="q" class="form-control form-control-sm mr-3 w-75" type="text" placeholder="{% trans 'Search' %}"
-                      aria-label="Search">
-                    <i class="fas fa-search white" aria-hidden="true"></i>
-                </form></li>
+                <li>
+                    <form action="{% url 'search_results' %}" method="get" class="form-inline d-flex justify-content-left md-form form-sm">
+                        <input name="q" class="form-control form-control-sm mr-3 w-75" type="text" placeholder="{% trans 'Search' %}"
+                        aria-label="Search">
+                        <i class="fas fa-search white" aria-hidden="true"></i>
+                    </form>
+                </li>
                 {% if user.is_authenticated %}
                     <li><span> {% trans "Welcome back, " %} {{ user.username }} </span></li>
                     <a href="{% url 'create_center' %}">

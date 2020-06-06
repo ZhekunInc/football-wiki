@@ -117,34 +117,37 @@ class League(models.Model):
         verbose_name = ('league')
 
 class Cup(models.Model):
-    title = models.CharField(max_length=200)
+    title = models.CharField(_('title'), max_length=200)
     slug = models.SlugField(
-        ('slug'), unique=True, max_length=255, null=True
+        _('slug'), unique=True, max_length=255, null=True
     )
     image = models.ImageField(
-        'Image', blank=True, null=True,
+        _('Image'), blank=True, null=True,
         upload_to='images/cup',
-        help_text=("Recomended size 512x512px")
+        help_text=_("Recomended size 512x512px")
     )
-    main_text = models.TextField(null=True)
+    main_text = models.TextField(_('main text'), null=True)
     players = models.ManyToManyField(
         'Player', related_name='cup',
-        verbose_name=('player'), blank=True
+        verbose_name=_('player'), blank=True,
+        help_text=_("Use CTRL for select more than one")
     )
     clubs = models.ManyToManyField(
         'Club', related_name='cup',
-        verbose_name=('club'), blank=True
+        verbose_name=_('club'), blank=True,
+        help_text=_("Use CTRL for select more than one")
     )
     countrys = models.ManyToManyField(
         'Country', related_name='cup',
-        verbose_name=('country'), blank=True
+        verbose_name=_('country'), blank=True,
+        help_text=_("Use CTRL for select more than one")
     )
-    founded = models.DateTimeField(default=timezone.now)
+    founded = models.DateTimeField(_('Founded'), default=timezone.now)
     region = models.ForeignKey(
         'Continent', related_name='cup',
-        verbose_name=('continent'), on_delete=models.CASCADE, null=True
+        verbose_name=_('continent'), on_delete=models.CASCADE, null=True
     )
-    website = models.URLField(null=True, max_length=255)
+    website = models.URLField(_('Website'), null=True, max_length=255)
 
     def get_absolute_url(self):
         """Return category's URL"""

@@ -5,16 +5,21 @@
 {% block bread %}
 <ul class="breadcrumb list-bread">
     <li><a href="{% url 'home_page' %}"> {% trans 'Home' %} </a></li>/
-    <li><a href="{{ player.country.continent.get_absolute_url }}"> {{ player.country.continent.title }} </a></li>/
-    <li><a href="{{ player.country.get_absolute_url }}"> {{ player.country.title }} </a></li>/
-    <li><a href="{{ player.get_absolute_url }}"> {{ player.title }} </a></li>/
-    <li><a href="{{ player.get_absolute_url }}player-club-update/"> {% trans "Change clubs" %} </a></li>/
+    <li>
+        {% if cup.region.slug == "fifa" %}
+            {{ cup.region.title }}
+        {% else %}
+            <a href="{{ cup.region.get_absolute_url }}"> {{ cup.region.title }} </a>
+        {% endif %}
+    </li>/
+    <li><a href="{{ cup.get_absolute_url }}"> {{ cup.title }} </a></li>/
+    <li><a href="{{ cup.get_absolute_url }}cup-club-update/"> {% trans "Change clubs" %} </a></li>/
 </ul>
 {% endblock %}
 
 {% block content %}
 
-<div class="last">{% trans "Change clubs for " %} {{ player.title }}</div>
+<div class="last">{% trans "Change clubs for " %} {{ cup.title }}</div>
 <form action="." method="POST" class="create">
 
     {% csrf_token %}
