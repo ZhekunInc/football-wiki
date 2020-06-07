@@ -1,12 +1,8 @@
-from django.shortcuts import render
-from django.views.generic import DetailView, ListView, CreateView, UpdateView
-from django.views.generic.base import View
-from django.shortcuts import get_object_or_404
-from datetime import datetime
-from django.core.paginator import Paginator
-from main.form.club import ClubCreateModelForm, ClubTitleUpdateModelForm, ClubInfoUpdateModelForm, ClubTrophyUpdateModelForm, ClubPlayerUpdateModelForm, ClubMainUpdateModelForm
-from main.models import Country, Continent, League, Club, Player, Cup
-from django.db.models import Q
+from django.views.generic import CreateView, UpdateView
+from main.form.club import ClubCreateModelForm, ClubTitleUpdateModelForm
+from main.form.club import ClubInfoUpdateModelForm, ClubTrophyUpdateModelForm
+from main.form.club import ClubPlayerUpdateModelForm, ClubMainUpdateModelForm
+from main.models import Club
 
 class ClubCreateView(CreateView):
     template_name = 'main/change-club/club_create.html'

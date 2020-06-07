@@ -1,12 +1,8 @@
-from django.shortcuts import render
-from django.views.generic import DetailView, ListView, CreateView, UpdateView
-from django.views.generic.base import View
-from django.shortcuts import get_object_or_404
-from datetime import datetime
-from django.core.paginator import Paginator
-from main.form.cup import CupCreateModelForm, CupTitleUpdateModelForm, CupInfoUpdateModelForm, CupClubUpdateModelForm, CupCountryUpdateModelForm, CupMainUpdateModelForm
-from main.models import Country, Continent, League, Club, Player, Cup
-from django.db.models import Q
+from django.views.generic import CreateView, UpdateView
+from main.form.cup import CupCreateModelForm, CupTitleUpdateModelForm
+from main.form.cup import CupInfoUpdateModelForm, CupClubUpdateModelForm
+from main.form.cup import CupCountryUpdateModelForm, CupMainUpdateModelForm
+from main.models import Cup
 
 class CupCreateView(CreateView):
     template_name = 'main/change-cup/cup_create.html'

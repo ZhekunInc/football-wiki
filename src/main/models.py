@@ -34,25 +34,27 @@ class Continent(models.Model):
 
     def get_absolute_about_url(self):
         """Return category's URL"""
-        return reverse('continent_about', kwargs={'continent': self.slug, 'pk': self.id})
+        return reverse('continent_about', kwargs={
+            'continent': self.slug, 'pk': self.id
+        })
 
     class Meta:
         verbose_name = ('continent')
 
 class Country(models.Model):
-    title = models.CharField(max_length=200)
+    title = models.CharField(_('title'), max_length=200)
     slug = models.SlugField(
-        ('slug'), unique=True, max_length=255
+        _('slug'), unique=True, max_length=255
     )
     continent = models.ForeignKey(
         'Continent', related_name='country',
-        verbose_name=('continent'), on_delete=models.CASCADE,
+        verbose_name=_('continent'), on_delete=models.CASCADE,
     )
     main_text = models.TextField(_('main text'), null=True)
     published_at = models.DateTimeField(('published at'), default=timezone.now)
     is_published = models.BooleanField(('published'), default=True)
     picture = models.ImageField(
-        'Image', blank=True, null=True,
+        _('Image'), blank=True, null=True,
         upload_to='images/country',
         help_text=("Recomended size 512x512px")
     )
@@ -61,20 +63,25 @@ class Country(models.Model):
     uefa = models.DateField(_('Belonging to since'), default=timezone.now)
     president = models.CharField(_('President'), null=True, max_length=255)
     website = models.URLField(_('Website'), null=True, max_length=255)
-    wc = models.IntegerField(default=0)
-    cl = models.IntegerField(default=0)
-    gb = models.IntegerField(default=0)
+    wc = models.IntegerField(_('World Cup'), default=0)
+    cl = models.IntegerField(_('Champions League'), default=0)
+    gb = models.IntegerField(_('Golden ball'), default=0)
 
     def __str__(self):
         return self.title
 
     def get_absolute_url(self):
         """Return category's URL"""
-        return reverse('league_list', kwargs={'continent': self.continent.slug, 'country': self.slug})
+        return reverse('league_list', kwargs={
+            'continent': self.continent.slug, 'country': self.slug
+        })
 
     def get_absolute_about_url(self):
         """Return category's URL"""
-        return reverse('country_about', kwargs={'continent': self.continent.slug, 'country': self.slug, 'pk': self.id})
+        return reverse('country_about', kwargs={
+            'continent': self.continent.slug, 'country': self.slug,
+            'pk': self.id
+        })
 
     class Meta:
         verbose_name = ('country')
@@ -107,11 +114,17 @@ class League(models.Model):
 
     def get_absolute_url(self):
         """Return category's URL"""
-        return reverse('club_list', kwargs={'continent': self.country.continent.slug, 'country': self.country.slug, 'league': self.slug})
+        return reverse('club_list', kwargs={
+            'continent': self.country.continent.slug,
+            'country': self.country.slug, 'league': self.slug
+        })
 
     def get_absolute_about_url(self):
         """Return category's URL"""
-        return reverse('league_about', kwargs={'continent': self.country.continent.slug, 'country': self.country.slug, 'league': self.slug, 'pk': self.id})
+        return reverse('league_about', kwargs={
+            'continent': self.country.continent.slug,
+            'country': self.country.slug, 'league': self.slug, 'pk': self.id
+        })
 
     class Meta:
         verbose_name = ('league')
@@ -185,7 +198,9 @@ class Player(models.Model):
         help_text=_("Use CTRL for select more than one")
     )
     nickname = models.CharField(_('nickname'), null=True, max_length=255)
-    date_of_birth = models.DateTimeField(_('date of birth'), default=timezone.now)
+    date_of_birth = models.DateTimeField(
+        _('date of birth'), default=timezone.now
+    )
     height = models.FloatField(_('height'), null=True)
     positions = models.CharField(_('positions'), max_length=50, null=True)
     wc = models.IntegerField(_('World Cup'), default=0)
@@ -194,7 +209,9 @@ class Player(models.Model):
 
     def get_absolute_url(self):
         """Return category's URL"""
-        return reverse('player_detail', kwargs={'player': self.slug, 'pk': self.id})
+        return reverse('player_detail', kwargs={
+            'player': self.slug, 'pk': self.id
+        })
 
     def __str__(self):
         return self.title
@@ -214,8 +231,11 @@ class Club(models.Model):
         'League', related_name='club',
         verbose_name=_('league'), on_delete=models.CASCADE,
     )
-    main_text = models.TextField(_('main text'),null=True)
-    published_at = models.DateTimeField(_('published at'), default=timezone.now)
+    main_text = models.TextField(
+        _('main text'), null=True
+    )
+    published_at = models.DateTimeField(
+        _('published at'), default=timezone.now)
     is_published = models.BooleanField(_('published'), default=True)
     picture = models.ImageField(
         _('Club emblem'), blank=True, null=True,
@@ -252,13 +272,21 @@ class Club(models.Model):
 
     def get_absolute_url(self):
         """Return category's URL"""
-        return reverse('club_detail', kwargs={'continent': self.league.country.continent.slug,
-         'country': self.league.country.slug, 'league': self.league.slug, 'club': self.slug, 'pk': self.id})
+        return reverse('club_detail', kwargs={
+            'continent': self.league.country.continent.slug,
+            'country': self.league.country.slug,
+            'league': self.league.slug,
+            'club': self.slug, 'pk': self.id
+        })
 
 class Kits(models.Model):
-    club = models.ForeignKey(Club, on_delete=models.CASCADE, verbose_name=("Club"))
+    club = models.ForeignKey(
+        Club, on_delete=models.CASCADE, verbose_name=("Club")
+    )
     title = models.CharField(max_length=200, default='Kits')
-    kits = models.ImageField(("Kits"), upload_to="images/kits", null=True, blank=True)
+    kits = models.ImageField(
+        ("Kits"), upload_to="images/kits", null=True, blank=True
+    )
 
     def get_extension(self):
         file_extension=os.path.splitext(self.kits.path)
@@ -271,8 +299,12 @@ class Kits(models.Model):
         verbose_name = ("Kit")
 
 class Fifa(models.Model):
-    player = models.ForeignKey(Player, on_delete=models.CASCADE, verbose_name=("Player"))
-    cards = models.ImageField(("Fifa"), upload_to="images/fifa", null=True, blank=True)
+    player = models.ForeignKey(
+        Player, on_delete=models.CASCADE, verbose_name=("Player")
+    )
+    cards = models.ImageField(
+        ("Fifa"), upload_to="images/fifa", null=True, blank=True
+    )
 
     def get_extension(self):
         file_extension=os.path.splitext(self.fifa.path)

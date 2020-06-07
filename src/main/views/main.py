@@ -1,6 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import DetailView, ListView, CreateView, UpdateView
-from django.views.generic.base import View
+from django.views.generic import DetailView, ListView
 from django.shortcuts import get_object_or_404
 from datetime import datetime
 from django.core.paginator import Paginator
@@ -26,9 +25,9 @@ class HomePageView(ListView):
 
     def home(request):
         from django.utils import translation
-        #user_language = 'fi'
-        #translation.activate(user_language)
-        #request.session[translation.LANGUAGE_SESSION_KEY] =user_language
+        # user_language = 'fi'
+        # translation.activate(user_language)
+        # request.session[translation.LANGUAGE_SESSION_KEY] =user_language
         if translation.LANGUAGE_SESSION_KEY in request.session:
             del request.session[translation.LANGUAGE_SESSION_KEY]
 
@@ -156,7 +155,9 @@ class SearchResultsView(ListView):
                 Q(title__icontains=query)
             ).order_by("title")
             club = Club.objects.all().filter(
-                Q(title__icontains=query) | Q(nickname__icontains=query) | Q(short_name__icontains=query) | Q(stadium__icontains=query) | Q(manager__icontains=query)
+                Q(title__icontains=query) | Q(nickname__icontains=query) | Q(
+                    short_name__icontains=query
+                ) | Q(stadium__icontains=query) | Q(manager__icontains=query)
             ).order_by("title")
             player = Player.objects.all().filter(
                 Q(title__icontains=query) | Q(nickname__icontains=query)

@@ -14,6 +14,10 @@
     <section class="sample">
         <div class="container">
             <div class="row">
+                <a class="item" href="{% url 'country_create' %}">
+                    <img class="images" src="{% static 'images/create-country.png' %}" alt="holderplace">
+                    <div class="title">{% trans 'Create new country' %}</div>
+                </a>
                 <a class="item" href="{% url 'club_create' %}">
                     <img class="images" src="{% static 'images/create-club.jpg' %}" alt="holderplace">
                     <div class="title">{% trans 'Create new club' %}</div>
