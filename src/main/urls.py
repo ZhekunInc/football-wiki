@@ -17,6 +17,13 @@ from main.views.cup_change import CupCountryUpdateView, CupMainUpdateView
 from main.views.country_change import CountryCreateView, CountryTitleUpdateView
 from main.views.country_change import CountryMainUpdateView
 from main.views.country_change import CountryInfoUpdateView
+from main.views.continent_change import ContinentTitleUpdateView
+from main.views.continent_change import ContinentMainUpdateView
+from main.views.continent_change import ContinentInfoUpdateView
+from main.views.league_change import LeagueCreateView
+from main.views.league_change import LeagueTitleUpdateView
+from main.views.league_change import LeagueMainUpdateView
+from main.views.league_change import LeagueInfoUpdateView
 from main.views.detail import ContinentAbout, CountryAbout, LeagueAbout
 
 
@@ -45,6 +52,11 @@ urlpatterns = [
         CountryCreateView.as_view(),
         name='country_create'
     ),
+    path(
+        'create-league/',
+        LeagueCreateView.as_view(),
+        name='league_create'
+    ),
     path('create-player/', PlayerCreateView.as_view(), name='player_create'),
     path('create-cup/', CupCreateView.as_view(), name='cup_create'),
     path(
@@ -62,6 +74,22 @@ urlpatterns = [
         'about-<continent>-<pk>/',
         ContinentAbout.as_view(),
         name='continent_about'
+    ),
+
+    path(
+        '<continent>-<pk>/continent-title-update/',
+        ContinentTitleUpdateView.as_view(),
+        name='continent_title_update'
+    ),
+    path(
+        '<continent>-<pk>/continent-info-update/',
+        ContinentInfoUpdateView.as_view(),
+        name='continent_info_update'
+    ),
+    path(
+        '<continent>-<pk>/continent-main-update/',
+        ContinentMainUpdateView.as_view(),
+        name='continent_main_update'
     ),
     path(
         '<continent>/about-<country>-<pk>/',
@@ -140,6 +168,22 @@ urlpatterns = [
         '<continent>/<country>-<pk>/country-main-update/',
         CountryMainUpdateView.as_view(),
         name='country_main_update'
+    ),
+
+    path(
+        '<continent>/<country>/<league>-<pk>/league-title-update/',
+        LeagueTitleUpdateView.as_view(),
+        name='league_title_update'
+    ),
+    path(
+        '<continent>/<country>/<league>-<pk>/league-info-update/',
+        LeagueInfoUpdateView.as_view(),
+        name='league_info_update'
+    ),
+    path(
+        '<continent>/<country>/<league>-<pk>/league-main-update/',
+        LeagueMainUpdateView.as_view(),
+        name='league_main_update'
     ),
 ]
 

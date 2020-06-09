@@ -1,0 +1,26 @@
+{% extends "main/base.html" %}
+{% load i18n %}
+{% block title %}{% trans 'Create new league' %}{% endblock %}
+
+{% block bread %}
+
+<ul class="breadcrumb list-bread">
+    <li><a href="{% url 'home_page' %}"> {% trans 'Home' %} </a></li>/
+    <li><a href="{% url 'create_center' %}"> {% trans 'Create center' %} </a></li>/
+    <li><a href="{% url 'league_create' %}"> {% trans 'Create new league' %} </a></li>/
+</ul>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="last">{% trans "Create new league" %}</div>
+<form action="." method="POST" enctype="multipart/form-data" class="create">
+
+    {% csrf_token %}
+    {{ form.as_p }}
+    <div class="btn-center"><button class="primaryAction btn-dark" type="submit">{% trans "Save" %}</button></div>
+
+</form>
+
+{% endblock %}

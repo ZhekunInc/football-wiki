@@ -33,7 +33,7 @@ class LeagueAdmin(TranslationAdmin):
         'title', 'reputation', 'slug', 'country'
     )
     list_filter = ('country',)
-    search_fields = ['title',]
+    search_fields = ['title']
     ordering = ('title',)
     prepopulated_fields = {'slug': ('title_en',)}
 

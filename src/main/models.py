@@ -87,23 +87,23 @@ class Country(models.Model):
         verbose_name = ('country')
 
 class League(models.Model):
-    title = models.CharField(max_length=200)
+    title = models.CharField(_('title'), max_length=200)
     slug = models.SlugField(
-        ('slug'), unique=True, max_length=255
+        _('slug'), unique=True, max_length=255
     )
     picture = models.ImageField(
-        'Image', blank=True, null=True,
+        _('Image'), blank=True, null=True,
         upload_to='images/league',
-        help_text=("Recomended size 512x512px")
+        help_text=_("Recomended size 512x512px")
     )
     main_text = models.TextField(_('main text'), null=True)
     country = models.ForeignKey(
         'Country', related_name='league',
-        verbose_name=('country'), on_delete=models.CASCADE
+        verbose_name=_('country'), on_delete=models.CASCADE
     )
     founded = models.DateTimeField(_('Founded'), default=timezone.now)
-    count_team = models.IntegerField(default=1)
-    reputation = models.IntegerField(default=1)
+    count_team = models.IntegerField(_('Number of teams:'), default=1)
+    reputation = models.IntegerField(_('Level on pyramid:'), default=1)
     last = models.CharField(_('Last winner'), null=True, max_length=255)
     website = models.URLField(_('Website'), null=True, max_length=255)
     published_at = models.DateTimeField(('published at'), default=timezone.now)
