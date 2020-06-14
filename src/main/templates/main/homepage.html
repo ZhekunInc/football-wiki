@@ -5,50 +5,14 @@
 {% block content %}
 
     <div class="last">{% trans "New add clubs" %}</div>
-    <section class="sample">
-        <div class="container">
-            <div class="row">
-                {% for club in clubs %}
-                <a class="item" href="{{ club.get_absolute_url }}">
-                    {% if club.picture %}
-                        <img class="images" src="{{ club.picture.url }}" alt="{{ club.title }}">
-                    {% else %}
-                        <img class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
-                    {% endif %}
-                    <div class="title">{{ club.title }}</div>
-                </a>
-                {% endfor %}
-            </div>
-        </div>
-    </section>
-    <div class="pagination">
-        <div class="center">
-        {% if clubs.has_previous %}
+    
+    {% include "main/entry-pages/homepage_entry.html" %}
+    
+{% endblock %}
 
-        <a class="pagination-action" href="?page=1"><i class="fas fa-angle-double-left"></i></a>
-        <a class="pagination-action" href="?page={{ clubs.previous_page_number }}"><i class="fas fa-angle-left"></i></a>
-
-        {% endif %}
-
-        {% for num in clubs.paginator.page_range %}
-            {% if clubs.number == num %}
-
-                <span class="pagination-number pagination-current">{{ num }}</span>
-
-            {% elif num > clubs.number|add:'-3' and num < clubs.number|add:'3' %}
-
-                <a class="pagination-number" href="?page={{ num }}">{{ num }}</a>
-
-            {% endif %}
-
-        {% endfor %}
-
-        {% if clubs.has_next %}
-
-        <a class="pagination-action" href="?page={{ clubs.next_page_number }}"><i class="fas fa-angle-right"></i></a>
-        <a class="pagination-action" href="?page={{ clubs.paginator.num_pages }}"><i class="fas fa-angle-double-right"></i></a>
-
-        {% endif %}
-        </div>
-    </div>
+{% block js %}
+    {{ block.super }}
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="{{ STATIC_URL }}el-pagination/js/el-pagination.js"></script>
+    <script>$.endlessPaginate();</script>
 {% endblock %}

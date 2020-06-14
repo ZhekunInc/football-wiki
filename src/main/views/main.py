@@ -24,6 +24,12 @@ def get_league_or_404(league):
     return get_object_or_404(League, slug=league_bits[-1])
 
 class HomePageView(ListView):
+    template_name = 'main/homepage.html'
+    page_template = 'main/homepage_entry.html'
+    context_object_name = "clubs"
+
+    def get_queryset(self):
+        return Club.objects.all().order_by("-published_at")
 
     def home(request):
         from django.utils import translation
@@ -32,13 +38,6 @@ class HomePageView(ListView):
         # request.session[translation.LANGUAGE_SESSION_KEY] =user_language
         if translation.LANGUAGE_SESSION_KEY in request.session:
             del request.session[translation.LANGUAGE_SESSION_KEY]
-
-    def get(self, request):
-        clubs = Club.objects.all().order_by("-published_at")
-        paginator = Paginator(clubs, 12)
-        page = request.GET.get('page')
-        clubs = paginator.get_page(page)
-        return render(request, "main/homepage.html", {'clubs': clubs})
 
 class PlayerList(ListView):
 
