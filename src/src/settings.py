@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'django_extensions',
     'django.contrib.sitemaps',
+    'el_pagination',
 ]
 
 ACCOUNT_DEFAULT_HTTP_PROTOCOL = "https"

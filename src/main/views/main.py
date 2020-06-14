@@ -6,6 +6,8 @@ from django.core.paginator import Paginator
 from main.models import Country, Continent, League, Club, Player, Cup
 from django.db.models import Q
 
+from el_pagination.views import AjaxListView
+
 def get_continent_or_404(continent):
     """Retrieve a Category instance by a continent"""
     continent_bits = [p for p in continent.split('/') if p]
@@ -54,8 +56,9 @@ class CupList(ListView):
             request, "main/cup-list.html", {'continents': continents}
         )
 
-class ContinentDetail(ListView):
+class ContinentDetail(AjaxListView):
     template_name = 'main/country_list.html'
+    page_template = 'main/entry-pages/country_list_entry.html'
     context_object_name = "countries"
 
     def get_queryset(self):

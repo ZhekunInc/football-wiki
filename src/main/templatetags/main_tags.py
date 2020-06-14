@@ -1,5 +1,5 @@
 from django import template
-from main.models import Continent, Country
+from main.models import Continent
 
 register = template.Library()
 

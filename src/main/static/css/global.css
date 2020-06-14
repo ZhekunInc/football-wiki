@@ -382,3 +382,23 @@ main{
   font-family: 'Cormorant Infant', serif;
   font-weight: bold;
 }
+
+.endless_page_link,
+.endless_page_current {
+
+  background-color: #454545;
+  padding: 0.8em 0.8em;
+  color: #fff;
+  border-radius: 2px;
+
+}
+
+.endless_page_current {
+  margin: 0 5px 0 5px;
+  background: #000000;
+}
+
+.endless_page_link:hover {
+  color: #fff;
+  background: #000000;
+}
