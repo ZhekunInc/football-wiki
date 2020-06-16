@@ -46,7 +46,7 @@
             <tr>
                 <td>{{ country.place }}</td>
                 <td>
-                    <a href="{{ country.get_absolute_about_url }}">
+                    <a class="link-rating" href="{{ country.get_absolute_about_url }}">
                         {% if country.picture %}
                             <img class="images-table" src="{{ country.picture.url }}" alt="{{ country.title }}"> 
                         {% else %}
@@ -55,7 +55,16 @@
                         {{ country.title }}
                     </a>
                 </td>
-                <td>{{ country.continent }}</td>
+                <td>    
+                    <a class="link-rating" href="{{ country.continent.get_absolute_about_url }}">
+                        {% if country.continent.image %}
+                            <img class="images-table" src="{{ country.continent.image.url }}" alt="{{ country.continent.title }}"> 
+                        {% else %}
+                            <img class="images-table" src="{% static 'images/placeholder.png' %}" alt="holderplace">
+                        {% endif %}
+                        {{ country.continent }}
+                    </a>
+                </td>
                 <td>{{ country.points }}</td>
             </tr>
             {% endfor %}

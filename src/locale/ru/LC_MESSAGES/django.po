@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-16 16:28+0300\n"
+"POT-Creation-Date: 2020-06-16 16:56+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,33 +20,33 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: src/main/models.py:9 src/main/models.py:49 src/main/models.py:94
-#: src/main/models.py:137 src/main/models.py:180 src/main/models.py:230
+#: src/main/models.py:9 src/main/models.py:49 src/main/models.py:96
+#: src/main/models.py:139 src/main/models.py:182 src/main/models.py:232
 msgid "title"
 msgstr "Название"
 
-#: src/main/models.py:11 src/main/models.py:51 src/main/models.py:96
-#: src/main/models.py:139 src/main/models.py:182 src/main/models.py:232
+#: src/main/models.py:11 src/main/models.py:51 src/main/models.py:98
+#: src/main/models.py:141 src/main/models.py:184 src/main/models.py:234
 msgid "slug"
 msgstr ""
 
-#: src/main/models.py:14 src/main/models.py:61 src/main/models.py:99
-#: src/main/models.py:142 src/main/models.py:185
+#: src/main/models.py:14 src/main/models.py:61 src/main/models.py:101
+#: src/main/models.py:144 src/main/models.py:187
 msgid "Image"
 msgstr "Фотография"
 
-#: src/main/models.py:16 src/main/models.py:101 src/main/models.py:144
-#: src/main/models.py:187 src/main/models.py:251
+#: src/main/models.py:16 src/main/models.py:103 src/main/models.py:146
+#: src/main/models.py:189 src/main/models.py:253
 msgid "Recomended size 512x512px"
 msgstr "Рекомендуемый розмер 512х512px"
 
-#: src/main/models.py:18 src/main/models.py:57 src/main/models.py:103
-#: src/main/models.py:146 src/main/models.py:189 src/main/models.py:243
+#: src/main/models.py:18 src/main/models.py:57 src/main/models.py:105
+#: src/main/models.py:148 src/main/models.py:191 src/main/models.py:245
 msgid "main text"
 msgstr "Основной текст"
 
-#: src/main/models.py:19 src/main/models.py:65 src/main/models.py:108
-#: src/main/models.py:162 src/main/models.py:255
+#: src/main/models.py:19 src/main/models.py:65 src/main/models.py:110
+#: src/main/models.py:164 src/main/models.py:257
 msgid "Founded"
 msgstr "Основан:"
 
@@ -66,8 +66,8 @@ msgstr "Количество ассоциаций"
 msgid "President"
 msgstr "Президент"
 
-#: src/main/models.py:24 src/main/models.py:69 src/main/models.py:112
-#: src/main/models.py:167 src/main/models.py:258
+#: src/main/models.py:24 src/main/models.py:69 src/main/models.py:114
+#: src/main/models.py:169 src/main/models.py:260
 #: src/main/templates/main/club_detail.html:34
 #: src/main/templates/main/cup_detail.html:34
 #: src/main/templates/main/detail/continent-detail.html:32
@@ -76,7 +76,7 @@ msgstr "Президент"
 msgid "Website"
 msgstr "Сайт:"
 
-#: src/main/models.py:55 src/main/models.py:165 src/main/models.py:236
+#: src/main/models.py:55 src/main/models.py:167 src/main/models.py:238
 msgid "continent"
 msgstr "Континент"
 
@@ -88,107 +88,107 @@ msgstr "Принадлежит к ФИФА с"
 msgid "Belonging to since"
 msgstr "Принадлежит к с"
 
-#: src/main/models.py:70 src/main/models.py:210
-msgid "World Cup"
-msgstr "Чемпионат мира"
-
-#: src/main/models.py:71 src/main/models.py:211 src/main/models.py:271
-msgid "Champions League"
-msgstr "Лига чемпионов"
-
-#: src/main/models.py:72 src/main/models.py:212 src/main/models.py:272
-msgid "Golden ball"
-msgstr "Золотой мяч"
-
-#: src/main/models.py:106 src/main/models.py:159 src/main/models.py:192
-msgid "country"
-msgstr "страна"
-
-#: src/main/models.py:109 src/main/templates/main/detail/league-detail.html:30
-msgid "Number of teams:"
-msgstr "Количество команд"
-
-#: src/main/models.py:110 src/main/templates/main/detail/league-detail.html:31
-msgid "Level on pyramid:"
-msgstr "Уровень в системе лиг"
-
-#: src/main/models.py:111
-msgid "Last winner"
-msgstr "Последний победитель"
-
-#: src/main/models.py:149 src/main/models.py:268
-msgid "player"
-msgstr "Игроки"
-
-#: src/main/models.py:150 src/main/models.py:155 src/main/models.py:160
-#: src/main/models.py:197 src/main/models.py:202 src/main/models.py:264
-#: src/main/models.py:269
-msgid "Use CTRL for select more than one"
-msgstr "Чтобы выбрать больше чем один используйте CTRL"
-
-#: src/main/models.py:154 src/main/models.py:196
-msgid "club"
-msgstr "клуб"
-
-#: src/main/models.py:201 src/main/models.py:263
-msgid "cup"
-msgstr "Трофеи"
-
-#: src/main/models.py:204
-msgid "nickname"
-msgstr "Прозвище:"
-
-#: src/main/models.py:206
-msgid "date of birth"
-msgstr "Родился:"
-
-#: src/main/models.py:208
-msgid "height"
-msgstr "Рост:"
-
-#: src/main/models.py:209
-msgid "positions"
-msgstr "Позиция(и):"
-
-#: src/main/models.py:240
-msgid "league"
-msgstr "Лига"
-
-#: src/main/models.py:246
-msgid "published at"
-msgstr "Опубликовано в"
-
-#: src/main/models.py:247
-msgid "published"
-msgstr "Публиковать"
-
-#: src/main/models.py:249
-msgid "Club emblem"
-msgstr "Эмблема клуба"
-
-#: src/main/models.py:253
-msgid "Nickname"
-msgstr "Прозвище:"
-
-#: src/main/models.py:254
-msgid "Short name"
-msgstr "Короткое имя:"
-
-#: src/main/models.py:256
-msgid "Stadium"
-msgstr "Стадион:"
-
-#: src/main/models.py:257
-msgid "Manager"
-msgstr "Тренер:"
-
-#: src/main/models.py:259
+#: src/main/models.py:70 src/main/models.py:261
 msgid "Place on rating"
 msgstr "Место в рейтинге"
 
-#: src/main/models.py:260
+#: src/main/models.py:71 src/main/models.py:262
 msgid "Points on rating"
 msgstr "Очков в рейтинге"
+
+#: src/main/models.py:72 src/main/models.py:212
+msgid "World Cup"
+msgstr "Чемпионат мира"
+
+#: src/main/models.py:73 src/main/models.py:213 src/main/models.py:273
+msgid "Champions League"
+msgstr "Лига чемпионов"
+
+#: src/main/models.py:74 src/main/models.py:214 src/main/models.py:274
+msgid "Golden ball"
+msgstr "Золотой мяч"
+
+#: src/main/models.py:108 src/main/models.py:161 src/main/models.py:194
+msgid "country"
+msgstr "страна"
+
+#: src/main/models.py:111 src/main/templates/main/detail/league-detail.html:30
+msgid "Number of teams:"
+msgstr "Количество команд"
+
+#: src/main/models.py:112 src/main/templates/main/detail/league-detail.html:31
+msgid "Level on pyramid:"
+msgstr "Уровень в системе лиг"
+
+#: src/main/models.py:113
+msgid "Last winner"
+msgstr "Последний победитель"
+
+#: src/main/models.py:151 src/main/models.py:270
+msgid "player"
+msgstr "Игроки"
+
+#: src/main/models.py:152 src/main/models.py:157 src/main/models.py:162
+#: src/main/models.py:199 src/main/models.py:204 src/main/models.py:266
+#: src/main/models.py:271
+msgid "Use CTRL for select more than one"
+msgstr "Чтобы выбрать больше чем один используйте CTRL"
+
+#: src/main/models.py:156 src/main/models.py:198
+msgid "club"
+msgstr "клуб"
+
+#: src/main/models.py:203 src/main/models.py:265
+msgid "cup"
+msgstr "Трофеи"
+
+#: src/main/models.py:206
+msgid "nickname"
+msgstr "Прозвище:"
+
+#: src/main/models.py:208
+msgid "date of birth"
+msgstr "Родился:"
+
+#: src/main/models.py:210
+msgid "height"
+msgstr "Рост:"
+
+#: src/main/models.py:211
+msgid "positions"
+msgstr "Позиция(и):"
+
+#: src/main/models.py:242
+msgid "league"
+msgstr "Лига"
+
+#: src/main/models.py:248
+msgid "published at"
+msgstr "Опубликовано в"
+
+#: src/main/models.py:249
+msgid "published"
+msgstr "Публиковать"
+
+#: src/main/models.py:251
+msgid "Club emblem"
+msgstr "Эмблема клуба"
+
+#: src/main/models.py:255
+msgid "Nickname"
+msgstr "Прозвище:"
+
+#: src/main/models.py:256
+msgid "Short name"
+msgstr "Короткое имя:"
+
+#: src/main/models.py:258
+msgid "Stadium"
+msgstr "Стадион:"
+
+#: src/main/models.py:259
+msgid "Manager"
+msgstr "Тренер:"
 
 #: src/main/templates/account/account_inactive.html:5
 #: src/main/templates/account/account_inactive.html:8

@@ -67,6 +67,8 @@ class Country(models.Model):
     uefa = models.DateField(_('Belonging to since'), default=timezone.now)
     president = models.CharField(_('President'), null=True, max_length=255)
     website = models.URLField(_('Website'), null=True, max_length=255)
+    place = models.IntegerField(_('Place on rating'), default=1)
+    points = models.FloatField(_('Points on rating'), default=1.000)
     wc = models.IntegerField(_('World Cup'), default=0)
     cl = models.IntegerField(_('Champions League'), default=0)
     gb = models.IntegerField(_('Golden ball'), default=0)

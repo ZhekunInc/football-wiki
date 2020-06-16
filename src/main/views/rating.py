@@ -34,6 +34,9 @@ class RatingClubListView(ListView):
         return context
 
 class RatingCountryListView(ListView):
-    template_name = 'main/rating/country-rating.html'
-    context_object_name = "country_rating"
-    model = Country
+
+    def get(self, request):
+        country = Country.objects.all().order_by("place")
+        return render(
+            request, "main/rating/country-rating.html", {'country_rating': country}
+        )

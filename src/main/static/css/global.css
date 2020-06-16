@@ -5,10 +5,6 @@ body{
     background-size: 100%;
 }
 
-main{
-  min-height: 770px;
-}
-
 .row a{
   text-decoration: none;
   background: white;
@@ -401,4 +397,13 @@ table.table-1 th{
 
 .images-table {
   width: 35px;
+}
+
+.link-rating {
+  text-decoration: none;
+  color: #000000;
+}
+
+.link-rating:hover {
+  color: #000000;
 }
