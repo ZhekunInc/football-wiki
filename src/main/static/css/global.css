@@ -369,11 +369,36 @@ main{
 }
 
 .endless_page_current {
-  margin: 0 5px 0 5px;
+  margin: 0 5px 0 0;
   background: #000000;
 }
 
 .endless_page_link:hover {
   color: #fff;
   background: #000000;
+}
+
+.table-wrap{
+	overflow-x:auto;
+}	
+table.table-1 {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+}
+table.table-1 tr {
+	background-color: #f8f8f8;
+}
+table.table-1 th, table.table-1 td {
+	text-align: left;
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+
+table.table-1 th{
+	font-weight: bold;
+}
+
+.images-table {
+  width: 35px;
 }

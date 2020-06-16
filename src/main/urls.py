@@ -25,6 +25,7 @@ from main.views.league_change import LeagueTitleUpdateView
 from main.views.league_change import LeagueMainUpdateView
 from main.views.league_change import LeagueInfoUpdateView
 from main.views.detail import ContinentAbout, CountryAbout, LeagueAbout
+from main.views.rating import RatingClubListView, RatingCountryListView
 
 
 urlpatterns = [
@@ -35,6 +36,32 @@ urlpatterns = [
             get_context_data=lambda: {'is_create_center': True}
         ),
         name='create_center'
+    ),
+    path(
+        'all-ratings/',
+        TemplateView.as_view(
+            template_name='main/all-rating.html',
+            get_context_data=lambda: {'is_all_rating': True}
+        ),
+        name='all_rating'
+    ),
+    path(
+        'club-rating/',
+        TemplateView.as_view(
+            template_name='main/rating/main-club.html',
+            get_context_data=lambda: {'is_club_rating': True}
+        ),
+        name='club_rating'
+    ),
+    path(
+        'country-rating/',
+        RatingCountryListView.as_view(),
+        name='country_rating'
+    ),
+    path(
+        'club-rating/rating-<continent>/',
+        RatingClubListView.as_view(),
+        name='uefa_page'
     ),
     path(
         'players/',

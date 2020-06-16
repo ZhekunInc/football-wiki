@@ -32,6 +32,10 @@ class Continent(models.Model):
         """Return category's URL"""
         return reverse('country_list', kwargs={'continent': self.slug})
 
+    def get_absolute_club_rating_url(self):
+        """Return category's URL"""
+        return reverse('uefa_page', kwargs={'continent': self.slug})
+
     def get_absolute_about_url(self):
         """Return category's URL"""
         return reverse('continent_about', kwargs={
@@ -227,6 +231,10 @@ class Club(models.Model):
     slug = models.SlugField(
         _('slug'), unique=True, max_length=255
     )
+    continent = models.ForeignKey(
+        'Continent', null=True, related_name='club',
+        verbose_name=_('continent'), on_delete=models.CASCADE,
+    )
     league = models.ForeignKey(
         'League', related_name='club',
         verbose_name=_('league'), on_delete=models.CASCADE,
@@ -248,6 +256,8 @@ class Club(models.Model):
     stadium = models.CharField(_('Stadium'), null=True, max_length=255)
     manager = models.CharField(_('Manager'), null=True, max_length=255)
     website = models.URLField(_('Website'), null=True, max_length=255)
+    place = models.IntegerField(_('Place on rating'), default=1)
+    points = models.FloatField(_('Points on rating'), default=1.000)
     cups = models.ManyToManyField(
         'Cup', related_name='club',
         verbose_name=_('cup'), blank=True,

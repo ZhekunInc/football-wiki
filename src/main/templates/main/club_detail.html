@@ -26,7 +26,7 @@
         {% else %}
             <img class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
         {% endif %}
-        <p>{% trans "Nickname(s):" %} {{club.nickname}}</p>
+        <p>{% trans "Nickname(s):" %} {{club}}</p>
         <p>{% trans "Short name:" %} {{club.short_name}}</p>
         <p>{% trans "Founded:" %} {% if club.founded|date:'d' == club.published_at|date:'d' and club.founded|date:'F' == club.published_at|date:'F' %} {{club.founded|date:'Y'}} {% else %} {{club.founded|date:'d F Y'}} {% endif %}</p>
         <p>{% trans "Stadium:" %} {{club.stadium}}</p>

@@ -2,7 +2,6 @@ from django.shortcuts import render
 from django.views.generic import DetailView, ListView
 from django.shortcuts import get_object_or_404
 from datetime import datetime
-from django.core.paginator import Paginator
 from main.models import Country, Continent, League, Club, Player, Cup
 from django.db.models import Q
 

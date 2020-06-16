@@ -1,0 +1,65 @@
+{% extends "main/base.html" %}
+{% load static i18n %}
+
+{% block title %}{% trans "Club rating" %}{% endblock %}
+
+{% block bread %}
+
+<ul class="breadcrumb list-bread">
+    <li><a href="{% url 'home_page' %}"> {% trans 'Home' %} </a></li>/
+    <li><a href="{% url 'all_rating' %}"> {% trans 'All ratings' %} </a></li>/
+    <li><a href="{% url 'club_rating' %}"> {% trans 'Continents' %} </a></li>/
+    <li><a href="{{ rating.get_absolute_club_rating_url }}"> {% trans 'Club rating ' %}{{ continent.title }} </a></li>/
+</ul>
+{% endblock %}
+
+{% block content %}
+    <!--<section class="sample">
+        <div class="container">
+            <div class="row">
+                {% if ratings %}
+                    {% for rating in ratings %}
+                    <a class="item" href="{{ rating.get_absolute_url }}">
+                        {% if rating.picture %}
+                            <img class="images" src="{{ rating.picture.url }}" alt="{{ rating.title }}"> 
+                        {% else %}
+                            <img class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
+                        {% endif %}
+                        <div class="title">{{rating.title}}</div>
+                    </a>
+                    {% endfor %}
+                {% else %}
+                    <div class="last row">{% trans "No ratings added to " %} {{ league.title }} {% trans ', please contact the administrator by e-mail: golovchak.evgen@gmail.com' %}</div>
+                {% endif %}
+            </div>
+        </div>
+    </section>-->
+    <div class="table-wrap">
+        <table class="table-1">
+            <tr>
+                <th>{% trans 'Place' %}</th>
+                <th>{% trans 'Club' %}</th>
+                <th>{% trans 'Country' %}</th>
+                <th>{% trans 'Points' %}</th>
+            </tr>
+
+            {% for rating in ratings %}
+            <tr>
+                <td>{{ rating.place }}</td>
+                <td>
+                    <a href="{{ rating.get_absolute_url }}">
+                        {% if rating.picture %}
+                            <img class="images-table" src="{{ rating.picture.url }}" alt="{{ rating.title }}"> 
+                        {% else %}
+                            <img class="images-table" src="{% static 'images/placeholder.png' %}" alt="holderplace">
+                        {% endif %}
+                        {{ rating.title }}
+                    </a>
+                </td>
+                <td>{{ rating.league.country }}</td>
+                <td>{{ rating.points }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}

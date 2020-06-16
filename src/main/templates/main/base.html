@@ -36,6 +36,9 @@
                 <a href="{% url 'cups_page' %}">
                     <li>{% trans 'Trophies and award' %}</li>
                 </a>
+                <a href="{% url 'all_rating' %}">
+                    <li>{% trans 'Ratings' %}</li>
+                </a>
                 <li>
                     <form action="{% url 'set_language' %}" method="post">
                         {% csrf_token %}

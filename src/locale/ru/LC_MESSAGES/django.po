@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-09 18:07+0300\n"
+"POT-Creation-Date: 2020-06-16 16:28+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,33 +20,33 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: src/main/models.py:9 src/main/models.py:45 src/main/models.py:90
-#: src/main/models.py:133 src/main/models.py:176 src/main/models.py:226
+#: src/main/models.py:9 src/main/models.py:49 src/main/models.py:94
+#: src/main/models.py:137 src/main/models.py:180 src/main/models.py:230
 msgid "title"
 msgstr "Название"
 
-#: src/main/models.py:11 src/main/models.py:47 src/main/models.py:92
-#: src/main/models.py:135 src/main/models.py:178 src/main/models.py:228
+#: src/main/models.py:11 src/main/models.py:51 src/main/models.py:96
+#: src/main/models.py:139 src/main/models.py:182 src/main/models.py:232
 msgid "slug"
 msgstr ""
 
-#: src/main/models.py:14 src/main/models.py:57 src/main/models.py:95
-#: src/main/models.py:138 src/main/models.py:181
+#: src/main/models.py:14 src/main/models.py:61 src/main/models.py:99
+#: src/main/models.py:142 src/main/models.py:185
 msgid "Image"
 msgstr "Фотография"
 
-#: src/main/models.py:16 src/main/models.py:97 src/main/models.py:140
-#: src/main/models.py:183 src/main/models.py:243
+#: src/main/models.py:16 src/main/models.py:101 src/main/models.py:144
+#: src/main/models.py:187 src/main/models.py:251
 msgid "Recomended size 512x512px"
 msgstr "Рекомендуемый розмер 512х512px"
 
-#: src/main/models.py:18 src/main/models.py:53 src/main/models.py:99
-#: src/main/models.py:142 src/main/models.py:185 src/main/models.py:235
+#: src/main/models.py:18 src/main/models.py:57 src/main/models.py:103
+#: src/main/models.py:146 src/main/models.py:189 src/main/models.py:243
 msgid "main text"
 msgstr "Основной текст"
 
-#: src/main/models.py:19 src/main/models.py:61 src/main/models.py:104
-#: src/main/models.py:158 src/main/models.py:247
+#: src/main/models.py:19 src/main/models.py:65 src/main/models.py:108
+#: src/main/models.py:162 src/main/models.py:255
 msgid "Founded"
 msgstr "Основан:"
 
@@ -62,12 +62,12 @@ msgstr "Регион:"
 msgid "Count of associations"
 msgstr "Количество ассоциаций"
 
-#: src/main/models.py:23 src/main/models.py:64
+#: src/main/models.py:23 src/main/models.py:68
 msgid "President"
 msgstr "Президент"
 
-#: src/main/models.py:24 src/main/models.py:65 src/main/models.py:108
-#: src/main/models.py:163 src/main/models.py:250
+#: src/main/models.py:24 src/main/models.py:69 src/main/models.py:112
+#: src/main/models.py:167 src/main/models.py:258
 #: src/main/templates/main/club_detail.html:34
 #: src/main/templates/main/cup_detail.html:34
 #: src/main/templates/main/detail/continent-detail.html:32
@@ -76,111 +76,119 @@ msgstr "Президент"
 msgid "Website"
 msgstr "Сайт:"
 
-#: src/main/models.py:51 src/main/models.py:161
+#: src/main/models.py:55 src/main/models.py:165 src/main/models.py:236
 msgid "continent"
 msgstr "Континент"
 
-#: src/main/models.py:62
+#: src/main/models.py:66
 msgid "Belonging to FIFA since"
 msgstr "Принадлежит к ФИФА с"
 
-#: src/main/models.py:63
+#: src/main/models.py:67
 msgid "Belonging to since"
 msgstr "Принадлежит к с"
 
-#: src/main/models.py:66 src/main/models.py:206
+#: src/main/models.py:70 src/main/models.py:210
 msgid "World Cup"
 msgstr "Чемпионат мира"
 
-#: src/main/models.py:67 src/main/models.py:207 src/main/models.py:261
+#: src/main/models.py:71 src/main/models.py:211 src/main/models.py:271
 msgid "Champions League"
 msgstr "Лига чемпионов"
 
-#: src/main/models.py:68 src/main/models.py:208 src/main/models.py:262
+#: src/main/models.py:72 src/main/models.py:212 src/main/models.py:272
 msgid "Golden ball"
 msgstr "Золотой мяч"
 
-#: src/main/models.py:102 src/main/models.py:155 src/main/models.py:188
+#: src/main/models.py:106 src/main/models.py:159 src/main/models.py:192
 msgid "country"
 msgstr "страна"
 
-#: src/main/models.py:105 src/main/templates/main/detail/league-detail.html:30
+#: src/main/models.py:109 src/main/templates/main/detail/league-detail.html:30
 msgid "Number of teams:"
 msgstr "Количество команд"
 
-#: src/main/models.py:106 src/main/templates/main/detail/league-detail.html:31
+#: src/main/models.py:110 src/main/templates/main/detail/league-detail.html:31
 msgid "Level on pyramid:"
 msgstr "Уровень в системе лиг"
 
-#: src/main/models.py:107
+#: src/main/models.py:111
 msgid "Last winner"
 msgstr "Последний победитель"
 
-#: src/main/models.py:145 src/main/models.py:258
+#: src/main/models.py:149 src/main/models.py:268
 msgid "player"
 msgstr "Игроки"
 
-#: src/main/models.py:146 src/main/models.py:151 src/main/models.py:156
-#: src/main/models.py:193 src/main/models.py:198 src/main/models.py:254
-#: src/main/models.py:259
+#: src/main/models.py:150 src/main/models.py:155 src/main/models.py:160
+#: src/main/models.py:197 src/main/models.py:202 src/main/models.py:264
+#: src/main/models.py:269
 msgid "Use CTRL for select more than one"
 msgstr "Чтобы выбрать больше чем один используйте CTRL"
 
-#: src/main/models.py:150 src/main/models.py:192
+#: src/main/models.py:154 src/main/models.py:196
 msgid "club"
 msgstr "клуб"
 
-#: src/main/models.py:197 src/main/models.py:253
+#: src/main/models.py:201 src/main/models.py:263
 msgid "cup"
 msgstr "Трофеи"
 
-#: src/main/models.py:200
+#: src/main/models.py:204
 msgid "nickname"
 msgstr "Прозвище:"
 
-#: src/main/models.py:202
+#: src/main/models.py:206
 msgid "date of birth"
 msgstr "Родился:"
 
-#: src/main/models.py:204
+#: src/main/models.py:208
 msgid "height"
 msgstr "Рост:"
 
-#: src/main/models.py:205
+#: src/main/models.py:209
 msgid "positions"
 msgstr "Позиция(и):"
 
-#: src/main/models.py:232
+#: src/main/models.py:240
 msgid "league"
 msgstr "Лига"
 
-#: src/main/models.py:238
+#: src/main/models.py:246
 msgid "published at"
 msgstr "Опубликовано в"
 
-#: src/main/models.py:239
+#: src/main/models.py:247
 msgid "published"
 msgstr "Публиковать"
 
-#: src/main/models.py:241
+#: src/main/models.py:249
 msgid "Club emblem"
 msgstr "Эмблема клуба"
 
-#: src/main/models.py:245
+#: src/main/models.py:253
 msgid "Nickname"
 msgstr "Прозвище:"
 
-#: src/main/models.py:246
+#: src/main/models.py:254
 msgid "Short name"
 msgstr "Короткое имя:"
 
-#: src/main/models.py:248
+#: src/main/models.py:256
 msgid "Stadium"
 msgstr "Стадион:"
 
-#: src/main/models.py:249
+#: src/main/models.py:257
 msgid "Manager"
 msgstr "Тренер:"
+
+#: src/main/models.py:259
+msgid "Place on rating"
+msgstr "Место в рейтинге"
+
+#: src/main/models.py:260
+msgid "Points on rating"
+msgstr "Очков в рейтинге"
 
 #: src/main/templates/account/account_inactive.html:5
 #: src/main/templates/account/account_inactive.html:8
@@ -473,7 +481,7 @@ msgstr ""
 
 #: src/main/templates/account/signup.html:10
 #: src/main/templates/account/signup.html:20
-#: src/main/templates/main/base.html:80
+#: src/main/templates/main/base.html:83
 msgid "Sign Up"
 msgstr ""
 
@@ -536,10 +544,15 @@ msgid ""
 "mail address</a>."
 msgstr ""
 
-#: src/main/templates/main/base.html:29
-msgid " Menu"
-msgstr "Меню"
+#: src/main/templates/main/all-rating.html:4
+#: src/main/templates/main/all-rating.html:10
+#: src/main/templates/main/rating/club-rating.html:10
+#: src/main/templates/main/rating/country-rating.html:10
+#: src/main/templates/main/rating/main-club.html:10
+msgid "All ratings"
+msgstr "Все рейтинги"
 
+#: src/main/templates/main/all-rating.html:9
 #: src/main/templates/main/base.html:31
 #: src/main/templates/main/change-club/club_create.html:8
 #: src/main/templates/main/change-club/club_info_update.html:7
@@ -581,8 +594,27 @@ msgstr "Меню"
 #: src/main/templates/main/homepage.html:4
 #: src/main/templates/main/league_list.html:6
 #: src/main/templates/main/player_detail.html:6
+#: src/main/templates/main/rating/club-rating.html:9
+#: src/main/templates/main/rating/country-rating.html:9
+#: src/main/templates/main/rating/main-club.html:9
 msgid "Home"
 msgstr "Главная"
+
+#: src/main/templates/main/all-rating.html:20
+msgid "Countries rating"
+msgstr "Рейтинг стран"
+
+#: src/main/templates/main/all-rating.html:24
+msgid "Leagues rating"
+msgstr "Рейтинг лиг"
+
+#: src/main/templates/main/all-rating.html:28
+msgid "Clubs rating"
+msgstr "Клубный рейтинг"
+
+#: src/main/templates/main/base.html:29
+msgid " Menu"
+msgstr "Меню"
 
 #: src/main/templates/main/base.html:34
 #: src/main/templates/main/player-list.html:4
@@ -599,24 +631,28 @@ msgstr "Игроки"
 msgid "Trophies and award"
 msgstr "Трофеи и награды"
 
-#: src/main/templates/main/base.html:59
+#: src/main/templates/main/base.html:40
+msgid "Ratings"
+msgstr ""
+
+#: src/main/templates/main/base.html:62
 #: src/main/templates/main/search_results.html:3
 msgid "Search"
 msgstr "Поиск"
 
-#: src/main/templates/main/base.html:65
+#: src/main/templates/main/base.html:68
 msgid "Welcome back, "
 msgstr "С возвращением, "
 
-#: src/main/templates/main/base.html:67 src/main/templates/main/base.html:74
+#: src/main/templates/main/base.html:70 src/main/templates/main/base.html:77
 msgid "Add"
 msgstr ""
 
-#: src/main/templates/main/base.html:70
+#: src/main/templates/main/base.html:73
 msgid "Logout"
 msgstr "Выйти"
 
-#: src/main/templates/main/base.html:77
+#: src/main/templates/main/base.html:80
 msgid "Login"
 msgstr "Ввойти"
 
@@ -970,15 +1006,13 @@ msgid "No clubs added to "
 msgstr "Ни одного клуба не добавлено к "
 
 #: src/main/templates/main/club_list.html:34
-#: src/main/templates/main/country_list.html:33
+#: src/main/templates/main/entry-pages/country_list_entry.html:19
 #: src/main/templates/main/league_list.html:32
+#: src/main/templates/main/rating/club-rating.html:32
+#: src/main/templates/main/rating/country-rating.html:31
 msgid ", please contact the administrator by e-mail: golovchak.evgen@gmail.com"
 msgstr ""
 ", пожалуйста свяжитесь с администратором по почте: golovchak.evgen@gmail.com"
-
-#: src/main/templates/main/country_list.html:33
-msgid "No countries added to "
-msgstr "Ни одной страны не добавлено к "
 
 #: src/main/templates/main/create_center.html:13
 msgid "welcome to create center"
@@ -1041,6 +1075,18 @@ msgstr " с "
 msgid "Current champions:"
 msgstr "Действующий победитель"
 
+#: src/main/templates/main/el_pagination/show_more.html:5
+msgid "more"
+msgstr ""
+
+#: src/main/templates/main/el_pagination/show_more.html:17
+msgid "watch more"
+msgstr "посмортеть больше"
+
+#: src/main/templates/main/entry-pages/country_list_entry.html:19
+msgid "No countries added to "
+msgstr "Ни одной страны не добавлено к "
+
 #: src/main/templates/main/homepage.html:7
 msgid "New add clubs"
 msgstr "Новые добавлиные клубы"
@@ -1079,6 +1125,56 @@ msgstr "Клубы"
 msgid "FUT"
 msgstr "ФУТ"
 
+#: src/main/templates/main/rating/club-rating.html:4
+msgid "Club rating"
+msgstr "Клубный рейтинг"
+
+#: src/main/templates/main/rating/club-rating.html:11
+#: src/main/templates/main/rating/main-club.html:11
+msgid "Continents"
+msgstr "Континент"
+
+#: src/main/templates/main/rating/club-rating.html:12
+msgid "Club rating "
+msgstr "Клубный рейтинг "
+
+#: src/main/templates/main/rating/club-rating.html:32
+#: src/main/templates/main/rating/country-rating.html:31
+msgid "No ratings added to "
+msgstr "Ни одной лиги не добавлено к "
+
+#: src/main/templates/main/rating/club-rating.html:40
+#: src/main/templates/main/rating/country-rating.html:39
+msgid "Place"
+msgstr "Место"
+
+#: src/main/templates/main/rating/club-rating.html:41
+msgid "Club"
+msgstr "Клубы"
+
+#: src/main/templates/main/rating/club-rating.html:42
+#: src/main/templates/main/rating/country-rating.html:40
+msgid "Country"
+msgstr "Страна"
+
+#: src/main/templates/main/rating/club-rating.html:43
+#: src/main/templates/main/rating/country-rating.html:42
+msgid "Points"
+msgstr "Очки"
+
+#: src/main/templates/main/rating/country-rating.html:4
+#: src/main/templates/main/rating/country-rating.html:11
+msgid "Country rating"
+msgstr "Рейтинг стран"
+
+#: src/main/templates/main/rating/country-rating.html:41
+msgid "Continent"
+msgstr "Континент"
+
+#: src/main/templates/main/rating/main-club.html:4
+msgid "Rating list"
+msgstr "Рейтинговый список"
+
 #: src/main/templates/main/search_results.html:7
 msgid "Search results for a query: "
 msgstr "Результати по поиску: "
@@ -1099,15 +1195,15 @@ msgstr "Страны"
 msgid "Leagues"
 msgstr "Лиги"
 
-#: src/src/settings.py:154
+#: src/src/settings.py:155
 msgid "Ukraine"
 msgstr ""
 
-#: src/src/settings.py:155
+#: src/src/settings.py:156
 msgid "English"
 msgstr ""
 
-#: src/src/settings.py:156
+#: src/src/settings.py:157
 msgid "Russian"
 msgstr ""
 
@@ -1148,9 +1244,6 @@ msgstr ""
 
 #~ msgid "Resitration for watch more "
 #~ msgstr "Зарегистрироватся, чтобы посмортеть больше"
-
-#~ msgid " Login for watch more"
-#~ msgstr "Войти, чтобы посмортеть больше"
 
 #~ msgid "Select"
 #~ msgstr "Выбрать"
