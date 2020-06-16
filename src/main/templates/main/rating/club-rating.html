@@ -57,7 +57,16 @@
                             {{ rating.title }}
                         </a>
                     </td>
-                    <td>{{ rating.league.country }}</td>
+                    <td>
+                        <a class="link-rating" href="{{ rating.league.country.get_absolute_about_url }}">
+                            {% if rating.league.country.picture %}
+                                <img class="images-table" src="{{ rating.league.country.picture.url }}" alt="{{ rating.league.country }}"> 
+                            {% else %}
+                                <img class="images-table" src="{% static 'images/placeholder.png' %}" alt="holderplace">
+                            {% endif %}
+                            {{ rating.league.country }}
+                        </a>
+                    </td>
                     <td>{{ rating.points }}</td>
                 </tr>
                 {% endif %}
