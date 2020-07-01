@@ -14,7 +14,6 @@ body{
 
 .row a:hover{
   text-decoration: none;
-  background: white;
   color: black;
   opacity: 1;
   transition: 0.5s;
@@ -134,6 +133,7 @@ body{
 }
 
 .info{
+  text-align: center;
   margin-right: 10px;
   float: left;
   width: 320px;

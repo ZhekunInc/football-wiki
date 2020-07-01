@@ -1,3 +1,5 @@
+import os
+
 from django.db import models
 
 from django.urls import reverse
@@ -252,6 +254,8 @@ class Club(models.Model):
         upload_to='images/club',
         help_text=_("Recomended size 512x512px")
     )
+    color1 = models.CharField(max_length=20, null=False, blank=True)
+    color2 = models.CharField(max_length=20, null=False, blank=True)
     nickname = models.CharField(_('Nickname'), null=True, max_length=255)
     short_name = models.CharField(_('Short name'), null=True, max_length=255)
     founded = models.DateTimeField(_('Founded'), default=timezone.now)
@@ -301,7 +305,7 @@ class Kits(models.Model):
     )
 
     def get_extension(self):
-        file_extension=os.path.splitext(self.kits.path)
+        file_extension = os.path.splitext(self.kits.path)
         return file_extension[1]
 
     def get_filename(self):
@@ -319,7 +323,7 @@ class Fifa(models.Model):
     )
 
     def get_extension(self):
-        file_extension=os.path.splitext(self.fifa.path)
+        file_extension = os.path.splitext(self.fifa.path)
         return file_extension[1]
 
     def get_filename(self):

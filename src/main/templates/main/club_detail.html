@@ -22,9 +22,13 @@
     </div>
     <div class="info">
         {% if club.picture %}
-            <img class="img-club" src="{{ club.picture.url }}" alt="{{club.title}}">
+            <div style="background: linear-gradient(to bottom, {{ club.color1 }}, {{ club.color2 }} 65%);">
+                <img class="img-club" src="{{ club.picture.url }}" alt="{{club.title}}">
+            </div>
         {% else %}
-            <img class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
+            <div style="background: linear-gradient(to bottom, {{ club.color1 }}, {{ club.color2 }} 65%);">
+                <img class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
+            </div>
         {% endif %}
         <p>{% trans "Nickname(s):" %} {{club}}</p>
         <p>{% trans "Short name:" %} {{club.short_name}}</p>

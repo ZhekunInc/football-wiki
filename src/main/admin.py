@@ -38,8 +38,8 @@ class LeagueAdmin(TranslationAdmin):
     prepopulated_fields = {'slug': ('title_en',)}
 
 class KitsInlinePost(admin.TabularInline):
-    model=Kits
-    extra=0
+    model = Kits
+    extra = 0
 
 @admin.register(Kits)
 class KitsAdmin(TranslationAdmin):
@@ -48,8 +48,8 @@ class KitsAdmin(TranslationAdmin):
     )
 
 class FifaInlinePost(admin.TabularInline):
-    model=Fifa
-    extra=0
+    model = Fifa
+    extra = 0
 
 @admin.register(Club)
 class ClubAdmin(TranslationAdmin):
@@ -60,7 +60,7 @@ class ClubAdmin(TranslationAdmin):
     search_fields = ('title',)
     ordering = ('title',)
     filter_horizontal = ('cups', 'famous_players',)
-    inlines=[KitsInlinePost]
+    inlines = [KitsInlinePost]
     prepopulated_fields = {'slug': ('title_en',)}
 
 @admin.register(Cup)
@@ -83,5 +83,5 @@ class PlayerAdmin(TranslationAdmin):
     search_fields = ['title',]
     ordering = ('title',)
     filter_horizontal = ('clubs', 'cups')
-    inlines=[FifaInlinePost]
+    inlines = [FifaInlinePost]
     prepopulated_fields = {'slug': ('title_en',)}
