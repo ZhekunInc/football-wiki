@@ -21,7 +21,7 @@
             <div class="row">
                 {% if clubs %}
                     {% for club in clubs %}
-                    <a class="item" href="{{ club.get_absolute_url }}" style="background: linear-gradient(to bottom, {{ club.color1 }}, {{ club.color2 }} 65%);">
+                    <a class="item" href="{{ club.get_absolute_url }}">
                         {% if club.picture %}
                             <img class="images" src="{{ club.picture.url }}" alt="{{ club.title }}"> 
                         {% else %}

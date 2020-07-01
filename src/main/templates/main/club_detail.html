@@ -22,11 +22,11 @@
     </div>
     <div class="info">
         {% if club.picture %}
-            <div style="background: linear-gradient(to bottom, {{ club.color1 }}, {{ club.color2 }} 65%);">
+    <div class="border-logo" style="background: linear-gradient(to bottom, {{ club.color1 }} 50%, {{ club.color2 }} 50%);">
                 <img class="img-club" src="{{ club.picture.url }}" alt="{{club.title}}">
             </div>
         {% else %}
-            <div style="background: linear-gradient(to bottom, {{ club.color1 }}, {{ club.color2 }} 65%);">
+            <div style="background: linear-gradient(to bottom, {{ club.color1 }}, {{ club.color2 }} 50%);">
                 <img class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
             </div>
         {% endif %}

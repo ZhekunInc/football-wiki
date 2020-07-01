@@ -140,6 +140,10 @@ body{
   min-height: 250px;
 }
 
+.border-logo {
+  border-bottom: 1px solid black; 
+}
+
 .info p {
   text-align: center;
 }
