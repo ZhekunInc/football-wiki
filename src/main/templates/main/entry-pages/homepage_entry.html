@@ -3,12 +3,12 @@
 <section class="sample">
     <div class="container">
         <div class="row">
-            {% paginate 24 clubs %}
+            {% paginate 12 clubs %}
             {% if clubs %}
                 {% for club in clubs %}
                 <a class="item" href="{{ club.get_absolute_url }}">
                     {% if club.picture %}
-                        <img loading="lazy" class="images" src="{{ club.picture.url }}" alt="{{ club.title }}"> 
+                        <img loading="lazy" class="images" src="{{ club.picture.url }}" alt="{{ club.title }}">
                     {% else %}
                         <img loading="lazy" class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
                     {% endif %}
