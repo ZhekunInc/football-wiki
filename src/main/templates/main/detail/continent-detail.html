@@ -20,9 +20,9 @@
     </div>
     <div class="info">
         {% if continent.image %}
-            <img class="img-club" src="{{ continent.image.url }}" alt="{{continent.title}}">
+            <img loading="lazy" class="img-club" src="{{ continent.image.url }}" alt="{{continent.title}}">
         {% else %}
-            <img class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
+            <img loading="lazy" class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
         {% endif %}
         <p>{% trans "Founded:" %} {% if continent.founded|date:'d' == continent.published_at|date:'d' and continent.founded|date:'F' == continent.published_at|date:'F' %} {{continent.founded|date:'Y'}} {% else %} {{continent.founded|date:'d F Y'}} {% endif %}</p>
         <p>{% trans "Located:" %} {{continent.located}}</p>

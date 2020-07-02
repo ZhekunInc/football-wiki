@@ -13,26 +13,6 @@
 {% endblock %}
 
 {% block content %}
-    <!--<section class="sample">
-        <div class="container">
-            <div class="row">
-                {% if ratings %}
-                    {% for rating in ratings %}
-                    <a class="item" href="{{ rating.get_absolute_url }}">
-                        {% if rating.picture %}
-                            <img class="images" src="{{ rating.picture.url }}" alt="{{ rating.title }}"> 
-                        {% else %}
-                            <img class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
-                        {% endif %}
-                        <div class="title">{{rating.title}}</div>
-                    </a>
-                    {% endfor %}
-                {% else %}
-                    <div class="last row">{% trans "No ratings added to " %} {{ league.title }} {% trans ', please contact the administrator by e-mail: golovchak.evgen@gmail.com' %}</div>
-                {% endif %}
-            </div>
-        </div>
-    </section>-->
     <div class="table-wrap">
         <table class="table-1">
             <tr>
@@ -49,9 +29,9 @@
                     <td>
                         <a class="link-rating" href="{{ country.get_absolute_about_url }}">
                             {% if country.picture %}
-                                <img class="images-table" src="{{ country.picture.url }}" alt="{{ country.title }}"> 
+                                <img loading="lazy" class="images-table" src="{{ country.picture.url }}" alt="{{ country.title }}"> 
                             {% else %}
-                                <img class="images-table" src="{% static 'images/placeholder.png' %}" alt="holderplace">
+                                <img loading="lazy" class="images-table" src="{% static 'images/placeholder.png' %}" alt="holderplace">
                             {% endif %}
                             {{ country.title }}
                         </a>
@@ -59,9 +39,9 @@
                     <td>    
                         <a class="link-rating" href="{{ country.continent.get_absolute_about_url }}">
                             {% if country.continent.image %}
-                                <img class="images-table" src="{{ country.continent.image.url }}" alt="{{ country.continent.title }}"> 
+                                <img loading="lazy" class="images-table" src="{{ country.continent.image.url }}" alt="{{ country.continent.title }}"> 
                             {% else %}
-                                <img class="images-table" src="{% static 'images/placeholder.png' %}" alt="holderplace">
+                                <img loading="lazy" class="images-table" src="{% static 'images/placeholder.png' %}" alt="holderplace">
                             {% endif %}
                             {{ country.continent }}
                         </a>

@@ -25,9 +25,9 @@
     </div>
     <div class="info">
         {% if cup.image %}
-            <img class="img-club" src="{{ cup.image.url }}" alt="{{cup.title}}">
+            <img loading="lazy" class="img-club" src="{{ cup.image.url }}" alt="{{cup.title}}">
         {% else %}
-            <img class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
+            <img loading="lazy" class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
         {% endif %}
         <p>{% trans "Founded:" %} {{cup.founded|date:'Y'}}</p>
         <p>{% trans "Region:" %} {{cup.region}}</p>
@@ -54,9 +54,9 @@
                     {% for player in cup.player.all %}
                     <a href="{{ player.get_absolute_url }}" class="item">
                         {% if player.image %}
-                            <img class="images" src="{{ player.image.url }}" alt="{{ player.title }}">
+                            <img loading="lazy" class="images" src="{{ player.image.url }}" alt="{{ player.title }}">
                         {% else %}
-                            <img class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
+                            <img loading="lazy" class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
                         {% endif %}
                         <div class="title">{{ player.title }} {% if cup.slug == 'ballon-dor' %} x{{player.gb}} {% elif cup.slug == 'world-cup' %} x{{player.wc}} {% elif cup.slug == 'uefa-champions-league' %} x{{player.cl}}  {% endif %}</div>
                     </a>
@@ -80,9 +80,9 @@
                     {% for club in cup.clubs.all %}
                     <a href="{{ club.get_absolute_url }}" class="item">
                         {% if club.picture %}
-                            <img class="images" src="{{ club.picture.url }}" alt="{{ club.title }}">
+                            <img loading="lazy" class="images" src="{{ club.picture.url }}" alt="{{ club.title }}">
                         {% else %}
-                            <img class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
+                            <img loading="lazy" class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
                         {% endif %}
                         <div class="title">{{ club.title }} {% if cup.slug == 'ballon-dor' %} x{{club.gb}} {% elif cup.slug == 'world-cup' %} x{{club.wc}} {% elif cup.slug == 'uefa-champions-league' %} x{{club.cl}} {% endif %}</div>
                     </a>
@@ -117,9 +117,9 @@
                     {% for country in cup.countrys.all %}
                     <a href="{{ country.get_absolute_url }}" class="item">
                         {% if country.picture %}
-                            <img class="images" src="{{ country.picture.url }}" alt="{{ country.title }}">
+                            <img loading="lazy" class="images" src="{{ country.picture.url }}" alt="{{ country.title }}">
                         {% else %}
-                            <img class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
+                            <img loading="lazy" class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
                         {% endif %}
                         <div class="title">{{ country.title }} {% if cup.slug == 'ballon-dor' %} x{{country.gb}} {% elif cup.slug == 'world-cup' %} x{{country.wc}} {% elif cup.slug == 'uefa-champions-league' %} x{{country.cl}} {% endif %}</div>
                     </a>

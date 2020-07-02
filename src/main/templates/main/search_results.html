@@ -21,9 +21,9 @@
                     {% for country in search_country %}
                     <a class="item" href="{{ country.get_absolute_url }}">
                         {% if country.picture %}
-                            <img class="images" src="{{ country.picture.url }}" alt="{{ country.title }}"> 
+                            <img loading="lazy" class="images" src="{{ country.picture.url }}" alt="{{ country.title }}"> 
                         {% else %}
-                            <img class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
+                            <img loading="lazy" class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
                         {% endif %}
                         <div class="title">{{ country.title }}</div>
                     </a>
@@ -40,9 +40,9 @@
                     {% for league in search_league %}
                     <a class="item" href="{{ league.get_absolute_url }}">
                         {% if league.picture %}
-                            <img class="images" src="{{ league.picture.url }}" alt="{{ league.title }}"> 
+                            <img loading="lazy" class="images" src="{{ league.picture.url }}" alt="{{ league.title }}"> 
                         {% else %}
-                            <img class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
+                            <img loading="lazy" class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
                         {% endif %}
                         <div class="title">{{ league.title }}</div>
                     </a>
@@ -59,9 +59,9 @@
                     {% for club in search_club %}
                     <a class="item" href="{{ club.get_absolute_url }}">
                         {% if club.picture %}
-                            <img class="images" src="{{ club.picture.url }}" alt="{{ club.title }}"> 
+                            <img loading="lazy" class="images" src="{{ club.picture.url }}" alt="{{ club.title }}"> 
                         {% else %}
-                            <img class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
+                            <img loading="lazy" class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
                         {% endif %}
                         <div class="title">{{ club.title }}</div>
                     </a>
@@ -78,9 +78,9 @@
                     {% for player in search_player %}
                     <a class="item" href="{{ player.get_absolute_url }}">
                         {% if player.image %}
-                            <img class="images" src="{{ player.image.url }}" alt="{{ player.title }}"> 
+                            <img loading="lazy" class="images" src="{{ player.image.url }}" alt="{{ player.title }}"> 
                         {% else %}
-                            <img class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
+                            <img loading="lazy" class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
                         {% endif %}
                         <div class="title">{{ player.title }}</div>
                     </a>
@@ -97,9 +97,9 @@
                     {% for cup in search_cup %}
                     <a class="item" href="{{ cup.get_absolute_url }}">
                         {% if cup.image %}
-                            <img class="images" src="{{ cup.image.url }}" alt="{{ cup.title }}"> 
+                            <img loading="lazy" class="images" src="{{ cup.image.url }}" alt="{{ cup.title }}"> 
                         {% else %}
-                            <img class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
+                            <img loading="lazy" class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
                         {% endif %}
                         <div class="title">{{ cup.title }}</div>
                     </a>

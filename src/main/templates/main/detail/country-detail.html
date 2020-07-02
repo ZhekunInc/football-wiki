@@ -21,9 +21,9 @@
     </div>
     <div class="info">
         {% if country.picture %}
-            <img class="img-club" src="{{ country.picture.url }}" alt="{{country.title}}">
+            <img loading="lazy" class="img-club" src="{{ country.picture.url }}" alt="{{country.title}}">
         {% else %}
-            <img class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
+            <img loading="lazy" class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
         {% endif %}
         <p>{% trans "Founded:" %} {% if country.founded|date:'d' == country.published_at|date:'d' and country.founded|date:'F' == country.published_at|date:'F' %} {{country.founded|date:'Y'}} {% else %} {{country.founded|date:'d F Y'}} {% endif %}</p>
         <p>{% trans "Belonging to FIFA since " %} {{country.fifa|date:'Y'}}</p>

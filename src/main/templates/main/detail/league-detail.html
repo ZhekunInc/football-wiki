@@ -22,9 +22,9 @@
     </div>
     <div class="info">
         {% if league.picture %}
-            <img class="img-club" src="{{ league.picture.url }}" alt="{{league.title}}">
+            <img loading="lazy" class="img-club" src="{{ league.picture.url }}" alt="{{league.title}}">
         {% else %}
-            <img class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
+            <img loading="lazy" class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
         {% endif %}
         <p>{% trans "Founded:" %} {% if league.founded|date:'d' == league.published_at|date:'d' and league.founded|date:'F' == league.published_at|date:'F' %} {{league.founded|date:'Y'}} {% else %} {{league.founded|date:'d F Y'}} {% endif %}</p>
         <p>{% trans "Number of teams:" %} {{league.count_team}}</p>

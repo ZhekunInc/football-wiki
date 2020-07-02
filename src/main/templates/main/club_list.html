@@ -23,9 +23,9 @@
                     {% for club in clubs %}
                     <a class="item" href="{{ club.get_absolute_url }}">
                         {% if club.picture %}
-                            <img class="images" src="{{ club.picture.url }}" alt="{{ club.title }}"> 
+                            <img loading="lazy" class="images" src="{{ club.picture.url }}" alt="{{ club.title }}"> 
                         {% else %}
-                            <img class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
+                            <img loading="lazy" class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
                         {% endif %}
                         <div class="title">{{club.title}}</div>
                     </a>

@@ -19,9 +19,9 @@
                         {% for player in country.player.all %}
                         <a href="{{ player.get_absolute_url }}" class="item">
                             {% if player.image %}
-                                <img class="images" src="{{ player.image.url }}" alt="{{ player.title }}">
+                                <img loading="lazy" class="images" src="{{ player.image.url }}" alt="{{ player.title }}">
                             {% else %}
-                                <img class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
+                                <img loading="lazy" class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
                             {% endif %}
                             <div class="title">{{ player.title }}</div>
                         </a>
@@ -35,12 +35,12 @@
                     <div class="row">
                         {% if user.is_authenticated %}
                         <a class="item" href="{% url 'player_create' %}">
-                            <img class="images" src="{% static 'images/create-player.png' %}" alt="holderplace">
+                            <img loading="lazy" class="images" src="{% static 'images/create-player.png' %}" alt="holderplace">
                             <div class="title">{% trans 'Create new player' %}</div>
                         </a>
                         {% else %}
                         <a class="item" href="{% url 'account_login' %}">
-                            <img class="images" src="{% static 'images/create-player.png' %}" alt="holderplace">
+                            <img loading="lazy" class="images" src="{% static 'images/create-player.png' %}" alt="holderplace">
                             <div class="title">{% trans 'Create new player' %}</div>
                         </a>
                         {% endif %}

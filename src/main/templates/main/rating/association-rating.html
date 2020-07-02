@@ -33,9 +33,9 @@
                     <td>
                         <a class="link-rating" href="{{ rating.get_absolute_url }}">
                             {% if rating.picture %}
-                                <img class="images-table" src="{{ rating.picture.url }}" alt="{{ rating.title }}"> 
+                                <img loading="lazy" class="images-table" src="{{ rating.picture.url }}" alt="{{ rating.title }}"> 
                             {% else %}
-                                <img class="images-table" src="{% static 'images/placeholder.png' %}" alt="holderplace">
+                                <img loading="lazy" class="images-table" src="{% static 'images/placeholder.png' %}" alt="holderplace">
                             {% endif %}
                             {{ rating.title }}
                         </a>
