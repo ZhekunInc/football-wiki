@@ -31,9 +31,3 @@ $('#js-up').click(function() {
         $(this).siblings('.up-icon').slideToggle(1);
     });
 });
-
-if ('loading' in HTMLImageElement.prototype) { 
-    alert("YES")
-} else {
-   alert("none")
-}
