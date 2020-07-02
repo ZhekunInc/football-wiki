@@ -43,7 +43,7 @@
             </tr>
 
             {% for country in country_rating %}
-                {% if country.place != 1 and country.points != 1 %}
+                {% if country.points != 1 %}
                 <tr>
                     <td>{{ country.place }}</td>
                     <td>

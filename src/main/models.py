@@ -76,7 +76,7 @@ class Country(models.Model):
     place = models.IntegerField(_('Place on rating'), default=1)
     points = models.IntegerField(_('Points on rating'), default=1)
     place_ass = models.IntegerField(_('Place on association rating'), default=1)
-    points_ass = models.IntegerField(_('Points on association rating'), default=0)
+    points_ass = models.IntegerField(_('Points on association rating'), default=1)
     cl_teams = models.IntegerField(_('The number of represented in the Champions League'), default=0)
     el_teams = models.IntegerField(_('The number of represented in the Europe League'), default=1)
     wc = models.IntegerField(_('World Cup'), default=0)

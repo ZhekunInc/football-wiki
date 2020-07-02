@@ -24,7 +24,7 @@
             </tr>
 
             {% for rating in ratings %}
-                {% if rating.place != 1 and rating.points != 1 %}
+                {% if rating.points != 1 %}
                 <tr>
                     <td>{{ rating.place }}</td>
                     <td>
