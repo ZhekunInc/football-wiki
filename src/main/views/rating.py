@@ -46,7 +46,7 @@ class RatingAssociationListView(ListView):
         return self.continent.country.filter(
             is_published=True,
             published_at__lte=datetime.now()
-        ).order_by("place")
+        ).order_by("place_ass")
 
     def get_context_data(self, **kwargs):
         """
