@@ -36,7 +36,11 @@ class Continent(models.Model):
 
     def get_absolute_club_rating_url(self):
         """Return category's URL"""
-        return reverse('uefa_page', kwargs={'continent': self.slug})
+        return reverse('club-rating_page', kwargs={'continent': self.slug})
+
+    def get_absolute_association_rating_url(self):
+        """Return category's URL"""
+        return reverse('association-rating_page', kwargs={'continent': self.slug})
 
     def get_absolute_about_url(self):
         """Return category's URL"""
@@ -71,6 +75,10 @@ class Country(models.Model):
     website = models.URLField(_('Website'), null=True, max_length=255)
     place = models.IntegerField(_('Place on rating'), default=1)
     points = models.IntegerField(_('Points on rating'), default=1)
+    place_ass = models.IntegerField(_('Place on association rating'), default=1)
+    points_ass = models.IntegerField(_('Points on association rating'), default=0)
+    cl_teams = models.IntegerField(_('The number of represented in the Champions League'), default=0)
+    el_teams = models.IntegerField(_('The number of represented in the Europe League'), default=1)
     wc = models.IntegerField(_('World Cup'), default=0)
     cl = models.IntegerField(_('Champions League'), default=0)
     gb = models.IntegerField(_('Golden ball'), default=0)
@@ -254,8 +262,12 @@ class Club(models.Model):
         upload_to='images/club',
         help_text=_("Recomended size 512x512px")
     )
-    color1 = models.CharField(max_length=20, null=False, blank=True)
-    color2 = models.CharField(max_length=20, null=False, blank=True)
+    color1 = models.CharField(
+        _('Color 1'), max_length=20, null=False, blank=True
+    )
+    color2 = models.CharField(
+        _('Color 2'), max_length=20, null=False, blank=True
+    )
     nickname = models.CharField(_('Nickname'), null=True, max_length=255)
     short_name = models.CharField(_('Short name'), null=True, max_length=255)
     founded = models.DateTimeField(_('Founded'), default=timezone.now)

@@ -102,7 +102,6 @@ class CountryDetail(ListView):
         return context
 
 class LeagueDetail(ListView):
-
     template_name = 'main/club_list.html'
     context_object_name = "clubs"
 

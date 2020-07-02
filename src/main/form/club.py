@@ -15,6 +15,8 @@ class ClubCreateModelForm(forms.ModelForm):
             'main_text_en',
             'main_text_ru',
             'picture',
+            'color1',
+            'color2',
             'nickname_uk',
             'nickname_en',
             'nickname_ru',
@@ -51,6 +53,8 @@ class ClubInfoUpdateModelForm(forms.ModelForm):
         fields = [
             'league',
             'picture',
+            'color1',
+            'color2',
             'nickname_uk',
             'nickname_en',
             'nickname_ru',

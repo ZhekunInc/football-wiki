@@ -19,10 +19,10 @@
                 <img class="images" src="{% static 'images/fifa-rating.png' %}" alt="holderplace">
                 <div class="title">{% trans 'Countries rating' %}</div>
             </a>
-            <!--<a class="item" href="">
+            <a class="item" href="{% url 'association_rating' %}">
                 <img class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
-                <div class="title">{% trans 'Leagues rating' %}</div>
-            </a>-->
+                <div class="title">{% trans 'Associations rating' %}</div>
+            </a>
             <a class="item" href="{% url 'club_rating' %}">
                 <img class="images" src="{% static 'images/club-rating.png' %}" alt="holderplace">
                 <div class="title">{% trans 'Clubs rating' %}</div>

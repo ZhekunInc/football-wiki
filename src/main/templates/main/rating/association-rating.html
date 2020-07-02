@@ -1,15 +1,15 @@
 {% extends "main/base.html" %}
 {% load static i18n %}
 
-{% block title %}{% trans "Club rating" %}{% endblock %}
+{% block title %}{% trans "Association rating" %}{% endblock %}
 
 {% block bread %}
 
 <ul class="breadcrumb list-bread">
     <li><a href="{% url 'home_page' %}"> {% trans 'Home' %} </a></li>/
     <li><a href="{% url 'all_rating' %}"> {% trans 'All ratings' %} </a></li>/
-    <li><a href="{% url 'club_rating' %}"> {% trans 'Continents' %} </a></li>/
-    <li><a href="{{ rating.get_absolute_club_rating_url }}"> {% trans 'Club rating ' %}{{ continent.title }} </a></li>/
+    <li><a href="{% url 'association_rating' %}"> {% trans 'Continents' %} </a></li>/
+    <li><a href="{{ rating.get_absolute_association_rating_url }}"> {% trans 'Association rating ' %}{{ continent.title }} </a></li>/
 </ul>
 {% endblock %}
 
@@ -18,15 +18,18 @@
         <table class="table-1">
             <tr>
                 <th>{% trans 'Place' %}</th>
-                <th>{% trans 'Club' %}</th>
-                <th>{% trans 'Country' %}</th>
+                <th>{% trans 'Association' %}</th>
                 <th>{% trans 'Points' %}</th>
+                {% if continent.slug == 'uefa' %}
+                    <th>{% trans 'CL' %}</th>
+                    <th>{% trans 'EL' %}</th>
+                {% endif %}
             </tr>
 
-            {% for rating in ratings %}
-                {% if rating.place != 1 and rating.points != 1 %}
+            {% for rating in ratings_ass %}
+                {% if rating.points_ass != 0 %}
                 <tr>
-                    <td>{{ rating.place }}</td>
+                    <td>{{ rating.place_ass }}</td>
                     <td>
                         <a class="link-rating" href="{{ rating.get_absolute_url }}">
                             {% if rating.picture %}
@@ -37,17 +40,11 @@
                             {{ rating.title }}
                         </a>
                     </td>
-                    <td>
-                        <a class="link-rating" href="{{ rating.league.country.get_absolute_about_url }}">
-                            {% if rating.league.country.picture %}
-                                <img class="images-table" src="{{ rating.league.country.picture.url }}" alt="{{ rating.league.country }}"> 
-                            {% else %}
-                                <img class="images-table" src="{% static 'images/placeholder.png' %}" alt="holderplace">
-                            {% endif %}
-                            {{ rating.league.country }}
-                        </a>
-                    </td>
-                    <td>{{ rating.points }}</td>
+                    <td>{{ rating.points_ass }}</td>
+                    {% if rating.continent.slug == 'uefa' %}
+                        <td>{{ rating.cl_teams }}</td>
+                        <td>{{ rating.el_teams }}</td>
+                    {% endif %}
                 </tr>
                 {% endif %}
             {% endfor %}
