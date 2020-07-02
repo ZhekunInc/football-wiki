@@ -23,11 +23,11 @@
     <div class="info">
         {% if club.picture %}
     <div class="border-logo" style="background: linear-gradient(to bottom, {{ club.color1 }} 50%, {{ club.color2 }} 50%);">
-                <img class="img-club" src="{{ club.picture.url }}" alt="{{club.title}}">
+                <img loading="lazy class="img-club" src="{{ club.picture.url }}" alt="{{club.title}}">
             </div>
         {% else %}
             <div style="background: linear-gradient(to bottom, {{ club.color1 }}, {{ club.color2 }} 50%);">
-                <img class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
+                <img loading="lazy class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
             </div>
         {% endif %}
         <p>{% trans "Nickname(s):" %} {{club}}</p>
@@ -60,9 +60,9 @@
                     {% for kit in club.get_kits %}
                     <div class="item">
                         {% if kit.kits %}
-                            <img class="images" src="{{ kit.kits.url }}" alt="{{ kit.title }}">
+                            <img loading="lazy class="images" src="{{ kit.kits.url }}" alt="{{ kit.title }}">
                         {% else %}
-                            <img class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
+                            <img loading="lazy class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
                         {% endif %}
                         <div class="title">{{ kit.title }}</div>
                     </div>
@@ -85,9 +85,9 @@
                     {% for cup in club.cups.all %}
                     <a class="item" href="{{ cup.get_absolute_url }}">
                         {% if cup.image %}
-                            <img class="images" src="{{ cup.image.url }}" alt="{{ cup.title }}">
+                            <img loading="lazy class="images" src="{{ cup.image.url }}" alt="{{ cup.title }}">
                         {% else %}
-                            <img class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
+                            <img loading="lazy class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
                         {% endif %}
                         <div class="title">{{ cup.title }} {% if cup.slug == 'ballon-dor' %} x{{club.gb}} {% elif cup.slug == 'world-cup' %} x{{club.wc}} {% elif cup.slug == 'uefa-champions-league' %} x{{club.cl}}  {% endif %}</div>
                     </a>
@@ -121,9 +121,9 @@
                     {% for player in club.famous_players.all %}
                     <a href="{{ player.get_absolute_url }}" class="item">
                         {% if player.image %}
-                            <img class="images" src="{{ player.image.url }}" alt="{{ player.title }}">
+                            <img loading="lazy class="images" src="{{ player.image.url }}" alt="{{ player.title }}">
                         {% else %}
-                            <img class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
+                            <img loading="lazy class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
                         {% endif %}
                         <div class="title">{{ player.title }}</div>
                     </a>
