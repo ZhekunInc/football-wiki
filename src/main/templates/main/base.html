@@ -29,15 +29,15 @@
             <input type="checkbox" name="toggle" id="toggle" />
             <label for="toggle"><i class="icon-reorder"></i>{% trans " Menu" %}</label>
             <ul id="nalcanemakeg">
-                <a href="{% url 'home_page' %}"><li>{% trans "Home" %}</li></a>
+                <a title="{% trans 'Home' %}" href="{% url 'home_page' %}"><li>{% trans "Home" %}</li></a>
                 {% continent_on_home %}
-                <a href="{% url 'players_page' %}">
+                <a title="{% trans 'Players' %}" href="{% url 'players_page' %}">
                     <li>{% trans 'Players' %}</li>
                 </a>
-                <a href="{% url 'cups_page' %}">
+                <a title="{% trans 'Trophies and award' %}<" href="{% url 'cups_page' %}">
                     <li>{% trans 'Trophies and award' %}</li>
                 </a>
-                <a href="{% url 'all_rating' %}">
+                <a title="{% trans 'Ratings' %}" href="{% url 'all_rating' %}">
                     <li>{% trans 'Ratings' %}</li>
                 </a>
                 <li>
@@ -67,20 +67,20 @@
                 </li>
                 {% if user.is_authenticated %}
                     <li><span> {% trans "Welcome back, " %} {{ user.username }} </span></li>
-                    <a href="{% url 'create_center' %}">
+                    <a title="{% trans 'Add' %}" href="{% url 'create_center' %}">
                         <li>{% trans "Add" %}</li>
                     </a>
-                    <a href="{% url 'account_logout' %}">
+                    <a title="{% trans 'Logout' %}" href="{% url 'account_logout' %}">
                         <li>{% trans "Logout" %}</li>
                     </a>
                 {% else %}
-                    <a href="{% url 'account_login' %}">
+                    <a title="{% trans 'Add' %}" href="{% url 'account_login' %}">
                         <li>{% trans "Add" %}</li>
                     </a>
-                   <a href="{% url 'account_login' %}">
+                    <a title="{% trans 'Login' %}" href="{% url 'account_login' %}">
                        <li>{% trans "Login" %}</li>
                     </a>
-                    <a href="{% url 'account_signup' %}">
+                    <a title="{% trans 'Sign Up' %}" href="{% url 'account_signup' %}">
                         <li>{% trans "Sign Up" %}</li>
                     </a>
                 {% endif %}

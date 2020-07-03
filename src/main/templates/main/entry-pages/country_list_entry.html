@@ -6,7 +6,7 @@
             {% if countries %}
                 {% paginate 12 countries %}
                 {% for country in countries %}
-                    <a class="item" href="{{ country.get_absolute_url }}">
+                    <a title="{{ country.title }}" class="item" href="{{ country.get_absolute_url }}">
                         {% if country.picture %}
                             <img loading="lazy" class="images" src="{{ country.picture.url }}" alt="{{ country.title }}"> 
                         {% else %}

@@ -6,7 +6,7 @@
             {% paginate 12 clubs %}
             {% if clubs %}
                 {% for club in clubs %}
-                <a class="item" href="{{ club.get_absolute_url }}">
+                <a title="{{ club.title }}" class="item" href="{{ club.get_absolute_url }}">
                     {% if club.picture %}
                         <img loading="lazy" class="images" src="{{ club.picture.url }}" alt="{{ club.title }}">
                     {% else %}

@@ -12,14 +12,14 @@
 {% block content %}
 <div class="last">{{ country.title }}</div>
     <div class="btn-center">
-        <a href="{{ country.get_absolute_about_url }}" class="btn-dark history">{% trans "Read more about" %} {{ country.title }}</a>
+        <a title="{{ country.title }}" href="{{ country.get_absolute_about_url }}" class="btn-dark history">{% trans "Read more about" %} {{ country.title }}</a>
     </div>
     <section class="sample">
         <div class="container">
             <div class="row">
                 {% if leagues %}
                     {% for league in leagues %}
-                    <a class="item" href="{{ league.get_absolute_url }}">
+                    <a title="{{ league.title }}" class="item" href="{{ league.get_absolute_url }}">
                         {% if league.picture %}
                             <img loading="lazy" class="images" src="{{ league.picture.url }}" alt="{{ league.title }}"> 
                         {% else %}

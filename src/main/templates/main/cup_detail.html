@@ -52,7 +52,7 @@
             <div class="container">
                 <div class="row">
                     {% for player in cup.player.all %}
-                    <a href="{{ player.get_absolute_url }}" class="item">
+                    <a title="{{ player.title }}" href="{{ player.get_absolute_url }}" class="item">
                         {% if player.image %}
                             <img loading="lazy" class="images" src="{{ player.image.url }}" alt="{{ player.title }}">
                         {% else %}
@@ -78,7 +78,7 @@
             <div class="container">
                 <div class="row">
                     {% for club in cup.clubs.all %}
-                    <a href="{{ club.get_absolute_url }}" class="item">
+                    <a title="{{ club.title }}" href="{{ club.get_absolute_url }}" class="item">
                         {% if club.picture %}
                             <img loading="lazy" class="images" src="{{ club.picture.url }}" alt="{{ club.title }}">
                         {% else %}
@@ -115,7 +115,7 @@
             <div class="container">
                 <div class="row">
                     {% for country in cup.countrys.all %}
-                    <a href="{{ country.get_absolute_url }}" class="item">
+                    <a title="{{ country.title }}" href="{{ country.get_absolute_url }}" class="item">
                         {% if country.picture %}
                             <img loading="lazy" class="images" src="{{ country.picture.url }}" alt="{{ country.title }}">
                         {% else %}

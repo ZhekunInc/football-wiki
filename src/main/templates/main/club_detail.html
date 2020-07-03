@@ -83,7 +83,7 @@
             <div class="container">
                 <div class="row">
                     {% for cup in club.cups.all %}
-                    <a class="item" href="{{ cup.get_absolute_url }}">
+                    <a title="{{ cup.title }}" class="item" href="{{ cup.get_absolute_url }}">
                         {% if cup.image %}
                             <img loading="lazy" class="images" src="{{ cup.image.url }}" alt="{{ cup.title }}">
                         {% else %}
@@ -119,7 +119,7 @@
             <div class="container">
                 <div class="row">
                     {% for player in club.famous_players.all %}
-                    <a href="{{ player.get_absolute_url }}" class="item">
+                    <a title="{{ player.title }}" href="{{ player.get_absolute_url }}" class="item">
                         {% if player.image %}
                             <img loading="lazy" class="images" src="{{ player.image.url }}" alt="{{ player.title }}">
                         {% else %}

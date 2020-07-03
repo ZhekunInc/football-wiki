@@ -1,4 +1,4 @@
 
 {% for cont in continent %}
-    <a href="{{ cont.get_absolute_url }}"><li>{{cont.title}}</li></a>
+    <a title="{{ cont.title }}" href="{{ cont.get_absolute_url }}"><li>{{cont.title}}</li></a>
 {% endfor %}

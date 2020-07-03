@@ -19,7 +19,7 @@
             <div class="container">
                 <div class="row">
                     {% for country in search_country %}
-                    <a class="item" href="{{ country.get_absolute_url }}">
+                    <a title="{{ country.title }}" class="item" href="{{ country.get_absolute_url }}">
                         {% if country.picture %}
                             <img loading="lazy" class="images" src="{{ country.picture.url }}" alt="{{ country.title }}"> 
                         {% else %}
@@ -38,7 +38,7 @@
             <div class="container">
                 <div class="row">
                     {% for league in search_league %}
-                    <a class="item" href="{{ league.get_absolute_url }}">
+                    <a title="{{ league.title }}" class="item" href="{{ league.get_absolute_url }}">
                         {% if league.picture %}
                             <img loading="lazy" class="images" src="{{ league.picture.url }}" alt="{{ league.title }}"> 
                         {% else %}
@@ -57,7 +57,7 @@
             <div class="container">
                 <div class="row">
                     {% for club in search_club %}
-                    <a class="item" href="{{ club.get_absolute_url }}">
+                    <a title="{{ club.title }}" class="item" href="{{ club.get_absolute_url }}">
                         {% if club.picture %}
                             <img loading="lazy" class="images" src="{{ club.picture.url }}" alt="{{ club.title }}"> 
                         {% else %}
@@ -76,7 +76,7 @@
             <div class="container">
                 <div class="row">
                     {% for player in search_player %}
-                    <a class="item" href="{{ player.get_absolute_url }}">
+                    <a title="{{ player.title }}" class="item" href="{{ player.get_absolute_url }}">
                         {% if player.image %}
                             <img loading="lazy" class="images" src="{{ player.image.url }}" alt="{{ player.title }}"> 
                         {% else %}
@@ -95,7 +95,7 @@
             <div class="container">
                 <div class="row">
                     {% for cup in search_cup %}
-                    <a class="item" href="{{ cup.get_absolute_url }}">
+                    <a title="{{ cup.title }}" class="item" href="{{ cup.get_absolute_url }}">
                         {% if cup.image %}
                             <img loading="lazy" class="images" src="{{ cup.image.url }}" alt="{{ cup.title }}"> 
                         {% else %}
