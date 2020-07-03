@@ -275,7 +275,7 @@ class Club(models.Model):
     manager = models.CharField(_('Manager'), null=True, max_length=255)
     website = models.URLField(_('Website'), null=True, max_length=255)
     place = models.IntegerField(_('Place on rating'), default=1)
-    points = models.DecimalField(_('Points on rating'), max_digits=6, decimal_places=3, default=1)
+    points = models.DecimalField(_('Points on rating'), max_digits=7, decimal_places=3, default=1)
     cups = models.ManyToManyField(
         'Cup', related_name='club',
         verbose_name=_('cup'), blank=True,
