@@ -17,6 +17,16 @@ class ContinentAdmin(TranslationAdmin):
     ordering = ('title',)
     prepopulated_fields = {'slug': ('title_en',)}
 
+    class Media:
+        js = (
+            'https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js',
+            'https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js',
+            'modeltranslation/js/tabbed_translation_fields.js',
+        )
+        css = {
+            'screen': ('modeltranslation/css/tabbed_translation_fields.css',),
+        }
+
 @admin.register(Country)
 class CountryAdmin(TranslationAdmin):
     list_display = (
@@ -26,6 +36,16 @@ class CountryAdmin(TranslationAdmin):
     search_fields = ['title',]
     ordering = ('title',)
     prepopulated_fields = {'slug': ('title_en',)}
+
+    class Media:
+        js = (
+            'https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js',
+            'https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js',
+            'modeltranslation/js/tabbed_translation_fields.js',
+        )
+        css = {
+            'screen': ('modeltranslation/css/tabbed_translation_fields.css',),
+        }
 
 @admin.register(League)
 class LeagueAdmin(TranslationAdmin):
@@ -37,6 +57,16 @@ class LeagueAdmin(TranslationAdmin):
     ordering = ('title',)
     prepopulated_fields = {'slug': ('title_en',)}
 
+    class Media:
+        js = (
+            'https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js',
+            'https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js',
+            'modeltranslation/js/tabbed_translation_fields.js',
+        )
+        css = {
+            'screen': ('modeltranslation/css/tabbed_translation_fields.css',),
+        }
+
 class KitsInlinePost(admin.TabularInline):
     model = Kits
     extra = 0
@@ -46,6 +76,16 @@ class KitsAdmin(TranslationAdmin):
     list_display = (
         'title',
     )
+
+    class Media:
+        js = (
+            'https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js',
+            'https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js',
+            'modeltranslation/js/tabbed_translation_fields.js',
+        )
+        css = {
+            'screen': ('modeltranslation/css/tabbed_translation_fields.css',),
+        }
 
 class FifaInlinePost(admin.TabularInline):
     model = Fifa
@@ -63,6 +103,16 @@ class ClubAdmin(TranslationAdmin):
     inlines = [KitsInlinePost]
     prepopulated_fields = {'slug': ('title_en',)}
 
+    class Media:
+        js = (
+            'https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js',
+            'https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js',
+            'modeltranslation/js/tabbed_translation_fields.js',
+        )
+        css = {
+            'screen': ('modeltranslation/css/tabbed_translation_fields.css',),
+        }
+
 @admin.register(Cup)
 class CupAdmin(TranslationAdmin):
     list_display = (
@@ -73,6 +123,16 @@ class CupAdmin(TranslationAdmin):
     ordering = ('title',)
     filter_horizontal = ('players', 'clubs', 'countrys')
     prepopulated_fields = {'slug': ('title_en',)}
+
+    class Media:
+        js = (
+            'https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js',
+            'https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js',
+            'modeltranslation/js/tabbed_translation_fields.js',
+        )
+        css = {
+            'screen': ('modeltranslation/css/tabbed_translation_fields.css',),
+        }
 
 @admin.register(Player)
 class PlayerAdmin(TranslationAdmin):
@@ -85,3 +145,13 @@ class PlayerAdmin(TranslationAdmin):
     filter_horizontal = ('clubs', 'cups')
     inlines = [FifaInlinePost]
     prepopulated_fields = {'slug': ('title_en',)}
+
+    class Media:
+        js = (
+            'https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js',
+            'https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js',
+            'modeltranslation/js/tabbed_translation_fields.js',
+        )
+        css = {
+            'screen': ('modeltranslation/css/tabbed_translation_fields.css',),
+        }
