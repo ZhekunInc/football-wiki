@@ -11,7 +11,7 @@
 </div>
 {% if query %}
     {% if not search_country and not search_league and not search_club and not search_player and not search_cup %}       
-        <div class="last row">{% trans "Nothing found." %}</div>
+        <div class="last text-none">{% trans "Nothing found." %}</div>
     {% endif %}
     {% if search_country %}
         <div class="last">{% trans 'Countries' %}</div>

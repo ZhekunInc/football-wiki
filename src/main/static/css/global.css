@@ -1,8 +1,12 @@
 body{
-    margin: 0;
-    padding: 0;
-    background: #D4EAFF;
-    background-size: 100%;
+  margin: 0;
+  padding: 0;
+  background: #D4EAFF;
+  background-size: 100%;
+}
+
+main {
+  min-height: calc(100vh - 250px);
 }
 
 .row a{
@@ -60,12 +64,6 @@ body{
     margin-right: 10px;
   }
 
-.row{
-  max-width: 1080px;
-  padding: 0 0;
-  display: flex;
-}
-
 .item{
   width: calc(25% - 30px);
   height: 25%;
@@ -117,6 +115,10 @@ body{
   text-align: center;
   text-transform: uppercase;
   font-weight: bold;
+}
+
+.last.text-none {
+  font-size: 20px;
 }
 
 .last sup {
