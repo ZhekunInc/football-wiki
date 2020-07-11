@@ -68,6 +68,11 @@ class Country(models.Model):
         upload_to='images/country',
         help_text=("Recomended size 512x512px")
     )
+    flag = models.ImageField(
+        _('Image'), blank=True, null=True,
+        upload_to='images/flag',
+        help_text=("Recomended size 512x512px")
+    )
     founded = models.DateTimeField(_('Founded'), default=timezone.now)
     fifa = models.DateField(_('Belonging to FIFA since'), default=timezone.now)
     uefa = models.DateField(_('Belonging to since'), default=timezone.now)

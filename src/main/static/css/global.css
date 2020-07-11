@@ -413,3 +413,7 @@ table.table-1 th{
 .link-rating:hover {
   color: #000000;
 }
+
+.swiper-container-cube .swiper-cube-shadow {
+  background: none;
+}

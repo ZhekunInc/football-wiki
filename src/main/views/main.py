@@ -126,15 +126,15 @@ class LeagueDetail(ListView):
 
 class ClubDetail(DetailView):
     model = Club
-    template_name = 'main/club_detail.html'
+    template_name = 'main/detail/club_detail.html'
 
 class PlayerDetail(DetailView):
     model = Player
-    template_name = 'main/player_detail.html'
+    template_name = 'main/detail/player_detail.html'
 
 class CupDetail(DetailView):
     model = Cup
-    template_name = 'main/cup_detail.html'
+    template_name = 'main/detail/cup_detail.html'
 
 class SearchResultsView(ListView):
     template_name = "main/search_results.html"
