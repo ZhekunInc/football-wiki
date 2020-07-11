@@ -417,3 +417,15 @@ table.table-1 th{
 .swiper-container-cube .swiper-cube-shadow {
   background: none;
 }
+
+div.container4 {
+  height: 10em;
+  position: relative }
+div.container4 img {
+  margin: 0;
+  background: yellow;
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%) }
