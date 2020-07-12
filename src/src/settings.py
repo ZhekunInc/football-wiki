@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'django_extensions',
     'django.contrib.sitemaps',
     'el_pagination',
+    'rosetta',
 ]
 
 ACCOUNT_DEFAULT_HTTP_PROTOCOL = "https"
@@ -107,16 +108,20 @@ STATICFILES_DIRS = [
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.MinimumLengthValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.CommonPasswordValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
 
@@ -140,7 +145,7 @@ LOGIN_REDIRECT_URL = '/'
 
 EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
 
-LOCALE_PATHS= [
+LOCALE_PATHS = [
     os.path.join(BASE_DIR, 'locale')
 ]
 
@@ -149,7 +154,6 @@ TRANSLATABLE_MODEL_MODULES = ["main.models"]
 def gettext(s):
     return s
 
-TRANSLATABLE_MODEL_MODULES = ["main.models"]
 
 LANGUAGES = (
     ('uk', gettext('Ukraine')),
@@ -172,3 +176,13 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 SITE_ID = 1
+
+
+ROSETTA_MESSAGES_PER_PAGE = 20
+ENABLE_TRANSLATION_SUGGESTIONS = True
+ROSETTA_ENABLE_TRANSLATION_SUGGESTIONS = True
+ROSETTA_WSGI_AUTO_RELOAD = True
+ROSETTA_UWSGI_AUTO_RELOAD = True
+ROSETTA_SHOW_AT_ADMIN_PANEL = True
+# ROSETTA_STORAGE_CLASS = 'rosetta.storage.SessionRosettaStorage'
+ROSETTA_STORAGE_CLASS = 'rosetta.storage.CacheRosettaStorage'

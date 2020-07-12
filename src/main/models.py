@@ -69,7 +69,7 @@ class Country(models.Model):
         help_text=("Recomended size 512x512px")
     )
     flag = models.ImageField(
-        _('Image'), blank=True, null=True,
+        _('Flag'), blank=True, null=True,
         upload_to='images/flag',
         help_text=("Recomended size 512x512px")
     )

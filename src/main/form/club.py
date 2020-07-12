@@ -31,6 +31,8 @@ class ClubCreateModelForm(forms.ModelForm):
             'manager_en',
             'manager_ru',
             'website',
+            'place',
+            'points',
             'cups',
             'famous_players',
             'cl',
@@ -68,6 +70,8 @@ class ClubInfoUpdateModelForm(forms.ModelForm):
             'manager_uk',
             'manager_en',
             'manager_ru',
+            'place',
+            'points',
             'website',
         ]
 
