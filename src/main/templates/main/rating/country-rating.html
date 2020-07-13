@@ -28,8 +28,8 @@
                     <td>{{ country.place }}</td>
                     <td>
                         <a class="link-rating" href="{{ country.get_absolute_about_url }}">
-                            {% if country.picture %}
-                                <img loading="lazy" class="images-table" src="{{ country.picture.url }}" alt="{{ country.title }}"> 
+                            {% if country.flag %}
+                                <img loading="lazy" class="images-table" src="{{ country.flag.url }}" alt="{{ country.title }}"> 
                             {% else %}
                                 <img loading="lazy" class="images-table" src="{% static 'images/placeholder.png' %}" alt="holderplace">
                             {% endif %}

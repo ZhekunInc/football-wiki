@@ -39,8 +39,8 @@
                     </td>
                     <td>
                         <a class="link-rating" href="{{ rating.league.country.get_absolute_about_url }}">
-                            {% if rating.league.country.picture %}
-                                <img loading="lazy" class="images-table" src="{{ rating.league.country.picture.url }}" alt="{{ rating.league.country }}"> 
+                            {% if rating.league.country.flag %}
+                                <img loading="lazy" class="images-table" src="{{ rating.league.country.flag.url }}" alt="{{ rating.league.country }}"> 
                             {% else %}
                                 <img loading="lazy" class="images-table" src="{% static 'images/placeholder.png' %}" alt="holderplace">
                             {% endif %}
