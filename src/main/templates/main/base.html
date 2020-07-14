@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="yHIZMov9chqZ9X1JK7hy73BbG9oX0eB6sN8hQNtVvb8" />
     <title>
-        {% block title %}{% endblock %} &raquo; zhekun.pythonanywhere.com
+        {% block title %}{% endblock %} &raquo; {{request.get_host}}
     </title>
     {% load static %}
     <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/png">
@@ -100,7 +100,7 @@
         </main>
         <footer>
             <div class="footer">
-                <p>&copy created by <a href="https://play.google.com/store/apps/developer?id=Zhekun+Inc" target="_blank">Zhekun Inc</a></p>
+                <p>&copy created by <a href="https://play.google.com/store/apps/developer?id=Zhekun+Inc" target="_blank">Zhekun Inc</a> {% now 'Y' %}</p>
             </div>
         </footer>
     </div>
