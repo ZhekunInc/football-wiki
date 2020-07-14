@@ -35,7 +35,7 @@
                 <a title="{% trans 'Players' %}" href="{% url 'players_page' %}">
                     <li>{% trans 'Players' %}</li>
                 </a>
-                <a title="{% trans 'Trophies and award' %}<" href="{% url 'cups_page' %}">
+                <a title="{% trans 'Trophies and award' %}" href="{% url 'cups_page' %}">
                     <li>{% trans 'Trophies and award' %}</li>
                 </a>
                 <a title="{% trans 'Ratings' %}" href="{% url 'all_rating' %}">
@@ -92,6 +92,9 @@
         </header>
         {% endblock %}
         <main>
+            <div class="clock">
+                <div id="date-time"></div>
+            </div>
             {% block content %}
             {% endblock %}
             <a href="#header" class="js-scrollTop link-next-style" id="js-up">
