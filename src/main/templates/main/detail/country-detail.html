@@ -33,7 +33,7 @@
                 <div class="swiper-slide">
                     <div class="container4">
                     {% if country.flag %}
-                        <img class="img-club swiper-lazy" src="{{ country.flag.url }}" alt="{{country.title}}">
+                        <img class="img-club" src="{{ country.flag.url }}" alt="{{country.title}}">
                     {% else %}
                         <img class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
                     {% endif %}

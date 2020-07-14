@@ -419,7 +419,9 @@ table.table-1 th{
 
 div.container4 {
   height: 10em;
-  position: relative }
+  position: relative 
+}
+
 div.container4 img {
   margin: 0;
   background: yellow;
@@ -427,4 +429,18 @@ div.container4 img {
   top: 65%;
   left: 50%;
   margin-right: -50%;
-  transform: translate(-50%, -50%) }
+  transform: translate(-50%, -50%);
+  border: solid black 1px;
+}
+
+.clock {
+  width:100%;
+  background:#000000;
+  color:#fff;
+}
+
+#date-time {
+  padding:10px 0;
+  text-align:center;
+  font-size:18px;
+}
