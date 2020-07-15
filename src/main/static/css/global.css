@@ -117,6 +117,14 @@ body{
   font-size: 20px;
 }
 
+.last.text-none a {
+  background: none;
+}
+
+.last.text-none a:hover {
+  border-bottom: solid 1px #000000;
+}
+
 .last sup {
   font-size: 15px;
   font-weight: normal;

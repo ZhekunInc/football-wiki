@@ -31,7 +31,9 @@
                     </a>
                     {% endfor %}
                 {% else %}
-                    <div class="last text-none">{% trans "No clubs added to " %} {{ league.title }} {% trans ', please contact the administrator by e-mail: golovchak.evgen@gmail.com' %}</div>
+                    <div class="last text-none">{% trans "No clubs added to " %} {{ league.title }} {% trans ', please contact the administrator by e-mail: ' %} 
+                        <a href="mailto:golovchak.evgen@gmail.com">golovchak.evgen@gmail.com</a>
+                    </div>
                 {% endif %}
             </div>
         </div>
