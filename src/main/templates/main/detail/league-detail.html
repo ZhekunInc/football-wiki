@@ -26,11 +26,11 @@
         {% else %}
             <img loading="lazy" class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
         {% endif %}
-        <p>{% trans "Founded:" %} {% if league.founded|date:'d' == league.published_at|date:'d' and league.founded|date:'F' == league.published_at|date:'F' %} {{league.founded|date:'Y'}} {% else %} {{league.founded|date:'d F Y'}} {% endif %}</p>
-        <p>{% trans "Number of teams:" %} {{league.count_team}}</p>
-        <p>{% trans "Level on pyramid:" %} {{league.reputation}}</p>
-        <p>{% trans "Current champions:" %} {{league.last}}</p>
-        <p>{% trans "Website" %} <a href="{{ league.website }}" target="_blank">{{ league.website }}</a></p>
+        <p>{% trans "Founded:" %} {% if league.founded|date:'d' == league.published_at|date:'d' and league.founded|date:'F' == league.published_at|date:'F' %} {{league.founded|date:'Y'|default:"-"}} {% else %} {{league.founded|date:'d F Y'|default:"-"}} {% endif %}</p>
+        <p>{% trans "Number of teams:" %} {{league.count_team|default:"-"}}</p>
+        <p>{% trans "Level on pyramid:" %} {{league.reputation|default:"-"}}</p>
+        <p>{% trans "Current champions:" %} {{league.last|default:"-"}}</p>
+        <p>{% trans "Website" %} <a href="{{ league.website }}" target="_blank">{{ league.website|default:"" }}</a></p>
         {% if user.is_authenticated %}
             <p>
                 <a href="{{ league.get_absolute_about_url }}league-info-update/"> {% trans 'change' %} </a>

@@ -6,20 +6,14 @@ class PlayerCreateModelForm(forms.ModelForm):
     class Meta:
         model = Player
         fields = [
-            'title_uk',
-            'title_en',
-            'title_ru',
+            'title',
             'slug',
             'image',
-            'main_text_uk',
-            'main_text_en',
-            'main_text_ru',
+            'main_text',
             'country',
             'clubs',
             'cups',
-            'nickname_uk',
-            'nickname_en',
-            'nickname_ru',
+            'nickname',
             'date_of_birth',
             'height',
             'positions',
@@ -32,9 +26,7 @@ class PlayerTitleUpdateModelForm(forms.ModelForm):
     class Meta:
         model = Player
         fields = [
-            'title_uk',
-            'title_en',
-            'title_ru',
+            'title',
             'slug',
         ]
 
@@ -43,9 +35,7 @@ class PlayerInfoUpdateModelForm(forms.ModelForm):
         model = Player
         fields = [
             'image',
-            'nickname_uk',
-            'nickname_en',
-            'nickname_ru',
+            'nickname',
             'country',
             'date_of_birth',
             'height',
@@ -73,7 +63,5 @@ class PlayerMainUpdateModelForm(forms.ModelForm):
     class Meta:
         model = Player
         fields = [
-            'main_text_uk',
-            'main_text_en',
-            'main_text_ru',
+            'main_text',
         ]

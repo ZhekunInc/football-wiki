@@ -6,14 +6,10 @@ class CountryCreateModelForm(forms.ModelForm):
     class Meta:
         model = Country
         fields = [
-            'title_uk',
-            'title_en',
-            'title_ru',
+            'title',
             'slug',
             'continent',
-            'main_text_uk',
-            'main_text_en',
-            'main_text_ru',
+            'main_text',
             'picture',
             'flag',
             'founded',
@@ -36,9 +32,7 @@ class CountryTitleUpdateModelForm(forms.ModelForm):
     class Meta:
         model = Country
         fields = [
-            'title_uk',
-            'title_en',
-            'title_ru',
+            'title',
             'slug',
         ]
 
@@ -69,7 +63,5 @@ class CountryMainUpdateModelForm(forms.ModelForm):
     class Meta:
         model = Country
         fields = [
-            'main_text_uk',
-            'main_text_en',
-            'main_text_ru',
+            'main_text',
         ]

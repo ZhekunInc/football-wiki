@@ -6,14 +6,10 @@ class CupCreateModelForm(forms.ModelForm):
     class Meta:
         model = Cup
         fields = [
-            'title_uk',
-            'title_en',
-            'title_ru',
+            'title',
             'slug',
             'image',
-            'main_text_uk',
-            'main_text_en',
-            'main_text_ru',
+            'main_text',
             'clubs',
             'countrys',
             'founded',
@@ -25,9 +21,7 @@ class CupTitleUpdateModelForm(forms.ModelForm):
     class Meta:
         model = Cup
         fields = [
-            'title_uk',
-            'title_en',
-            'title_ru',
+            'title',
             'slug',
         ]
 
@@ -59,7 +53,5 @@ class CupMainUpdateModelForm(forms.ModelForm):
     class Meta:
         model = Cup
         fields = [
-            'main_text_uk',
-            'main_text_en',
-            'main_text_ru',
+            'main_text',
         ]

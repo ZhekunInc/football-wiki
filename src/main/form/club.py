@@ -6,30 +6,18 @@ class ClubCreateModelForm(forms.ModelForm):
     class Meta:
         model = Club
         fields = [
-            'title_uk',
-            'title_en',
-            'title_ru',
+            'title',
             'slug',
             'league',
-            'main_text_uk',
-            'main_text_en',
-            'main_text_ru',
+            'main_text',
             'picture',
             'color1',
             'color2',
-            'nickname_uk',
-            'nickname_en',
-            'nickname_ru',
-            'short_name_uk',
-            'short_name_en',
-            'short_name_ru',
+            'nickname',
+            'short_name',
             'founded',
-            'stadium_uk',
-            'stadium_en',
-            'stadium_ru',
-            'manager_uk',
-            'manager_en',
-            'manager_ru',
+            'stadium',
+            'manager',
             'website',
             'place',
             'points',
@@ -43,9 +31,7 @@ class ClubTitleUpdateModelForm(forms.ModelForm):
     class Meta:
         model = Club
         fields = [
-            'title_uk',
-            'title_en',
-            'title_ru',
+            'title',
             'slug',
         ]
 
@@ -57,19 +43,11 @@ class ClubInfoUpdateModelForm(forms.ModelForm):
             'picture',
             'color1',
             'color2',
-            'nickname_uk',
-            'nickname_en',
-            'nickname_ru',
-            'short_name_uk',
-            'short_name_en',
-            'short_name_ru',
+            'nickname',
+            'short_name',
             'founded',
-            'stadium_uk',
-            'stadium_en',
-            'stadium_ru',
-            'manager_uk',
-            'manager_en',
-            'manager_ru',
+            'stadium',
+            'manager',
             'place',
             'points',
             'website',
@@ -95,7 +73,5 @@ class ClubMainUpdateModelForm(forms.ModelForm):
     class Meta:
         model = Club
         fields = [
-            'main_text_uk',
-            'main_text_en',
-            'main_text_ru',
+            'main_text',
         ]

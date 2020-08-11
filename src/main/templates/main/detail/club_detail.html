@@ -30,12 +30,12 @@
                 <img loading="lazy" class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
             </div>
         {% endif %}
-        <p>{% trans "Nickname(s):" %} {{club}}</p>
-        <p>{% trans "Short name:" %} {{club.short_name}}</p>
-        <p>{% trans "Founded:" %} {% if club.founded|date:'d' == club.published_at|date:'d' and club.founded|date:'F' == club.published_at|date:'F' %} {{club.founded|date:'Y'}} {% else %} {{club.founded|date:'d F Y'}} {% endif %}</p>
-        <p>{% trans "Stadium:" %} {{club.stadium}}</p>
-        <p>{% trans "Manager:" %} {{club.manager}}</p>
-        <p>{% trans "Website" %} <a href="{{ club.website }}" target="_blank">{{ club.website }}</a></p>
+        <p>{% trans "Nickname(s):" %} {{ club.nickname|default:"-" }}</p>
+        <p>{% trans "Short name:" %} {{ club.short_name|default:"-" }}</p>
+        <p>{% trans "Founded:" %} {% if club.founded|date:'d' == club.published_at|date:'d' and club.founded|date:'F' == club.published_at|date:'F' %} {{club.founded|date:'Y'|default:"-"}} {% else %} {{club.founded|date:'d F Y'|default:"-"}} {% endif %}</p>
+        <p>{% trans "Stadium:" %} {{ club.stadium|default:"-" }}</p>
+        <p>{% trans "Manager:" %} {{ club.manager|default:"-" }}</p>
+        <p>{% trans "Website" %} <a href="{{ club.website }}" target="_blank">{{ club.website|default:"" }}</a></p>
         {% if user.is_authenticated %}
             <p>
                 <a href="{{ club.get_absolute_url }}club-info-update/"> {% trans 'change' %} </a>
@@ -45,7 +45,7 @@
         {% endif %}
     </div>
     <div class="text-club">
-        <p class="text">{{club.main_text|linebreaks}}</p>
+        <p class="text">{{ club.main_text|linebreaks|default:"-" }}</p>
         {% if user.is_authenticated %}
             <sup><a href="{{ club.get_absolute_url }}club-main-update/"> {% trans 'change' %} </a></sup>
         {% else %}

@@ -29,9 +29,9 @@
         {% else %}
             <img loading="lazy" class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
         {% endif %}
-        <p>{% trans "Founded:" %} {{cup.founded|date:'Y'}}</p>
-        <p>{% trans "Region:" %} {{cup.region}}</p>
-        <p>{% trans "Website" %}<a href="{{ cup.website }}" target="_blank"> {{ cup.website }}</a></p>
+        <p>{% trans "Founded:" %} {{cup.founded|date:'Y'|default:"-"}}</p>
+        <p>{% trans "Region:" %} {{cup.region|default:"-"}}</p>
+        <p>{% trans "Website" %}<a href="{{ cup.website }}" target="_blank"> {{ cup.website|default:"" }}</a></p>
         {% if user.is_authenticated %}
             <p><a href="{{ cup.get_absolute_url }}cup-info-update/"> {% trans 'change' %} </a></p>
         {% else %}
