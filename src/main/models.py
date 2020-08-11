@@ -17,13 +17,13 @@ class Continent(models.Model):
         upload_to='images/continent',
         help_text=_("Recomended size 512x512px")
     )
-    main_text = models.TextField(_('main text'), null=True)
+    main_text = models.TextField(_('main text'), null=True, blank=True)
     founded = models.DateTimeField(_('Founded'), default=timezone.now)
-    located = models.CharField(_('Located'), null=True, max_length=255)
-    region = models.CharField(_('Region'), null=True, max_length=255)
-    associations = models.IntegerField(_('Count of associations'), default=1)
-    president = models.CharField(_('President'), null=True, max_length=255)
-    website = models.URLField(_('Website'), null=True, max_length=255)
+    located = models.CharField(_('Located'), null=True, max_length=255, blank=True)
+    region = models.CharField(_('Region'), null=True, max_length=255, blank=True)
+    associations = models.IntegerField(_('Count of associations'), default=1, blank=True)
+    president = models.CharField(_('President'), null=True, max_length=255, blank=True)
+    website = models.URLField(_('Website'), null=True, max_length=255, blank=True)
     is_published = models.BooleanField(('published'), default=True)
     published_at = models.DateTimeField(('published at'), default=timezone.now)
 
@@ -60,7 +60,7 @@ class Country(models.Model):
         'Continent', related_name='country',
         verbose_name=_('continent'), on_delete=models.CASCADE,
     )
-    main_text = models.TextField(_('main text'), null=True)
+    main_text = models.TextField(_('main text'), null=True, blank=True)
     published_at = models.DateTimeField(('published at'), default=timezone.now)
     is_published = models.BooleanField(('published'), default=True)
     picture = models.ImageField(
@@ -74,19 +74,19 @@ class Country(models.Model):
         help_text=("Recomended size 512x512px")
     )
     founded = models.DateTimeField(_('Founded'), default=timezone.now)
-    fifa = models.DateField(_('Belonging to FIFA since'), default=timezone.now)
-    uefa = models.DateField(_('Belonging to since'), default=timezone.now)
-    president = models.CharField(_('President'), null=True, max_length=255)
-    website = models.URLField(_('Website'), null=True, max_length=255)
-    place = models.IntegerField(_('Place on rating'), default=1)
-    points = models.IntegerField(_('Points on rating'), default=1)
-    place_ass = models.IntegerField(_('Place on association rating'), default=1)
-    points_ass = models.DecimalField(_('Points on association rating'), max_digits=7, decimal_places=3, default=1)
-    cl_teams = models.IntegerField(_('The number of represented in the Champions League'), default=0)
-    el_teams = models.IntegerField(_('The number of represented in the Europe League'), default=1)
-    wc = models.IntegerField(_('World Cup'), default=0)
-    cl = models.IntegerField(_('Champions League'), default=0)
-    gb = models.IntegerField(_('Golden ball'), default=0)
+    fifa = models.DateField(_('Belonging to FIFA since'), default=timezone.now, blank=True)
+    uefa = models.DateField(_('Belonging to since'), default=timezone.now, blank=True)
+    president = models.CharField(_('President'), null=True, max_length=255, blank=True)
+    website = models.URLField(_('Website'), null=True, max_length=255, blank=True)
+    place = models.IntegerField(_('Place on rating'), default=1, blank=True)
+    points = models.IntegerField(_('Points on rating'), default=1, blank=True)
+    place_ass = models.IntegerField(_('Place on association rating'), default=1, blank=True)
+    points_ass = models.DecimalField(_('Points on association rating'), max_digits=7, decimal_places=3, default=1, blank=True)
+    cl_teams = models.IntegerField(_('The number of represented in the Champions League'), default=0, blank=True)
+    el_teams = models.IntegerField(_('The number of represented in the Europe League'), default=1, blank=True)
+    wc = models.IntegerField(_('World Cup'), default=0, blank=True)
+    cl = models.IntegerField(_('Champions League'), default=0, blank=True)
+    gb = models.IntegerField(_('Golden ball'), default=0, blank=True)
 
     def __str__(self):
         return self.title
@@ -117,16 +117,16 @@ class League(models.Model):
         upload_to='images/league',
         help_text=_("Recomended size 512x512px")
     )
-    main_text = models.TextField(_('main text'), null=True)
+    main_text = models.TextField(_('main text'), null=True, blank=True)
     country = models.ForeignKey(
         'Country', related_name='league',
         verbose_name=_('country'), on_delete=models.CASCADE
     )
     founded = models.DateTimeField(_('Founded'), default=timezone.now)
-    count_team = models.IntegerField(_('Number of teams:'), default=1)
-    reputation = models.IntegerField(_('Level on pyramid:'), default=1)
-    last = models.CharField(_('Last winner'), null=True, max_length=255)
-    website = models.URLField(_('Website'), null=True, max_length=255)
+    count_team = models.IntegerField(_('Number of teams:'), default=1, blank=True)
+    reputation = models.IntegerField(_('Level on pyramid:'), default=1, blank=True)
+    last = models.CharField(_('Last winner'), null=True, max_length=255, blank=True)
+    website = models.URLField(_('Website'), null=True, max_length=255, blank=True)
     published_at = models.DateTimeField(('published at'), default=timezone.now)
     is_published = models.BooleanField(('published'), default=True)
 
@@ -160,7 +160,7 @@ class Cup(models.Model):
         upload_to='images/cup',
         help_text=_("Recomended size 512x512px")
     )
-    main_text = models.TextField(_('main text'), null=True)
+    main_text = models.TextField(_('main text'), null=True, blank=True)
     players = models.ManyToManyField(
         'Player', related_name='cup',
         verbose_name=_('player'), blank=True,
@@ -179,9 +179,9 @@ class Cup(models.Model):
     founded = models.DateTimeField(_('Founded'), default=timezone.now)
     region = models.ForeignKey(
         'Continent', related_name='cup',
-        verbose_name=_('continent'), on_delete=models.CASCADE, null=True
+        verbose_name=_('continent'), on_delete=models.CASCADE, null=True, blank=True
     )
-    website = models.URLField(_('Website'), null=True, max_length=255)
+    website = models.URLField(_('Website'), null=True, max_length=255, blank=True)
 
     def get_absolute_url(self):
         """Return category's URL"""
@@ -203,7 +203,7 @@ class Player(models.Model):
         upload_to='images/player',
         help_text=_("Recomended size 512x512px")
     )
-    main_text = models.TextField(_('main text'), null=True)
+    main_text = models.TextField(_('main text'), null=True, blank=True)
     country = models.ForeignKey(
         'Country', related_name='player',
         verbose_name=_('country'), on_delete=models.CASCADE, null=True
@@ -218,15 +218,15 @@ class Player(models.Model):
         verbose_name=_('cup'), blank=True,
         help_text=_("Use CTRL for select more than one")
     )
-    nickname = models.CharField(_('nickname'), null=True, max_length=255)
+    nickname = models.CharField(_('nickname'), null=True, max_length=255, blank=True)
     date_of_birth = models.DateTimeField(
         _('date of birth'), default=timezone.now
     )
-    height = models.FloatField(_('height'), null=True)
-    positions = models.CharField(_('positions'), max_length=50, null=True)
-    wc = models.IntegerField(_('World Cup'), default=0)
-    cl = models.IntegerField(_('Champions League'), default=0)
-    gb = models.IntegerField(_('Golden ball'), default=0)
+    height = models.FloatField(_('height'), null=True, blank=True)
+    positions = models.CharField(_('positions'), max_length=50, null=True, blank=True)
+    wc = models.IntegerField(_('World Cup'), default=0, blank=True)
+    cl = models.IntegerField(_('Champions League'), default=0, blank=True)
+    gb = models.IntegerField(_('Golden ball'), default=0, blank=True)
 
     def get_absolute_url(self):
         """Return category's URL"""
@@ -257,7 +257,7 @@ class Club(models.Model):
         verbose_name=_('league'), on_delete=models.CASCADE,
     )
     main_text = models.TextField(
-        _('main text'), null=True
+        _('main text'), null=True, blank=True
     )
     published_at = models.DateTimeField(
         _('published at'), default=timezone.now)
@@ -273,14 +273,14 @@ class Club(models.Model):
     color2 = models.CharField(
         _('Color 2'), max_length=20, null=False, blank=True
     )
-    nickname = models.CharField(_('Nickname'), null=True, max_length=255)
-    short_name = models.CharField(_('Short name'), null=True, max_length=255)
+    nickname = models.CharField(_('Nickname'), null=True, max_length=255, blank=True)
+    short_name = models.CharField(_('Short name'), null=True, max_length=255, blank=True)
     founded = models.DateTimeField(_('Founded'), default=timezone.now)
-    stadium = models.CharField(_('Stadium'), null=True, max_length=255)
-    manager = models.CharField(_('Manager'), null=True, max_length=255)
-    website = models.URLField(_('Website'), null=True, max_length=255)
-    place = models.IntegerField(_('Place on rating'), default=1)
-    points = models.DecimalField(_('Points on rating'), max_digits=7, decimal_places=3, default=1)
+    stadium = models.CharField(_('Stadium'), null=True, max_length=255, blank=True)
+    manager = models.CharField(_('Manager'), null=True, max_length=255, blank=True)
+    website = models.URLField(_('Website'), null=True, max_length=255, blank=True)
+    place = models.IntegerField(_('Place on rating'), default=1, blank=True)
+    points = models.DecimalField(_('Points on rating'), max_digits=7, decimal_places=3, default=1, blank=True)
     cups = models.ManyToManyField(
         'Cup', related_name='club',
         verbose_name=_('cup'), blank=True,
@@ -291,8 +291,8 @@ class Club(models.Model):
         verbose_name=_('player'), blank=True,
         help_text=_("Use CTRL for select more than one")
     )
-    cl = models.IntegerField(_('Champions League'), default=0)
-    gb = models.IntegerField(_('Golden ball'), default=0)
+    cl = models.IntegerField(_('Champions League'), default=0, blank=True)
+    gb = models.IntegerField(_('Golden ball'), default=0, blank=True)
 
     class Meta:
         verbose_name = ("Club")

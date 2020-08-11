@@ -11,7 +11,7 @@
 
 {% block content %}
 <div class="club-content">
-    <div class="last">{{continent.title}}
+    <div class="last">{{ continent.title }}
         {% if user.is_authenticated %}
             <sup><a href="{{ continent.get_absolute_about_url }}continent-title-update/"> {% trans 'change' %} </a></sup>
         {% else %}
@@ -24,12 +24,12 @@
         {% else %}
             <img loading="lazy" class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
         {% endif %}
-        <p>{% trans "Founded:" %} {% if continent.founded|date:'d' == continent.published_at|date:'d' and continent.founded|date:'F' == continent.published_at|date:'F' %} {{continent.founded|date:'Y'}} {% else %} {{continent.founded|date:'d F Y'}} {% endif %}</p>
-        <p>{% trans "Located:" %} {{continent.located}}</p>
-        <p>{% trans "Region:" %} {{continent.region}}</p>
-        <p>{% trans "Count of associations:" %} {{continent.associations}}</p>
-        <p>{% trans "President:" %} {{continent.president}}</p>
-        <p>{% trans "Website" %} <a href="{{ continent.website }}" target="_blank">{{ continent.website }}</a></p>
+        <p>{% trans "Founded:" %} {% if continent.founded|date:'d' == continent.published_at|date:'d' and continent.founded|date:'F' == continent.published_at|date:'F' %} {{continent.founded|date:'Y'|default:"-"}} {% else %} {{continent.founded|date:'d F Y'|default:"-"}} {% endif %}</p>
+        <p>{% trans "Located:" %} {{ continent.located|default:"-" }}</p>
+        <p>{% trans "Region:" %} {{ continent.region|default:"-" }}</p>
+        <p>{% trans "Count of associations:" %} {{ continent.associations|default:"-" }}</p>
+        <p>{% trans "President:" %} {{ continent.president|default:"-" }}</p>
+        <p>{% trans "Website" %} <a href="{{ continent.website }}" target="_blank">{{ continent.website|default:"" }}</a></p>
         {% if user.is_authenticated %}
             <p>
                 <a href="{{ continent.get_absolute_about_url }}continent-info-update/"> {% trans 'change' %} </a>
@@ -39,7 +39,7 @@
         {% endif %}
     </div>
     <div class="text-club">
-        <p class="text">{{continent.main_text|linebreaks}}</p>
+        <p class="text">{{continent.main_text|linebreaks|default:"-"}}</p>
         {% if user.is_authenticated %}
             <sup><a href="{{ continent.get_absolute_about_url }}continent-main-update/"> {% trans 'change' %} </a></sup>
         {% else %}

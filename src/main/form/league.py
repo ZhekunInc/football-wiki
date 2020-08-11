@@ -6,14 +6,10 @@ class LeagueCreateModelForm(forms.ModelForm):
     class Meta:
         model = League
         fields = [
-            'title_uk',
-            'title_en',
-            'title_ru',
+            'title',
             'slug',
             'country',
-            'main_text_uk',
-            'main_text_en',
-            'main_text_ru',
+            'main_text',
             'picture',
             'founded',
             'count_team',
@@ -26,9 +22,7 @@ class LeagueTitleUpdateModelForm(forms.ModelForm):
     class Meta:
         model = League
         fields = [
-            'title_uk',
-            'title_en',
-            'title_ru',
+            'title',
             'slug',
         ]
 
@@ -49,7 +43,5 @@ class LeagueMainUpdateModelForm(forms.ModelForm):
     class Meta:
         model = League
         fields = [
-            'main_text_uk',
-            'main_text_en',
-            'main_text_ru',
+            'main_text',
         ]

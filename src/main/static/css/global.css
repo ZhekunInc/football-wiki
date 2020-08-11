@@ -60,6 +60,8 @@ body{
     margin-right: 10px;
   }
 
+
+
 .item{
   width: calc(25% - 30px);
   height: 25%;
@@ -115,6 +117,14 @@ body{
 
 .last.text-none {
   font-size: 20px;
+}
+
+.last.text-none a {
+  background: none;
+}
+
+.last.text-none a:hover {
+  border-bottom: solid 1px #000000;
 }
 
 .last sup {
@@ -188,7 +198,7 @@ body{
 .select-lang{
   background: none;
   color: #fff;
-  width: 109px;
+  width: 50px;
   height: 30px;
   border: none;
   font-weight: bold;

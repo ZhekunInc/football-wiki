@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="yHIZMov9chqZ9X1JK7hy73BbG9oX0eB6sN8hQNtVvb8" />
     <title>
-        {% block title %}{% endblock %} &raquo; {{request.get_host}}
+        {% block title %}{% endblock %} | {{request.get_host}}
     </title>
     {% load static %}
     <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/png">
@@ -45,17 +45,16 @@
                     <form action="{% url 'set_language' %}" method="post">
                         {% csrf_token %}
                         <input name="next" type="hidden" value="{{ redirect_to }}">
-                        <select class="select-lang" name="language">
+                        <select class="select-lang js-change-language-select" name="language">
                             {% get_current_language as LANGUAGE_CODE %}
                             {% get_available_languages as LANGUAGE %}
                             {% get_language_info_list for LANGUAGE as languages %}
                             {% for language in languages %}
                                 <option class="option-lang" value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %} selected {% endif %}>
-                                    {{ language.name_local }}
+                                    {{ language.code }}
                                 </option>
                             {% endfor %}
                         </select>
-                        <button class="btn-lang" type="submit"><i class="fas fa-sync-alt fa-spin"></i></button>
                     </form>
                 </li>
 

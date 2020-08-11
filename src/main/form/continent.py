@@ -6,9 +6,7 @@ class ContinentTitleUpdateModelForm(forms.ModelForm):
     class Meta:
         model = Continent
         fields = [
-            'title_uk',
-            'title_en',
-            'title_ru',
+            'title',
             'slug',
         ]
 
@@ -29,7 +27,5 @@ class ContinentMainUpdateModelForm(forms.ModelForm):
     class Meta:
         model = Continent
         fields = [
-            'main_text_uk',
-            'main_text_en',
-            'main_text_ru',
+            'main_text',
         ]

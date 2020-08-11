@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-12 15:27+0300\n"
-"PO-Revision-Date: 2020-07-12 17:18+0202\n"
+"POT-Creation-Date: 2020-07-16 11:59+0300\n"
+"PO-Revision-Date: 2020-07-16 12:01+0202\n"
 "Last-Translator: b'  <golovchak.evgen@gmail.com>'\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -665,7 +665,6 @@ msgid "Ratings"
 msgstr ""
 
 #: src/main/templates/main/base.html:64
-#: src/main/templates/main/search_results.html:3
 msgid "Search"
 msgstr "Поиск"
 
@@ -927,10 +926,8 @@ msgstr "Ни одного клуба не добавлено к "
 #: src/main/templates/main/club_list.html:34
 #: src/main/templates/main/entry-pages/country_list_entry.html:19
 #: src/main/templates/main/league_list.html:32
-msgid ""
-", please contact the administrator by e-mail: golovchak.evgen@gmail.com"
-msgstr ""
-", пожалуйста свяжитесь с администратором по почте: golovchak.evgen@gmail.com"
+msgid ", please contact the administrator by e-mail: "
+msgstr ", пожалуйста свяжитесь с администратором по почте: "
 
 #: src/main/templates/main/create_center.html:13
 msgid "welcome to create center"
@@ -1232,6 +1229,11 @@ msgstr "Континент"
 #: src/main/templates/main/rating/main-club.html:4
 msgid "Rating list"
 msgstr "Рейтинговый список"
+
+#: src/main/templates/main/search_results.html:3
+#| msgid "Search"
+msgid "Search "
+msgstr "Поиск "
 
 #: src/main/templates/main/search_results.html:7
 msgid "Search results for a query: "

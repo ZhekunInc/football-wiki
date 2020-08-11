@@ -24,11 +24,11 @@
         {% else %}
             <img loading="lazy" class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
         {% endif %}
-            <p>{% trans "Nickname(s):" %} {{player.nickname}}</p>
-            <p>{% trans "Nationality:" %} {{player.country}}</p>
-            <p>{% trans "Date of birth:" %} {{player.date_of_birth|date:'d F Y'}}</p>
-            <p>{% trans "Height:" %} {{player.height}} {% trans "cm" %}</p>
-            <p>{% trans "Playing position(s):" %} {{player.positions}}</p>
+            <p>{% trans "Nickname(s):" %} {{player.nickname|default:"-"}}</p>
+            <p>{% trans "Nationality:" %} {{player.country|default:"-"}}</p>
+            <p>{% trans "Date of birth:" %} {{player.date_of_birth|date:'d F Y'|default:"-"}}</p>
+            <p>{% trans "Height:" %} {{player.height|default:"-"}} {% trans "cm" %}</p>
+            <p>{% trans "Playing position(s):" %} {{player.positions|default:"-"}}</p>
             {% if user.is_authenticated %}
                 <p><a href="{{ player.get_absolute_url }}player-info-update/"> {% trans 'change' %} </a></p>
             {% else %}

@@ -77,3 +77,8 @@ var swiper = new Swiper('.swiper-container', {
     setInterval(function () {
       document.getElementById('date-time').innerHTML = date_time();
   }, 1000);
+
+$(document).on('change', '.js-change-language-select', function(e) {
+    $(this).closest('form').submit();
+    $(this).attr('disabled', true);
+});
