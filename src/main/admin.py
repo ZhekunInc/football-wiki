@@ -1,5 +1,5 @@
 from django.contrib import admin
-from main.models import Continent, Country, League, Club, Cup, Player, Kits, Fifa
+from main.models import Continent, Country, League, Club, Cup, Player, Kits, Fifa, PlayerClub
 
 try:
     from modeltranslation.admin import TranslationAdmin
@@ -91,6 +91,10 @@ class FifaInlinePost(admin.TabularInline):
     model = Fifa
     extra = 0
 
+class PlayerClubInlinePost(admin.TabularInline):
+    model = PlayerClub
+    extra = 0
+
 @admin.register(Club)
 class ClubAdmin(TranslationAdmin):
     list_display = (
@@ -99,8 +103,8 @@ class ClubAdmin(TranslationAdmin):
     list_filter = ('league',)
     search_fields = ('title',)
     ordering = ('title',)
-    filter_horizontal = ('cups', 'famous_players',)
-    inlines = [KitsInlinePost]
+    filter_horizontal = ('cups',)
+    inlines = [KitsInlinePost, PlayerClubInlinePost]
     prepopulated_fields = {'slug': ('title_en',)}
 
     class Media:
@@ -140,10 +144,10 @@ class PlayerAdmin(TranslationAdmin):
         'title', 'image', 'country'
     )
     list_filter = ('country',)
-    search_fields = ['title',]
+    search_fields = ['title', ]
     ordering = ('title',)
-    filter_horizontal = ('clubs', 'cups')
-    inlines = [FifaInlinePost]
+    filter_horizontal = ('cups',)
+    inlines = [FifaInlinePost, PlayerClubInlinePost]
     prepopulated_fields = {'slug': ('title_en',)}
 
     class Media:

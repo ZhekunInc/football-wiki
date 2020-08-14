@@ -11,7 +11,6 @@ class PlayerCreateModelForm(forms.ModelForm):
             'image',
             'main_text',
             'country',
-            'clubs',
             'cups',
             'nickname',
             'date_of_birth',
@@ -56,7 +55,6 @@ class PlayerClubUpdateModelForm(forms.ModelForm):
     class Meta:
         model = Player
         fields = [
-            'clubs',
         ]
 
 class PlayerMainUpdateModelForm(forms.ModelForm):

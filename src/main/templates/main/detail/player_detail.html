@@ -43,30 +43,72 @@
             <sup><a href="{% url 'account_login' %}"> {% trans 'change' %} </a></sup>
         {% endif %}
     </div>
-    {% if player.clubs.all %}
-        <div class="last">{% trans "Clubs" %} 
+    {% if player.get_clubs %}
+        <!--<div class="last">{% trans "Club career" %} 
             {% if user.is_authenticated %}
                 <sup><a href="{{ player.get_absolute_url }}player-club-update/"> {% trans 'change' %} </a></sup>
             {% else %}
                 <sup><a href="{% url 'account_login' %}"> {% trans 'change' %} </a></sup>
             {% endif %}
-        </div>
-        <section class="sample">
-            <div class="container">
+        </div>-->
+        <div class="last">{% trans "Club career" %}</div>
+        <section class="sample mb-4">
+            <!--<div class="container">
                 <div class="row">
-                    {% for club in player.clubs.all %}
-                        <a title="{{ club.title }}" href="{{ club.get_absolute_url }}" class="item">
-                            {% if club.picture %}
-                                <img loading="lazy" class="images" src="{{ club.picture.url }}" alt="{{ club.title }}">
+                    {% for club in player.get_clubs %}
+                        <a title="{{ club.title }}" href="{{ club.club.get_absolute_url }}" class="item">
+                            {% if club.club.picture %}
+                                <img loading="lazy" class="images" src="{{ club.club.picture.url }}" alt="{{ club.title }}">
                             {% else %}
                                 <img loading="lazy" class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
                             {% endif %}
-                            <div class="title">{{ club.title }}</div>
+                            <div class="title">{{ club.club.title }}</div>
+                            <div class="title">{{ club.year_from }} - {{ club.year_to }}</div>
+                            <div class="title">{{ club.games }} ({{ club.score }})</div>
                         </a>
                     {% endfor %}
                 </div>
+            </div>-->
+            <div class="table-wrap">
+                <table class="table-1">
+                    <tr>
+                        <th>{% trans 'Years' %}</th>
+                        <th>{% trans 'Club' %}</th>
+                        <th>{% trans 'Games' %}</th>
+                        <th>{% trans 'Goals' %}</th>
+                    </tr>
+        
+                    {% for club in player.get_clubs %}
+                        <tr>
+                            <td>{{ club.year_from }} - {{ club.year_to }}</td>
+                            <td>
+                                <a title="{{ club.club.title }}" href="{{ club.club.get_absolute_url }}">
+                                    {% if club.club.picture %}
+                                        <img loading="lazy" class="images-table" src="{{ club.club.picture.url }}" alt="{{ club.title }}"> 
+                                    {% else %}
+                                        <img loading="lazy" class="images-table" src="{% static 'images/placeholder.png' %}" alt="holderplace">
+                                    {% endif %}
+                                    <span class="link-rating">
+                                        {{ club.club.title }}
+                                    </span>
+                                </a>
+                                <span class="load">
+                                    {% if club.is_load %}
+                                        ({% trans 'load' %})
+                                    {% endif %}
+                                </span>
+                            </td>
+                            <td>    
+                                {{ club.games }}
+                            </td>
+                            <td>{{ club.score }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
             </div>
         </section>
+        
+    {# comment #}
     {% else %}
         <div class="last">{% trans "Clubs" %}</div>
         <div class="nope">
@@ -79,6 +121,7 @@
             {% blocktrans %}to add{% endblocktrans %}</p>
         </div>
     {% endif %}
+    {# endcomment #}
     {% if player.cups.all %}
         <div class="last">{% trans "Trophies and award" %}
             {% if user.is_authenticated %}

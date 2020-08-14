@@ -31,13 +31,13 @@
                 <tr>
                     <td>{{ rating.place_ass }}</td>
                     <td>
-                        <a class="link-rating" href="{{ rating.get_absolute_url }}">
+                        <a title="{{ rating.title }}" href="{{ rating.get_absolute_url }}">
                             {% if rating.picture %}
                                 <img loading="lazy" class="images-table" src="{{ rating.picture.url }}" alt="{{ rating.title }}"> 
                             {% else %}
                                 <img loading="lazy" class="images-table" src="{% static 'images/placeholder.png' %}" alt="holderplace">
                             {% endif %}
-                            {{ rating.title }}
+                            <span class="link-rating">{{ rating.title }}</span>
                         </a>
                     </td>
                     <td>{{ rating.points_ass }}</td>

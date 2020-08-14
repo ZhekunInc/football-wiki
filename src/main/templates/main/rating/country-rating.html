@@ -27,23 +27,23 @@
                 <tr>
                     <td>{{ country.place }}</td>
                     <td>
-                        <a class="link-rating" href="{{ country.get_absolute_about_url }}">
+                        <a title="{{ country.title }}" href="{{ country.get_absolute_about_url }}">
                             {% if country.flag %}
                                 <img loading="lazy" class="images-table" src="{{ country.flag.url }}" alt="{{ country.title }}"> 
                             {% else %}
                                 <img loading="lazy" class="images-table" src="{% static 'images/placeholder.png' %}" alt="holderplace">
                             {% endif %}
-                            {{ country.title }}
+                            <span class="link-rating">{{ country.title }}</span>
                         </a>
                     </td>
                     <td>    
-                        <a class="link-rating" href="{{ country.continent.get_absolute_about_url }}">
+                        <a title="{{ country.continent }}" href="{{ country.continent.get_absolute_about_url }}">
                             {% if country.continent.image %}
                                 <img loading="lazy" class="images-table" src="{{ country.continent.image.url }}" alt="{{ country.continent.title }}"> 
                             {% else %}
                                 <img loading="lazy" class="images-table" src="{% static 'images/placeholder.png' %}" alt="holderplace">
                             {% endif %}
-                            {{ country.continent }}
+                            <span class="link-rating">{{ country.continent }}</span>
                         </a>
                     </td>
                     <td>{{ country.points }}</td>

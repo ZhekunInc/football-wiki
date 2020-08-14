@@ -107,7 +107,7 @@
             {% blocktrans %}to add{% endblocktrans %}</p>
         </div>
     {% endif %}
-    {% if club.famous_players.all %}
+    <!--{% if club.famous_players.all %}
         <div class="last">{% trans "Famous Players" %}
             {% if user.is_authenticated %}
                 <sup><a href="{{ club.get_absolute_url }}club-player-update/"> {% trans 'change' %} </a></sup>
@@ -142,6 +142,26 @@
                 {% endif %}
             {% blocktrans %}to add{% endblocktrans %}</p>
         </div>
-    {% endif %}
+    {% endif %}-->
+    <div class="last">{% trans "Famous Players" %}</div>
+    <section class="sample">
+        <div class="container">
+            <div class="row">
+                {% for player in club.get_player %}
+                    {% if player.first_time %}
+                        <a title="{{ player.player.title }}" href="{{ player.player.get_absolute_url }}" class="item">
+                            {% if player.player.image %}
+                                <img loading="lazy" class="images" src="{{ player.player.image.url }}" alt="{{ player.title }}">
+                            {% else %}
+                                <img loading="lazy" class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
+                            {% endif %}
+                            <div class="title">{{ player.player.title }}</div>
+                            <span class="title">{{ player.years_in_club|linebreaks }}</span>
+                        </a>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </section>
 </div>
 {% endblock %}
