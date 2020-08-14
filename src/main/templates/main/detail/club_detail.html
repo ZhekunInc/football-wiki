@@ -143,6 +143,7 @@
             {% blocktrans %}to add{% endblocktrans %}</p>
         </div>
     {% endif %}-->
+    {% if club.get_player %}
     <div class="last">{% trans "Famous Players" %}</div>
     <section class="sample">
         <div class="container">
@@ -163,5 +164,6 @@
             </div>
         </div>
     </section>
+    {% endif %}
 </div>
 {% endblock %}
