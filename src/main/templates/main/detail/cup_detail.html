@@ -46,19 +46,19 @@
             <sup><a href="{% url 'account_login' %}"> {% trans 'change' %} </a></sup>
         {% endif %}
     </div>
-    {% if cup.player.all %}
+    {% if cup.get_players %}
         <div class="last">{% trans "Wins by player" %}</div>
         <section class="sample">
             <div class="container">
                 <div class="row">
-                    {% for player in cup.player.all %}
-                    <a title="{{ player.title }}" href="{{ player.get_absolute_url }}" class="item">
-                        {% if player.image %}
-                            <img loading="lazy" class="images" src="{{ player.image.url }}" alt="{{ player.title }}">
+                    {% for player in cup.get_players %}
+                    <a title="{{ player.player.title }}" href="{{ player.player.get_absolute_url }}" class="item">
+                        {% if player.player.image %}
+                            <img loading="lazy" class="images" src="{{ player.player.image.url }}" alt="{{ player.player.title }}">
                         {% else %}
                             <img loading="lazy" class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
                         {% endif %}
-                        <div class="title">{{ player.title }} {% if cup.slug == 'ballon-dor' %} x{{player.gb}} {% elif cup.slug == 'world-cup' %} x{{player.wc}} {% elif cup.slug == 'uefa-champions-league' %} x{{player.cl}}  {% endif %}</div>
+                        <div class="title">{{ player.player.title }} x {{player.times}}</div>
                     </a>
                     {% endfor %}
                 </div>

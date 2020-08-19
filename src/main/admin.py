@@ -1,8 +1,8 @@
 from django.contrib import admin
-from main.models import Continent, Country, League, Club, Cup, Player, Kits, Fifa, PlayerClub
+from main.models import Continent, Country, League, Club, Cup, Player, Kits, Fifa, PlayerClub, PlayerCup
 
 try:
-    from modeltranslation.admin import TranslationAdmin
+    from modeltranslation.admin import TabbedDjangoJqueryTranslationAdmin as TranslationAdmin, TranslationStackedInline
 except:
     from django.contrib.admin.options import ModelAdmin as TranslationAdmin
 
@@ -67,15 +67,9 @@ class LeagueAdmin(TranslationAdmin):
             'screen': ('modeltranslation/css/tabbed_translation_fields.css',),
         }
 
-class KitsInlinePost(admin.TabularInline):
+class KitsInlinePost(admin.TabularInline, TranslationStackedInline):
     model = Kits
     extra = 0
-
-@admin.register(Kits)
-class KitsAdmin(TranslationAdmin):
-    list_display = (
-        'title',
-    )
 
     class Media:
         js = (
@@ -93,6 +87,10 @@ class FifaInlinePost(admin.TabularInline):
 
 class PlayerClubInlinePost(admin.TabularInline):
     model = PlayerClub
+    extra = 0
+
+class PlayerCupInlinePost(admin.TabularInline):
+    model = PlayerCup
     extra = 0
 
 @admin.register(Club)
@@ -125,8 +123,9 @@ class CupAdmin(TranslationAdmin):
     list_filter = ('region',)
     search_fields = ['title',]
     ordering = ('title',)
-    filter_horizontal = ('players', 'clubs', 'countrys')
+    filter_horizontal = ('clubs', 'countrys')
     prepopulated_fields = {'slug': ('title_en',)}
+    inlines = [PlayerCupInlinePost]
 
     class Media:
         js = (
@@ -147,7 +146,7 @@ class PlayerAdmin(TranslationAdmin):
     search_fields = ['title', ]
     ordering = ('title',)
     filter_horizontal = ('cups',)
-    inlines = [FifaInlinePost, PlayerClubInlinePost]
+    inlines = [FifaInlinePost, PlayerClubInlinePost, PlayerCupInlinePost]
     prepopulated_fields = {'slug': ('title_en',)}
 
     class Media:

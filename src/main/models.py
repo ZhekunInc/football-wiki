@@ -201,11 +201,6 @@ class Cup(models.Model):
         help_text=_("Recomended size 512x512px")
     )
     main_text = models.TextField(_('main text'), null=True, blank=True)
-    players = models.ManyToManyField(
-        'Player', related_name='cup',
-        verbose_name=_('player'), blank=True,
-        help_text=_("Use CTRL for select more than one")
-    )
     clubs = models.ManyToManyField(
         'Club', related_name='cup',
         verbose_name=_('club'), blank=True,
@@ -232,6 +227,11 @@ class Cup(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_players(self):
+        return PlayerCup.objects.filter(
+            cup_id=self.pk
+        ).order_by('times', 'player')
 
     class Meta:
         verbose_name = ('cup')
@@ -286,6 +286,11 @@ class Player(models.Model):
         return PlayerClub.objects.filter(
             player_id=self.pk
         ).order_by('year_from', '-year_to')
+
+    def get_cups(self):
+        return PlayerCup.objects.filter(
+            player_id=self.pk
+        ).order_by('times', 'cup')
 
     class Meta:
         verbose_name = ('player')
@@ -449,3 +454,28 @@ class PlayerClub(models.Model):
 
     class Meta:
         verbose_name = ("Player Club")
+
+class PlayerCup(models.Model):
+    player = models.ForeignKey(
+        Player, on_delete=models.CASCADE, verbose_name=("Player")
+    )
+    cup = models.ForeignKey(
+        'Cup', related_name='cup',
+        verbose_name=_('Cup'), on_delete=models.CASCADE, default=None
+    )
+    times = models.PositiveIntegerField(
+        verbose_name=_('Now much?'), blank=True
+    )
+    years = models.TextField(
+        _('Years'), null=True, blank=True
+    )
+
+    def get_extension(self):
+        file_extension = os.path.splitext(self.playercup.path)
+        return file_extension[1]
+
+    def get_filename(self):
+        return os.path.basename(self.playercup.name)
+
+    class Meta:
+        verbose_name = ("Player Cup")

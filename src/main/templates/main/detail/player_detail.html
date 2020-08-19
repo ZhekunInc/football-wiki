@@ -108,8 +108,7 @@
             </div>
         </section>
         
-    {# comment #}
-    {% else %}
+    <!--{% else %}
         <div class="last">{% trans "Clubs" %}</div>
         <div class="nope">
             <p>{% blocktrans %}No clubs added, click {% endblocktrans %}
@@ -120,27 +119,28 @@
                 {% endif %}
             {% blocktrans %}to add{% endblocktrans %}</p>
         </div>
-    {% endif %}
-    {# endcomment #}
-    {% if player.cups.all %}
-        <div class="last">{% trans "Trophies and award" %}
+    {% endif %}-->
+    {% if player.get_cups %}
+        <!--<div class="last">{% trans "Trophies and award" %}
             {% if user.is_authenticated %}
                 <sup><a href="{{ player.get_absolute_url }}player-trophy-update/"> {% trans 'change' %} </a></sup>
             {% else %}
                 <sup><a href="{% url 'account_login' %}"> {% trans 'change' %} </a></sup>
             {% endif %}
-        </div>
+        </div>-->
+        <div class="last">{% trans "Trophies and award" %}</div>
         <section class="sample">
             <div class="container">
                 <div class="row">
-                    {% for cup in player.cups.all %}
-                    <a title="{{ cup.title }}" class="item" href="{{ cup.get_absolute_url }}">
-                        {% if cup.image %}
-                            <img loading="lazy" class="images" src="{{ cup.image.url }}" alt="{{ cup.title }}">
+                    {% for cup in player.get_cups %}
+                    <a title="{{ cup.cup.title }}" class="item" href="{{ cup.cup.get_absolute_url }}">
+                        {% if cup.cup.image %}
+                            <img loading="lazy" class="images" src="{{ cup.cup.image.url }}" alt="{{ cup.cup.title }}">
                         {% else %}
                             <img loading="lazy" class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
                         {% endif %}
-                        <div class="title">{{ cup.title }} {% if cup.slug == 'ballon-dor' %} x{{player.gb}} {% elif cup.slug == 'world-cup' %} x{{player.wc}} {% elif cup.slug == 'uefa-champions-league' %} x{{player.cl}}  {% endif %}</div>
+                        <div class="title">{{ cup.cup.title }} x {{ cup.times }}</div>
+                        <div class="years">{{ cup.years }}</div>
                     </a>
                     {% endfor %}
                 </div>

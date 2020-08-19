@@ -157,7 +157,7 @@
                                 <img loading="lazy" class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
                             {% endif %}
                             <div class="title">{{ player.player.title }}</div>
-                            <span class="title">{{ player.years_in_club|linebreaks }}</span>
+                            <span class="years">{{ player.years_in_club }}</span>
                         </a>
                     {% endif %}
                 {% endfor %}
