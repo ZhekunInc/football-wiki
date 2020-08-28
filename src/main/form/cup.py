@@ -10,8 +10,6 @@ class CupCreateModelForm(forms.ModelForm):
             'slug',
             'image',
             'main_text',
-            'clubs',
-            'countrys',
             'founded',
             'region',
             'website',
@@ -39,14 +37,12 @@ class CupClubUpdateModelForm(forms.ModelForm):
     class Meta:
         model = Cup
         fields = [
-            'clubs',
         ]
 
 class CupCountryUpdateModelForm(forms.ModelForm):
     class Meta:
         model = Cup
         fields = [
-            'countrys',
         ]
 
 class CupMainUpdateModelForm(forms.ModelForm):

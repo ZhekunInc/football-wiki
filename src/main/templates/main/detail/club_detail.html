@@ -71,7 +71,7 @@
             </div>
         </section>
     {% endif %}
-    {% if club.cups.all %}
+    <!--{% if club.cups.all %}
         <div class="last">{% trans "Trophies" %}
         {% if user.is_authenticated %}
             <sup><a href="{{ club.get_absolute_url }}club-trophy-update/"> {% trans 'change' %} </a></sup>
@@ -106,6 +106,25 @@
                 {% endif %}
             {% blocktrans %}to add{% endblocktrans %}</p>
         </div>
+    {% endif %}-->
+    {% if club.get_cups %}
+    <div class="last">{% trans "Trophies" %}</div>
+    <section class="sample">
+        <div class="container">
+            <div class="row">
+                {% for cup in club.get_cups %}
+                    <a title="{{ cup.cup.title }}" href="{{ cup.cup.get_absolute_url }}" class="item">
+                        {% if cup.cup.image %}
+                            <img loading="lazy" class="images" src="{{ cup.cup.image.url }}" alt="{{ cup.cup.title }}">
+                        {% else %}
+                            <img loading="lazy" class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
+                        {% endif %}
+                        <div class="title">{{ cup.cup.title }} x {{ cup.times }}</div>
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
     {% endif %}
     <!--{% if club.famous_players.all %}
         <div class="last">{% trans "Famous Players" %}
@@ -152,7 +171,7 @@
                     {% if player.first_time %}
                         <a title="{{ player.player.title }}" href="{{ player.player.get_absolute_url }}" class="item">
                             {% if player.player.image %}
-                                <img loading="lazy" class="images" src="{{ player.player.image.url }}" alt="{{ player.title }}">
+                                <img loading="lazy" class="images" src="{{ player.player.image.url }}" alt="{{ player.player.title }}">
                             {% else %}
                                 <img loading="lazy" class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
                             {% endif %}

@@ -25,7 +25,7 @@ SECRET_KEY = '=c%putkgs%4@c(#4y!nvef!xbzjvd7q5)##h&bg+y@x0suds#_'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['zhekun.pythonanywhere.com', '127.0.0.1', '192.168.0.113']
+ALLOWED_HOSTS = ['zhekun.pythonanywhere.com', '127.0.0.1', '192.168.0.113', '192.168.0.105']
 
 
 # Application definition

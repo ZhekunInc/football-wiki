@@ -66,7 +66,7 @@
         </section>
     {% endif %}
 
-    {% if cup.clubs.all %}
+    <!--{% if cup.clubs.all %}
         <div class="last">{% trans "Wins by club" %}
             {% if user.is_authenticated %}
                 <sup><a href="{{ cup.get_absolute_url }}cup-club-update/"> {% trans 'change' %} </a></sup>
@@ -101,9 +101,30 @@
                 {% endif %}
             {% blocktrans %}to add{% endblocktrans %}</p>
         </div>
+    {% endif %}-->
+
+
+    {% if cup.get_clubs %}
+    <div class="last">{% trans "Trophies" %}</div>
+    <section class="sample">
+        <div class="container">
+            <div class="row">
+                {% for club in cup.get_clubs %}
+                    <a title="{{ club.club.title }}" href="{{ club.club.get_absolute_url }}" class="item">
+                        {% if club.club.picture %}
+                            <img loading="lazy" class="images" src="{{ club.club.picture.url }}" alt="{{ club.club.title }}">
+                        {% else %}
+                            <img loading="lazy" class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
+                        {% endif %}
+                        <div class="title">{{ club.club.title }} x {{ club.times }}</div>
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
     {% endif %}
 
-    {% if cup.countrys.all %}
+    <!--{% if cup.countrys.all %}
         <div class="last">{% trans "Wins by country" %}
             {% if user.is_authenticated %}
                 <sup><a href="{{ cup.get_absolute_url }}cup-country-update/"> {% trans 'change' %} </a></sup>
@@ -121,7 +142,7 @@
                         {% else %}
                             <img loading="lazy" class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
                         {% endif %}
-                        <div class="title">{{ country.title }} {% if cup.slug == 'ballon-dor' %} x{{country.gb}} {% elif cup.slug == 'world-cup' %} x{{country.wc}} {% elif cup.slug == 'uefa-champions-league' %} x{{country.cl}} {% endif %}</div>
+                        <div class="title">{{ country.title }} {% if cup.slug == 'ballon-dor' %} x {{country.gb}} {% elif cup.slug == 'world-cup' %} x {{country.wc}} {% elif cup.slug == 'uefa-champions-league' %} x {{country.cl}} {% endif %}</div>
                     </a>
                     {% endfor %}
                 </div>
@@ -138,6 +159,27 @@
                 {% endif %}
             {% blocktrans %}to add{% endblocktrans %}</p>
         </div>
+    {% endif %}-->
+
+    {% if cup.get_countries %}
+    <div class="last">{% trans "Wins by country" %}</div>
+    <section class="sample">
+        <div class="container">
+            <div class="row">
+                {% for country in cup.get_countries %}
+                    <a title="{{ country.country.title }}" href="{{ country.country.get_absolute_about_url }}" class="item">
+                        {% if country.country.picture %}
+                            <img loading="lazy" class="images" src="{{ country.country.picture.url }}" alt="{{ country.country.title }}">
+                        {% else %}
+                            <img loading="lazy" class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
+                        {% endif %}
+                        <div class="title">{{ country.country.title }} x {{ country.times }}</div>
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
     {% endif %}
+
 </div>
 {% endblock %}

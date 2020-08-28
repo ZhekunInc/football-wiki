@@ -21,9 +21,6 @@ class ClubCreateModelForm(forms.ModelForm):
             'website',
             'place',
             'points',
-            'cups',
-            'cl',
-            'gb'
         ]
 
 class ClubTitleUpdateModelForm(forms.ModelForm):
@@ -56,9 +53,6 @@ class ClubTrophyUpdateModelForm(forms.ModelForm):
     class Meta:
         model = Club
         fields = [
-            'cups',
-            'cl',
-            'gb'
         ]
 
 class ClubPlayerUpdateModelForm(forms.ModelForm):

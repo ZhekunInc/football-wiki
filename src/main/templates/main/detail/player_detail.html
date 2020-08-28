@@ -25,7 +25,11 @@
             <img loading="lazy" class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
         {% endif %}
             <p>{% trans "Nickname(s):" %} {{player.nickname|default:"-"}}</p>
-            <p>{% trans "Nationality:" %} {{player.country|default:"-"}}</p>
+            <p>{% trans "Nationality:" %}
+                <a href="{{ player.country.get_absolute_about_url }}">
+                    {{player.country|default:"-"}}
+                </a>
+            </p>
             <p>{% trans "Date of birth:" %} {{player.date_of_birth|date:'d F Y'|default:"-"}}</p>
             <p>{% trans "Height:" %} {{player.height|default:"-"}} {% trans "cm" %}</p>
             <p>{% trans "Playing position(s):" %} {{player.positions|default:"-"}}</p>
@@ -120,32 +124,14 @@
             {% blocktrans %}to add{% endblocktrans %}</p>
         </div>
     {% endif %}-->
-    {% if player.get_cups %}
-        <!--<div class="last">{% trans "Trophies and award" %}
+    <!--{% if player.get_cups %}
+        <div class="last">{% trans "Trophies and award" %}
             {% if user.is_authenticated %}
                 <sup><a href="{{ player.get_absolute_url }}player-trophy-update/"> {% trans 'change' %} </a></sup>
             {% else %}
                 <sup><a href="{% url 'account_login' %}"> {% trans 'change' %} </a></sup>
             {% endif %}
-        </div>-->
-        <div class="last">{% trans "Trophies and award" %}</div>
-        <section class="sample">
-            <div class="container">
-                <div class="row">
-                    {% for cup in player.get_cups %}
-                    <a title="{{ cup.cup.title }}" class="item" href="{{ cup.cup.get_absolute_url }}">
-                        {% if cup.cup.image %}
-                            <img loading="lazy" class="images" src="{{ cup.cup.image.url }}" alt="{{ cup.cup.title }}">
-                        {% else %}
-                            <img loading="lazy" class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
-                        {% endif %}
-                        <div class="title">{{ cup.cup.title }} x {{ cup.times }}</div>
-                        <div class="years">{{ cup.years }}</div>
-                    </a>
-                    {% endfor %}
-                </div>
-            </div>
-        </section>
+        </div>
     {% else %}
         <div class="last">{% trans "Trophies and award" %}</div>
         <div class="nope">
@@ -157,6 +143,27 @@
                 {% endif %}
             {% blocktrans %}to add{% endblocktrans %}</p>
         </div>
+    {% endif %}-->
+    
+    {% if player.get_cups %}
+    <div class="last">{% trans "Trophies and award" %}</div>
+    <section class="sample">
+        <div class="container">
+            <div class="row">
+                {% for cup in player.get_cups %}
+                <a title="{{ cup.cup.title }}" class="item" href="{{ cup.cup.get_absolute_url }}">
+                    {% if cup.cup.image %}
+                        <img loading="lazy" class="images" src="{{ cup.cup.image.url }}" alt="{{ cup.cup.title }}">
+                    {% else %}
+                        <img loading="lazy" class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
+                    {% endif %}
+                    <div class="title">{{ cup.cup.title }} x {{ cup.times }}</div>
+                    <div class="years">{{ cup.years }}</div>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
     {% endif %}
     {% if player.get_fifa %}
         <div class="last">{% trans "FUT" %} </div>

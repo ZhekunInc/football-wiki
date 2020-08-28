@@ -11,14 +11,10 @@ class PlayerCreateModelForm(forms.ModelForm):
             'image',
             'main_text',
             'country',
-            'cups',
             'nickname',
             'date_of_birth',
             'height',
             'positions',
-            'wc',
-            'cl',
-            'gb',
         ]
 
 class PlayerTitleUpdateModelForm(forms.ModelForm):
@@ -45,10 +41,6 @@ class PlayerTrophyUpdateModelForm(forms.ModelForm):
     class Meta:
         model = Player
         fields = [
-            'cups',
-            'wc',
-            'cl',
-            'gb',
         ]
 
 class PlayerClubUpdateModelForm(forms.ModelForm):

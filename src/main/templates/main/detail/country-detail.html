@@ -62,5 +62,49 @@
             <sup><a href="{% url 'account_login' %}"> {% trans 'change' %} </a></sup>
         {% endif %}
     </div>
+    {% if country.get_players %}
+    <div class="last">{% trans "Famous Players" %}</div>
+    <section class="sample">
+        <div class="container">
+            <div class="row">
+                {% for player in country.get_players %}
+                        <a title="{{ player.player.title }}" href="{{ player.player.get_absolute_url }}" class="item">
+                            {% if player.player.image %}
+                                <img loading="lazy" class="images" src="{{ player.player.image.url }}" alt="{{ player.player.title }}">
+                            {% else %}
+                                <img loading="lazy" class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
+                            {% endif %}
+                                <div class="title">{{ player.player.title }}</div>
+                            {% if player.one_time %}
+                                <span class="years">{{ player.year_from }} - {{ player.year_to }}</span>
+                            {% else %}
+                                <span class="years">{{ player.years }}</span>
+                            {% endif %}
+                        </a>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    {% endif %}
+    {% if country.get_cups %}
+    <div class="last">{% trans "Trophies and award" %}</div>
+    <section class="sample">
+        <div class="container">
+            <div class="row">
+                {% for cup in country.get_cups %}
+                <a title="{{ cup.cup.title }}" class="item" href="{{ cup.cup.get_absolute_url }}">
+                    {% if cup.cup.image %}
+                        <img loading="lazy" class="images" src="{{ cup.cup.image.url }}" alt="{{ cup.cup.title }}">
+                    {% else %}
+                        <img loading="lazy" class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
+                    {% endif %}
+                    <div class="title">{{ cup.cup.title }} x {{ cup.times }}</div>
+                    <div class="years">{{ cup.years }}</div>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    {% endif %}
 </div>
 {% endblock %}

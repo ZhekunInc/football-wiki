@@ -116,9 +116,6 @@ class Country(models.Model):
         _('The number of represented in the Europe League'),
         default=1, blank=True
     )
-    wc = models.IntegerField(_('World Cup'), default=0, blank=True)
-    cl = models.IntegerField(_('Champions League'), default=0, blank=True)
-    gb = models.IntegerField(_('Golden ball'), default=0, blank=True)
 
     def __str__(self):
         return self.title
@@ -135,6 +132,16 @@ class Country(models.Model):
             'continent': self.continent.slug, 'country': self.slug,
             'pk': self.id
         })
+
+    def get_cups(self):
+        return CupCountry.objects.filter(
+            country_id=self.pk
+        ).order_by('times', 'cup')
+
+    def get_players(self):
+        return CountryPlayer.objects.filter(
+            country_id=self.pk
+        ).order_by('player__title')
 
     class Meta:
         verbose_name = ('country')
@@ -201,16 +208,6 @@ class Cup(models.Model):
         help_text=_("Recomended size 512x512px")
     )
     main_text = models.TextField(_('main text'), null=True, blank=True)
-    clubs = models.ManyToManyField(
-        'Club', related_name='cup',
-        verbose_name=_('club'), blank=True,
-        help_text=_("Use CTRL for select more than one")
-    )
-    countrys = models.ManyToManyField(
-        'Country', related_name='cup',
-        verbose_name=_('country'), blank=True,
-        help_text=_("Use CTRL for select more than one")
-    )
     founded = models.DateTimeField(_('Founded'), default=timezone.now)
     region = models.ForeignKey(
         'Continent', related_name='cup',
@@ -233,6 +230,16 @@ class Cup(models.Model):
             cup_id=self.pk
         ).order_by('times', 'player')
 
+    def get_clubs(self):
+        return CupClub.objects.filter(
+            cup_id=self.pk
+        ).order_by('times', 'club')
+
+    def get_countries(self):
+        return CupCountry.objects.filter(
+            cup_id=self.pk
+        ).order_by('times', 'country')
+
     class Meta:
         verbose_name = ('cup')
 
@@ -251,11 +258,6 @@ class Player(models.Model):
         'Country', related_name='player',
         verbose_name=_('country'), on_delete=models.CASCADE, null=True
     )
-    cups = models.ManyToManyField(
-        'Cup', related_name='player',
-        verbose_name=_('cup'), blank=True,
-        help_text=_("Use CTRL for select more than one")
-    )
     nickname = models.CharField(
         _('nickname'), null=True, max_length=255, blank=True
     )
@@ -266,9 +268,6 @@ class Player(models.Model):
     positions = models.CharField(
         _('positions'), max_length=50, null=True, blank=True
     )
-    wc = models.IntegerField(_('World Cup'), default=0, blank=True)
-    cl = models.IntegerField(_('Champions League'), default=0, blank=True)
-    gb = models.IntegerField(_('Golden ball'), default=0, blank=True)
 
     def get_absolute_url(self):
         """Return category's URL"""
@@ -293,7 +292,7 @@ class Player(models.Model):
         ).order_by('times', 'cup')
 
     class Meta:
-        verbose_name = ('player')
+        verbose_name = _('player')
 
 class Club(models.Model):
     title = models.CharField(_('title'), max_length=200)
@@ -350,16 +349,9 @@ class Club(models.Model):
         _('Points on rating'), max_digits=7, decimal_places=3,
         default=1, blank=True
     )
-    cups = models.ManyToManyField(
-        'Cup', related_name='club',
-        verbose_name=_('cup'), blank=True,
-        help_text=_("Use CTRL for select more than one")
-    )
-    cl = models.IntegerField(_('Champions League'), default=0, blank=True)
-    gb = models.IntegerField(_('Golden ball'), default=0, blank=True)
 
     class Meta:
-        verbose_name = ("Club")
+        verbose_name = _("Club")
 
     def __str__(self):
         return self.title
@@ -371,6 +363,11 @@ class Club(models.Model):
         return PlayerClub.objects.filter(
             club_id=self.pk
         ).order_by('player__title')
+
+    def get_cups(self):
+        return CupClub.objects.filter(
+            club_id=self.pk
+        ).order_by('times', 'cup__title')
 
     def get_absolute_url(self):
         """Return category's URL"""
@@ -398,7 +395,7 @@ class Kits(models.Model):
         return os.path.basename(self.kits.name)
 
     class Meta:
-        verbose_name = ("Kit")
+        verbose_name = _("Kit")
 
 class Fifa(models.Model):
     player = models.ForeignKey(
@@ -416,7 +413,7 @@ class Fifa(models.Model):
         return os.path.basename(self.fifa.name)
 
     class Meta:
-        verbose_name = ("Fifa")
+        verbose_name = _("Fifa")
 
 
 class PlayerClub(models.Model):
@@ -453,15 +450,14 @@ class PlayerClub(models.Model):
         return os.path.basename(self.playerclub.name)
 
     class Meta:
-        verbose_name = ("Player Club")
+        verbose_name = _("Player Club")
 
 class PlayerCup(models.Model):
     player = models.ForeignKey(
-        Player, on_delete=models.CASCADE, verbose_name=("Player")
+        Player, on_delete=models.CASCADE, verbose_name=_("Player")
     )
     cup = models.ForeignKey(
-        'Cup', related_name='cup',
-        verbose_name=_('Cup'), on_delete=models.CASCADE, default=None
+        Cup, verbose_name=_('Cup'), on_delete=models.CASCADE, default=None
     )
     times = models.PositiveIntegerField(
         verbose_name=_('Now much?'), blank=True
@@ -478,4 +474,75 @@ class PlayerCup(models.Model):
         return os.path.basename(self.playercup.name)
 
     class Meta:
-        verbose_name = ("Player Cup")
+        verbose_name = _("Player Cup")
+
+class CupClub(models.Model):
+    cup = models.ForeignKey(
+        Cup, verbose_name=_('Cup'), on_delete=models.CASCADE, default=None
+    )
+    club = models.ForeignKey(
+        Club, on_delete=models.CASCADE, verbose_name=("Club")
+    )
+    times = models.PositiveIntegerField(
+        verbose_name=_('Now much?'), blank=True
+    )
+
+    def get_extension(self):
+        file_extension = os.path.splitext(self.cupclub.path)
+        return file_extension[1]
+
+    def get_filename(self):
+        return os.path.basename(self.cupclub.name)
+
+    class Meta:
+        verbose_name = _("Cup Club")
+
+class CupCountry(models.Model):
+    cup = models.ForeignKey(
+        Cup, verbose_name=_('Cup'), on_delete=models.CASCADE, default=None
+    )
+    country = models.ForeignKey(
+        Country, on_delete=models.CASCADE, verbose_name=("Country")
+    )
+    times = models.PositiveIntegerField(
+        verbose_name=_('Now much?'), blank=True
+    )
+
+    def get_extension(self):
+        file_extension = os.path.splitext(self.cupcountry.path)
+        return file_extension[1]
+
+    def get_filename(self):
+        return os.path.basename(self.cupcountry.name)
+
+    class Meta:
+        verbose_name = _("Cup Country")
+
+class CountryPlayer(models.Model):
+    player = models.ForeignKey(
+        Player, on_delete=models.CASCADE, verbose_name=_("Player")
+    )
+    country = models.ForeignKey(
+        Country, on_delete=models.CASCADE, verbose_name=("Country"),
+        default=None
+    )
+    year_from = models.PositiveIntegerField(
+        verbose_name=_('Year from'), blank=True
+    )
+    year_to = models.PositiveIntegerField(
+        verbose_name=_('Year to'), blank=True
+    )
+    one_time = models.BooleanField(('One time?'), default=True)
+    years = models.TextField(
+        _('Years'), null=True, blank=True
+    )
+
+    def get_extension(self):
+        file_extension = os.path.splitext(self.countryplayer.path)
+        return file_extension[1]
+
+    def get_filename(self):
+        return os.path.basename(self.countryplayer.name)
+
+    class Meta:
+        verbose_name = _("Cup Country")

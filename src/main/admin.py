@@ -1,10 +1,20 @@
 from django.contrib import admin
-from main.models import Continent, Country, League, Club, Cup, Player, Kits, Fifa, PlayerClub, PlayerCup
+from main.models import Continent, Country, League, Club, Cup, Player, Kits, Fifa, PlayerClub, PlayerCup, CupClub, CupCountry, CountryPlayer
 
 try:
     from modeltranslation.admin import TabbedDjangoJqueryTranslationAdmin as TranslationAdmin, TranslationStackedInline
 except:
     from django.contrib.admin.options import ModelAdmin as TranslationAdmin
+
+
+class CupCountryInlinePost(admin.TabularInline):
+    model = CupCountry
+    extra = 0
+
+
+class CountryPlayerInlinePost(admin.TabularInline):
+    model = CountryPlayer
+    extra = 0
 
 
 @admin.register(Continent)
@@ -36,6 +46,7 @@ class CountryAdmin(TranslationAdmin):
     search_fields = ['title',]
     ordering = ('title',)
     prepopulated_fields = {'slug': ('title_en',)}
+    inlines = [CupCountryInlinePost, CountryPlayerInlinePost]
 
     class Media:
         js = (
@@ -85,12 +96,17 @@ class FifaInlinePost(admin.TabularInline):
     model = Fifa
     extra = 0
 
+
 class PlayerClubInlinePost(admin.TabularInline):
     model = PlayerClub
     extra = 0
 
 class PlayerCupInlinePost(admin.TabularInline):
     model = PlayerCup
+    extra = 0
+
+class CupClubInlinePost(admin.TabularInline):
+    model = CupClub
     extra = 0
 
 @admin.register(Club)
@@ -101,8 +117,7 @@ class ClubAdmin(TranslationAdmin):
     list_filter = ('league',)
     search_fields = ('title',)
     ordering = ('title',)
-    filter_horizontal = ('cups',)
-    inlines = [KitsInlinePost, PlayerClubInlinePost]
+    inlines = [KitsInlinePost, PlayerClubInlinePost, CupClubInlinePost]
     prepopulated_fields = {'slug': ('title_en',)}
 
     class Media:
@@ -121,11 +136,10 @@ class CupAdmin(TranslationAdmin):
         'title', 'image', 'region'
     )
     list_filter = ('region',)
-    search_fields = ['title',]
+    search_fields = ['title']
     ordering = ('title',)
-    filter_horizontal = ('clubs', 'countrys')
     prepopulated_fields = {'slug': ('title_en',)}
-    inlines = [PlayerCupInlinePost]
+    inlines = [PlayerCupInlinePost, CupClubInlinePost, CupCountryInlinePost]
 
     class Media:
         js = (
@@ -145,7 +159,6 @@ class PlayerAdmin(TranslationAdmin):
     list_filter = ('country',)
     search_fields = ['title', ]
     ordering = ('title',)
-    filter_horizontal = ('cups',)
     inlines = [FifaInlinePost, PlayerClubInlinePost, PlayerCupInlinePost]
     prepopulated_fields = {'slug': ('title_en',)}
 
