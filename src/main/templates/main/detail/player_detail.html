@@ -84,7 +84,11 @@
         
                     {% for club in player.get_clubs %}
                         <tr>
-                            <td>{{ club.year_from }} - {{ club.year_to }}</td>
+                            {% if club.year_from == club.year_to %}
+                                <td>{{ club.year_from }}</td>
+                            {% else %}
+                                <td>{{ club.year_from }} - {{ club.year_to }}</td>
+                            {% endif %}
                             <td>
                                 <a title="{{ club.club.title }}" href="{{ club.club.get_absolute_url }}">
                                     {% if club.club.picture %}
