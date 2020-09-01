@@ -136,7 +136,7 @@ class Country(models.Model):
     def get_cups(self):
         return CupCountry.objects.filter(
             country_id=self.pk
-        ).order_by('times', 'cup')
+        ).order_by('-times', 'cup')
 
     def get_players(self):
         return CountryPlayer.objects.filter(
@@ -228,17 +228,17 @@ class Cup(models.Model):
     def get_players(self):
         return PlayerCup.objects.filter(
             cup_id=self.pk
-        ).order_by('times', 'player')
+        ).order_by('-times', 'player')
 
     def get_clubs(self):
         return CupClub.objects.filter(
             cup_id=self.pk
-        ).order_by('times', 'club')
+        ).order_by('-times', 'club')
 
     def get_countries(self):
         return CupCountry.objects.filter(
             cup_id=self.pk
-        ).order_by('times', 'country')
+        ).order_by('-times', 'country')
 
     class Meta:
         verbose_name = ('cup')
@@ -289,7 +289,7 @@ class Player(models.Model):
     def get_cups(self):
         return PlayerCup.objects.filter(
             player_id=self.pk
-        ).order_by('times', 'cup')
+        ).order_by('-times', 'cup')
 
     class Meta:
         verbose_name = _('player')
@@ -367,7 +367,7 @@ class Club(models.Model):
     def get_cups(self):
         return CupClub.objects.filter(
             club_id=self.pk
-        ).order_by('times', 'cup__title')
+        ).order_by('-times', 'cup__title')
 
     def get_absolute_url(self):
         """Return category's URL"""
