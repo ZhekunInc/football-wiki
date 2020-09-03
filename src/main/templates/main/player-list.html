@@ -6,50 +6,13 @@
 
     <div class="last">{% trans "Players" %}</div>
 
-    {% for country in countries %}
-    <div class="block">
-        <div class="extremum-click btn btn-dark btn-country">{{ country.title }}</div>
-        <i class="up-icon fas fa-chevron-up"></i>
-        <i class="down-icon fas fa-chevron-down"></i>
-        <div class="extremum-slide">
-            {% if country.player.all %}
-            <section class="sample">
-                <div class="container">
-                    <div class="row">
-                        {% for player in country.player.all %}
-                        <a title="{{ player.title }}" href="{{ player.get_absolute_url }}" class="item">
-                            {% if player.image %}
-                                <img loading="lazy" class="images" src="{{ player.image.url }}" alt="{{ player.title }}">
-                            {% else %}
-                                <img loading="lazy" class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
-                            {% endif %}
-                            <div class="title">{{ player.title }}</div>
-                        </a>
-                        {% endfor %}
-                    </div>
-                </div>
-            </section>
-            {% else %}
-            <section class="sample">
-                <div class="container">
-                    <div class="row">
-                        {% if user.is_authenticated %}
-                        <a title="{% trans 'Create new player' %}" class="item" href="{% url 'player_create' %}">
-                            <img loading="lazy" class="images" src="{% static 'images/create-player.png' %}" alt="holderplace">
-                            <div class="title">{% trans 'Create new player' %}</div>
-                        </a>
-                        {% else %}
-                        <a title="{% trans 'Create new player' %}" class="item" href="{% url 'account_login' %}">
-                            <img loading="lazy" class="images" src="{% static 'images/create-player.png' %}" alt="holderplace">
-                            <div class="title">{% trans 'Create new player' %}</div>
-                        </a>
-                        {% endif %}
-                    </div>
-                </div>
-            </section>
-            {% endif %}
-        </div>
-    </div>
-    {% endfor %}
+    {% include 'main/entry-pages/player_list_entry.html' %}
 
+{% endblock %}
+
+{% block js %}
+    {{ block.super }}
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="{{ STATIC_URL }}el-pagination/js/el-pagination.js"></script>
+    <script>$.endlessPaginate();</script>
 {% endblock %}

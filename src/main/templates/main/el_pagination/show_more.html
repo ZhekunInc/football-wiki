@@ -1,21 +1,11 @@
 {% load i18n %}
-{% if querystring %}
-    <div class="endless_container">
-        <a class="endless_more{% if class_name %} {{ class_name }}{% endif %}" href="{{ path }}{{ querystring }}"
-            data-el-querystring-key="{{ querystring_key }}">{% if label %}{{ label|safe }}{% else %}{% trans "more" %}{% endif %}</a>
-        <div class="endless_loading" style="display: none;">{{ loading|safe }}</div>
-    </div>
-{% endif %}
 
-{% load i18n %}
 {% if querystring %}
-    <div class="endless_container">
-        <div class="btn-watch-more">
-            <a class="endless_more{% if class_name %} {{ class_name }}{% endif %} btn-primary btn-watch-more-pagination"
-                    href="{{ path }}{{ querystring }}"
-                    data-el-querystring-key="{{ querystring_key }}">
-                {% trans "watch more" %} <i class="fas fa-redo"></i>
-            </a>
-        </div>
+    <div class="endless_container text-center">
+        <a class="endless_more{% if class_name %} {{ class_name }}{% endif %} btn btn-light-pink"
+                href="{{ path }}{{ querystring }}"
+                data-el-querystring-key="{{ querystring_key }}">
+            {% trans "Watch more" %}
+        </a>
     </div>
 {% endif %}

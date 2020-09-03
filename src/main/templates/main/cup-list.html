@@ -6,50 +6,13 @@
 
     <div class="last">{% trans "Trophies and award" %}</div>
 
-    {% for continent in continents %}
-    <div class="block">
-        <div class="extremum-click btn btn-dark btn-country">{{ continent.title }}</div>
-        <i class="up-icon fas fa-chevron-up"></i>
-        <i class="down-icon fas fa-chevron-down"></i>
-        <div class="extremum-slide">
-            {% if continent.cup.all %}
-            <section class="sample">
-                <div class="container">
-                    <div class="row">
-                        {% for cup in continent.cup.all %}
-                        <a title="{{ cup.title }}" href="{{ cup.get_absolute_url }}" class="item">
-                            {% if cup.image %}
-                                <img loading="lazy" class="images" src="{{ cup.image.url }}" alt="{{ cup.title }}">
-                            {% else %}
-                                <img loading="lazy" class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
-                            {% endif %}
-                            <div class="title">{{ cup.title }}</div>
-                        </a>
-                        {% endfor %}
-                    </div>
-                </div>
-            </section>
-            {% else %}
-            <section class="sample">
-                <div class="container">
-                    <div class="row">
-                        {% if user.is_authenticated %}
-                        <a title="{% trans 'Create new cup' %}" class="item" href="{% url 'cup_create' %}">
-                            <img loading="lazy" class="images" src="{% static 'images/create-cup.png' %}" alt="holderplace">
-                            <div class="title">{% trans 'Create new cup' %}</div>
-                        </a>
-                        {% else %}
-                        <a title="{% trans 'Create new cup' %}" class="item" href="{% url 'account_login' %}">
-                            <img loading="lazy" class="images" src="{% static 'images/create-cup.png' %}" alt="holderplace">
-                            <div class="title">{% trans 'Create new cup' %}</div>
-                        </a>
-                        {% endif %}
-                    </div>
-                </div>
-            </section>
-            {% endif %}
-        </div>
-    </div>
-    {% endfor %}
+    {% include 'main/entry-pages/cup_list_entry.html' %}
 
+{% endblock %}
+
+{% block js %}
+    {{ block.super }}
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="{{ STATIC_URL }}el-pagination/js/el-pagination.js"></script>
+    <script>$.endlessPaginate();</script>
 {% endblock %}

@@ -38,13 +38,14 @@ class HomePageView(ListView):
         if translation.LANGUAGE_SESSION_KEY in request.session:
             del request.session[translation.LANGUAGE_SESSION_KEY]
 
-class PlayerList(ListView):
+class PlayerList(AjaxListView):
 
-    def get(self, request):
-        countries = Country.objects.all().order_by("title")
-        return render(
-            request, "main/player-list.html", {'countries': countries}
-        )
+    template_name = "main/player-list.html"
+    page_template = "main/entry-pages/player_list_entry.html"
+    context_object_name = "countries"
+
+    def get_queryset(self):
+        return Country.objects.all().order_by("title")
 
 class CupList(ListView):
 
