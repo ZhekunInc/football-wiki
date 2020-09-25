@@ -1,5 +1,5 @@
 from django import template
-from main.models import Continent
+from main.models import Continent, RatingAssociation
 
 register = template.Library()
 
@@ -18,5 +18,5 @@ def rating_list_club():
 @register.inclusion_tag('tag-pages/rating-list-association.html')
 def rating_list_association():
     return {
-        'rating_continent': Continent.objects.all().filter(is_published=True).order_by("title")
+        'rating_continent': RatingAssociation.objects.all().order_by("continent__title")
     }

@@ -19,10 +19,6 @@ class CountryCreateModelForm(forms.ModelForm):
             'website',
             'place',
             'points',
-            'place_ass',
-            'points_ass',
-            'cl_teams',
-            'el_teams'
         ]
 
 class CountryTitleUpdateModelForm(forms.ModelForm):
@@ -47,10 +43,6 @@ class CountryInfoUpdateModelForm(forms.ModelForm):
             'website',
             'place',
             'points',
-            'place_ass',
-            'points_ass',
-            'cl_teams',
-            'el_teams'
         ]
 
 class CountryMainUpdateModelForm(forms.ModelForm):

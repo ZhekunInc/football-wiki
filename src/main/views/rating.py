@@ -1,8 +1,8 @@
 from django.shortcuts import render
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from django.shortcuts import get_object_or_404
 from datetime import datetime
-from main.models import Continent, Country
+from main.models import Continent, Country, RatingAssociation
 
 def get_continent_or_404(continent):
     """Retrieve a Category instance by a continent"""
@@ -33,28 +33,11 @@ class RatingClubListView(ListView):
         context['continent'] = self.continent
         return context
 
-class RatingAssociationListView(ListView):
+
+class RatingAssociationListView(DetailView):
     template_name = 'main/rating/association-rating.html'
-    context_object_name = "ratings_ass"
+    model = RatingAssociation
 
-    def get_queryset(self):
-        """
-        Retrieve the category by his continent and
-        build a queryset of her published entries.
-        """
-        self.continent = get_continent_or_404(self.kwargs['continent'])
-        return self.continent.country.filter(
-            is_published=True,
-            published_at__lte=datetime.now()
-        ).order_by("place_ass")
-
-    def get_context_data(self, **kwargs):
-        """
-        Add the current category in context.
-        """
-        context = super(RatingAssociationListView, self).get_context_data(**kwargs)
-        context['continent'] = self.continent
-        return context
 
 class RatingCountryListView(ListView):
 

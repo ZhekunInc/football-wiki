@@ -1,5 +1,5 @@
 from django.contrib import admin
-from main.models import Continent, Country, League, Club, Cup, Player, Kits, Fifa, PlayerClub, PlayerCup, CupClub, CupCountry, CountryPlayer
+from main.models import Continent, Country, League, Club, Cup, Player, Kits, Fifa, PlayerClub, PlayerCup, CupClub, CupCountry, CountryPlayer, RatingAssociation, Association
 
 try:
     from modeltranslation.admin import TabbedDjangoJqueryTranslationAdmin as TranslationAdmin, TranslationStackedInline
@@ -109,6 +109,10 @@ class CupClubInlinePost(admin.TabularInline):
     model = CupClub
     extra = 0
 
+class AssociationInlinePost(admin.TabularInline):
+    model = Association
+    extra = 0
+
 @admin.register(Club)
 class ClubAdmin(TranslationAdmin):
     list_display = (
@@ -171,3 +175,10 @@ class PlayerAdmin(TranslationAdmin):
         css = {
             'screen': ('modeltranslation/css/tabbed_translation_fields.css',),
         }
+
+@admin.register(RatingAssociation)
+class RatingAssociationAdmin(admin.ModelAdmin):
+    list_display = (
+        'continent',
+    )
+    inlines = [AssociationInlinePost]

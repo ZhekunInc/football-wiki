@@ -9,14 +9,11 @@
     <li><a href="{% url 'home_page' %}"> {% trans 'Home' %} </a></li>/
     <li><a href="{% url 'all_rating' %}"> {% trans 'All ratings' %} </a></li>/
     <li><a href="{% url 'association_rating' %}"> {% trans 'Continents' %} </a></li>/
-    <li><a href="{{ rating.get_absolute_url }}"> {% trans 'Association rating ' %}{{ rating.continent.title }} </a></li>/
+    <li><a href="{{ rating.get_absolute_url }}"> {% trans 'Association rating ' %}{{ continent.title }} </a></li>/
 </ul>
 {% endblock %}
 
 {% block content %}
-<h1>{{ object.continent.title }}</h1>
-<span class='lead'>{{ object.lead }} </span>
-<div class='body'>{{ object.body|safe }} </div>
     <div class="table-wrap">
         <table class="table-1">
             <tr>
@@ -30,8 +27,8 @@
                 <th>{% trans 'Points' %}</th>
                 <th>{% trans 'Teams' %}</th>
             </tr>
-            {% if object.get_ass %}
-                {% for rating in object.get_ass %}
+            {% if rating.get_ass %}
+                {% for rating in rating.get_ass %}
                 <tr>
                     <td>{{ rating.place }}</td>
                     <td>
@@ -41,21 +38,19 @@
                             {% else %}
                                 <img loading="lazy" class="images-table" src="{% static 'images/placeholder.png' %}" alt="holderplace">
                             {% endif %}
-                            <span class="link-rating">{{ rating.country.title }}</span>
+                            <span class="link-rating">{{ rating.title }}</span>
                         </a>
                     </td>
-                    <td>{{ rating.point_year1 }}</td>
-                    <td>{{ rating.point_year2 }}</td>
-                    <td>{{ rating.point_year3 }}</td>
-                    <td>{{ rating.point_year4 }}</td>
-                    <td>{{ rating.point_year5 }}</td>
                     <td>{{ rating.points }}</td>
-                    <td>{{ rating.teams }}</td>
+                    {% if rating.continent.slug == 'uefa' %}
+                        <td>{{ rating.cl_teams }}</td>
+                        <td>{{ rating.el_teams }}</td>
+                    {% endif %}
                 </tr>
                 {% endfor %}
             {% endif %}
         </table>
     </div>
 
-<p>{{ rating.titles }}</p>
+<p>{{ rating }}</p>
 {% endblock %}

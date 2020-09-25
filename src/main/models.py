@@ -48,13 +48,6 @@ class Continent(models.Model):
         """Return category's URL"""
         return reverse('club-rating_page', kwargs={'continent': self.slug})
 
-    def get_absolute_association_rating_url(self):
-        """Return category's URL"""
-        return reverse(
-            'association-rating_page',
-            kwargs={'continent': self.slug}
-        )
-
     def get_absolute_about_url(self):
         """Return category's URL"""
         return reverse('continent_about', kwargs={
@@ -101,21 +94,6 @@ class Country(models.Model):
     )
     place = models.IntegerField(_('Place on rating'), default=1, blank=True)
     points = models.IntegerField(_('Points on rating'), default=1, blank=True)
-    place_ass = models.IntegerField(
-        _('Place on association rating'), default=1, blank=True
-    )
-    points_ass = models.DecimalField(
-        _('Points on association rating'), max_digits=7,
-        decimal_places=3, default=1, blank=True
-    )
-    cl_teams = models.IntegerField(
-        _('The number of represented in the Champions League'),
-        default=0, blank=True
-    )
-    el_teams = models.IntegerField(
-        _('The number of represented in the Europe League'),
-        default=1, blank=True
-    )
 
     def __str__(self):
         return self.title
@@ -546,3 +524,79 @@ class CountryPlayer(models.Model):
 
     class Meta:
         verbose_name = _("Cup Country")
+
+
+class RatingAssociation(models.Model):
+    continent = models.ForeignKey(
+        'Continent', null=True,
+        verbose_name=_('continent'), on_delete=models.CASCADE,
+    )
+
+    def get_absolute_url(self):
+        """Return category's URL"""
+        return reverse('association-rating_page', kwargs={
+            'ratingass': self.continent.slug, 'pk': self.id
+        })
+
+    def __str__(self):
+        return self.continent.title
+
+    class Meta:
+        verbose_name = _('Rating Associations')
+
+    def get_ass(self):
+        return Association.objects.filter(
+            rating_id=self.pk
+        ).order_by('points')
+
+
+class Association(models.Model):
+    rating = models.ForeignKey(
+        RatingAssociation, on_delete=models.CASCADE, verbose_name=("Rating Associations"),
+        default=None
+    )
+    place = models.IntegerField(
+        _('Place'), blank=True, default=1
+    )
+    country = models.ForeignKey(
+        Country, on_delete=models.CASCADE, verbose_name=("Country"),
+        default=None
+    )
+    point_year1 = models.DecimalField(
+        _('Points on association rating'), max_digits=7,
+        decimal_places=3, default=1, blank=True
+    )
+    point_year2 = models.DecimalField(
+        _('Points on association rating'), max_digits=7,
+        decimal_places=3, default=1, blank=True
+    )
+    point_year3 = models.DecimalField(
+        _('Points on association rating'), max_digits=7,
+        decimal_places=3, default=1, blank=True
+    )
+    point_year4 = models.DecimalField(
+        _('Points on association rating'), max_digits=7,
+        decimal_places=3, default=1, blank=True
+    )
+    point_year5 = models.DecimalField(
+        _('Points on association rating'), max_digits=7,
+        decimal_places=3, default=1, blank=True
+    )
+    points = models.DecimalField(
+        _('Points on association rating'), max_digits=7,
+        decimal_places=3, default=1, blank=True
+    )
+    teams = models.IntegerField(
+        _('The number of represented Euro Cups'),
+        default=0, blank=True
+    )
+
+    def get_extension(self):
+        file_extension = os.path.splitext(self.association.path)
+        return file_extension[1]
+
+    def get_filename(self):
+        return os.path.basename(self.association.name)
+
+    class Meta:
+        verbose_name = _("Association")

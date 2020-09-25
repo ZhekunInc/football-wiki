@@ -72,7 +72,7 @@ urlpatterns = [
         name='club-rating_page'
     ),
     path(
-        'association-rating/rating-<continent>/',
+        'association-rating/rating-<ratingass>-<pk>/',
         RatingAssociationListView.as_view(),
         name='association-rating_page'
     ),
