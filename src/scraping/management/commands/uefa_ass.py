@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand
-from urllib.request import urlopen
+from urllib.request import urlopen, Request
 from bs4 import BeautifulSoup
 from main.models import RatingAssociation, Continent, Association, Country
 
@@ -10,8 +10,12 @@ class Command(BaseCommand):
     help = "collect jobs"
     # define logic of command
     def handle(self, *args, **options):
+        headers = {
+            'User-Agent': "Mozilla/5.0 (X11; CrOS i686 0.12.433) AppleWebKit/534.30 (KHTML, like Gecko) Chrome/12.0.742.77 Safari/534.30"
+        }
+
         # collect html
-        html = urlopen('https://terrikon.com/football/uefa_coefs')
+        html = urlopen(Request('https://terrikon.com/football/uefa_coefs', headers=headers))
         # convert to soup
         soup = BeautifulSoup(html, 'html.parser')
         continent = soup.find("div", class_="ash1").text
