@@ -5,19 +5,26 @@ from main.models import RatingAssociation, Continent, Association, Country
 
 from slugify import slugify
 
+import requests
+import random
+import time
+
 
 class Command(BaseCommand):
     help = "collect jobs"
     # define logic of command
     def handle(self, *args, **options):
+        url = 'https://terrikon.com/football/uefa_coefs'
         headers = {
-            'User-Agent': "Mozilla/5.0 (X11; CrOS i686 0.12.433) AppleWebKit/534.30 (KHTML, like Gecko) Chrome/12.0.742.77 Safari/534.30"
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36'
         }
+        proxyDict = {
+            'http': "add http proxy",
+            'https': "add https proxy"
+        }
+        response = requests.get(url, headers=headers)
+        soup = BeautifulSoup(response.text, 'html.parser')
 
-        # collect html
-        html = urlopen(Request('https://terrikon.com/football/uefa_coefs', headers=headers))
-        # convert to soup
-        soup = BeautifulSoup(html, 'html.parser')
         continent = soup.find("div", class_="ash1").text
         continent = continent.split(' ')
         continent = continent[2]
@@ -37,8 +44,9 @@ class Command(BaseCommand):
             rating.continent = Continent.objects.get(
                 title_ru=continent,
             )
-            while i < 550:
-
+            while i < 110:
+                
+                time.sleep(random.randint(1, 3))
                 is_new_country = not Country.objects.filter(
                     title_ru=table[i + 2].text
                 ).exists()
