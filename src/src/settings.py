@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.sitemaps',
     'el_pagination',
     'rosetta',
+    'scraping'
 ]
 
 ACCOUNT_DEFAULT_HTTP_PROTOCOL = "https"

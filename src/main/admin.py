@@ -179,6 +179,12 @@ class PlayerAdmin(TranslationAdmin):
 @admin.register(RatingAssociation)
 class RatingAssociationAdmin(admin.ModelAdmin):
     list_display = (
-        'continent',
+        'title', 'continent'
     )
     inlines = [AssociationInlinePost]
+
+@admin.register(Association)
+class AssociationAdmin(admin.ModelAdmin):
+    list_display = (
+        'id',
+    )

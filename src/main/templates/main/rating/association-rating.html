@@ -14,9 +14,6 @@
 {% endblock %}
 
 {% block content %}
-<h1>{{ object.continent.title }}</h1>
-<span class='lead'>{{ object.lead }} </span>
-<div class='body'>{{ object.body|safe }} </div>
     <div class="table-wrap">
         <table class="table-1">
             <tr>
@@ -35,9 +32,9 @@
                 <tr>
                     <td>{{ rating.place }}</td>
                     <td>
-                        <a title="{{ rating.title }}" href="{{ rating.get_absolute_url }}">
-                            {% if rating.picture %}
-                                <img loading="lazy" class="images-table" src="{{ rating.picture.url }}" alt="{{ rating.title }}"> 
+                        <a title="{{ rating.country.title }}" href="{{ rating.country.get_absolute_url }}">
+                            {% if rating.country.picture %}
+                                <img loading="lazy" class="images-table" src="{{ rating.country.picture.url }}" alt="{{ rating.country.title }}"> 
                             {% else %}
                                 <img loading="lazy" class="images-table" src="{% static 'images/placeholder.png' %}" alt="holderplace">
                             {% endif %}
@@ -57,5 +54,4 @@
         </table>
     </div>
 
-<p>{{ rating.titles }}</p>
 {% endblock %}

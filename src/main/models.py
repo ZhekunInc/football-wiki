@@ -58,7 +58,7 @@ class Continent(models.Model):
         verbose_name = ('continent')
 
 class Country(models.Model):
-    title = models.CharField(_('title'), max_length=200)
+    title = models.CharField(_('title'), max_length=200, blank=True)
     slug = models.SlugField(
         _('slug'), unique=True, max_length=255
     )
@@ -527,6 +527,8 @@ class CountryPlayer(models.Model):
 
 
 class RatingAssociation(models.Model):
+    published_at = models.DateTimeField(('published at'), default=timezone.now)
+    title = models.CharField(_('title'), max_length=200)
     continent = models.ForeignKey(
         'Continent', null=True,
         verbose_name=_('continent'), on_delete=models.CASCADE,
@@ -539,7 +541,7 @@ class RatingAssociation(models.Model):
         })
 
     def __str__(self):
-        return self.continent.title
+        return self.title
 
     class Meta:
         verbose_name = _('Rating Associations')
@@ -547,20 +549,18 @@ class RatingAssociation(models.Model):
     def get_ass(self):
         return Association.objects.filter(
             rating_id=self.pk
-        ).order_by('points')
+        ).order_by('-points')
 
 
 class Association(models.Model):
     rating = models.ForeignKey(
-        RatingAssociation, on_delete=models.CASCADE, verbose_name=("Rating Associations"),
-        default=None
+        RatingAssociation, on_delete=models.CASCADE, verbose_name=("Rating Associations"), blank=True
     )
     place = models.IntegerField(
         _('Place'), blank=True, default=1
     )
     country = models.ForeignKey(
-        Country, on_delete=models.CASCADE, verbose_name=("Country"),
-        default=None
+        Country, on_delete=models.CASCADE, verbose_name=("Country"), blank=True
     )
     point_year1 = models.DecimalField(
         _('Points on association rating'), max_digits=7,
@@ -586,9 +586,12 @@ class Association(models.Model):
         _('Points on association rating'), max_digits=7,
         decimal_places=3, default=1, blank=True
     )
-    teams = models.IntegerField(
+    teams = models.CharField(
         _('The number of represented Euro Cups'),
-        default=0, blank=True
+        blank=True, max_length=10
+    )
+    no_teams = models.BooleanField(
+        _('No team'), default=False
     )
 
     def get_extension(self):
