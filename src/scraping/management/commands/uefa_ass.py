@@ -6,29 +6,12 @@ from main.models import RatingAssociation, Continent, Association, Country
 from slugify import slugify
 
 import requests
-import random
-import time
 
 
 class Command(BaseCommand):
     help = "collect jobs"
     # define logic of command
     def handle(self, *args, **options):
-        username = 'zhekun'
-        token = '5e0e0efffb3dd9a4aa710e89c126ec631e1201ab'
-
-        response = requests.get(
-            'https://www.pythonanywhere.com/api/v0/user/{username}/cpu/'.format(
-                username=username
-            ),
-            headers={'Authorization': 'Token {token}'.format(token=token)}
-        )
-        if response.status_code == 200:
-            print('CPU quota info:')
-            print(response.content)
-        else:
-            print('Got unexpected status code {}: {!r}'.format(response.status_code, response.content))
-                                
         url = 'https://terrikon.com/football/uefa_coefs'
         headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36'
@@ -59,9 +42,8 @@ class Command(BaseCommand):
             rating.continent = Continent.objects.get(
                 title_ru=continent,
             )
-            while i < 110:
-                
-                time.sleep(random.randint(1, 3))
+            while i < 550:
+
                 is_new_country = not Country.objects.filter(
                     title_ru=table[i + 2].text
                 ).exists()
