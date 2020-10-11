@@ -1,5 +1,5 @@
 from django.contrib import admin
-from main.models import Continent, Country, League, Club, Cup, Player, Kits, Fifa, PlayerClub, PlayerCup, CupClub, CupCountry, CountryPlayer, RatingAssociation, Association
+from main.models import Continent, Country, League, Club, Cup, Player, Kits, Fifa, PlayerClub, PlayerCup, CupClub, CupCountry, CountryPlayer, RatingAssociation, Association, RatingTeam, Team
 
 try:
     from modeltranslation.admin import TabbedDjangoJqueryTranslationAdmin as TranslationAdmin, TranslationStackedInline
@@ -113,10 +113,14 @@ class AssociationInlinePost(admin.TabularInline):
     model = Association
     extra = 0
 
+class TeamInlinePost(admin.TabularInline):
+    model = Team
+    extra = 0
+
 @admin.register(Club)
 class ClubAdmin(TranslationAdmin):
     list_display = (
-        'title', 'slug', 'league'
+        'title', 'slug', 'league', 'country'
     )
     list_filter = ('league',)
     search_fields = ('title',)
@@ -185,6 +189,19 @@ class RatingAssociationAdmin(admin.ModelAdmin):
 
 @admin.register(Association)
 class AssociationAdmin(admin.ModelAdmin):
+    list_display = (
+        'id',
+    )
+
+@admin.register(RatingTeam)
+class RatingTeamAdmin(admin.ModelAdmin):
+    list_display = (
+        'title', 'continent'
+    )
+    inlines = [TeamInlinePost]
+
+@admin.register(Team)
+class TeamAdmin(admin.ModelAdmin):
     list_display = (
         'id',
     )

@@ -20,37 +20,38 @@
                 <th>{% trans 'Place' %}</th>
                 <th>{% trans 'Club' %}</th>
                 <th>{% trans 'Country' %}</th>
+                <th>16/17</th>
+                <th>17/18</th>
+                <th>18/19</th>
+                <th>19/20</th>
+                <th>20/21</th>
                 <th>{% trans 'Points' %}</th>
             </tr>
-
-            {% for rating in ratings %}
-                {% if rating.points != 1 %}
-                <tr>
-                    <td>{{ rating.place }}</td>
-                    <td>
-                        <a title="{{ rating.title }}" href="{{ rating.get_absolute_url }}">
-                            {% if rating.picture %}
-                                <img loading="lazy" class="images-table" src="{{ rating.picture.url }}" alt="{{ rating.title }}"> 
-                            {% else %}
-                                <img loading="lazy" class="images-table" src="{% static 'images/placeholder.png' %}" alt="holderplace">
-                            {% endif %}
-                            <span class="link-rating">{{ rating.title }}</span>
-                        </a>
-                    </td>
-                    <td>
-                        <a title="{{ rating.league.country }}" href="{{ rating.league.country.get_absolute_about_url }}">
-                            {% if rating.league.country.flag %}
-                                <img loading="lazy" class="images-table" src="{{ rating.league.country.flag.url }}" alt="{{ rating.league.country }}"> 
-                            {% else %}
-                                <img loading="lazy" class="images-table" src="{% static 'images/placeholder.png' %}" alt="holderplace">
-                            {% endif %}
-                            <span class="link-rating">{{ rating.league.country }}</span>
-                        </a>
-                    </td>
-                    <td>{{ rating.points }}</td>
-                </tr>
-                {% endif %}
-            {% endfor %}
+            {% if object.get_team %}
+                {% for rating in object.get_team %}
+                    <tr>
+                        <td>{{ rating.place }}</td>
+                        <td>
+                            <a title="{{ rating.club.title }}" href="{{ rating.club.get_absolute_url }}">
+                                {% if rating.club.picture %}
+                                    <img loading="lazy" class="images-table" src="{{ rating.club.picture.url }}" alt="{{ rating.club.title }}"> 
+                                {% else %}
+                                    <img loading="lazy" class="images-table" src="{% static 'images/placeholder.png' %}" alt="holderplace">
+                                {% endif %}
+                                <span class="link-rating">{{ rating.club.title }}</span>
+                            </a>
+                        </td>
+                        <td>{{ rating.club.Country.title }}</td>
+                        <td>{{ rating.point_year1 }}</td>
+                        <td>{{ rating.point_year2 }}</td>
+                        <td>{{ rating.point_year3 }}</td>
+                        <td>{{ rating.point_year4 }}</td>
+                        <td>{{ rating.point_year5 }}</td>
+                        <td>{{ rating.points }}</td>
+                    </tr>
+                {% endfor %}
+            {% endif %}
         </table>
     </div>
+
 {% endblock %}

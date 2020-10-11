@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 from django.shortcuts import get_object_or_404
 from datetime import datetime
-from main.models import Continent, Country, RatingAssociation
+from main.models import Continent, Country, RatingAssociation, RatingTeam
 
 def get_continent_or_404(continent):
     """Retrieve a Category instance by a continent"""
@@ -37,6 +37,11 @@ class RatingClubListView(ListView):
 class RatingAssociationListView(DetailView):
     template_name = 'main/rating/association-rating.html'
     model = RatingAssociation
+
+
+class RatingTeamListView(DetailView):
+    template_name = 'main/rating/club-rating.html'
+    model = RatingTeam
 
 
 class RatingCountryListView(ListView):

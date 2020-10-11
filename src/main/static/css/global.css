@@ -476,3 +476,7 @@ div.container4 img {
   color: gray;
   font-size: 20px;
 }
+
+.none-team {
+  background-color: lightgray;
+}

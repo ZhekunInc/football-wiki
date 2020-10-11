@@ -150,21 +150,79 @@ class SearchResultsView(ListView):
         cup = Cup.objects.none()
         if query:
             country = Country.objects.all().filter(
-                Q(title__icontains=query)
+                Q(
+                    title_uk__icontains=query
+                ) | Q(
+                    title_en__icontains=query
+                ) | Q(
+                    title_ru__icontains=query
+                )
             ).order_by("title")
             league = League.objects.all().filter(
-                Q(title__icontains=query)
+                Q(
+                    title_uk__icontains=query
+                ) | Q(
+                    title_en__icontains=query
+                ) | Q(
+                    title_ru__icontains=query
+                )
             ).order_by("title")
             club = Club.objects.all().filter(
-                Q(title__icontains=query) | Q(nickname__icontains=query) | Q(
-                    short_name__icontains=query
-                ) | Q(stadium__icontains=query) | Q(manager__icontains=query)
+                Q(
+                    title_uk__icontains=query
+                ) | Q(
+                    title_en__icontains=query
+                ) | Q(
+                    title_ru__icontains=query
+                ) | Q(
+                    nickname_uk__icontains=query
+                ) | Q(
+                    nickname_en__icontains=query
+                ) | Q(
+                    nickname_ru__icontains=query
+                ) | Q(
+                    short_name_uk__icontains=query
+                ) | Q(
+                    short_name_en__icontains=query
+                ) | Q(
+                    short_name_ru__icontains=query
+                ) | Q(
+                    stadium_uk__icontains=query
+                ) | Q(
+                    stadium_en__icontains=query
+                ) | Q(
+                    stadium_ru__icontains=query
+                ) | Q(
+                    manager_uk__icontains=query
+                ) | Q(
+                    manager_en__icontains=query
+                ) | Q(
+                    manager_ru__icontains=query
+                )
             ).order_by("title")
             player = Player.objects.all().filter(
-                Q(title__icontains=query) | Q(nickname__icontains=query)
+                Q(
+                    title_uk__icontains=query
+                ) | Q(
+                    title_en__icontains=query
+                ) | Q(
+                    title_ru__icontains=query
+                ) | Q(
+                    nickname_uk__icontains=query
+                ) | Q(
+                    nickname_en__icontains=query
+                ) | Q(
+                    nickname_ru__icontains=query
+                )
             ).order_by("title")
             cup = Cup.objects.all().filter(
-                Q(title__icontains=query)
+                Q(
+                    title_uk__icontains=query
+                ) | Q(
+                    title_en__icontains=query
+                ) | Q(
+                    title_ru__icontains=query
+                )
             ).order_by("title")
         return render(
             self.request,

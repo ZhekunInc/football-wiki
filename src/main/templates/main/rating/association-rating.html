@@ -29,26 +29,49 @@
             </tr>
             {% if object.get_ass %}
                 {% for rating in object.get_ass %}
-                <tr>
-                    <td>{{ rating.place }}</td>
-                    <td>
-                        <a title="{{ rating.country.title }}" href="{{ rating.country.get_absolute_url }}">
-                            {% if rating.country.picture %}
-                                <img loading="lazy" class="images-table" src="{{ rating.country.picture.url }}" alt="{{ rating.country.title }}"> 
-                            {% else %}
-                                <img loading="lazy" class="images-table" src="{% static 'images/placeholder.png' %}" alt="holderplace">
-                            {% endif %}
-                            <span class="link-rating">{{ rating.country.title }}</span>
-                        </a>
-                    </td>
-                    <td>{{ rating.point_year1 }}</td>
-                    <td>{{ rating.point_year2 }}</td>
-                    <td>{{ rating.point_year3 }}</td>
-                    <td>{{ rating.point_year4 }}</td>
-                    <td>{{ rating.point_year5 }}</td>
-                    <td>{{ rating.points }}</td>
-                    <td>{{ rating.teams }}</td>
-                </tr>
+                    {% if rating.no_teams %}
+                    <tr>
+                        <td class="none-team">{{ rating.place }}</td>
+                        <td class="none-team">
+                            <a title="{{ rating.country.title }}" href="{{ rating.country.get_absolute_url }}">
+                                {% if rating.country.picture %}
+                                    <img loading="lazy" class="images-table" src="{{ rating.country.picture.url }}" alt="{{ rating.country.title }}"> 
+                                {% else %}
+                                    <img loading="lazy" class="images-table" src="{% static 'images/placeholder.png' %}" alt="holderplace">
+                                {% endif %}
+                                <span class="link-rating">{{ rating.country.title }}</span>
+                            </a>
+                        </td>
+                        <td class="none-team">{{ rating.point_year1 }}</td>
+                        <td class="none-team">{{ rating.point_year2 }}</td>
+                        <td class="none-team">{{ rating.point_year3 }}</td>
+                        <td class="none-team">{{ rating.point_year4 }}</td>
+                        <td class="none-team">{{ rating.point_year5 }}</td>
+                        <td class="none-team">{{ rating.points }}</td>
+                        <td class="none-team">{{ rating.teams }}</td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td>{{ rating.place }}</td>
+                        <td>
+                            <a title="{{ rating.country.title }}" href="{{ rating.country.get_absolute_url }}">
+                                {% if rating.country.picture %}
+                                    <img loading="lazy" class="images-table" src="{{ rating.country.picture.url }}" alt="{{ rating.country.title }}"> 
+                                {% else %}
+                                    <img loading="lazy" class="images-table" src="{% static 'images/placeholder.png' %}" alt="holderplace">
+                                {% endif %}
+                                <span class="link-rating">{{ rating.country.title }}</span>
+                            </a>
+                        </td>
+                        <td>{{ rating.point_year1 }}</td>
+                        <td>{{ rating.point_year2 }}</td>
+                        <td>{{ rating.point_year3 }}</td>
+                        <td>{{ rating.point_year4 }}</td>
+                        <td>{{ rating.point_year5 }}</td>
+                        <td>{{ rating.points }}</td>
+                        <td>{{ rating.teams }}</td>
+                    </tr>
+                    {% endif %}
                 {% endfor %}
             {% endif %}
         </table>

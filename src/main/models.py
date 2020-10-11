@@ -44,10 +44,6 @@ class Continent(models.Model):
         """Return category's URL"""
         return reverse('country_list', kwargs={'continent': self.slug})
 
-    def get_absolute_club_rating_url(self):
-        """Return category's URL"""
-        return reverse('club-rating_page', kwargs={'continent': self.slug})
-
     def get_absolute_about_url(self):
         """Return category's URL"""
         return reverse('continent_about', kwargs={
@@ -280,10 +276,16 @@ class Club(models.Model):
     continent = models.ForeignKey(
         'Continent', null=True, related_name='club',
         verbose_name=_('continent'), on_delete=models.CASCADE,
+        blank=True
+    )
+    country = models.ForeignKey(
+        'Country', null=True, related_name='club',
+        verbose_name=_('country'), on_delete=models.CASCADE,
     )
     league = models.ForeignKey(
         'League', related_name='club',
         verbose_name=_('league'), on_delete=models.CASCADE,
+        blank=True
     )
     main_text = models.TextField(
         _('main text'), null=True, blank=True
@@ -554,7 +556,7 @@ class RatingAssociation(models.Model):
 
 class Association(models.Model):
     rating = models.ForeignKey(
-        RatingAssociation, on_delete=models.CASCADE, verbose_name=("Rating Associations"), blank=True
+        RatingAssociation, on_delete=models.CASCADE, verbose_name=("Rating Continent"), blank=True
     )
     place = models.IntegerField(
         _('Place'), blank=True, default=1
@@ -603,3 +605,75 @@ class Association(models.Model):
 
     class Meta:
         verbose_name = _("Association")
+
+
+class RatingTeam(models.Model):
+    published_at = models.DateTimeField(('published at'), default=timezone.now)
+    title = models.CharField(_('title'), max_length=200)
+    continent = models.ForeignKey(
+        'Continent', null=True,
+        verbose_name=_('continent'), on_delete=models.CASCADE,
+    )
+
+    def get_absolute_url(self):
+        """Return category's URL"""
+        return reverse('team-rating_page', kwargs={
+            'ratingteam': self.continent.slug, 'pk': self.id
+        })
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = _('Rating Teams')
+
+    def get_team(self):
+        return Team.objects.filter(
+            rating_id=self.pk
+        ).order_by('-points')
+
+
+class Team(models.Model):
+    rating = models.ForeignKey(
+        RatingTeam, on_delete=models.CASCADE, verbose_name=("Rating Continent"), blank=True
+    )
+    place = models.IntegerField(
+        _('Place'), blank=True, default=1
+    )
+    club = models.ForeignKey(
+        Club, on_delete=models.CASCADE, verbose_name=("Club"), blank=True
+    )
+    point_year1 = models.DecimalField(
+        _('Points on association rating'), max_digits=7,
+        decimal_places=3, default=1, blank=True
+    )
+    point_year2 = models.DecimalField(
+        _('Points on association rating'), max_digits=7,
+        decimal_places=3, default=1, blank=True
+    )
+    point_year3 = models.DecimalField(
+        _('Points on association rating'), max_digits=7,
+        decimal_places=3, default=1, blank=True
+    )
+    point_year4 = models.DecimalField(
+        _('Points on association rating'), max_digits=7,
+        decimal_places=3, default=1, blank=True
+    )
+    point_year5 = models.DecimalField(
+        _('Points on association rating'), max_digits=7,
+        decimal_places=3, default=1, blank=True
+    )
+    points = models.DecimalField(
+        _('Points on association rating'), max_digits=7,
+        decimal_places=3, default=1, blank=True
+    )
+
+    def get_extension(self):
+        file_extension = os.path.splitext(self.team.path)
+        return file_extension[1]
+
+    def get_filename(self):
+        return os.path.basename(self.team.name)
+
+    class Meta:
+        verbose_name = _("Team")

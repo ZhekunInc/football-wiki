@@ -25,7 +25,7 @@ from main.views.league_change import LeagueTitleUpdateView
 from main.views.league_change import LeagueMainUpdateView
 from main.views.league_change import LeagueInfoUpdateView
 from main.views.detail import ContinentAbout, CountryAbout, LeagueAbout
-from main.views.rating import RatingClubListView, RatingCountryListView, RatingAssociationListView
+from main.views.rating import RatingClubListView, RatingCountryListView, RatingAssociationListView, RatingTeamListView
 
 
 urlpatterns = [
@@ -67,14 +67,14 @@ urlpatterns = [
         name='country_rating'
     ),
     path(
-        'club-rating/rating-<continent>/',
-        RatingClubListView.as_view(),
-        name='club-rating_page'
-    ),
-    path(
         'association-rating/rating-<ratingass>-<pk>/',
         RatingAssociationListView.as_view(),
         name='association-rating_page'
+    ),
+    path(
+        'club-rating/rating-<ratingteam>-<pk>/',
+        RatingTeamListView.as_view(),
+        name='team-rating_page'
     ),
     path(
         'players/',
