@@ -1,0 +1,23 @@
+{% extends "main/base.html" %}
+{% load static i18n main_tags %}
+
+{% block title %}{% trans "Rating list" %}{% endblock %}
+
+{% block bread %}
+
+<ul class="breadcrumb list-bread">
+    <li><a href="{% url 'home_page' %}"> {% trans 'Home' %} </a></li>/
+    <li><a href="{% url 'all_rating' %}"> {% trans 'All ratings' %} </a></li>/
+    <li><a href="{% url 'country_rating' %}"> {% trans 'Continents' %} </a></li>/
+</ul>
+{% endblock %}
+
+{% block content %}
+<section class="sample">
+    <div class="container">
+        <div class="row">
+            {% rating_list_country %}
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             {% if countries %}
-                {% paginate 12 countries %}
+                {% paginate 24 countries %}
                 {% for country in countries %}
                     <a title="{{ country.title }}" class="item" href="{{ country.get_absolute_url }}">
                         {% if country.picture %}

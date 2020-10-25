@@ -19,8 +19,6 @@ class ClubCreateModelForm(forms.ModelForm):
             'stadium',
             'manager',
             'website',
-            'place',
-            'points',
         ]
 
 class ClubTitleUpdateModelForm(forms.ModelForm):
@@ -44,8 +42,6 @@ class ClubInfoUpdateModelForm(forms.ModelForm):
             'founded',
             'stadium',
             'manager',
-            'place',
-            'points',
             'website',
         ]
 

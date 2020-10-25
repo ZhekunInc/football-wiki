@@ -9,7 +9,7 @@
     <li><a href="{% url 'home_page' %}"> {% trans 'Home' %} </a></li>/
     <li><a href="{% url 'all_rating' %}"> {% trans 'All ratings' %} </a></li>/
     <li><a href="{% url 'association_rating' %}"> {% trans 'Continents' %} </a></li>/
-    <li><a href="{{ rating.get_absolute_url }}"> {% trans 'Association rating ' %}{{ rating.continent.title }} </a></li>/
+    <li><a href="{{ object.get_absolute_url }}"> {% trans 'Association rating ' %}{{ object.continent.title }} </a></li>/
 </ul>
 {% endblock %}
 

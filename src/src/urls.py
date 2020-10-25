@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.contrib.sitemaps.views import sitemap
+from django.contrib.sitemaps import views
 from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
@@ -22,46 +22,25 @@ from django.conf.urls.i18n import i18n_patterns
 
 from main.sitemaps import ContinentSitemap, LeagueSitemap, CountrySitemap, ClubSitemap, CupSitemap, PlayerSitemap
 
-continents = {
-    'continents': ContinentSitemap,
-}
-
-countrys = {
-    'countrys': CountrySitemap,
-}
-
-leagues = {
-    'leagues': LeagueSitemap,
-}
-
-clubs = {
-    'clubs': ClubSitemap,
-}
-
-cups = {
-    'cups': CupSitemap,
-}
-
-players = {
-    'players': PlayerSitemap,
-}
-
 urlpatterns = [
     path('i18/', include('django.conf.urls.i18n')),
-    
 ]
+
+sm_info = {
+    'continents': ContinentSitemap(),
+    'countrys': CountrySitemap(),
+    'leagues': LeagueSitemap(),
+    'clubs': ClubSitemap(),
+    'cups': CupSitemap(),
+    'players': PlayerSitemap(),
+}
 
 urlpatterns += i18n_patterns(
     path('rosetta/', include('rosetta.urls')),
     path('accounts/', include('allauth.urls')),
     path('admin/', admin.site.urls),
     path('', include('main.urls')),
-    path('continent-sitemaps.xml', sitemap, {'sitemaps': continents}),
-    path('country-sitemaps.xml', sitemap, {'sitemaps': countrys}),
-    path('league-sitemaps.xml', sitemap, {'sitemaps': leagues}),
-    path('club-sitemaps.xml', sitemap, {'sitemaps': clubs}),
-    path('cup-sitemaps.xml', sitemap, {'sitemaps': cups}),
-    path('player-sitemaps.xml', sitemap, {'sitemaps': players}),
+    path('sitemaps.xml', views.sitemap, {'sitemaps': sm_info}),
 )
 
 if settings.DEBUG:

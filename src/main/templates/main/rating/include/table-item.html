@@ -1,0 +1,32 @@
+{% load static i18n %}
+
+<div class="table-wrap">
+    <table class="table-1">
+        <tr>
+            <th>{% trans 'Place' %}</th>
+            <th>{% trans 'Country' %}</th>
+            <th>{% trans 'Continent' %}</th>
+            <th>{% trans 'Points' %}</th>
+            <th>{% trans 'Main' %}</th>
+        </tr>
+
+            {% for rating in continent_country %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>
+                        <a title="{{ rating.country.title }}" href="{{ rating.country.get_absolute_url }}">
+                            {% if rating.country.flag %}
+                                <img loading="lazy" class="images-table images-table-country" src="{{ rating.country.flag.url }}" alt="{{ rating.country.title }}"> 
+                            {% else %}
+                                <img loading="lazy" class="images-table" src="{% static 'images/placeholder.png' %}" alt="holderplace">
+                            {% endif %}
+                            <span class="link-rating">{{ rating.country.title }}</span>
+                        </a>
+                    </td>
+                    <td>{{ rating.country.continent.title }}</td>
+                    <td>{{ rating.points|default:'-' }}</td>
+                    <td>{{ rating.place }}</td>
+                </tr>
+            {% endfor %}
+    </table>
+</div>

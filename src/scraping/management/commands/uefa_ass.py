@@ -1,5 +1,4 @@
 from django.core.management.base import BaseCommand
-from urllib.request import urlopen, Request
 from bs4 import BeautifulSoup
 from main.models import RatingAssociation, Continent, Association, Country
 
@@ -11,19 +10,16 @@ import requests
 class Command(BaseCommand):
     help = "collect jobs"
     # define logic of command
+
     def handle(self, *args, **options):
-        url = 'https://terrikon.com/football/uefa_coefs'
+        url = 'https://sport.ua/uk/ranking/uefa'
         headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36'
-        }
-        proxyDict = {
-            'http': "add http proxy",
-            'https': "add https proxy"
         }
         response = requests.get(url, headers=headers)
         soup = BeautifulSoup(response.text, 'html.parser')
 
-        continent = soup.find("div", class_="ash1").text
+        continent = soup.find("h1").text
         continent = continent.split(' ')
         continent = continent[2]
         table = soup.find_all('td')
@@ -36,99 +32,63 @@ class Command(BaseCommand):
             rating = RatingAssociation.objects.create(
                 title=continent,
                 continent=Continent.objects.get(
-                    title_ru=continent,
+                    title_uk=continent,
                 )
             )
-            rating.continent = Continent.objects.get(
-                title_ru=continent,
-            )
-            while i < 550:
+            while i < 495:
 
+                title = table[i + 1].text.split(
+                    '\n\n\n                        \t                    '
+                )
+                title = (''.join(title))
+                title = title.split('                    \n')
+                title = (''.join(title))
                 is_new_country = not Country.objects.filter(
-                    title_ru=table[i + 2].text
+                    title_uk__icontains=title
                 ).exists()
                 if is_new_country:
                     Country.objects.create(
-                        title_ru=table[i + 2].text,
-                        slug=slugify(table[i + 2].text.lower()),
+                        title_uk=title,
+                        slug=slugify(title.lower()),
                         continent=Continent.objects.get(
-                            title_ru=continent,
+                            title_uk=continent,
                         )
                     )
                 is_no_team = False
-                count_team = table[i + 9].text.split('/')
-                count_team = int(count_team[0])
-                if count_team == 0:
+                count_team = table[i + 8].text.split('/')
+                count_team_1 = int(count_team[0])
+                count_team_2 = int(count_team[1])
+                if count_team_1 == 7:
+                    is_no_team = False
+                    team = str(count_team_1) + '/' + str(count_team_2)
+                elif count_team_1 == count_team_2:
                     is_no_team = True
+                    team = '0' + '/' + str(count_team_2)
+                elif count_team_1 == 0:
+                    is_no_team = True
+                    team = '0' + '/' + str(count_team_2)
+                else:
+                    is_no_team = False
+                    team = str(count_team_1) + '/' + str(count_team_2)
                 Association.objects.create(
                     place=table[i].text,
                     country=Country.objects.get(
-                        title_ru=table[i + 2].text,
+                        title_uk=title,
                     ),
                     rating=RatingAssociation.objects.get(
                         title=rating.title,
                     ),
-                    point_year1=table[i + 3].text,
-                    point_year2=table[i + 4].text,
-                    point_year3=table[i + 5].text,
-                    point_year4=table[i + 6].text,
-                    point_year5=table[i + 7].text,
-                    points=table[i + 8].text,
-                    teams=table[i + 9].text,
+                    point_year1=table[i + 2].text,
+                    point_year2=table[i + 3].text,
+                    point_year3=table[i + 4].text,
+                    point_year4=table[i + 5].text,
+                    point_year5=table[i + 6].text,
+                    points=table[i + 7].text,
+                    teams=team,
                     no_teams=is_no_team,
                 )
-                i = i + 10
-            '''
-            for td in table:
-                row = td.find_all('td')
-                for item in row:
-                    place = item.text
-                    div = item.find('div')
-                    count_str = str(count)
-                    if place == count_str:
-                        number = int(place)
-                        print(number)
-                    if div is not None:
-                        if count <= 3:
-                            print(place)
-                            print(place)
-                            title = div.text
-                            title = title.split(
-                                '\n\n                        \t                    '
-                            )
-                            title = (''.join(title))
-                            title = title.split('                    ')
-                            title = (''.join(title))
-                            print(title)
-                            
-                            Association.objects.create(
-                                place=number,
-                                country=Country.objects.get(
-                                    title_uk=title,
-                                ),
-                                rating=RatingAssociation.objects.get(
-                                    title=rating.title,
-                                )
-                            )
-                        count = count + 1'''
-                
+                i = i + 9
+
             print('ДОДАНО')
         else:
             print('ЄЄЄЄЄЄЄЄ')
-        # grab all postings
-        '''for p in postings:
-            url = p.find('a', class_='posting-btn-submit')['href']
-            title = p.find('h5').text
-            location = p.find('span', class_='sort-by-location').text
-            # check if url in db
-            try:
-                # save in db
-                Job.objects.create(
-                    url=url,
-                    title=title,
-                    location=location
-                )
-                print('%s added' % (title,))
-            except:
-                print('%s already exists' % (title,))
-        self.stdout.write( 'job complete' )'''

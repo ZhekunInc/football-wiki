@@ -1,5 +1,5 @@
 from django.contrib import admin
-from main.models import Continent, Country, League, Club, Cup, Player, Kits, Fifa, PlayerClub, PlayerCup, CupClub, CupCountry, CountryPlayer, RatingAssociation, Association, RatingTeam, Team
+from main.models import Continent, Country, League, Club, Cup, Player, Kits, Fifa, PlayerClub, PlayerCup, CupClub, CupCountry, CountryPlayer, RatingAssociation, Association, RatingTeam, Team, RatingCountry, FifaCountry
 
 try:
     from modeltranslation.admin import TabbedDjangoJqueryTranslationAdmin as TranslationAdmin, TranslationStackedInline
@@ -47,6 +47,7 @@ class CountryAdmin(TranslationAdmin):
     ordering = ('title',)
     prepopulated_fields = {'slug': ('title_en',)}
     inlines = [CupCountryInlinePost, CountryPlayerInlinePost]
+    list_per_page = 20
 
     class Media:
         js = (
@@ -67,6 +68,7 @@ class LeagueAdmin(TranslationAdmin):
     search_fields = ['title']
     ordering = ('title',)
     prepopulated_fields = {'slug': ('title_en',)}
+    list_per_page = 20
 
     class Media:
         js = (
@@ -117,16 +119,21 @@ class TeamInlinePost(admin.TabularInline):
     model = Team
     extra = 0
 
+class CountryInlinePost(admin.TabularInline):
+    model = FifaCountry
+    extra = 0
+
 @admin.register(Club)
 class ClubAdmin(TranslationAdmin):
     list_display = (
-        'title', 'slug', 'league', 'country'
+        'id', 'title', 'slug', 'continent', 'league', 'country'
     )
     list_filter = ('league',)
-    search_fields = ('title',)
-    ordering = ('title',)
+    search_fields = ('title', 'id')
+    ordering = ('-id',)
     inlines = [KitsInlinePost, PlayerClubInlinePost, CupClubInlinePost]
     prepopulated_fields = {'slug': ('title_en',)}
+    list_per_page = 20
 
     class Media:
         js = (
@@ -148,6 +155,7 @@ class CupAdmin(TranslationAdmin):
     ordering = ('title',)
     prepopulated_fields = {'slug': ('title_en',)}
     inlines = [PlayerCupInlinePost, CupClubInlinePost, CupCountryInlinePost]
+    list_per_page = 20
 
     class Media:
         js = (
@@ -169,6 +177,7 @@ class PlayerAdmin(TranslationAdmin):
     ordering = ('title',)
     inlines = [FifaInlinePost, PlayerClubInlinePost, PlayerCupInlinePost]
     prepopulated_fields = {'slug': ('title_en',)}
+    list_per_page = 20
 
     class Media:
         js = (
@@ -202,6 +211,19 @@ class RatingTeamAdmin(admin.ModelAdmin):
 
 @admin.register(Team)
 class TeamAdmin(admin.ModelAdmin):
+    list_display = (
+        'id',
+    )
+
+@admin.register(RatingCountry)
+class RatingCountryAdmin(admin.ModelAdmin):
+    list_display = (
+        'title', 'continent'
+    )
+    inlines = [CountryInlinePost]
+
+@admin.register(FifaCountry)
+class FifaCountryAdmin(admin.ModelAdmin):
     list_display = (
         'id',
     )

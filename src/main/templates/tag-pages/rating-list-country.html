@@ -1,0 +1,12 @@
+{% load static %}
+
+{% for rating in rating_country %}
+<a class="item" href="{{ rating.get_absolute_url }}">
+    {% if rating.continent.image %}
+            <img loading="lazy" class="images" src="{{ rating.continent.image.url }}" alt="{{ rating.continent.title }}">
+        {% else %}
+            <img loading="lazy" class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
+    {% endif %}
+    <div class="title">{{ rating.continent.title }}</div>
+</a>
+{% endfor %}

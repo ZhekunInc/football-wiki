@@ -281,11 +281,12 @@ class Club(models.Model):
     country = models.ForeignKey(
         'Country', null=True, related_name='club',
         verbose_name=_('country'), on_delete=models.CASCADE,
+        blank=True
     )
     league = models.ForeignKey(
         'League', related_name='club',
         verbose_name=_('league'), on_delete=models.CASCADE,
-        blank=True
+        blank=True, null=True
     )
     main_text = models.TextField(
         _('main text'), null=True, blank=True
@@ -321,13 +322,6 @@ class Club(models.Model):
     )
     website = models.URLField(
         _('Website'), null=True, max_length=255, blank=True
-    )
-    place = models.IntegerField(
-        _('Place on rating'), default=1, blank=True
-    )
-    points = models.DecimalField(
-        _('Points on rating'), max_digits=7, decimal_places=3,
-        default=1, blank=True
     )
 
     class Meta:
@@ -645,27 +639,27 @@ class Team(models.Model):
     )
     point_year1 = models.DecimalField(
         _('Points on association rating'), max_digits=7,
-        decimal_places=3, default=1, blank=True
+        decimal_places=3, blank=True, null=True
     )
     point_year2 = models.DecimalField(
         _('Points on association rating'), max_digits=7,
-        decimal_places=3, default=1, blank=True
+        decimal_places=3, blank=True, null=True
     )
     point_year3 = models.DecimalField(
         _('Points on association rating'), max_digits=7,
-        decimal_places=3, default=1, blank=True
+        decimal_places=3, blank=True, null=True
     )
     point_year4 = models.DecimalField(
         _('Points on association rating'), max_digits=7,
-        decimal_places=3, default=1, blank=True
+        decimal_places=3, blank=True, null=True
     )
     point_year5 = models.DecimalField(
         _('Points on association rating'), max_digits=7,
-        decimal_places=3, default=1, blank=True
+        decimal_places=3, blank=True, null=True
     )
     points = models.DecimalField(
         _('Points on association rating'), max_digits=7,
-        decimal_places=3, default=1, blank=True
+        decimal_places=3, blank=True, null=True
     )
 
     def get_extension(self):
@@ -677,3 +671,57 @@ class Team(models.Model):
 
     class Meta:
         verbose_name = _("Team")
+
+
+class RatingCountry(models.Model):
+    published_at = models.DateTimeField(('published at'), default=timezone.now)
+    title = models.CharField(_('title'), max_length=200)
+    continent = models.ForeignKey(
+        'Continent', null=True,
+        verbose_name=_('continent'), on_delete=models.CASCADE,
+    )
+
+    def get_absolute_url(self):
+        """Return category's URL"""
+        return reverse('country-rating_page', kwargs={
+            'ratingcountry': self.continent.slug, 'pk': self.id
+        })
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = _('Rating countryies')
+
+    def get_fifacountry(self):
+        return FifaCountry.objects.filter(
+            rating_id=self.pk
+        ).order_by('-points')
+
+
+class FifaCountry(models.Model):
+    rating = models.ForeignKey(
+        RatingCountry, on_delete=models.CASCADE, verbose_name=("Rating Continent"), blank=True
+    )
+    place = models.IntegerField(
+        _('Place'), blank=True, default=1
+    )
+    country = models.ForeignKey(
+        Country, on_delete=models.CASCADE, verbose_name=("Country"), blank=True
+    )
+    points = models.IntegerField(
+        _('Points on association rating'), blank=True, null=True
+    )
+    place_continent = models.IntegerField(
+        _('Place in continent'), blank=True, default=1
+    )
+
+    def get_extension(self):
+        file_extension = os.path.splitext(self.fifacountry.path)
+        return file_extension[1]
+
+    def get_filename(self):
+        return os.path.basename(self.fifacountry.name)
+
+    class Meta:
+        verbose_name = _("FifaCountry")
