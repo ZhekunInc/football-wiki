@@ -428,6 +428,10 @@ table.table-1 a {
   width: 35px;
 }
 
+.images-table-country {
+  border: solid black 1px;
+}
+
 .link-rating {
   text-decoration: none;
   color: #000000;
@@ -479,4 +483,12 @@ div.container4 img {
 
 .none-team {
   background-color: lightgray;
+}
+
+.my-nav-link {
+  color: #000000 !important;
+}
+.nav-pills .my-nav-link.active, .nav-pills .show>.my-nav-link {
+  color: #fff !important;
+  background-color: #000000;
 }

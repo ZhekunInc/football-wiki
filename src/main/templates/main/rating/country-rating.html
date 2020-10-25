@@ -1,5 +1,5 @@
 {% extends "main/base.html" %}
-{% load static i18n %}
+{% load static i18n main_tags %}
 
 {% block title %}{% trans "Country rating" %}{% endblock %}
 
@@ -8,48 +8,99 @@
 <ul class="breadcrumb list-bread">
     <li><a href="{% url 'home_page' %}"> {% trans 'Home' %} </a></li>/
     <li><a href="{% url 'all_rating' %}"> {% trans 'All ratings' %} </a></li>/
-    <li><a href="{% url 'country_rating' %}"> {% trans 'Country rating' %} </a></li>/
+    <li><a href="{% url 'country_rating' %}"> {% trans 'Continents' %} </a></li>/
+    <li><a href="{{ object.get_absolute_url }}"> {% trans 'Country rating' %}</a></li>/
 </ul>
 {% endblock %}
 
 {% block content %}
-    <div class="table-wrap">
-        <table class="table-1">
-            <tr>
-                <th>{% trans 'Place' %}</th>
-                <th>{% trans 'Country' %}</th>
-                <th>{% trans 'Continent' %}</th>
-                <th>{% trans 'Points' %}</th>
-            </tr>
-
-            {% for country in country_rating %}
-                {% if country.points != 1 %}
+<ul class="nav nav-pills mb-3 my-nav-pills" id="pills-tab" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link active my-nav-link" id="all-tab" data-toggle="pill" href="#all" role="tab" aria-controls="all" aria-selected="true">{% trans 'All' %}</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link my-nav-link" id="uefa-tab" data-toggle="pill" href="#uefa" role="tab" aria-controls="uefa" aria-selected="false">{% trans 'UEFA' %}</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link my-nav-link" id="conmebol-tab" data-toggle="pill" href="#conmebol" role="tab" aria-controls="conmebol" aria-selected="false">{% trans 'CONMEBOL' %}</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link my-nav-link" id="concacaf-tab" data-toggle="pill" href="#concacaf" role="tab" aria-controls="concacaf" aria-selected="false">{% trans 'CONCACAF' %}</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link my-nav-link" id="caf-tab" data-toggle="pill" href="#caf" role="tab" aria-controls="caf" aria-selected="false">{% trans 'CAF' %}</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link my-nav-link" id="afc-tab" data-toggle="pill" href="#afc" role="tab" aria-controls="afc" aria-selected="false">{% trans 'AFC' %}</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link my-nav-link" id="ofc-tab" data-toggle="pill" href="#ofc" role="tab" aria-controls="ofc" aria-selected="false">{% trans 'OFC' %}</a>
+    </li>
+</ul>
+<div class="tab-content" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-tab">
+        <div class="last">{% trans 'General' %}</div>
+        <div class="table-wrap">
+            <table class="table-1">
                 <tr>
-                    <td>{{ country.place }}</td>
-                    <td>
-                        <a title="{{ country.title }}" href="{{ country.get_absolute_about_url }}">
-                            {% if country.flag %}
-                                <img loading="lazy" class="images-table" src="{{ country.flag.url }}" alt="{{ country.title }}"> 
-                            {% else %}
-                                <img loading="lazy" class="images-table" src="{% static 'images/placeholder.png' %}" alt="holderplace">
-                            {% endif %}
-                            <span class="link-rating">{{ country.title }}</span>
-                        </a>
-                    </td>
-                    <td>    
-                        <a title="{{ country.continent }}" href="{{ country.continent.get_absolute_about_url }}">
-                            {% if country.continent.image %}
-                                <img loading="lazy" class="images-table" src="{{ country.continent.image.url }}" alt="{{ country.continent.title }}"> 
-                            {% else %}
-                                <img loading="lazy" class="images-table" src="{% static 'images/placeholder.png' %}" alt="holderplace">
-                            {% endif %}
-                            <span class="link-rating">{{ country.continent }}</span>
-                        </a>
-                    </td>
-                    <td>{{ country.points }}</td>
+                    <th>{% trans 'Place' %}</th>
+                    <th>{% trans 'Country' %}</th>
+                    <th>{% trans 'Continent' %}</th>
+                    <th>{% trans 'Points' %}</th>
                 </tr>
+    
+                {% if object.get_fifacountry %}
+                    {% for rating in object.get_fifacountry %}
+                        <tr>
+                            <td>{{ rating.place }}</td>
+                            <td>
+                                <a title="{{ rating.country.title }}" href="{{ rating.country.get_absolute_url }}">
+                                    {% if rating.country.flag %}
+                                        <img loading="lazy" class="images-table images-table-country" src="{{ rating.country.flag.url }}" alt="{{ rating.country.title }}"> 
+                                    {% else %}
+                                        <img loading="lazy" class="images-table" src="{% static 'images/placeholder.png' %}" alt="holderplace">
+                                    {% endif %}
+                                    <span class="link-rating">{{ rating.country.title }}</span>
+                                </a>
+                            </td>
+                            <td>{{ rating.country.continent.title }}</td>
+                            <td>{{ rating.points|default:'-' }}</td>
+                        </tr>
+                    {% endfor %}
                 {% endif %}
-            {% endfor %}
-        </table>
+            </table>
+        </div>
     </div>
+    <div class="tab-pane fade" id="uefa" role="tabpanel" aria-labelledby="uefa-tab">
+        {% get_uefa_country as continent_country %}
+        <div class="last">{% trans 'UEFA' %}</div>
+        {% include 'main/rating/include/table-item.html' %}
+    </div>
+    <div class="tab-pane fade" id="conmebol" role="tabpanel" aria-labelledby="conmebol-tab">
+        {% get_conmebol_country as continent_country %}
+        <div class="last">{% trans 'UEFA' %}</div>
+        {% include 'main/rating/include/table-item.html' %}
+    </div>
+    <div class="tab-pane fade" id="concacaf" role="tabpanel" aria-labelledby="concacaf-tab">
+        {% get_concacaf_country as continent_country %}
+        <div class="last">{% trans 'UEFA' %}</div>
+        {% include 'main/rating/include/table-item.html' %}
+    </div>
+    <div class="tab-pane fade" id="caf" role="tabpanel" aria-labelledby="caf-tab">
+        {% get_caf_country as continent_country %}
+        <div class="last">{% trans 'UEFA' %}</div>
+        {% include 'main/rating/include/table-item.html' %}
+    </div>
+    <div class="tab-pane fade" id="afc" role="tabpanel" aria-labelledby="afc-tab">
+        {% get_afc_country as continent_country %}
+        <div class="last">{% trans 'UEFA' %}</div>
+        {% include 'main/rating/include/table-item.html' %}
+    </div>
+    <div class="tab-pane fade" id="ofc" role="tabpanel" aria-labelledby="ofc-tab">
+        {% get_ofc_country as continent_country %}
+        <div class="last">{% trans 'UEFA' %}</div>
+        {% include 'main/rating/include/table-item.html' %}
+    </div>
+</div>
+    
 {% endblock %}

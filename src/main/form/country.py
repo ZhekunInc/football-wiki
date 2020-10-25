@@ -17,8 +17,6 @@ class CountryCreateModelForm(forms.ModelForm):
             'uefa',
             'president',
             'website',
-            'place',
-            'points',
         ]
 
 class CountryTitleUpdateModelForm(forms.ModelForm):
@@ -41,8 +39,6 @@ class CountryInfoUpdateModelForm(forms.ModelForm):
             'uefa',
             'president',
             'website',
-            'place',
-            'points',
         ]
 
 class CountryMainUpdateModelForm(forms.ModelForm):

@@ -9,7 +9,7 @@
     <li><a href="{% url 'home_page' %}"> {% trans 'Home' %} </a></li>/
     <li><a href="{% url 'all_rating' %}"> {% trans 'All ratings' %} </a></li>/
     <li><a href="{% url 'club_rating' %}"> {% trans 'Continents' %} </a></li>/
-    <li><a href="{{ rating.get_absolute_club_rating_url }}"> {% trans 'Club rating ' %}{{ continent.title }} </a></li>/
+    <li><a href="{{ rating.get_absolute_url }}"> {% trans 'Club rating ' %}{{ continent.title }} </a></li>/
 </ul>
 {% endblock %}
 
@@ -41,13 +41,13 @@
                                 <span class="link-rating">{{ rating.club.title }}</span>
                             </a>
                         </td>
-                        <td>{{ rating.club.Country.title }}</td>
-                        <td>{{ rating.point_year1 }}</td>
-                        <td>{{ rating.point_year2 }}</td>
-                        <td>{{ rating.point_year3 }}</td>
-                        <td>{{ rating.point_year4 }}</td>
-                        <td>{{ rating.point_year5 }}</td>
-                        <td>{{ rating.points }}</td>
+                        <td>{{ rating.club.country.title }}</td>
+                        <td>{{ rating.point_year1|default:'-' }}</td>
+                        <td>{{ rating.point_year2|default:'-' }}</td>
+                        <td>{{ rating.point_year3|default:'-' }}</td>
+                        <td>{{ rating.point_year4|default:'-' }}</td>
+                        <td>{{ rating.point_year5|default:'-' }}</td>
+                        <td>{{ rating.points|default:'-' }}</td>
                     </tr>
                 {% endfor %}
             {% endif %}
