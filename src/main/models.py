@@ -242,6 +242,9 @@ class Player(models.Model):
     positions = models.CharField(
         _('positions'), max_length=50, null=True, blank=True
     )
+    photo_link = models.URLField(
+        _('Photo link'), null=True, max_length=255, blank=True
+    )
 
     def get_absolute_url(self):
         """Return category's URL"""

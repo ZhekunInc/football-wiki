@@ -77,7 +77,9 @@
                 <div class="row">
                     {% for player in search_player %}
                     <a title="{{ player.title }}" class="item" href="{{ player.get_absolute_url }}">
-                        {% if player.image %}
+                        {% if player.photo_link %}
+                            <img loading="lazy" class="images" src="{{ player.photo_link }}" alt="{{ player.title }}">
+                        {% elif player.image %}
                             <img loading="lazy" class="images" src="{{ player.image.url }}" alt="{{ player.title }}"> 
                         {% else %}
                             <img loading="lazy" class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
