@@ -51,7 +51,8 @@ class Continent(models.Model):
         })
 
     class Meta:
-        verbose_name = ('continent')
+        verbose_name = _('continent')
+        verbose_name_plural = _('Continents')
 
 class Country(models.Model):
     title = models.CharField(_('title'), max_length=200, blank=True)
@@ -118,7 +119,8 @@ class Country(models.Model):
         ).order_by('player__title')
 
     class Meta:
-        verbose_name = ('country')
+        verbose_name = _('country')
+        verbose_name_plural = _('Countries')
 
 class League(models.Model):
     title = models.CharField(_('title'), max_length=200)
@@ -169,7 +171,8 @@ class League(models.Model):
         })
 
     class Meta:
-        verbose_name = ('league')
+        verbose_name = _('league')
+        verbose_name_plural = _('Leagues')
 
 class Cup(models.Model):
     title = models.CharField(_('title'), max_length=200)
@@ -215,7 +218,8 @@ class Cup(models.Model):
         ).order_by('-times', 'country')
 
     class Meta:
-        verbose_name = ('cup')
+        verbose_name = _('cup')
+        verbose_name_plural = _('Cups')
 
 class Player(models.Model):
     title = models.CharField(_('title'), max_length=200)
@@ -270,6 +274,7 @@ class Player(models.Model):
 
     class Meta:
         verbose_name = _('player')
+        verbose_name_plural = _('Players')
 
 class Club(models.Model):
     title = models.CharField(_('title'), max_length=200)
@@ -329,6 +334,7 @@ class Club(models.Model):
 
     class Meta:
         verbose_name = _("Club")
+        verbose_name_plural = _('Clubs')
 
     def __str__(self):
         return self.title
@@ -373,6 +379,7 @@ class Kits(models.Model):
 
     class Meta:
         verbose_name = _("Kit")
+        verbose_name_plural = _('Kits')
 
 class Fifa(models.Model):
     player = models.ForeignKey(
@@ -391,6 +398,7 @@ class Fifa(models.Model):
 
     class Meta:
         verbose_name = _("Fifa")
+        verbose_name_plural = _('Fifa')
 
 
 class PlayerClub(models.Model):
@@ -428,6 +436,7 @@ class PlayerClub(models.Model):
 
     class Meta:
         verbose_name = _("Player Club")
+        verbose_name_plural = _('Player Club')
 
 class PlayerCup(models.Model):
     player = models.ForeignKey(
@@ -452,6 +461,7 @@ class PlayerCup(models.Model):
 
     class Meta:
         verbose_name = _("Player Cup")
+        verbose_name_plural = _('Player Cup')
 
 class CupClub(models.Model):
     cup = models.ForeignKey(
@@ -473,6 +483,7 @@ class CupClub(models.Model):
 
     class Meta:
         verbose_name = _("Cup Club")
+        verbose_name_plural = _('Cup Club')
 
 class CupCountry(models.Model):
     cup = models.ForeignKey(
@@ -494,6 +505,7 @@ class CupCountry(models.Model):
 
     class Meta:
         verbose_name = _("Cup Country")
+        verbose_name_plural = _('Cup Country')
 
 class CountryPlayer(models.Model):
     player = models.ForeignKey(
@@ -523,6 +535,7 @@ class CountryPlayer(models.Model):
 
     class Meta:
         verbose_name = _("Cup Country")
+        verbose_name_plural = _('Cup Country')
 
 
 class RatingAssociation(models.Model):
@@ -544,6 +557,7 @@ class RatingAssociation(models.Model):
 
     class Meta:
         verbose_name = _('Rating Associations')
+        verbose_name_plural = _('Rating Associations')
 
     def get_ass(self):
         return Association.objects.filter(
@@ -602,6 +616,7 @@ class Association(models.Model):
 
     class Meta:
         verbose_name = _("Association")
+        verbose_name_plural = _('Associations')
 
 
 class RatingTeam(models.Model):
@@ -623,6 +638,7 @@ class RatingTeam(models.Model):
 
     class Meta:
         verbose_name = _('Rating Teams')
+        verbose_name_plural = _('Rating Teams')
 
     def get_team(self):
         return Team.objects.filter(
@@ -674,6 +690,7 @@ class Team(models.Model):
 
     class Meta:
         verbose_name = _("Team")
+        verbose_name_plural = _('Teams')
 
 
 class RatingCountry(models.Model):
@@ -695,6 +712,7 @@ class RatingCountry(models.Model):
 
     class Meta:
         verbose_name = _('Rating countryies')
+        verbose_name_plural = _('Rating countryies')
 
     def get_fifacountry(self):
         return FifaCountry.objects.filter(
@@ -728,3 +746,4 @@ class FifaCountry(models.Model):
 
     class Meta:
         verbose_name = _("FifaCountry")
+        verbose_name_plural = _('FifaCountry')
