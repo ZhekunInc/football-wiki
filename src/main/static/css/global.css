@@ -492,3 +492,7 @@ div.container4 img {
   color: #fff !important;
   background-color: #000000;
 }
+.update-table {
+  color: gray;
+  font-size: 14px;
+}
