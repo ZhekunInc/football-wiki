@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-14 20:41+0300\n"
-"PO-Revision-Date: 2020-08-14 20:42+0202\n"
+"POT-Creation-Date: 2020-10-29 16:26+0200\n"
+"PO-Revision-Date: 2020-10-29 16:28+0202\n"
 "Last-Translator: b'  <golovchak.evgen@gmail.com>'\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -19,33 +19,34 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
 "X-Translated-Using: django-rosetta 0.9.4\n"
 
-#: src/main/models.py:11 src/main/models.py:68 src/main/models.py:143
-#: src/main/models.py:194 src/main/models.py:240 src/main/models.py:294
+#: src/main/models.py:11 src/main/models.py:57 src/main/models.py:124
+#: src/main/models.py:175 src/main/models.py:221 src/main/models.py:275
+#: src/main/models.py:530 src/main/models.py:609 src/main/models.py:681
 msgid "title"
 msgstr "Назва"
 
-#: src/main/models.py:13 src/main/models.py:70 src/main/models.py:145
-#: src/main/models.py:196 src/main/models.py:242 src/main/models.py:296
+#: src/main/models.py:13 src/main/models.py:59 src/main/models.py:126
+#: src/main/models.py:177 src/main/models.py:223 src/main/models.py:277
 msgid "slug"
 msgstr "Назва-мітки (Для URL):"
 
-#: src/main/models.py:16 src/main/models.py:80 src/main/models.py:148
-#: src/main/models.py:199 src/main/models.py:245
+#: src/main/models.py:16 src/main/models.py:69 src/main/models.py:129
+#: src/main/models.py:180 src/main/models.py:226
 msgid "Image"
 msgstr "Фотографія"
 
-#: src/main/models.py:18 src/main/models.py:150 src/main/models.py:201
-#: src/main/models.py:247 src/main/models.py:315
+#: src/main/models.py:18 src/main/models.py:131 src/main/models.py:182
+#: src/main/models.py:228 src/main/models.py:303
 msgid "Recomended size 512x512px"
 msgstr "Рекомендований розмір 512х512px"
 
-#: src/main/models.py:20 src/main/models.py:76 src/main/models.py:152
-#: src/main/models.py:203 src/main/models.py:249 src/main/models.py:307
+#: src/main/models.py:20 src/main/models.py:65 src/main/models.py:133
+#: src/main/models.py:184 src/main/models.py:230 src/main/models.py:295
 msgid "main text"
 msgstr "Основний текст"
 
-#: src/main/models.py:21 src/main/models.py:89 src/main/models.py:157
-#: src/main/models.py:219 src/main/models.py:330
+#: src/main/models.py:21 src/main/models.py:78 src/main/models.py:138
+#: src/main/models.py:185 src/main/models.py:318
 msgid "Founded"
 msgstr "Заснований:"
 
@@ -61,12 +62,12 @@ msgstr "Регіон:"
 msgid "Count of associations"
 msgstr "Кількість ассоціацій"
 
-#: src/main/models.py:32 src/main/models.py:97
+#: src/main/models.py:32 src/main/models.py:86
 msgid "President"
 msgstr "Президент"
 
-#: src/main/models.py:35 src/main/models.py:100 src/main/models.py:168
-#: src/main/models.py:226 src/main/models.py:339
+#: src/main/models.py:35 src/main/models.py:89 src/main/models.py:149
+#: src/main/models.py:192 src/main/models.py:327
 #: src/main/templates/main/detail/club_detail.html:38
 #: src/main/templates/main/detail/continent-detail.html:32
 #: src/main/templates/main/detail/country-detail.html:48
@@ -75,166 +76,235 @@ msgstr "Президент"
 msgid "Website"
 msgstr "Сайт:"
 
-#: src/main/models.py:74 src/main/models.py:222 src/main/models.py:300
+#: src/main/models.py:63 src/main/models.py:188 src/main/models.py:281
+#: src/main/models.py:533 src/main/models.py:612 src/main/models.py:684
 msgid "continent"
 msgstr "Континент"
 
-#: src/main/models.py:85
+#: src/main/models.py:74
 msgid "Flag"
 msgstr "Прапор"
 
-#: src/main/models.py:91
+#: src/main/models.py:80
 msgid "Belonging to FIFA since"
 msgstr "Належить до ФІФА з"
 
-#: src/main/models.py:94
+#: src/main/models.py:83
 msgid "Belonging to since"
 msgstr "Належить до з"
 
-#: src/main/models.py:102 src/main/models.py:342
+#: src/main/models.py:91
 msgid "Place on rating"
 msgstr "Місце в рейтингу"
 
-#: src/main/models.py:103 src/main/models.py:345
+#: src/main/models.py:92
 msgid "Points on rating"
 msgstr "Очків в рейтингу"
 
-#: src/main/models.py:105
-msgid "Place on association rating"
-msgstr "Місце в рейтингу ассоціацій"
-
-#: src/main/models.py:108
-msgid "Points on association rating"
-msgstr "Очків в рейтингу ассоціацій"
-
-#: src/main/models.py:112
-msgid "The number of represented in the Champions League"
-msgstr "Кількість представників в ЛЧ"
-
-#: src/main/models.py:116
-msgid "The number of represented in the Europe League"
-msgstr "Кількість представників в ЛЄ"
-
-#: src/main/models.py:119 src/main/models.py:269
-msgid "World Cup"
-msgstr "Чемпіонат світу"
-
-#: src/main/models.py:120 src/main/models.py:270 src/main/models.py:353
-msgid "Champions League"
-msgstr "Ліга Чемпіонів"
-
-#: src/main/models.py:121 src/main/models.py:271 src/main/models.py:354
-msgid "Golden ball"
-msgstr "Золотий м'яч"
-
-#: src/main/models.py:155 src/main/models.py:216 src/main/models.py:252
+#: src/main/models.py:136 src/main/models.py:233 src/main/models.py:286
 msgid "country"
 msgstr "Країна"
 
-#: src/main/models.py:159 src/main/templates/main/detail/league-detail.html:30
+#: src/main/models.py:140 src/main/templates/main/detail/league-detail.html:30
 msgid "Number of teams:"
 msgstr "Кількість команд"
 
-#: src/main/models.py:162 src/main/templates/main/detail/league-detail.html:31
+#: src/main/models.py:143 src/main/templates/main/detail/league-detail.html:31
 msgid "Level on pyramid:"
 msgstr "Рівень в ієрархії"
 
-#: src/main/models.py:165
+#: src/main/models.py:146
 msgid "Last winner"
 msgstr "Останній переможець"
 
-#: src/main/models.py:206
-msgid "player"
-msgstr "Гравці"
-
-#: src/main/models.py:207 src/main/models.py:212 src/main/models.py:217
-#: src/main/models.py:257 src/main/models.py:351
-msgid "Use CTRL for select more than one"
-msgstr "Щоб вибрати більше одного використовуйте CTRL"
-
-#: src/main/models.py:211 src/main/models.py:423
-msgid "club"
-msgstr "Клуб"
-
-#: src/main/models.py:256 src/main/models.py:350
-msgid "cup"
-msgstr "Трофеї"
-
-#: src/main/models.py:260
+#: src/main/models.py:236
 msgid "nickname"
 msgstr "Прізвисько:"
 
-#: src/main/models.py:263
+#: src/main/models.py:239
 msgid "date of birth"
 msgstr "Народився:"
 
-#: src/main/models.py:265
+#: src/main/models.py:241
 msgid "height"
 msgstr "Зріст:"
 
-#: src/main/models.py:267
+#: src/main/models.py:243
 msgid "positions"
 msgstr "Позиція(ї):"
 
-#: src/main/models.py:304
+#: src/main/models.py:246
+msgid "Photo link"
+msgstr ""
+
+#: src/main/models.py:272
+msgid "player"
+msgstr "Гравці"
+
+#: src/main/models.py:291
 msgid "league"
 msgstr "Ліга"
 
-#: src/main/models.py:310
+#: src/main/models.py:298
 msgid "published at"
 msgstr "Опубліковано в"
 
-#: src/main/models.py:311
+#: src/main/models.py:299
 msgid "published"
 msgstr "Публікувати"
 
-#: src/main/models.py:313
+#: src/main/models.py:301
 msgid "Club emblem"
 msgstr "Емблема клубу"
 
-#: src/main/models.py:318
+#: src/main/models.py:306
 msgid "Color 1"
 msgstr "Колір 1"
 
-#: src/main/models.py:321
+#: src/main/models.py:309
 msgid "Color 2"
 msgstr "Колір 2"
 
-#: src/main/models.py:324
+#: src/main/models.py:312
 msgid "Nickname"
 msgstr "Прізвисько:"
 
-#: src/main/models.py:327
+#: src/main/models.py:315
 msgid "Short name"
 msgstr "Коротка назва:"
 
-#: src/main/models.py:333
+#: src/main/models.py:321
 msgid "Stadium"
 msgstr "Стадіон:"
 
-#: src/main/models.py:336
+#: src/main/models.py:324
 msgid "Manager"
 msgstr "Тренер:"
 
-#: src/main/models.py:426
+#: src/main/models.py:331 src/main/templates/main/detail/player_detail.html:80
+#: src/main/templates/main/rating/club-rating.html:21
+msgid "Club"
+msgstr "Клуб"
+
+#: src/main/models.py:375 src/main/templates/main/detail/club_detail.html:56
+msgid "Kit"
+msgstr "Форма"
+
+#: src/main/models.py:393
+msgid "Fifa"
+msgstr "Фіфа"
+
+#: src/main/models.py:402
+msgid "club"
+msgstr "Клуб"
+
+#: src/main/models.py:405 src/main/models.py:507
 msgid "Year from"
 msgstr "Рік з"
 
-#: src/main/models.py:429
+#: src/main/models.py:408 src/main/models.py:510
 msgid "Year to"
 msgstr "Рік до"
 
-#: src/main/models.py:432 src/main/templates/main/detail/player_detail.html:77
+#: src/main/models.py:411 src/main/templates/main/detail/player_detail.html:81
 msgid "Games"
 msgstr "Матчів"
 
-#: src/main/models.py:435
+#: src/main/models.py:414
 msgid "Score"
 msgstr "Забито"
 
-#: src/main/models.py:439
+#: src/main/models.py:418
 msgid "Year in club"
 msgstr "Роки в клубі"
+
+#: src/main/models.py:430
+msgid "Player Club"
+msgstr "Гравці Клуб"
+
+#: src/main/models.py:434 src/main/models.py:500
+msgid "Player"
+msgstr "Гравець"
+
+#: src/main/models.py:437 src/main/models.py:458 src/main/models.py:479
+msgid "Cup"
+msgstr "Кубок"
+
+#: src/main/models.py:440 src/main/models.py:464 src/main/models.py:485
+msgid "Now much?"
+msgstr "Скільки?"
+
+#: src/main/models.py:443 src/main/models.py:514
+#: src/main/templates/main/detail/player_detail.html:79
+msgid "Years"
+msgstr "Роки"
+
+#: src/main/models.py:454
+msgid "Player Cup"
+msgstr "Гравці Кубок"
+
+#: src/main/models.py:475
+msgid "Cup Club"
+msgstr "Кубок Клуб"
+
+#: src/main/models.py:496 src/main/models.py:525
+msgid "Cup Country"
+msgstr "Кубок Країна"
+
+#: src/main/models.py:546
+msgid "Rating Associations"
+msgstr "Рейтинг Асоціацій"
+
+#: src/main/models.py:559 src/main/models.py:638 src/main/models.py:710
+#: src/main/templates/main/rating/association-rating.html:21
+#: src/main/templates/main/rating/club-rating.html:20
+#: src/main/templates/main/rating/country-rating.html:46
+#: src/main/templates/main/rating/include/table-item.html:6
+msgid "Place"
+msgstr "Місце"
+
+#: src/main/models.py:565 src/main/models.py:569 src/main/models.py:573
+#: src/main/models.py:577 src/main/models.py:581 src/main/models.py:585
+#: src/main/models.py:644 src/main/models.py:648 src/main/models.py:652
+#: src/main/models.py:656 src/main/models.py:660 src/main/models.py:664
+#: src/main/models.py:716
+msgid "Points on association rating"
+msgstr "Очків в рейтингу ассоціацій"
+
+#: src/main/models.py:589
+#, fuzzy
+#| msgid "The number of represented in the Europe League"
+msgid "The number of represented Euro Cups"
+msgstr "Кількість представників в ЛЄ"
+
+#: src/main/models.py:593
+msgid "No team"
+msgstr "Немає команд"
+
+#: src/main/models.py:604
+#: src/main/templates/main/rating/association-rating.html:22
+msgid "Association"
+msgstr "Ассоціація"
+
+#: src/main/models.py:625
+msgid "Rating Teams"
+msgstr "Рейтинг команд"
+
+#: src/main/models.py:676
+msgid "Team"
+msgstr "Команда"
+
+#: src/main/models.py:697
+msgid "Rating countryies"
+msgstr "Рейтинг країн"
+
+#: src/main/models.py:719
+msgid "Place in continent"
+msgstr "Місце в континент"
+
+#: src/main/models.py:730
+msgid "FifaCountry"
+msgstr "ФіфаКраїна"
 
 #: src/main/templates/account/account_inactive.html:5
 #: src/main/templates/account/account_inactive.html:8
@@ -594,6 +664,7 @@ msgstr ""
 #: src/main/templates/main/rating/country-rating.html:10
 #: src/main/templates/main/rating/main-association.html:10
 #: src/main/templates/main/rating/main-club.html:10
+#: src/main/templates/main/rating/main-country.html:10
 msgid "All ratings"
 msgstr "Всі рейтинги"
 
@@ -644,6 +715,7 @@ msgstr "Всі рейтинги"
 #: src/main/templates/main/rating/country-rating.html:9
 #: src/main/templates/main/rating/main-association.html:9
 #: src/main/templates/main/rating/main-club.html:9
+#: src/main/templates/main/rating/main-country.html:9
 msgid "Home"
 msgstr "Домівка"
 
@@ -673,9 +745,11 @@ msgstr "Гравці"
 #: src/main/templates/main/base.html:38 src/main/templates/main/base.html:39
 #: src/main/templates/main/cup-list.html:4
 #: src/main/templates/main/cup-list.html:7
-#: src/main/templates/main/detail/player_detail.html:126
-#: src/main/templates/main/detail/player_detail.html:150
-#: src/main/templates/main/search_results.html:93
+#: src/main/templates/main/detail/country-detail.html:90
+#: src/main/templates/main/detail/player_detail.html:132
+#: src/main/templates/main/detail/player_detail.html:140
+#: src/main/templates/main/detail/player_detail.html:153
+#: src/main/templates/main/search_results.html:95
 msgid "Trophies and award"
 msgstr "Трофеї і нарогоди"
 
@@ -896,10 +970,10 @@ msgstr "Змінити країни для"
 #: src/main/templates/main/change-cup/cup_create.html:17
 #: src/main/templates/main/create_center.html:33
 #: src/main/templates/main/create_center.html:35
-#: src/main/templates/main/cup-list.html:37
-#: src/main/templates/main/cup-list.html:39
-#: src/main/templates/main/cup-list.html:42
-#: src/main/templates/main/cup-list.html:44
+#: src/main/templates/main/entry-pages/cup_list_entry.html:32
+#: src/main/templates/main/entry-pages/cup_list_entry.html:34
+#: src/main/templates/main/entry-pages/cup_list_entry.html:37
+#: src/main/templates/main/entry-pages/cup_list_entry.html:39
 msgid "Create new cup"
 msgstr "Створити новий кубок"
 
@@ -916,10 +990,10 @@ msgstr "Створити нову лігу"
 #: src/main/templates/main/change-player/player_create.html:17
 #: src/main/templates/main/create_center.html:29
 #: src/main/templates/main/create_center.html:31
-#: src/main/templates/main/player-list.html:37
-#: src/main/templates/main/player-list.html:39
-#: src/main/templates/main/player-list.html:42
-#: src/main/templates/main/player-list.html:44
+#: src/main/templates/main/entry-pages/player_list_entry.html:32
+#: src/main/templates/main/entry-pages/player_list_entry.html:34
+#: src/main/templates/main/entry-pages/player_list_entry.html:37
+#: src/main/templates/main/entry-pages/player_list_entry.html:39
 msgid "Create new player"
 msgstr "Створити нового гравця"
 
@@ -958,14 +1032,6 @@ msgstr "ласкаво просимо до творчого центру"
 #: src/main/templates/main/detail/club_detail.html:44
 #: src/main/templates/main/detail/club_detail.html:50
 #: src/main/templates/main/detail/club_detail.html:52
-#: src/main/templates/main/detail/club_detail.html:77
-#: src/main/templates/main/detail/club_detail.html:79
-#: src/main/templates/main/detail/club_detail.html:103
-#: src/main/templates/main/detail/club_detail.html:105
-#: src/main/templates/main/detail/club_detail.html:113
-#: src/main/templates/main/detail/club_detail.html:115
-#: src/main/templates/main/detail/club_detail.html:139
-#: src/main/templates/main/detail/club_detail.html:141
 #: src/main/templates/main/detail/continent-detail.html:16
 #: src/main/templates/main/detail/continent-detail.html:18
 #: src/main/templates/main/detail/continent-detail.html:35
@@ -984,14 +1050,6 @@ msgstr "ласкаво просимо до творчого центру"
 #: src/main/templates/main/detail/cup_detail.html:38
 #: src/main/templates/main/detail/cup_detail.html:44
 #: src/main/templates/main/detail/cup_detail.html:46
-#: src/main/templates/main/detail/cup_detail.html:72
-#: src/main/templates/main/detail/cup_detail.html:74
-#: src/main/templates/main/detail/cup_detail.html:98
-#: src/main/templates/main/detail/cup_detail.html:100
-#: src/main/templates/main/detail/cup_detail.html:109
-#: src/main/templates/main/detail/cup_detail.html:111
-#: src/main/templates/main/detail/cup_detail.html:135
-#: src/main/templates/main/detail/cup_detail.html:137
 #: src/main/templates/main/detail/league-detail.html:18
 #: src/main/templates/main/detail/league-detail.html:20
 #: src/main/templates/main/detail/league-detail.html:36
@@ -1000,18 +1058,18 @@ msgstr "ласкаво просимо до творчого центру"
 #: src/main/templates/main/detail/league-detail.html:47
 #: src/main/templates/main/detail/player_detail.html:16
 #: src/main/templates/main/detail/player_detail.html:18
-#: src/main/templates/main/detail/player_detail.html:33
-#: src/main/templates/main/detail/player_detail.html:35
-#: src/main/templates/main/detail/player_detail.html:41
-#: src/main/templates/main/detail/player_detail.html:43
-#: src/main/templates/main/detail/player_detail.html:49
-#: src/main/templates/main/detail/player_detail.html:51
-#: src/main/templates/main/detail/player_detail.html:117
-#: src/main/templates/main/detail/player_detail.html:119
-#: src/main/templates/main/detail/player_detail.html:128
-#: src/main/templates/main/detail/player_detail.html:130
-#: src/main/templates/main/detail/player_detail.html:154
-#: src/main/templates/main/detail/player_detail.html:156
+#: src/main/templates/main/detail/player_detail.html:37
+#: src/main/templates/main/detail/player_detail.html:39
+#: src/main/templates/main/detail/player_detail.html:45
+#: src/main/templates/main/detail/player_detail.html:47
+#: src/main/templates/main/detail/player_detail.html:53
+#: src/main/templates/main/detail/player_detail.html:55
+#: src/main/templates/main/detail/player_detail.html:124
+#: src/main/templates/main/detail/player_detail.html:126
+#: src/main/templates/main/detail/player_detail.html:134
+#: src/main/templates/main/detail/player_detail.html:136
+#: src/main/templates/main/detail/player_detail.html:144
+#: src/main/templates/main/detail/player_detail.html:146
 msgid "change"
 msgstr "змінити"
 
@@ -1040,38 +1098,15 @@ msgstr "Стадіон:"
 msgid "Manager:"
 msgstr "Тренер:"
 
-#: src/main/templates/main/detail/club_detail.html:56
-msgid "Kit"
-msgstr "Форма"
-
-#: src/main/templates/main/detail/club_detail.html:75
-#: src/main/templates/main/detail/club_detail.html:99
+#: src/main/templates/main/detail/club_detail.html:76
+#: src/main/templates/main/detail/cup_detail.html:70
 msgid "Trophies"
 msgstr "Трофеї"
 
-#: src/main/templates/main/detail/club_detail.html:101
-#: src/main/templates/main/detail/player_detail.html:152
-msgid "No trophies added, click "
-msgstr "Жодного трофею не додано, натисніть "
-
-#: src/main/templates/main/detail/club_detail.html:107
-#: src/main/templates/main/detail/club_detail.html:143
-#: src/main/templates/main/detail/cup_detail.html:102
-#: src/main/templates/main/detail/cup_detail.html:139
-#: src/main/templates/main/detail/player_detail.html:121
-#: src/main/templates/main/detail/player_detail.html:158
-msgid "to add"
-msgstr ", щоб додати"
-
-#: src/main/templates/main/detail/club_detail.html:111
-#: src/main/templates/main/detail/club_detail.html:135
-#: src/main/templates/main/detail/club_detail.html:146
+#: src/main/templates/main/detail/club_detail.html:96
+#: src/main/templates/main/detail/country-detail.html:66
 msgid "Famous Players"
 msgstr "Відомі гравці"
-
-#: src/main/templates/main/detail/club_detail.html:137
-msgid "No players added, click "
-msgstr "Жодного гравця не додано, натисніть "
 
 #: src/main/templates/main/detail/continent-detail.html:28
 msgid "Located:"
@@ -1107,24 +1142,9 @@ msgstr " з "
 msgid "Wins by player"
 msgstr "Перемоги по гравцям"
 
-#: src/main/templates/main/detail/cup_detail.html:70
-#: src/main/templates/main/detail/cup_detail.html:94
-msgid "Wins by club"
-msgstr "Перемоги по клубах"
-
-#: src/main/templates/main/detail/cup_detail.html:96
-#: src/main/templates/main/detail/player_detail.html:115
-msgid "No clubs added, click "
-msgstr "Жодного клубу не додано, натисніть "
-
-#: src/main/templates/main/detail/cup_detail.html:107
-#: src/main/templates/main/detail/cup_detail.html:131
+#: src/main/templates/main/detail/cup_detail.html:90
 msgid "Wins by country"
 msgstr "Перемоги по країнах"
-
-#: src/main/templates/main/detail/cup_detail.html:133
-msgid "No country added, click "
-msgstr "Жодної країни не додано, натисніть "
 
 #: src/main/templates/main/detail/league-detail.html:32
 msgid "Current champions:"
@@ -1134,60 +1154,60 @@ msgstr "Поточний чемпіон"
 msgid "Nationality:"
 msgstr "Громадянство:"
 
-#: src/main/templates/main/detail/player_detail.html:29
+#: src/main/templates/main/detail/player_detail.html:33
 msgid "Date of birth:"
 msgstr "Народився:"
 
-#: src/main/templates/main/detail/player_detail.html:30
+#: src/main/templates/main/detail/player_detail.html:34
 msgid "Height:"
 msgstr "Зріст:"
 
-#: src/main/templates/main/detail/player_detail.html:30
+#: src/main/templates/main/detail/player_detail.html:34
 msgid "cm"
 msgstr "см"
 
-#: src/main/templates/main/detail/player_detail.html:31
+#: src/main/templates/main/detail/player_detail.html:35
 msgid "Playing position(s):"
 msgstr "Позиція(ї):"
 
-#: src/main/templates/main/detail/player_detail.html:47
-#: src/main/templates/main/detail/player_detail.html:54
+#: src/main/templates/main/detail/player_detail.html:51
+#: src/main/templates/main/detail/player_detail.html:58
 msgid "Club career"
 msgstr "Клубна кар'єра"
 
-#: src/main/templates/main/detail/player_detail.html:75
-msgid "Years"
-msgstr "Роки"
-
-#: src/main/templates/main/detail/player_detail.html:76
-#: src/main/templates/main/rating/club-rating.html:21
-msgid "Club"
-msgstr "Клуб"
-
-#: src/main/templates/main/detail/player_detail.html:78
+#: src/main/templates/main/detail/player_detail.html:82
 msgid "Goals"
 msgstr "Голів"
 
-#: src/main/templates/main/detail/player_detail.html:97
+#: src/main/templates/main/detail/player_detail.html:105
 msgid "load"
 msgstr "Оренда"
 
-#: src/main/templates/main/detail/player_detail.html:113
+#: src/main/templates/main/detail/player_detail.html:120
 #: src/main/templates/main/search_results.html:55
 msgid "Clubs"
 msgstr "Клуби"
 
-#: src/main/templates/main/detail/player_detail.html:162
+#: src/main/templates/main/detail/player_detail.html:122
+msgid "No clubs added, click "
+msgstr "Жодного клубу не додано, натисніть "
+
+#: src/main/templates/main/detail/player_detail.html:128
+#: src/main/templates/main/detail/player_detail.html:148
+msgid "to add"
+msgstr ", щоб додати"
+
+#: src/main/templates/main/detail/player_detail.html:142
+msgid "No trophies added, click "
+msgstr "Жодного трофею не додано, натисніть "
+
+#: src/main/templates/main/detail/player_detail.html:173
 msgid "FUT"
 msgstr "ФУТ"
 
-#: src/main/templates/main/el_pagination/show_more.html:5
-msgid "more"
-msgstr ""
-
-#: src/main/templates/main/el_pagination/show_more.html:17
-msgid "watch more"
-msgstr "Побачити більше"
+#: src/main/templates/main/el_pagination/show_more.html:8
+msgid "Watch more"
+msgstr "Дивитись більше"
 
 #: src/main/templates/main/entry-pages/country_list_entry.html:19
 msgid "No countries added to "
@@ -1207,38 +1227,32 @@ msgstr "Рейтинг ассоціацій"
 
 #: src/main/templates/main/rating/association-rating.html:11
 #: src/main/templates/main/rating/club-rating.html:11
+#: src/main/templates/main/rating/country-rating.html:11
 #: src/main/templates/main/rating/main-association.html:11
 #: src/main/templates/main/rating/main-club.html:11
+#: src/main/templates/main/rating/main-country.html:11
 msgid "Continents"
 msgstr "Континент"
 
 #: src/main/templates/main/rating/association-rating.html:12
+#: src/main/templates/main/rating/association-rating.html:17
 msgid "Association rating "
 msgstr "Рейтинг ассоціацій "
 
-#: src/main/templates/main/rating/association-rating.html:20
-#: src/main/templates/main/rating/club-rating.html:20
-#: src/main/templates/main/rating/country-rating.html:19
-msgid "Place"
-msgstr "Місце"
-
-#: src/main/templates/main/rating/association-rating.html:21
-msgid "Association"
-msgstr "Ассоціація"
-
-#: src/main/templates/main/rating/association-rating.html:22
-#: src/main/templates/main/rating/club-rating.html:23
-#: src/main/templates/main/rating/country-rating.html:22
+#: src/main/templates/main/rating/association-rating.html:28
+#: src/main/templates/main/rating/club-rating.html:28
+#: src/main/templates/main/rating/country-rating.html:49
+#: src/main/templates/main/rating/include/table-item.html:9
 msgid "Points"
 msgstr "Очки"
 
-#: src/main/templates/main/rating/association-rating.html:24
-msgid "CL"
-msgstr "ЛЧ"
+#: src/main/templates/main/rating/association-rating.html:29
+msgid "Teams"
+msgstr ""
 
-#: src/main/templates/main/rating/association-rating.html:25
-msgid "EL"
-msgstr "ЛЄ"
+#: src/main/templates/main/rating/association-rating.html:80
+msgid "Last updated at: "
+msgstr "Останнє оновлення в: "
 
 #: src/main/templates/main/rating/club-rating.html:4
 msgid "Club rating"
@@ -1249,21 +1263,66 @@ msgid "Club rating "
 msgstr "Клубний рейтинг "
 
 #: src/main/templates/main/rating/club-rating.html:22
-#: src/main/templates/main/rating/country-rating.html:20
+#: src/main/templates/main/rating/country-rating.html:47
+#: src/main/templates/main/rating/include/table-item.html:7
 msgid "Country"
 msgstr "Країна"
 
 #: src/main/templates/main/rating/country-rating.html:4
-#: src/main/templates/main/rating/country-rating.html:11
+#: src/main/templates/main/rating/country-rating.html:12
 msgid "Country rating"
 msgstr "Рейтинг країн"
 
-#: src/main/templates/main/rating/country-rating.html:21
+#: src/main/templates/main/rating/country-rating.html:19
+msgid "All"
+msgstr ""
+
+#: src/main/templates/main/rating/country-rating.html:22
+#: src/main/templates/main/rating/country-rating.html:76
+#: src/main/templates/main/rating/country-rating.html:81
+#: src/main/templates/main/rating/country-rating.html:86
+#: src/main/templates/main/rating/country-rating.html:91
+#: src/main/templates/main/rating/country-rating.html:96
+#: src/main/templates/main/rating/country-rating.html:101
+msgid "UEFA"
+msgstr ""
+
+#: src/main/templates/main/rating/country-rating.html:25
+msgid "CONMEBOL"
+msgstr ""
+
+#: src/main/templates/main/rating/country-rating.html:28
+msgid "CONCACAF"
+msgstr ""
+
+#: src/main/templates/main/rating/country-rating.html:31
+msgid "CAF"
+msgstr ""
+
+#: src/main/templates/main/rating/country-rating.html:34
+msgid "AFC"
+msgstr ""
+
+#: src/main/templates/main/rating/country-rating.html:37
+msgid "OFC"
+msgstr ""
+
+#: src/main/templates/main/rating/country-rating.html:42
+msgid "General"
+msgstr ""
+
+#: src/main/templates/main/rating/country-rating.html:48
+#: src/main/templates/main/rating/include/table-item.html:8
 msgid "Continent"
 msgstr "Континент"
 
+#: src/main/templates/main/rating/include/table-item.html:10
+msgid "Main"
+msgstr ""
+
 #: src/main/templates/main/rating/main-association.html:4
 #: src/main/templates/main/rating/main-club.html:4
+#: src/main/templates/main/rating/main-country.html:4
 msgid "Rating list"
 msgstr "Рейтинговий список"
 
@@ -1291,17 +1350,50 @@ msgstr "Країни"
 msgid "Leagues"
 msgstr "Ліги"
 
-#: src/src/settings.py:157
+#: src/src/settings.py:158
 msgid "Ukraine"
 msgstr ""
 
-#: src/src/settings.py:158
+#: src/src/settings.py:159
 msgid "English"
 msgstr ""
 
-#: src/src/settings.py:159
+#: src/src/settings.py:160
 msgid "Russian"
 msgstr ""
+
+#~ msgid "Place on association rating"
+#~ msgstr "Місце в рейтингу ассоціацій"
+
+#~ msgid "The number of represented in the Champions League"
+#~ msgstr "Кількість представників в ЛЧ"
+
+#~ msgid "World Cup"
+#~ msgstr "Чемпіонат світу"
+
+#~ msgid "Champions League"
+#~ msgstr "Ліга Чемпіонів"
+
+#~ msgid "Golden ball"
+#~ msgstr "Золотий м'яч"
+
+#~ msgid "Use CTRL for select more than one"
+#~ msgstr "Щоб вибрати більше одного використовуйте CTRL"
+
+#~ msgid "No players added, click "
+#~ msgstr "Жодного гравця не додано, натисніть "
+
+#~ msgid "Wins by club"
+#~ msgstr "Перемоги по клубах"
+
+#~ msgid "No country added, click "
+#~ msgstr "Жодної країни не додано, натисніть "
+
+#~ msgid "CL"
+#~ msgstr "ЛЧ"
+
+#~ msgid "EL"
+#~ msgstr "ЛЄ"
 
 #~ msgid "No ratings added to "
 #~ msgstr "Жодної ліги не додано до "
