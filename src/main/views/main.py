@@ -30,6 +30,11 @@ class HomePageView(ListView):
     def get_queryset(self):
         return Club.objects.all().order_by("-published_at")
 
+    def get_context_data(self, **kwargs):
+        ctx = super(HomePageView, self).get_context_data(**kwargs)
+        ctx['is_homepage'] = True
+        return ctx
+
     def home(request):
         from django.utils import translation
         # user_language = 'fi'

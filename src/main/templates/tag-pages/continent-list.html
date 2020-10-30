@@ -1,4 +1,4 @@
 
 {% for cont in continent %}
-    <a title="{{ cont.title }}" href="{{ cont.get_absolute_url }}"><li>{{cont.title}}</li></a>
+    <a class="dropdown-item header-bg" title="{{ cont.title }}" href="{{ cont.get_absolute_url }}">{{cont.title}}</a>
 {% endfor %}

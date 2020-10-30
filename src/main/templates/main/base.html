@@ -26,73 +26,99 @@
     <div class="wrapper">
         {% block header %}
         <header id="header">
-        <nav id="gekasante-rnational" class="sanukagdes">
-            <input type="checkbox" name="toggle" id="toggle" />
-            <label for="toggle"><i class="icon-reorder"></i>{% trans " Menu" %}</label>
-            <ul id="nalcanemakeg">
-                <a title="{% trans 'Home' %}" href="{% url 'home_page' %}"><li>{% trans "Home" %}</li></a>
-                {% continent_on_home %}
-                <a title="{% trans 'Players' %}" href="{% url 'players_page' %}">
-                    <li>{% trans 'Players' %}</li>
-                </a>
-                <a title="{% trans 'Trophies and award' %}" href="{% url 'cups_page' %}">
-                    <li>{% trans 'Trophies and award' %}</li>
-                </a>
-                <a title="{% trans 'Ratings' %}" href="{% url 'all_rating' %}">
-                    <li>{% trans 'Ratings' %}</li>
-                </a>
-                <li>
-                    <form action="{% url 'set_language' %}" method="post">
-                        {% csrf_token %}
-                        <input name="next" type="hidden" value="{{ redirect_to }}">
-                        <select class="select-lang js-change-language-select" name="language">
-                            {% get_current_language as LANGUAGE_CODE %}
-                            {% get_available_languages as LANGUAGE %}
-                            {% get_language_info_list for LANGUAGE as languages %}
-                            {% for language in languages %}
-                                <option class="option-lang" value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %} selected {% endif %}>
-                                    {{ language.code }}
-                                </option>
-                            {% endfor %}
-                        </select>
-                    </form>
+        
+        <nav class="navbar navbar-expand-lg navbar-dark header-bg mt-3 mb-3">
+            <a class="navbar-brand" href="{% url 'home_page' %}">{% trans "Home" %}</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+        
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                    <a class=" dropdown-toggle navbar-brand" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {% trans 'Continents' %}
+                    </a>
+                    <div class="dropdown-menu header-bg" aria-labelledby="navbarDropdown">
+                        {% continent_on_home %}
+                    </div>
                 </li>
-
-                <li>
-                    <form action="{% url 'search_results' %}" method="get" class="form-inline d-flex justify-content-left md-form form-sm">
-                        <input name="q" class="form-control form-control-sm mr-3 w-75" type="text" placeholder="{% trans 'Search' %}"
-                        aria-label="Search">
-                        <i class="fas fa-search white" aria-hidden="true"></i>
-                    </form>
+                <li class="nav-item">
+                    <a class="navbar-brand" title="{% trans 'Players' %}" href="{% url 'players_page' %}">
+                        {% trans 'Players' %}
+                    </a>
                 </li>
-                {% if user.is_authenticated %}
-                    <li><span> {% trans "Welcome back, " %} {{ user.username }} </span></li>
-                    <a title="{% trans 'Add' %}" href="{% url 'create_center' %}">
-                        <li>{% trans "Add" %}</li>
+                <li class="nav-item">
+                    <a class="navbar-brand" title="{% trans 'Trophies and award' %}" href="{% url 'cups_page' %}">
+                        {% trans 'Trophies and award' %}
                     </a>
-                    <a title="{% trans 'Logout' %}" href="{% url 'account_logout' %}">
-                        <li>{% trans "Logout" %}</li>
+                </li>
+                <li class="nav-item">
+                    <a class="navbar-brand" title="{% trans 'Ratings' %}" href="{% url 'all_rating' %}">
+                        {% trans 'Ratings' %}
                     </a>
-                {% else %}
-                    <a title="{% trans 'Add' %}" href="{% url 'account_login' %}">
-                        <li>{% trans "Add" %}</li>
-                    </a>
-                    <a title="{% trans 'Login' %}" href="{% url 'account_login' %}">
-                       <li>{% trans "Login" %}</li>
-                    </a>
-                    <a title="{% trans 'Sign Up' %}" href="{% url 'account_signup' %}">
-                        <li>{% trans "Sign Up" %}</li>
-                    </a>
-                {% endif %}
+                </li>
+                <li class="nav-item dropdown">
+                    {% if user.is_authenticated %}
+                        <a class=" dropdown-toggle navbar-brand" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {% trans 'Account' %}
+                        </a>
+                        <div class="dropdown-menu header-bg" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item header-bg" title="{% trans 'Add' %}" href="{% url 'create_center' %}">
+                                {% trans "Add" %}
+                            </a>
+                            <a class="dropdown-item header-bg" title="{% trans 'Logout' %}" href="{% url 'account_logout' %}">
+                                {% trans "Logout" %}
+                            </a>
+                        </div>
+                    {% else %}
+                        <a class=" dropdown-toggle navbar-brand" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {% trans 'Account' %}
+                        </a>
+                        <div class="dropdown-menu header-bg" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item header-bg" title="{% trans 'Add' %}" href="{% url 'account_login' %}">
+                                {% trans "Add" %}
+                            </a>
+                            <a class="dropdown-item header-bg" title="{% trans 'Login' %}" href="{% url 'account_login' %}">
+                                {% trans "Login" %}
+                            </a>
+                            <a class="dropdown-item header-bg" title="{% trans 'Sign Up' %}" href="{% url 'account_signup' %}">
+                                {% trans "Sign Up" %}
+                            </a>
+                        </div>
+                    {% endif %}
+                </li>
             </ul>
+            <form action="{% url 'search_results' %}" method="get" class="form-inline d-flex justify-content-left md-form form-sm">
+                <input name="q" class="form-control form-control-sm w-75" type="text" placeholder="{% trans 'Search' %}"
+                aria-label="Search">
+            </form>
+            <form action="{% url 'set_language' %}" method="post">
+                {% csrf_token %}
+                <input name="next" type="hidden" value="{{ redirect_to }}">
+                <select class="select-lang js-change-language-select" name="language">
+                    {% get_current_language as LANGUAGE_CODE %}
+                    {% get_available_languages as LANGUAGE %}
+                    {% get_language_info_list for LANGUAGE as languages %}
+                    {% for language in languages %}
+                        <option class="option-lang" value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %} selected {% endif %}>
+                            {{ language.code }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </form>
+            </div>
         </nav>
         {% block bread %}
         {% endblock %}
         </header>
         {% endblock %}
         <main>
-            <div class="clock">
+            <div class="clock text-center {% if user.is_authenticated and is_homepage %} pb-2 {% endif %}">
                 <div id="date-time"></div>
+                {% if user.is_authenticated and is_homepage %}
+                <div>({% trans "Welcome back, " %} {{ user.username }})</div>
+                {% endif %}
             </div>
             {% block content %}
             {% endblock %}

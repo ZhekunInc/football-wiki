@@ -5,6 +5,10 @@ body{
   background-size: 100%;
 }
 
+main {
+  min-height: calc(100vh - 180px);
+}
+
 .row a{
   text-decoration: none;
   background: white;
@@ -27,41 +31,10 @@ body{
     max-width: 1080px;
 }
 
-.sanukagdes {
-    margin: 15px auto;
-  }
-  #gekasante-rnational {
-    width: 100%;
-    background: rgb(21, 19, 19);
-    font-weight: 600;
-    font-size: 14px;
-    border-radius: 2px;
-    padding: 10px;
-  }
-  #gekasante-rnational ul {
-    margin: 0px;
-    padding: 0px;
-  }
-  #gekasante-rnational ul li, label[for=toggle] {
-    display: inline-block;
-    cursor: pointer;
-    color: rgb(251, 244, 244);
-    padding: 17px 10px 15px 16px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-right: 10px;
-  }
-
-  #gekasante-rnational ul li:hover, label[for=toggle]:hover {
-    color: rgb(245, 239, 239);
-    text-shadow: 0 0 1px #f7f4f4;
-    transition: 0.5s;
-    box-shadow: 0px 2px 0px 0px rgba(251, 251, 251, 0.79);
-    margin-right: 10px;
-  }
-  #gekasante-rnational a:hover {
-    text-decoration: none;
-  }
+.header-bg {
+  background: rgb(21, 19, 19);
+  color: white;
+}
 
 
 .item{
@@ -97,7 +70,7 @@ body{
 }
 
 .footer{
-  margin-top: 15px;
+  margin-top: 25px;
   height: 55px;
   background: rgb(21, 19, 19);
   text-align: center;
