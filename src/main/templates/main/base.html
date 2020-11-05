@@ -23,6 +23,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Infant:ital,wght@1,300&display=swap" rel="stylesheet">
 </head>
 <body>
+    {% now 'Y' as current_year %}
+    {% now 'm' as current_month %}
+    {% now 'd' as current_day %}
     <div class="wrapper">
         {% block header %}
         <header id="header">
@@ -128,10 +131,29 @@
         </main>
         <footer>
             <div class="footer">
-                <p>&copy created by <a href="https://play.google.com/store/apps/developer?id=Zhekun+Inc" target="_blank">Zhekun Inc</a> {% now 'Y' %}</p>
+                <p>&copy created by <a href="https://play.google.com/store/apps/developer?id=Zhekun+Inc" target="_blank">Zhekun Inc</a> {{ current_year }}</p>
             </div>
         </footer>
     </div>
+
+    {% if current_month == '11' and current_day == '05' and is_homepage %}
+    <div id="overlay">
+        <div class="popup text-center">
+            <h2>{% trans 'HAPPY BIRTHDAY!!!' %}</h2>
+            <h5>{% trans 'Today is birthday in owner of this site! So you can write few nice words to this email ' %}
+                <a href="mailto:golovchak.evgen@gmail.com">golovchak.evgen@gmail.com</a>
+            </h5>
+            <img loading="lazy" class="img-happy" src="{% static 'images/happy_birthday.jpg' %}">
+            <button class="close" title="Закрыть" onclick="document.getElementById('overlay').style.display='none';"></button>
+        </div>
+    </div>
+    {% endif %}
+
+
+<script type="text/javascript">
+    var delay_popup = 20;
+    setTimeout("document.getElementById('overlay').style.display='block'", delay_popup);
+</script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>

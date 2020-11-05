@@ -11,100 +11,127 @@
 {% endblock %}
 
 {% block content %}
-<div class="club-content">
-    <div class="last">{{country.title}}
-        {% if user.is_authenticated %}
-            <sup><a href="{{ country.get_absolute_about_url }}country-title-update/"> {% trans 'change' %} </a></sup>
-        {% else %}
-            <sup><a href="{% url 'account_login' %}"> {% trans 'change' %} </a></sup>
-        {% endif %}
+<div itemscope itemtype="https://schema.org/Article">
+    <meta itemprop="headline" content="{{ country.title }}">
+    <div itemprop="author" itemscope itemtype="https://schema.org/Person">
+        <meta itemprop="name" content="{{ country.title }}">
     </div>
-    <div class="info">
+    <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+        <meta itemprop="name" content="Zhekun">
+        <div itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+            <meta itemprop="url" content="https://drive.google.com/file/d/1QphcClhOWyuZN8QLfz078I2xjxo2zQrY/view?usp=sharing>"  />
+        </div>
+    </div>
+    <meta itemprop="dateModified" content="{{ country.published_at|date:'c' }}">
+    <meta itemprop="datePublished" content="{{ country.published_at|date:'c' }}">
 
-        <div class="swiper-container">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    {% if country.picture %}
-                        <img class="img-club" src="{{ country.picture.url }}" alt="{{country.title}}">
-                    {% else %}
-                        <img class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
-                    {% endif %}
-                </div>
-                <div class="swiper-slide">
-                    <div class="container4">
-                    {% if country.flag %}
-                        <img class="img-club" src="{{ country.flag.url }}" alt="{{country.title}}">
-                    {% else %}
-                        <img class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
-                    {% endif %}
+    <div class="club-content">
+        <div class="last">{{ country.title }}
+            {% if user.is_authenticated %}
+                <sup><a href="{{ country.get_absolute_about_url }}country-title-update/"> {% trans 'change' %} </a></sup>
+            {% else %}
+                <sup><a href="{% url 'account_login' %}"> {% trans 'change' %} </a></sup>
+            {% endif %}
+        </div>
+        <div class="info">
+
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        {% if country.picture %}
+                            <div itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                                <link itemprop="url" href="{{ country.picture.url }}" />
+                            </div>
+                            <img itemprop="image" class="img-club" src="{{ country.picture.url }}" alt="{{country.title}}">
+                        {% else %}
+                            <div itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                                <link itemprop="url" href="{% static 'images/placeholder.png' %}" />
+                            </div>
+                            <img itemprop="image" class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
+                        {% endif %}
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="container4">
+                        {% if country.flag %}
+                            <div itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                                <link itemprop="url" href="{{ country.flag.url }}" />
+                            </div>
+                            <img class="img-club" src="{{ country.flag.url }}" alt="{{country.title}}">
+                        {% else %}
+                            <div itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                                <link itemprop="url" href="{% static 'images/placeholder.png' %}" />
+                            </div>
+                            <img itemprop="image" class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
+                        {% endif %}
+                        </div>
                     </div>
                 </div>
             </div>
+            <p>{% trans "Founded:" %} {% if country.founded|date:'d' == country.published_at|date:'d' and country.founded|date:'F' == country.published_at|date:'F' %} {{country.founded|date:'Y'|default:"-"}} {% else %} {{country.founded|date:'d F Y'|default:"-"}} {% endif %}</p>
+            <p>{% trans "Belonging to FIFA since " %} {{ country.fifa|date:'Y'|default:"-" }}</p>
+            <p>{% trans "Belonging to " %} {{ country.continent.title }} {% trans " since " %} {{country.uefa|date:'Y'|default:"-"}}</p>
+            <p>{% trans "President:" %} {{country.president|default:"-"}}</p>
+            <p>{% trans "Website" %} <a itemprop="mainEntityOfPage" href="{{ country.website }}" target="_blank">{{ country.website|default:"" }}</a></p>
+            {% if user.is_authenticated %}
+                <p>
+                    <a href="{{ country.get_absolute_about_url }}country-info-update/"> {% trans 'change' %} </a>
+                </p>
+            {% else %}
+                <p><a href="{% url 'account_login' %}"> {% trans 'change' %} </a></p>
+            {% endif %}
         </div>
-        <p>{% trans "Founded:" %} {% if country.founded|date:'d' == country.published_at|date:'d' and country.founded|date:'F' == country.published_at|date:'F' %} {{country.founded|date:'Y'|default:"-"}} {% else %} {{country.founded|date:'d F Y'|default:"-"}} {% endif %}</p>
-        <p>{% trans "Belonging to FIFA since " %} {{country.fifa|date:'Y'|default:"-"}}</p>
-        <p>{% trans "Belonging to " %} {{ country.continent.title }} {% trans " since " %} {{country.uefa|date:'Y'|default:"-"}}</p>
-        <p>{% trans "President:" %} {{country.president|default:"-"}}</p>
-        <p>{% trans "Website" %} <a href="{{ country.website }}" target="_blank">{{ country.website|default:"" }}</a></p>
-        {% if user.is_authenticated %}
-            <p>
-                <a href="{{ country.get_absolute_about_url }}country-info-update/"> {% trans 'change' %} </a>
-            </p>
-        {% else %}
-            <p><a href="{% url 'account_login' %}"> {% trans 'change' %} </a></p>
+        <div class="text-club">
+            <p itemprop="articleBody" class="text">{{country.main_text|linebreaks}}</p>
+            {% if user.is_authenticated %}
+                <sup><a href="{{ country.get_absolute_about_url }}country-main-update/"> {% trans 'change' %} </a></sup>
+            {% else %}
+                <sup><a href="{% url 'account_login' %}"> {% trans 'change' %} </a></sup>
+            {% endif %}
+        </div>
+        {% if country.get_players %}
+        <div class="last">{% trans "Famous Players" %}</div>
+        <section class="sample">
+            <div class="container">
+                <div class="row">
+                    {% for player in country.get_players %}
+                            <a title="{{ player.player.title }}" href="{{ player.player.get_absolute_url }}" class="item">
+                                {% if player.player.image %}
+                                    <img loading="lazy" class="images" src="{{ player.player.image.url }}" alt="{{ player.player.title }}">
+                                {% else %}
+                                    <img loading="lazy" class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
+                                {% endif %}
+                                    <div class="title">{{ player.player.title }}</div>
+                                {% if player.one_time %}
+                                    <span class="years">{{ player.year_from }} - {{ player.year_to }}</span>
+                                {% else %}
+                                    <span class="years">{{ player.years }}</span>
+                                {% endif %}
+                            </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+        {% endif %}
+        {% if country.get_cups %}
+        <div class="last">{% trans "Trophies and award" %}</div>
+        <section class="sample">
+            <div class="container">
+                <div class="row">
+                    {% for cup in country.get_cups %}
+                    <a title="{{ cup.cup.title }}" class="item" href="{{ cup.cup.get_absolute_url }}">
+                        {% if cup.cup.image %}
+                            <img loading="lazy" class="images" src="{{ cup.cup.image.url }}" alt="{{ cup.cup.title }}">
+                        {% else %}
+                            <img loading="lazy" class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
+                        {% endif %}
+                        <div class="title">{{ cup.cup.title }} x {{ cup.times }}</div>
+                        <div class="years">{{ cup.years }}</div>
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
         {% endif %}
     </div>
-    <div class="text-club">
-        <p class="text">{{country.main_text|linebreaks}}</p>
-        {% if user.is_authenticated %}
-            <sup><a href="{{ country.get_absolute_about_url }}country-main-update/"> {% trans 'change' %} </a></sup>
-        {% else %}
-            <sup><a href="{% url 'account_login' %}"> {% trans 'change' %} </a></sup>
-        {% endif %}
-    </div>
-    {% if country.get_players %}
-    <div class="last">{% trans "Famous Players" %}</div>
-    <section class="sample">
-        <div class="container">
-            <div class="row">
-                {% for player in country.get_players %}
-                        <a title="{{ player.player.title }}" href="{{ player.player.get_absolute_url }}" class="item">
-                            {% if player.player.image %}
-                                <img loading="lazy" class="images" src="{{ player.player.image.url }}" alt="{{ player.player.title }}">
-                            {% else %}
-                                <img loading="lazy" class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
-                            {% endif %}
-                                <div class="title">{{ player.player.title }}</div>
-                            {% if player.one_time %}
-                                <span class="years">{{ player.year_from }} - {{ player.year_to }}</span>
-                            {% else %}
-                                <span class="years">{{ player.years }}</span>
-                            {% endif %}
-                        </a>
-                {% endfor %}
-            </div>
-        </div>
-    </section>
-    {% endif %}
-    {% if country.get_cups %}
-    <div class="last">{% trans "Trophies and award" %}</div>
-    <section class="sample">
-        <div class="container">
-            <div class="row">
-                {% for cup in country.get_cups %}
-                <a title="{{ cup.cup.title }}" class="item" href="{{ cup.cup.get_absolute_url }}">
-                    {% if cup.cup.image %}
-                        <img loading="lazy" class="images" src="{{ cup.cup.image.url }}" alt="{{ cup.cup.title }}">
-                    {% else %}
-                        <img loading="lazy" class="images" src="{% static 'images/placeholder.png' %}" alt="holderplace">
-                    {% endif %}
-                    <div class="title">{{ cup.cup.title }} x {{ cup.times }}</div>
-                    <div class="years">{{ cup.years }}</div>
-                </a>
-                {% endfor %}
-            </div>
-        </div>
-    </section>
-    {% endif %}
 </div>
 {% endblock %}

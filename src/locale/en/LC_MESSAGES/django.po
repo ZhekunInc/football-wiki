@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-29 16:26+0200\n"
+"POT-Creation-Date: 2020-11-05 17:45+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,34 +18,34 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: src/main/models.py:11 src/main/models.py:57 src/main/models.py:124
-#: src/main/models.py:175 src/main/models.py:221 src/main/models.py:275
-#: src/main/models.py:530 src/main/models.py:609 src/main/models.py:681
+#: src/main/models.py:11 src/main/models.py:58 src/main/models.py:126
+#: src/main/models.py:178 src/main/models.py:225 src/main/models.py:280
+#: src/main/models.py:543 src/main/models.py:624 src/main/models.py:698
 msgid "title"
 msgstr ""
 
-#: src/main/models.py:13 src/main/models.py:59 src/main/models.py:126
-#: src/main/models.py:177 src/main/models.py:223 src/main/models.py:277
+#: src/main/models.py:13 src/main/models.py:60 src/main/models.py:128
+#: src/main/models.py:180 src/main/models.py:227 src/main/models.py:282
 msgid "slug"
 msgstr ""
 
-#: src/main/models.py:16 src/main/models.py:69 src/main/models.py:129
-#: src/main/models.py:180 src/main/models.py:226
+#: src/main/models.py:16 src/main/models.py:70 src/main/models.py:131
+#: src/main/models.py:183 src/main/models.py:230
 msgid "Image"
 msgstr ""
 
-#: src/main/models.py:18 src/main/models.py:131 src/main/models.py:182
-#: src/main/models.py:228 src/main/models.py:303
+#: src/main/models.py:18 src/main/models.py:133 src/main/models.py:185
+#: src/main/models.py:232 src/main/models.py:308
 msgid "Recomended size 512x512px"
 msgstr ""
 
-#: src/main/models.py:20 src/main/models.py:65 src/main/models.py:133
-#: src/main/models.py:184 src/main/models.py:230 src/main/models.py:295
+#: src/main/models.py:20 src/main/models.py:66 src/main/models.py:135
+#: src/main/models.py:187 src/main/models.py:234 src/main/models.py:300
 msgid "main text"
 msgstr ""
 
-#: src/main/models.py:21 src/main/models.py:78 src/main/models.py:138
-#: src/main/models.py:185 src/main/models.py:318
+#: src/main/models.py:21 src/main/models.py:79 src/main/models.py:140
+#: src/main/models.py:188 src/main/models.py:323
 msgid "Founded"
 msgstr ""
 
@@ -61,200 +61,246 @@ msgstr ""
 msgid "Count of associations"
 msgstr ""
 
-#: src/main/models.py:32 src/main/models.py:86
+#: src/main/models.py:32 src/main/models.py:87
 msgid "President"
 msgstr ""
 
-#: src/main/models.py:35 src/main/models.py:89 src/main/models.py:149
-#: src/main/models.py:192 src/main/models.py:327
+#: src/main/models.py:35 src/main/models.py:90 src/main/models.py:151
+#: src/main/models.py:195 src/main/models.py:332
 #: src/main/templates/main/detail/club_detail.html:38
 #: src/main/templates/main/detail/continent-detail.html:32
-#: src/main/templates/main/detail/country-detail.html:48
+#: src/main/templates/main/detail/country-detail.html:74
 #: src/main/templates/main/detail/cup_detail.html:34
 #: src/main/templates/main/detail/league-detail.html:33
 msgid "Website"
 msgstr ""
 
-#: src/main/models.py:63 src/main/models.py:188 src/main/models.py:281
-#: src/main/models.py:533 src/main/models.py:612 src/main/models.py:684
+#: src/main/models.py:54 src/main/models.py:64 src/main/models.py:191
+#: src/main/models.py:286 src/main/models.py:546 src/main/models.py:627
+#: src/main/models.py:701
 msgid "continent"
 msgstr ""
 
-#: src/main/models.py:74
+#: src/main/models.py:55 src/main/templates/main/base.html:43
+#: src/main/templates/main/rating/association-rating.html:11
+#: src/main/templates/main/rating/club-rating.html:11
+#: src/main/templates/main/rating/country-rating.html:11
+#: src/main/templates/main/rating/main-association.html:11
+#: src/main/templates/main/rating/main-club.html:11
+#: src/main/templates/main/rating/main-country.html:11
+msgid "Continents"
+msgstr ""
+
+#: src/main/models.py:75
 msgid "Flag"
 msgstr ""
 
-#: src/main/models.py:80
+#: src/main/models.py:81
 msgid "Belonging to FIFA since"
 msgstr ""
 
-#: src/main/models.py:83
+#: src/main/models.py:84
 msgid "Belonging to since"
 msgstr ""
 
-#: src/main/models.py:91
+#: src/main/models.py:92
 msgid "Place on rating"
 msgstr ""
 
-#: src/main/models.py:92
+#: src/main/models.py:93
 msgid "Points on rating"
 msgstr ""
 
-#: src/main/models.py:136 src/main/models.py:233 src/main/models.py:286
+#: src/main/models.py:122 src/main/models.py:138 src/main/models.py:237
+#: src/main/models.py:291
 msgid "country"
 msgstr ""
 
-#: src/main/models.py:140 src/main/templates/main/detail/league-detail.html:30
+#: src/main/models.py:123 src/main/templates/main/search_results.html:17
+msgid "Countries"
+msgstr ""
+
+#: src/main/models.py:142 src/main/templates/main/detail/league-detail.html:30
 msgid "Number of teams:"
 msgstr ""
 
-#: src/main/models.py:143 src/main/templates/main/detail/league-detail.html:31
+#: src/main/models.py:145 src/main/templates/main/detail/league-detail.html:31
 msgid "Level on pyramid:"
 msgstr ""
 
-#: src/main/models.py:146
+#: src/main/models.py:148
 msgid "Last winner"
 msgstr ""
 
-#: src/main/models.py:236
-msgid "nickname"
-msgstr ""
-
-#: src/main/models.py:239
-msgid "date of birth"
-msgstr ""
-
-#: src/main/models.py:241
-msgid "height"
-msgstr ""
-
-#: src/main/models.py:243
-msgid "positions"
-msgstr ""
-
-#: src/main/models.py:246
-msgid "Photo link"
-msgstr ""
-
-#: src/main/models.py:272
-msgid "player"
-msgstr ""
-
-#: src/main/models.py:291
+#: src/main/models.py:174 src/main/models.py:296
 msgid "league"
 msgstr ""
 
-#: src/main/models.py:298
+#: src/main/models.py:175 src/main/templates/main/search_results.html:36
+msgid "Leagues"
+msgstr ""
+
+#: src/main/models.py:221
+msgid "cup"
+msgstr ""
+
+#: src/main/models.py:222
+msgid "Cups"
+msgstr ""
+
+#: src/main/models.py:240
+msgid "nickname"
+msgstr ""
+
+#: src/main/models.py:243
+msgid "date of birth"
+msgstr ""
+
+#: src/main/models.py:245
+msgid "height"
+msgstr ""
+
+#: src/main/models.py:247
+msgid "positions"
+msgstr ""
+
+#: src/main/models.py:250
+msgid "Photo link"
+msgstr ""
+
+#: src/main/models.py:276
+msgid "player"
+msgstr ""
+
+#: src/main/models.py:277 src/main/templates/main/base.html:50
+#: src/main/templates/main/base.html:51
+#: src/main/templates/main/player-list.html:4
+#: src/main/templates/main/player-list.html:7
+#: src/main/templates/main/search_results.html:74
+msgid "Players"
+msgstr ""
+
+#: src/main/models.py:303
 msgid "published at"
 msgstr ""
 
-#: src/main/models.py:299
+#: src/main/models.py:304
 msgid "published"
 msgstr ""
 
-#: src/main/models.py:301
+#: src/main/models.py:306
 msgid "Club emblem"
 msgstr ""
 
-#: src/main/models.py:306
+#: src/main/models.py:311
 msgid "Color 1"
 msgstr ""
 
-#: src/main/models.py:309
+#: src/main/models.py:314
 msgid "Color 2"
 msgstr ""
 
-#: src/main/models.py:312
+#: src/main/models.py:317
 msgid "Nickname"
 msgstr ""
 
-#: src/main/models.py:315
+#: src/main/models.py:320
 msgid "Short name"
 msgstr ""
 
-#: src/main/models.py:321
+#: src/main/models.py:326
 msgid "Stadium"
 msgstr ""
 
-#: src/main/models.py:324
+#: src/main/models.py:329
 msgid "Manager"
 msgstr ""
 
-#: src/main/models.py:331 src/main/templates/main/detail/player_detail.html:80
+#: src/main/models.py:336 src/main/templates/main/detail/player_detail.html:80
 #: src/main/templates/main/rating/club-rating.html:21
 msgid "Club"
 msgstr ""
 
-#: src/main/models.py:375 src/main/templates/main/detail/club_detail.html:56
+#: src/main/models.py:337 src/main/templates/main/detail/player_detail.html:120
+#: src/main/templates/main/search_results.html:55
+msgid "Clubs"
+msgstr ""
+
+#: src/main/models.py:381 src/main/templates/main/detail/club_detail.html:56
 msgid "Kit"
 msgstr ""
 
-#: src/main/models.py:393
+#: src/main/models.py:382
+msgid "Kits"
+msgstr ""
+
+#: src/main/models.py:400 src/main/models.py:401
 msgid "Fifa"
 msgstr ""
 
-#: src/main/models.py:402
+#: src/main/models.py:410
 msgid "club"
 msgstr ""
 
-#: src/main/models.py:405 src/main/models.py:507
+#: src/main/models.py:413 src/main/models.py:519
 msgid "Year from"
 msgstr ""
 
-#: src/main/models.py:408 src/main/models.py:510
+#: src/main/models.py:416 src/main/models.py:522
 msgid "Year to"
 msgstr ""
 
-#: src/main/models.py:411 src/main/templates/main/detail/player_detail.html:81
+#: src/main/models.py:419 src/main/templates/main/detail/player_detail.html:81
 msgid "Games"
 msgstr ""
 
-#: src/main/models.py:414
+#: src/main/models.py:422
 msgid "Score"
 msgstr ""
 
-#: src/main/models.py:418
+#: src/main/models.py:426
 msgid "Year in club"
 msgstr ""
 
-#: src/main/models.py:430
+#: src/main/models.py:438 src/main/models.py:439
 msgid "Player Club"
 msgstr ""
 
-#: src/main/models.py:434 src/main/models.py:500
+#: src/main/models.py:443 src/main/models.py:512
 msgid "Player"
 msgstr ""
 
-#: src/main/models.py:437 src/main/models.py:458 src/main/models.py:479
+#: src/main/models.py:446 src/main/models.py:468 src/main/models.py:490
 msgid "Cup"
 msgstr ""
 
-#: src/main/models.py:440 src/main/models.py:464 src/main/models.py:485
+#: src/main/models.py:449 src/main/models.py:474 src/main/models.py:496
 msgid "Now much?"
 msgstr ""
 
-#: src/main/models.py:443 src/main/models.py:514
+#: src/main/models.py:452 src/main/models.py:526
 #: src/main/templates/main/detail/player_detail.html:79
 msgid "Years"
 msgstr ""
 
-#: src/main/models.py:454
+#: src/main/models.py:463 src/main/models.py:464
 msgid "Player Cup"
 msgstr ""
 
-#: src/main/models.py:475
+#: src/main/models.py:485 src/main/models.py:486
 msgid "Cup Club"
 msgstr ""
 
-#: src/main/models.py:496 src/main/models.py:525
+#: src/main/models.py:507 src/main/models.py:508 src/main/models.py:537
+#: src/main/models.py:538
 msgid "Cup Country"
 msgstr ""
 
-#: src/main/models.py:546
+#: src/main/models.py:559 src/main/models.py:560
 msgid "Rating Associations"
 msgstr ""
 
-#: src/main/models.py:559 src/main/models.py:638 src/main/models.py:710
+#: src/main/models.py:573 src/main/models.py:654 src/main/models.py:728
 #: src/main/templates/main/rating/association-rating.html:21
 #: src/main/templates/main/rating/club-rating.html:20
 #: src/main/templates/main/rating/country-rating.html:46
@@ -262,44 +308,53 @@ msgstr ""
 msgid "Place"
 msgstr ""
 
-#: src/main/models.py:565 src/main/models.py:569 src/main/models.py:573
-#: src/main/models.py:577 src/main/models.py:581 src/main/models.py:585
-#: src/main/models.py:644 src/main/models.py:648 src/main/models.py:652
-#: src/main/models.py:656 src/main/models.py:660 src/main/models.py:664
-#: src/main/models.py:716
+#: src/main/models.py:579 src/main/models.py:583 src/main/models.py:587
+#: src/main/models.py:591 src/main/models.py:595 src/main/models.py:599
+#: src/main/models.py:660 src/main/models.py:664 src/main/models.py:668
+#: src/main/models.py:672 src/main/models.py:676 src/main/models.py:680
+#: src/main/models.py:734
 msgid "Points on association rating"
 msgstr ""
 
-#: src/main/models.py:589
+#: src/main/models.py:603
 msgid "The number of represented Euro Cups"
 msgstr ""
 
-#: src/main/models.py:593
+#: src/main/models.py:607
 msgid "No team"
 msgstr ""
 
-#: src/main/models.py:604
+#: src/main/models.py:618
 #: src/main/templates/main/rating/association-rating.html:22
 msgid "Association"
 msgstr ""
 
-#: src/main/models.py:625
+#: src/main/models.py:619
+msgid "Associations"
+msgstr ""
+
+#: src/main/models.py:640 src/main/models.py:641
 msgid "Rating Teams"
 msgstr ""
 
-#: src/main/models.py:676
+#: src/main/models.py:692
 msgid "Team"
 msgstr ""
 
-#: src/main/models.py:697
+#: src/main/models.py:693
+#: src/main/templates/main/rating/association-rating.html:29
+msgid "Teams"
+msgstr ""
+
+#: src/main/models.py:714 src/main/models.py:715
 msgid "Rating countryies"
 msgstr ""
 
-#: src/main/models.py:719
+#: src/main/models.py:737
 msgid "Place in continent"
 msgstr ""
 
-#: src/main/models.py:730
+#: src/main/models.py:748 src/main/models.py:749
 msgid "FifaCountry"
 msgstr ""
 
@@ -594,7 +649,7 @@ msgstr ""
 
 #: src/main/templates/account/signup.html:10
 #: src/main/templates/account/signup.html:20
-#: src/main/templates/main/base.html:83 src/main/templates/main/base.html:84
+#: src/main/templates/main/base.html:88 src/main/templates/main/base.html:89
 msgid "Sign Up"
 msgstr ""
 
@@ -669,7 +724,7 @@ msgid "All ratings"
 msgstr ""
 
 #: src/main/templates/main/all-rating.html:9
-#: src/main/templates/main/base.html:33
+#: src/main/templates/main/base.html:34
 #: src/main/templates/main/change-club/club_create.html:8
 #: src/main/templates/main/change-club/club_info_update.html:7
 #: src/main/templates/main/change-club/club_main_update.html:7
@@ -731,21 +786,10 @@ msgstr ""
 msgid "Clubs rating"
 msgstr ""
 
-#: src/main/templates/main/base.html:31
-msgid " Menu"
-msgstr ""
-
-#: src/main/templates/main/base.html:35 src/main/templates/main/base.html:36
-#: src/main/templates/main/player-list.html:4
-#: src/main/templates/main/player-list.html:7
-#: src/main/templates/main/search_results.html:74
-msgid "Players"
-msgstr ""
-
-#: src/main/templates/main/base.html:38 src/main/templates/main/base.html:39
+#: src/main/templates/main/base.html:55 src/main/templates/main/base.html:56
 #: src/main/templates/main/cup-list.html:4
 #: src/main/templates/main/cup-list.html:7
-#: src/main/templates/main/detail/country-detail.html:90
+#: src/main/templates/main/detail/country-detail.html:116
 #: src/main/templates/main/detail/player_detail.html:132
 #: src/main/templates/main/detail/player_detail.html:140
 #: src/main/templates/main/detail/player_detail.html:153
@@ -753,20 +797,16 @@ msgstr ""
 msgid "Trophies and award"
 msgstr ""
 
-#: src/main/templates/main/base.html:41 src/main/templates/main/base.html:42
+#: src/main/templates/main/base.html:60 src/main/templates/main/base.html:61
 msgid "Ratings"
 msgstr ""
 
-#: src/main/templates/main/base.html:63
-msgid "Search"
-msgstr ""
-
-#: src/main/templates/main/base.html:69
-msgid "Welcome back, "
+#: src/main/templates/main/base.html:67 src/main/templates/main/base.html:79
+msgid "Account"
 msgstr ""
 
 #: src/main/templates/main/base.html:70 src/main/templates/main/base.html:71
-#: src/main/templates/main/base.html:77 src/main/templates/main/base.html:78
+#: src/main/templates/main/base.html:82 src/main/templates/main/base.html:83
 msgid "Add"
 msgstr ""
 
@@ -774,8 +814,26 @@ msgstr ""
 msgid "Logout"
 msgstr ""
 
-#: src/main/templates/main/base.html:80 src/main/templates/main/base.html:81
+#: src/main/templates/main/base.html:85 src/main/templates/main/base.html:86
 msgid "Login"
+msgstr ""
+
+#: src/main/templates/main/base.html:96
+msgid "Search"
+msgstr ""
+
+#: src/main/templates/main/base.html:123
+msgid "Welcome back, "
+msgstr ""
+
+#: src/main/templates/main/base.html:142
+msgid "HAPPY BIRTHDAY!!!"
+msgstr ""
+
+#: src/main/templates/main/base.html:143
+msgid ""
+"Today is birthday in owner of this site! So you can write few nice words to "
+"this email "
 msgstr ""
 
 #: src/main/templates/main/change-club/club_create.html:3
@@ -1038,12 +1096,12 @@ msgstr ""
 #: src/main/templates/main/detail/continent-detail.html:38
 #: src/main/templates/main/detail/continent-detail.html:44
 #: src/main/templates/main/detail/continent-detail.html:46
-#: src/main/templates/main/detail/country-detail.html:17
-#: src/main/templates/main/detail/country-detail.html:19
-#: src/main/templates/main/detail/country-detail.html:51
-#: src/main/templates/main/detail/country-detail.html:54
-#: src/main/templates/main/detail/country-detail.html:60
-#: src/main/templates/main/detail/country-detail.html:62
+#: src/main/templates/main/detail/country-detail.html:31
+#: src/main/templates/main/detail/country-detail.html:33
+#: src/main/templates/main/detail/country-detail.html:77
+#: src/main/templates/main/detail/country-detail.html:80
+#: src/main/templates/main/detail/country-detail.html:86
+#: src/main/templates/main/detail/country-detail.html:88
 #: src/main/templates/main/detail/cup_detail.html:21
 #: src/main/templates/main/detail/cup_detail.html:23
 #: src/main/templates/main/detail/cup_detail.html:36
@@ -1084,7 +1142,7 @@ msgstr ""
 
 #: src/main/templates/main/detail/club_detail.html:35
 #: src/main/templates/main/detail/continent-detail.html:27
-#: src/main/templates/main/detail/country-detail.html:44
+#: src/main/templates/main/detail/country-detail.html:70
 #: src/main/templates/main/detail/cup_detail.html:32
 #: src/main/templates/main/detail/league-detail.html:29
 msgid "Founded:"
@@ -1104,7 +1162,7 @@ msgid "Trophies"
 msgstr ""
 
 #: src/main/templates/main/detail/club_detail.html:96
-#: src/main/templates/main/detail/country-detail.html:66
+#: src/main/templates/main/detail/country-detail.html:92
 msgid "Famous Players"
 msgstr ""
 
@@ -1122,19 +1180,19 @@ msgid "Count of associations:"
 msgstr ""
 
 #: src/main/templates/main/detail/continent-detail.html:31
-#: src/main/templates/main/detail/country-detail.html:47
+#: src/main/templates/main/detail/country-detail.html:73
 msgid "President:"
 msgstr ""
 
-#: src/main/templates/main/detail/country-detail.html:45
+#: src/main/templates/main/detail/country-detail.html:71
 msgid "Belonging to FIFA since "
 msgstr ""
 
-#: src/main/templates/main/detail/country-detail.html:46
+#: src/main/templates/main/detail/country-detail.html:72
 msgid "Belonging to "
 msgstr ""
 
-#: src/main/templates/main/detail/country-detail.html:46
+#: src/main/templates/main/detail/country-detail.html:72
 msgid " since "
 msgstr ""
 
@@ -1183,11 +1241,6 @@ msgstr ""
 msgid "load"
 msgstr ""
 
-#: src/main/templates/main/detail/player_detail.html:120
-#: src/main/templates/main/search_results.html:55
-msgid "Clubs"
-msgstr ""
-
 #: src/main/templates/main/detail/player_detail.html:122
 msgid "No clubs added, click "
 msgstr ""
@@ -1225,15 +1278,6 @@ msgstr ""
 msgid "Association rating"
 msgstr ""
 
-#: src/main/templates/main/rating/association-rating.html:11
-#: src/main/templates/main/rating/club-rating.html:11
-#: src/main/templates/main/rating/country-rating.html:11
-#: src/main/templates/main/rating/main-association.html:11
-#: src/main/templates/main/rating/main-club.html:11
-#: src/main/templates/main/rating/main-country.html:11
-msgid "Continents"
-msgstr ""
-
 #: src/main/templates/main/rating/association-rating.html:12
 #: src/main/templates/main/rating/association-rating.html:17
 msgid "Association rating "
@@ -1244,10 +1288,6 @@ msgstr ""
 #: src/main/templates/main/rating/country-rating.html:49
 #: src/main/templates/main/rating/include/table-item.html:9
 msgid "Points"
-msgstr ""
-
-#: src/main/templates/main/rating/association-rating.html:29
-msgid "Teams"
 msgstr ""
 
 #: src/main/templates/main/rating/association-rating.html:80
@@ -1279,31 +1319,31 @@ msgstr ""
 
 #: src/main/templates/main/rating/country-rating.html:22
 #: src/main/templates/main/rating/country-rating.html:76
-#: src/main/templates/main/rating/country-rating.html:81
-#: src/main/templates/main/rating/country-rating.html:86
-#: src/main/templates/main/rating/country-rating.html:91
-#: src/main/templates/main/rating/country-rating.html:96
-#: src/main/templates/main/rating/country-rating.html:101
 msgid "UEFA"
 msgstr ""
 
 #: src/main/templates/main/rating/country-rating.html:25
+#: src/main/templates/main/rating/country-rating.html:81
 msgid "CONMEBOL"
 msgstr ""
 
 #: src/main/templates/main/rating/country-rating.html:28
+#: src/main/templates/main/rating/country-rating.html:86
 msgid "CONCACAF"
 msgstr ""
 
 #: src/main/templates/main/rating/country-rating.html:31
+#: src/main/templates/main/rating/country-rating.html:91
 msgid "CAF"
 msgstr ""
 
 #: src/main/templates/main/rating/country-rating.html:34
+#: src/main/templates/main/rating/country-rating.html:96
 msgid "AFC"
 msgstr ""
 
 #: src/main/templates/main/rating/country-rating.html:37
+#: src/main/templates/main/rating/country-rating.html:101
 msgid "OFC"
 msgstr ""
 
@@ -1340,14 +1380,6 @@ msgstr ""
 
 #: src/main/templates/main/search_results.html:14
 msgid "Nothing found."
-msgstr ""
-
-#: src/main/templates/main/search_results.html:17
-msgid "Countries"
-msgstr ""
-
-#: src/main/templates/main/search_results.html:36
-msgid "Leagues"
 msgstr ""
 
 #: src/src/settings.py:158
