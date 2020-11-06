@@ -471,20 +471,6 @@ div.container4 img {
 }
 
 
-#overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: none;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.65);
-  z-index: 999;
-  -webkit-animation: fade .6s;
-  -moz-animation: fade .6s;
-  animation: fade .6s;
-  overflow: auto;
-}
 
 
 .popup {
@@ -516,7 +502,7 @@ div.container4 img {
 }
 
 
-.close {
+.close-happy {
   top: 10px;
   right: 10px;
   width: 32px;
@@ -536,7 +522,7 @@ div.container4 img {
   outline: none;
 
 }
-.close:before {
+.close-happy:before {
   color: rgba(255, 255, 255, 0.9);
   content: "X";
   font-family:  Arial, Helvetica, sans-serif;
@@ -549,7 +535,7 @@ div.container4 img {
   transition: all 0.5s;
 }
 /* кнопка закрытия при наведении */
-.close:hover {
+.close-happy:hover {
   background-color: rgba(252, 20, 0, 0.8);
 }
 

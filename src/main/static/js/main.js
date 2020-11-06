@@ -82,3 +82,10 @@ $(document).on('change', '.js-change-language-select', function(e) {
     $(this).closest('form').submit();
     $(this).attr('disabled', true);
 });
+
+$(document).ready(function () {
+    function raisePopUp() {
+        $('#exampleModal').modal('show');
+    };
+    setTimeout(raisePopUp, 3000)
+})

@@ -137,23 +137,48 @@
     </div>
 
     {% if current_month == '11' and current_day == '05' and is_homepage %}
-    <div id="overlay">
-        <div class="popup text-center">
-            <h2>{% trans 'HAPPY BIRTHDAY!!!' %}</h2>
-            <h5>{% trans 'Today is birthday in owner of this site! So you can write few nice words to this email ' %}
-                <a href="mailto:golovchak.evgen@gmail.com">golovchak.evgen@gmail.com</a>
-            </h5>
-            <img loading="lazy" class="img-happy" src="{% static 'images/happy_birthday.jpg' %}">
-            <button class="close" title="Закрыть" onclick="document.getElementById('overlay').style.display='none';"></button>
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">{% trans 'HAPPY BIRTHDAY!!!' %}</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        {% trans 'Today is birthday in owner of this site! So you can write few nice words to this email ' %}
+                        <a href="mailto:golovchak.evgen@gmail.com">golovchak.evgen@gmail.com</a>
+                        <img loading="lazy" class="img-happy" src="{% static 'images/happy_birthday.jpg' %}">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
     {% endif %}
 
-
-<script type="text/javascript">
-    var delay_popup = 20;
-    setTimeout("document.getElementById('overlay').style.display='block'", delay_popup);
-</script>
+    {% if current_month == '11' and current_day == '06' and is_homepage %}
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">{% trans 'ЖЖЖЖЖЖЖЖЖЖЖЖЖЖЖЖЖЖЖ' %}</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Зробив норм кнопку закриття
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">{% trans 'Close' %}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
