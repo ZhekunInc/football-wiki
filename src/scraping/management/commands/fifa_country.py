@@ -77,4 +77,49 @@ class Command(BaseCommand):
 
             print('ДОДАНО')
         else:
-            print('ЄЄЄЄЄЄЄЄ')
+            rating = RatingCountry.objects.filter(title=continent).delete()
+            print('ВИДАЛЕНО')
+
+            rating = RatingCountry.objects.create(
+                title=continent,
+                continent=Continent.objects.get(
+                    title_ru=continent,
+                )
+            )
+            while i < 1470:
+                title = table[i + 2].text
+                title = title.split(
+                    '\n\n\n \n'
+                )
+                title = (''.join(title))
+                title = title.split(
+                    '\n\n'
+                )
+                title = (''.join(title))
+                point = ((table[i + 3]).text).split(' ')
+                point = int((''.join(point)))
+                is_new_country = not Country.objects.filter(
+                    title_ru=title
+                ).exists()
+                if is_new_country:
+                    Country.objects.create(
+                        title_ru=title,
+                        slug=slugify(title.lower()),
+                        continent=Continent.objects.get(
+                            title_ru=table[i + 5].text,
+                        )
+                    )
+                FifaCountry.objects.create(
+                    place=table[i].text,
+                    country=Country.objects.get(
+                        title_ru=title,
+                    ),
+                    rating=RatingCountry.objects.get(
+                        title=rating.title,
+                    ),
+                    points=point,
+                    place_continent=table[i + 6].text
+                )
+                i = i + 7
+
+            print('ДОДАНО')

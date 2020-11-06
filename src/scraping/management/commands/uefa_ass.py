@@ -91,4 +91,67 @@ class Command(BaseCommand):
 
             print('ДОДАНО')
         else:
-            print('ЄЄЄЄЄЄЄЄ')
+            rating = RatingAssociation.objects.filter(title=continent).delete()
+            print('ВИДАЛЕНО')
+
+            rating = RatingAssociation.objects.create(
+                title=continent,
+                continent=Continent.objects.get(
+                    title_uk=continent,
+                )
+            )
+            while i < 495:
+
+                title = table[i + 1].text.split(
+                    '\n\n\n                        \t                    '
+                )
+                title = (''.join(title))
+                title = title.split('                    \n')
+                title = (''.join(title))
+                is_new_country = not Country.objects.filter(
+                    title_uk__icontains=title
+                ).exists()
+                if is_new_country:
+                    Country.objects.create(
+                        title_uk=title,
+                        slug=slugify(title.lower()),
+                        continent=Continent.objects.get(
+                            title_uk=continent,
+                        )
+                    )
+                is_no_team = False
+                count_team = table[i + 8].text.split('/')
+                count_team_1 = int(count_team[0])
+                count_team_2 = int(count_team[1])
+                if count_team_1 == 7:
+                    is_no_team = False
+                    team = str(count_team_1) + '/' + str(count_team_2)
+                elif count_team_1 == count_team_2:
+                    is_no_team = True
+                    team = '0' + '/' + str(count_team_2)
+                elif count_team_1 == 0:
+                    is_no_team = True
+                    team = '0' + '/' + str(count_team_2)
+                else:
+                    is_no_team = False
+                    team = str(count_team_1) + '/' + str(count_team_2)
+                Association.objects.create(
+                    place=table[i].text,
+                    country=Country.objects.get(
+                        title_uk=title,
+                    ),
+                    rating=RatingAssociation.objects.get(
+                        title=rating.title,
+                    ),
+                    point_year1=table[i + 2].text,
+                    point_year2=table[i + 3].text,
+                    point_year3=table[i + 4].text,
+                    point_year4=table[i + 5].text,
+                    point_year5=table[i + 6].text,
+                    points=table[i + 7].text,
+                    teams=team,
+                    no_teams=is_no_team,
+                )
+                i = i + 9
+
+            print('ДОДАНО')
