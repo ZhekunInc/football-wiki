@@ -41,7 +41,11 @@
                                 <span class="link-rating">{{ rating.club.title }}</span>
                             </a>
                         </td>
-                        <td>{{ rating.club.country.title }}</td>
+                        <td>
+                            <a href="{{ rating.club.country.get_absolute_url }}">
+                                <span class="link-rating">{{ rating.club.country.title }}</span>
+                            </a>
+                        </td>
                         <td>{{ rating.point_year1|default:'-' }}</td>
                         <td>{{ rating.point_year2|default:'-' }}</td>
                         <td>{{ rating.point_year3|default:'-' }}</td>

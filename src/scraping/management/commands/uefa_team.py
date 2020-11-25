@@ -36,7 +36,7 @@ class Command(BaseCommand):
                 )
             )
 
-            while i < 1800:
+            while i < 180:
                 title = table[i + 1].text
                 title = title.split(
                     '\n\n\n                        \t                    '
@@ -60,7 +60,6 @@ class Command(BaseCommand):
                         table[i + j] = None
                     else:
                         table[i + j] = table[i + j].text
-                        print(table[i + j])
                 Team.objects.create(
                     place=table[i].text,
                     club=Club.objects.get(
@@ -79,4 +78,54 @@ class Command(BaseCommand):
                 i = i + 9
             print('ДОДАНО')
         else:
-            print('ЄЄЄЄЄЄЄЄ')
+            rating = RatingTeam.objects.filter(title=continent).delete()
+            print('ВИДАЛЕНО')
+            rating = RatingTeam.objects.create(
+                title=continent,
+                continent=Continent.objects.get(
+                    title_uk=continent,
+                )
+            )
+
+            while i < 180:
+                title = table[i + 1].text
+                title = title.split(
+                    '\n\n\n                        \t                    '
+                )
+                title = (''.join(title))
+                title = title.split('                    \n')
+                title = (''.join(title))
+                is_new_club = not Club.objects.filter(
+                    title_uk=title
+                ).exists()
+
+                if is_new_club:
+                    Club.objects.create(
+                        title_uk=title,
+                        slug=slugify(title.lower()),
+                        continent=Continent.objects.get(
+                            title_uk=continent,
+                        )
+                    )
+                for j in range(2, 7):
+                    if table[i + j].text == '–':
+                        table[i + j] = None
+                    else:
+                        table[i + j] = table[i + j].text
+                Team.objects.create(
+                    place=table[i].text,
+                    club=Club.objects.get(
+                        title_uk=title,
+                    ),
+                    rating=RatingTeam.objects.get(
+                        title=rating.title,
+                    ),
+                    point_year1=table[i + 2],
+                    point_year2=table[i + 3],
+                    point_year3=table[i + 4],
+                    point_year4=table[i + 5],
+                    point_year5=table[i + 6],
+                    points=table[i + 7].text,
+                )
+                i = i + 9
+            print('ДОДАНО')

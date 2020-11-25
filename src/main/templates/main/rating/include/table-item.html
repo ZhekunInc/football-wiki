@@ -23,7 +23,11 @@
                             <span class="link-rating">{{ rating.country.title }}</span>
                         </a>
                     </td>
-                    <td>{{ rating.country.continent.title }}</td>
+                    <td>
+                        <a title="{{ rating.country.continent.title }}" href="{{ rating.country.continent.get_absolute_url }}">
+                            <span class="link-rating">{{ rating.country.continent.title }}</span>
+                        </a>
+                    </td>
                     <td>{{ rating.points|default:'-' }}</td>
                     <td>{{ rating.place }}</td>
                 </tr>

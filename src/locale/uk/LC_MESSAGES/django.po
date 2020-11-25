@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-11-05 17:45+0200\n"
-"PO-Revision-Date: 2020-11-05 17:49+0202\n"
+"PO-Revision-Date: 2020-11-06 18:00+0202\n"
 "Last-Translator: b'  <golovchak.evgen@gmail.com>'\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -145,7 +145,7 @@ msgstr "Ліги"
 #, fuzzy
 #| msgid "Cup"
 msgid "cup"
-msgstr "Кубок"
+msgstr "кубок"
 
 #: src/main/models.py:222
 msgid "Cups"
@@ -339,7 +339,7 @@ msgstr "Ассоціація"
 #, fuzzy
 #| msgid "Association"
 msgid "Associations"
-msgstr "Ассоціація"
+msgstr "Ассоціації"
 
 #: src/main/models.py:640 src/main/models.py:641
 msgid "Rating Teams"
@@ -810,7 +810,7 @@ msgstr "Рейтинг"
 #, fuzzy
 #| msgid "country"
 msgid "Account"
-msgstr "Країна"
+msgstr "Аккаунт"
 
 #: src/main/templates/main/base.html:70 src/main/templates/main/base.html:71
 #: src/main/templates/main/base.html:82 src/main/templates/main/base.html:83
@@ -1324,7 +1324,7 @@ msgstr "Рейтинг країн"
 
 #: src/main/templates/main/rating/country-rating.html:19
 msgid "All"
-msgstr ""
+msgstr "Всі"
 
 #: src/main/templates/main/rating/country-rating.html:22
 #: src/main/templates/main/rating/country-rating.html:76
@@ -1358,7 +1358,7 @@ msgstr ""
 
 #: src/main/templates/main/rating/country-rating.html:42
 msgid "General"
-msgstr ""
+msgstr "Загальний"
 
 #: src/main/templates/main/rating/country-rating.html:48
 #: src/main/templates/main/rating/include/table-item.html:8
@@ -1367,7 +1367,7 @@ msgstr "Континент"
 
 #: src/main/templates/main/rating/include/table-item.html:10
 msgid "Main"
-msgstr ""
+msgstr "В загальному"
 
 #: src/main/templates/main/rating/main-association.html:4
 #: src/main/templates/main/rating/main-club.html:4

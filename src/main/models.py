@@ -643,7 +643,7 @@ class RatingTeam(models.Model):
     def get_team(self):
         return Team.objects.filter(
             rating_id=self.pk
-        ).order_by('-points')
+        ).order_by('place')
 
 
 class Team(models.Model):

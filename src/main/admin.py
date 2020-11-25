@@ -40,7 +40,7 @@ class ContinentAdmin(TranslationAdmin):
 @admin.register(Country)
 class CountryAdmin(TranslationAdmin):
     list_display = (
-        'title', 'slug', 'continent'
+        'id', 'title', 'slug', 'continent'
     )
     list_filter = ('continent',)
     search_fields = ['title',]
