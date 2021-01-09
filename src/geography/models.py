@@ -28,7 +28,7 @@ class Country(models.Model):
         verbose_name=_('continent'), on_delete=models.CASCADE,
     )
     flag = models.URLField(
-        _('flag URL'), null=True, max_length=255, blank=True
+        _('flag URLs'), null=True, max_length=255, blank=True
     )
     capital = models.CharField(_('capital'), max_length=200)
 
