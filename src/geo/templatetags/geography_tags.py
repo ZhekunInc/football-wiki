@@ -1,11 +1,11 @@
 from django import template
-from geography.models import Continent, Country
+from geo.models import Continent, Country
 
 register = template.Library()
 
 
-@register.inclusion_tag('geography-tag-pages/continent-list.html')
-def geography_continents():
+@register.inclusion_tag('geo-tag-pages/continent-list.html')
+def geo_continents():
     return {
         'continents': Continent.objects.all().filter(
             is_published=True
