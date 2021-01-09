@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-05 17:45+0200\n"
-"PO-Revision-Date: 2020-11-06 18:00+0202\n"
+"POT-Creation-Date: 2021-01-09 22:45+0200\n"
+"PO-Revision-Date: 2021-01-09 22:53+0202\n"
 "Last-Translator: b'  <golovchak.evgen@gmail.com>'\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -19,16 +19,126 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
 "X-Translated-Using: django-rosetta 0.9.3\n"
 
-#: src/main/models.py:11 src/main/models.py:58 src/main/models.py:126
-#: src/main/models.py:178 src/main/models.py:225 src/main/models.py:280
-#: src/main/models.py:543 src/main/models.py:624 src/main/models.py:698
+#: src/geography/models.py:8 src/geography/models.py:22 src/main/models.py:11
+#: src/main/models.py:58 src/main/models.py:126 src/main/models.py:178
+#: src/main/models.py:225 src/main/models.py:280 src/main/models.py:543
+#: src/main/models.py:624 src/main/models.py:698
 msgid "title"
 msgstr "Назва"
 
-#: src/main/models.py:13 src/main/models.py:60 src/main/models.py:128
-#: src/main/models.py:180 src/main/models.py:227 src/main/models.py:282
+#: src/geography/models.py:10 src/geography/models.py:24 src/main/models.py:13
+#: src/main/models.py:60 src/main/models.py:128 src/main/models.py:180
+#: src/main/models.py:227 src/main/models.py:282
 msgid "slug"
 msgstr "Назва-мітки (Для URL):"
+
+#: src/geography/models.py:17 src/geography/models.py:28 src/main/models.py:54
+#: src/main/models.py:64 src/main/models.py:191 src/main/models.py:286
+#: src/main/models.py:546 src/main/models.py:627 src/main/models.py:701
+msgid "continent"
+msgstr "Континент"
+
+#: src/geography/models.py:18 src/main/models.py:55
+#: src/main/templates/main/base.html:43
+#: src/main/templates/main/rating/association-rating.html:11
+#: src/main/templates/main/rating/club-rating.html:11
+#: src/main/templates/main/rating/country-rating.html:11
+#: src/main/templates/main/rating/main-association.html:11
+#: src/main/templates/main/rating/main-club.html:11
+#: src/main/templates/main/rating/main-country.html:11
+msgid "Continents"
+msgstr "Континент"
+
+#: src/geography/models.py:31
+msgid "flag URL"
+msgstr "посилання на прапор"
+
+#: src/geography/models.py:33
+msgid "capital"
+msgstr "столиця"
+
+#: src/geography/models.py:39 src/main/models.py:122 src/main/models.py:138
+#: src/main/models.py:237 src/main/models.py:291
+msgid "country"
+msgstr "Країна"
+
+#: src/geography/models.py:40
+#: src/geography/templates/geography/include/geo-item.html:7
+#: src/main/templates/main/rating/club-rating.html:22
+#: src/main/templates/main/rating/country-rating.html:47
+#: src/main/templates/main/rating/include/table-item.html:7
+msgid "Country"
+msgstr "Країна"
+
+#: src/geography/templates/geography/geography.html:5
+#: src/geography/templates/geography/geography.html:11
+msgid "Geography"
+msgstr "Географія"
+
+#: src/geography/templates/geography/geography.html:10
+#: src/main/templates/main/all-rating.html:9
+#: src/main/templates/main/base.html:34
+#: src/main/templates/main/change-club/club_create.html:8
+#: src/main/templates/main/change-club/club_info_update.html:7
+#: src/main/templates/main/change-club/club_main_update.html:7
+#: src/main/templates/main/change-club/club_player_update.html:7
+#: src/main/templates/main/change-club/club_title_update.html:7
+#: src/main/templates/main/change-club/club_trophy_update.html:7
+#: src/main/templates/main/change-continent/continent_info_update.html:7
+#: src/main/templates/main/change-continent/continent_main_update.html:7
+#: src/main/templates/main/change-continent/continent_title_update.html:7
+#: src/main/templates/main/change-country/country_create.html:8
+#: src/main/templates/main/change-country/country_info_update.html:7
+#: src/main/templates/main/change-country/country_main_update.html:7
+#: src/main/templates/main/change-country/country_title_update.html:7
+#: src/main/templates/main/change-cup/cup_club_update.html:7
+#: src/main/templates/main/change-cup/cup_country_update.html:7
+#: src/main/templates/main/change-cup/cup_create.html:8
+#: src/main/templates/main/change-cup/cup_info_update.html:7
+#: src/main/templates/main/change-cup/cup_main_update.html:7
+#: src/main/templates/main/change-cup/cup_title_update.html:7
+#: src/main/templates/main/change-league/league_create.html:8
+#: src/main/templates/main/change-league/league_info_update.html:7
+#: src/main/templates/main/change-league/league_main_update.html:7
+#: src/main/templates/main/change-league/league_title_update.html:7
+#: src/main/templates/main/change-player/player_club_update.html:7
+#: src/main/templates/main/change-player/player_create.html:8
+#: src/main/templates/main/change-player/player_info_update.html:7
+#: src/main/templates/main/change-player/player_main_update.html:7
+#: src/main/templates/main/change-player/player_title_update.html:7
+#: src/main/templates/main/change-player/player_trophy_update.html:7
+#: src/main/templates/main/club_list.html:6
+#: src/main/templates/main/country_list.html:7
+#: src/main/templates/main/create_center.html:7
+#: src/main/templates/main/detail/club_detail.html:6
+#: src/main/templates/main/detail/continent-detail.html:6
+#: src/main/templates/main/detail/country-detail.html:6
+#: src/main/templates/main/detail/cup_detail.html:6
+#: src/main/templates/main/detail/league-detail.html:6
+#: src/main/templates/main/detail/player_detail.html:6
+#: src/main/templates/main/homepage.html:4
+#: src/main/templates/main/league_list.html:6
+#: src/main/templates/main/rating/association-rating.html:9
+#: src/main/templates/main/rating/club-rating.html:9
+#: src/main/templates/main/rating/country-rating.html:9
+#: src/main/templates/main/rating/main-association.html:9
+#: src/main/templates/main/rating/main-club.html:9
+#: src/main/templates/main/rating/main-country.html:9
+msgid "Home"
+msgstr "Домівка"
+
+#: src/geography/templates/geography/geography.html:22
+msgid "Europe"
+msgstr "Європа"
+
+#: src/geography/templates/geography/include/geo-item.html:6
+#: src/main/models.py:75
+msgid "Flag"
+msgstr "Прапор"
+
+#: src/geography/templates/geography/include/geo-item.html:8
+msgid "Capital"
+msgstr "Столиця"
 
 #: src/main/models.py:16 src/main/models.py:70 src/main/models.py:131
 #: src/main/models.py:183 src/main/models.py:230
@@ -76,26 +186,6 @@ msgstr "Президент"
 msgid "Website"
 msgstr "Сайт:"
 
-#: src/main/models.py:54 src/main/models.py:64 src/main/models.py:191
-#: src/main/models.py:286 src/main/models.py:546 src/main/models.py:627
-#: src/main/models.py:701
-msgid "continent"
-msgstr "Континент"
-
-#: src/main/models.py:55 src/main/templates/main/base.html:43
-#: src/main/templates/main/rating/association-rating.html:11
-#: src/main/templates/main/rating/club-rating.html:11
-#: src/main/templates/main/rating/country-rating.html:11
-#: src/main/templates/main/rating/main-association.html:11
-#: src/main/templates/main/rating/main-club.html:11
-#: src/main/templates/main/rating/main-country.html:11
-msgid "Continents"
-msgstr "Континент"
-
-#: src/main/models.py:75
-msgid "Flag"
-msgstr "Прапор"
-
 #: src/main/models.py:81
 msgid "Belonging to FIFA since"
 msgstr "Належить до ФІФА з"
@@ -111,11 +201,6 @@ msgstr "Місце в рейтингу"
 #: src/main/models.py:93
 msgid "Points on rating"
 msgstr "Очків в рейтингу"
-
-#: src/main/models.py:122 src/main/models.py:138 src/main/models.py:237
-#: src/main/models.py:291
-msgid "country"
-msgstr "Країна"
 
 #: src/main/models.py:123 src/main/templates/main/search_results.html:17
 msgid "Countries"
@@ -142,14 +227,13 @@ msgid "Leagues"
 msgstr "Ліги"
 
 #: src/main/models.py:221
-#, fuzzy
 #| msgid "Cup"
 msgid "cup"
 msgstr "кубок"
 
 #: src/main/models.py:222
 msgid "Cups"
-msgstr ""
+msgstr "Кубки"
 
 #: src/main/models.py:240
 msgid "nickname"
@@ -236,7 +320,7 @@ msgstr "Форма"
 
 #: src/main/models.py:382
 msgid "Kits"
-msgstr ""
+msgstr "Форми"
 
 #: src/main/models.py:400 src/main/models.py:401
 msgid "Fifa"
@@ -321,7 +405,6 @@ msgid "Points on association rating"
 msgstr "Очків в рейтингу ассоціацій"
 
 #: src/main/models.py:603
-#, fuzzy
 #| msgid "The number of represented in the Europe League"
 msgid "The number of represented Euro Cups"
 msgstr "Кількість представників в ЛЄ"
@@ -336,7 +419,6 @@ msgid "Association"
 msgstr "Ассоціація"
 
 #: src/main/models.py:619
-#, fuzzy
 #| msgid "Association"
 msgid "Associations"
 msgstr "Ассоціації"
@@ -352,7 +434,7 @@ msgstr "Команда"
 #: src/main/models.py:693
 #: src/main/templates/main/rating/association-rating.html:29
 msgid "Teams"
-msgstr ""
+msgstr "Команди"
 
 #: src/main/models.py:714 src/main/models.py:715
 msgid "Rating countryies"
@@ -654,7 +736,7 @@ msgstr "Увійти"
 
 #: src/main/templates/account/signup.html:10
 #: src/main/templates/account/signup.html:20
-#: src/main/templates/main/base.html:88 src/main/templates/main/base.html:89
+#: src/main/templates/main/base.html:94 src/main/templates/main/base.html:95
 msgid "Sign Up"
 msgstr "Зареєструватися"
 
@@ -728,57 +810,6 @@ msgstr ""
 msgid "All ratings"
 msgstr "Всі рейтинги"
 
-#: src/main/templates/main/all-rating.html:9
-#: src/main/templates/main/base.html:34
-#: src/main/templates/main/change-club/club_create.html:8
-#: src/main/templates/main/change-club/club_info_update.html:7
-#: src/main/templates/main/change-club/club_main_update.html:7
-#: src/main/templates/main/change-club/club_player_update.html:7
-#: src/main/templates/main/change-club/club_title_update.html:7
-#: src/main/templates/main/change-club/club_trophy_update.html:7
-#: src/main/templates/main/change-continent/continent_info_update.html:7
-#: src/main/templates/main/change-continent/continent_main_update.html:7
-#: src/main/templates/main/change-continent/continent_title_update.html:7
-#: src/main/templates/main/change-country/country_create.html:8
-#: src/main/templates/main/change-country/country_info_update.html:7
-#: src/main/templates/main/change-country/country_main_update.html:7
-#: src/main/templates/main/change-country/country_title_update.html:7
-#: src/main/templates/main/change-cup/cup_club_update.html:7
-#: src/main/templates/main/change-cup/cup_country_update.html:7
-#: src/main/templates/main/change-cup/cup_create.html:8
-#: src/main/templates/main/change-cup/cup_info_update.html:7
-#: src/main/templates/main/change-cup/cup_main_update.html:7
-#: src/main/templates/main/change-cup/cup_title_update.html:7
-#: src/main/templates/main/change-league/league_create.html:8
-#: src/main/templates/main/change-league/league_info_update.html:7
-#: src/main/templates/main/change-league/league_main_update.html:7
-#: src/main/templates/main/change-league/league_title_update.html:7
-#: src/main/templates/main/change-player/player_club_update.html:7
-#: src/main/templates/main/change-player/player_create.html:8
-#: src/main/templates/main/change-player/player_info_update.html:7
-#: src/main/templates/main/change-player/player_main_update.html:7
-#: src/main/templates/main/change-player/player_title_update.html:7
-#: src/main/templates/main/change-player/player_trophy_update.html:7
-#: src/main/templates/main/club_list.html:6
-#: src/main/templates/main/country_list.html:7
-#: src/main/templates/main/create_center.html:7
-#: src/main/templates/main/detail/club_detail.html:6
-#: src/main/templates/main/detail/continent-detail.html:6
-#: src/main/templates/main/detail/country-detail.html:6
-#: src/main/templates/main/detail/cup_detail.html:6
-#: src/main/templates/main/detail/league-detail.html:6
-#: src/main/templates/main/detail/player_detail.html:6
-#: src/main/templates/main/homepage.html:4
-#: src/main/templates/main/league_list.html:6
-#: src/main/templates/main/rating/association-rating.html:9
-#: src/main/templates/main/rating/club-rating.html:9
-#: src/main/templates/main/rating/country-rating.html:9
-#: src/main/templates/main/rating/main-association.html:9
-#: src/main/templates/main/rating/main-club.html:9
-#: src/main/templates/main/rating/main-country.html:9
-msgid "Home"
-msgstr "Домівка"
-
 #: src/main/templates/main/all-rating.html:20
 msgid "Countries rating"
 msgstr "Рейтинг країн"
@@ -806,44 +837,51 @@ msgstr "Трофеї і нарогоди"
 msgid "Ratings"
 msgstr "Рейтинг"
 
-#: src/main/templates/main/base.html:67 src/main/templates/main/base.html:79
-#, fuzzy
-#| msgid "country"
+#: src/main/templates/main/base.html:67 src/main/templates/main/base.html:82
 msgid "Account"
 msgstr "Аккаунт"
 
 #: src/main/templates/main/base.html:70 src/main/templates/main/base.html:71
-#: src/main/templates/main/base.html:82 src/main/templates/main/base.html:83
+#: src/main/templates/main/base.html:85 src/main/templates/main/base.html:86
+msgid "Learn geography"
+msgstr "Географія"
+
+#: src/main/templates/main/base.html:73 src/main/templates/main/base.html:74
+#: src/main/templates/main/base.html:88 src/main/templates/main/base.html:89
 msgid "Add"
 msgstr "Додати"
 
-#: src/main/templates/main/base.html:73 src/main/templates/main/base.html:74
+#: src/main/templates/main/base.html:76 src/main/templates/main/base.html:77
 msgid "Logout"
 msgstr "Вийти"
 
-#: src/main/templates/main/base.html:85 src/main/templates/main/base.html:86
+#: src/main/templates/main/base.html:91 src/main/templates/main/base.html:92
 msgid "Login"
 msgstr "Увійти"
 
-#: src/main/templates/main/base.html:96
+#: src/main/templates/main/base.html:102
 msgid "Search"
 msgstr "Пошук"
 
-#: src/main/templates/main/base.html:123
+#: src/main/templates/main/base.html:129
 msgid "Welcome back, "
 msgstr "З поверненням, "
 
-#: src/main/templates/main/base.html:142
+#: src/main/templates/main/base.html:150
 msgid "HAPPY BIRTHDAY!!!"
 msgstr "З ДНЕМ НАРОДЖЕННЯ!!!"
 
-#: src/main/templates/main/base.html:143
+#: src/main/templates/main/base.html:156
 msgid ""
 "Today is birthday in owner of this site! So you can write few nice words to "
 "this email "
 msgstr ""
 "Сьогодні день народження у власника цього сайту! Тож ви можете написати "
 "кілька приємних слів на цю пошту "
+
+#: src/main/templates/main/base.html:161
+msgid "Close"
+msgstr ""
 
 #: src/main/templates/main/change-club/club_create.html:3
 #: src/main/templates/main/change-club/club_create.html:10
@@ -1311,12 +1349,6 @@ msgstr "Клубний рейтинг"
 msgid "Club rating "
 msgstr "Клубний рейтинг "
 
-#: src/main/templates/main/rating/club-rating.html:22
-#: src/main/templates/main/rating/country-rating.html:47
-#: src/main/templates/main/rating/include/table-item.html:7
-msgid "Country"
-msgstr "Країна"
-
 #: src/main/templates/main/rating/country-rating.html:4
 #: src/main/templates/main/rating/country-rating.html:12
 msgid "Country rating"
@@ -1327,32 +1359,32 @@ msgid "All"
 msgstr "Всі"
 
 #: src/main/templates/main/rating/country-rating.html:22
-#: src/main/templates/main/rating/country-rating.html:76
+#: src/main/templates/main/rating/country-rating.html:80
 msgid "UEFA"
 msgstr ""
 
 #: src/main/templates/main/rating/country-rating.html:25
-#: src/main/templates/main/rating/country-rating.html:81
+#: src/main/templates/main/rating/country-rating.html:85
 msgid "CONMEBOL"
 msgstr ""
 
 #: src/main/templates/main/rating/country-rating.html:28
-#: src/main/templates/main/rating/country-rating.html:86
+#: src/main/templates/main/rating/country-rating.html:90
 msgid "CONCACAF"
 msgstr ""
 
 #: src/main/templates/main/rating/country-rating.html:31
-#: src/main/templates/main/rating/country-rating.html:91
+#: src/main/templates/main/rating/country-rating.html:95
 msgid "CAF"
 msgstr ""
 
 #: src/main/templates/main/rating/country-rating.html:34
-#: src/main/templates/main/rating/country-rating.html:96
+#: src/main/templates/main/rating/country-rating.html:100
 msgid "AFC"
 msgstr ""
 
 #: src/main/templates/main/rating/country-rating.html:37
-#: src/main/templates/main/rating/country-rating.html:101
+#: src/main/templates/main/rating/country-rating.html:105
 msgid "OFC"
 msgstr ""
 
@@ -1391,15 +1423,15 @@ msgstr "Будь-ласка введіть запит."
 msgid "Nothing found."
 msgstr "Нічого не знайдено (пошук українською чутливий до регістру)"
 
-#: src/src/settings.py:158
+#: src/src/settings.py:161
 msgid "Ukraine"
 msgstr ""
 
-#: src/src/settings.py:159
+#: src/src/settings.py:162
 msgid "English"
 msgstr ""
 
-#: src/src/settings.py:160
+#: src/src/settings.py:163
 msgid "Russian"
 msgstr ""
 

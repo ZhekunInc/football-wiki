@@ -25,7 +25,7 @@ SECRET_KEY = '=c%putkgs%4@c(#4y!nvef!xbzjvd7q5)##h&bg+y@x0suds#_'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['zhekun.pythonanywhere.com', '127.0.0.1', '192.168.0.105', '192.168.0.104']
+ALLOWED_HOSTS = ['zhekun.pythonanywhere.com', '127.0.0.1', '192.168.0.116', '192.168.0.104']
 
 
 # Application definition
@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    'debug_toolbar',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -47,7 +48,8 @@ INSTALLED_APPS = [
     'django.contrib.sitemaps',
     'el_pagination',
     'rosetta',
-    'scraping'
+    'scraping',
+    'geography',
 ]
 
 ACCOUNT_DEFAULT_HTTP_PROTOCOL = "https"
@@ -62,6 +64,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'src.urls'

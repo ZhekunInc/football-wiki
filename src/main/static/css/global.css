@@ -404,6 +404,14 @@ table.table-1 a {
   border: solid black 1px;
 }
 
+.images-table-country-geo {
+  width: 100px;
+}
+
+.table-geo td, .table-geo th {
+  font-size: 30px !important;
+}
+
 .link-rating {
   text-decoration: none;
   color: #000000;
