@@ -5,7 +5,7 @@ from .models import Country, Continent
 
 class CountryList(ListView):
 
-    template_name = "geo/geo.html"
+    template_name = "geography/geography.html"
     context_object_name = "countries"
 
     def get_queryset(self):

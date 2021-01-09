@@ -3,8 +3,8 @@ from .views import CountryList
 
 urlpatterns = [
     path(
-        'geo/learn/country/',
+        'geography/learn/country/',
         CountryList.as_view(),
-        name='geo'
+        name='geography'
     ),
 ]

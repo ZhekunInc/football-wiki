@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     'el_pagination',
     'rosetta',
     'scraping',
-    'geo',
+    'geography',
 ]
 
 ACCOUNT_DEFAULT_HTTP_PROTOCOL = "https"
