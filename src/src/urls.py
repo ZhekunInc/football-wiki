@@ -40,6 +40,7 @@ urlpatterns += i18n_patterns(
     path('accounts/', include('allauth.urls')),
     path('admin/', admin.site.urls),
     path('', include('main.urls')),
+    path('geography/', include('geography.urls')),
     path('sitemaps.xml', views.sitemap, {'sitemaps': sm_info}),
 )
 

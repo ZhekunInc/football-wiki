@@ -26,8 +26,6 @@ from main.views.league_change import LeagueMainUpdateView
 from main.views.league_change import LeagueInfoUpdateView
 from main.views.detail import ContinentAbout, CountryAbout, LeagueAbout
 from main.views.rating import RatingClubListView, RatingCountryListView, RatingAssociationListView, RatingTeamListView, RatingCountryListView
-from geography.views import CountryList
-
 
 urlpatterns = [
     path(
@@ -108,11 +106,6 @@ urlpatterns = [
     ),
     path('create-player/', PlayerCreateView.as_view(), name='player_create'),
     path('create-cup/', CupCreateView.as_view(), name='cup_create'),
-    path(
-        'geography/',
-        CountryList.as_view(),
-        name='geography'
-    ),
     path(
         'trophies_and_awards/<cup>-<pk>/',
         CupDetail.as_view(),
