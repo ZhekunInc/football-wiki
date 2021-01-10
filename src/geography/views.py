@@ -9,4 +9,4 @@ class CountryList(ListView):
     context_object_name = "countries"
 
     def get_queryset(self):
-        return Country.objects.all().order_by("title")
+        return Country.objects.all().order_by("title")[:1]
