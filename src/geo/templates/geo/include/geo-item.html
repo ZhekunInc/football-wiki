@@ -1,0 +1,28 @@
+{% load static i18n %}
+
+<div class="table-wrap">
+    <table class="table-1 table-geo">
+        <tr>
+            <th>{% trans 'Flag' %}</th>
+            <th>{% trans 'Country' %}</th>
+            <th>{% trans 'Capital' %}</th>
+        </tr>
+
+            {% for rating in continent_country %}
+                <tr>
+                    <td>
+                        {% if rating.flag %}
+                            <img loading="lazy" class="images-table images-table-country images-table-country-geo" src="{{ rating.flag }}" alt="{{ rating.title }}"> 
+                        {% else %}
+                            <img loading="lazy" class="images-table" src="{% static 'images/placeholder.png' %}" alt="holderplace">
+                        {% endif %}
+                        </a>
+                    </td>
+                    <td>{{ rating.title }}</td>
+                    <td>
+                        {{ rating.capital }}
+                    </td>
+                </tr>
+            {% endfor %}
+    </table>
+</div>
