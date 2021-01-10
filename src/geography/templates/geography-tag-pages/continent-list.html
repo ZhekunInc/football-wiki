@@ -1,5 +1,0 @@
-{% for continent in continents %}
-    <li class="nav-item">
-        <a class="nav-link {% if continent.slug == 'europe' %} active {% endif %} my-nav-link" id="{{ continent.slug }}-tab" data-toggle="pill" href="#{{ continent.slug }}" role="tab" aria-controls="{{ continent.slug }}" aria-selected="false">{{ continent.title }}</a>
-    </li>
-{% endfor %}

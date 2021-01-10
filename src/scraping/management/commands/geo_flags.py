@@ -1,6 +1,6 @@
 from django.core.management.base import BaseCommand
 from bs4 import BeautifulSoup
-from geography.models import Country
+from geo.models import Country
 
 from slugify import slugify
 
