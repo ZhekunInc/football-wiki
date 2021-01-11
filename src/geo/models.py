@@ -30,10 +30,29 @@ class Country(models.Model):
     flag = models.URLField(
         _('flag URLs'), null=True, max_length=255, blank=True
     )
+    flag_file = models.ImageField(
+        _('Flag'), max_length=255, blank=True, null=True,
+        upload_to='images/geo/flags',
+        help_text=_("Recomended size 512x512px")
+    )
     capital = models.CharField(_('capital'), max_length=200)
 
     def __str__(self):
         return self.title
+
+    def get_download_url_or_none(self):
+        if self.flag and "drive.google.com" in self.flag:
+            if self.flag.endswith('download'):
+                return self.flag
+
+            flag = self.flag.replace("https://drive.google.com/file/d/", "")
+            flag = flag.replace("https://drive.google.com/open?id=", "")
+            img_id = flag[:33]
+            flag = "https://docs.google.com/uc?id=%s" % img_id
+            return flag
+        if self.flag:
+            return self.flag
+        return None
 
     class Meta:
         verbose_name = _('country')
