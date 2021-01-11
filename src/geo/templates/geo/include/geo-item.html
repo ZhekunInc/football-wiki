@@ -11,8 +11,8 @@
             {% for rating in continent_country %}
                 <tr>
                     <td>
-                        {% if rating.flag %}
-                            <img loading="lazy" class="images-table images-table-country images-table-country-geo" src="{{ rating.flag }}" alt="{{ rating.title }}"> 
+                        {% if rating.flag_file %}
+                            <img loading="lazy" class="images-table images-table-country images-table-country-geo" src="{{ rating.flag_file.url }}" alt="{{ rating.title }}"> 
                         {% else %}
                             <img loading="lazy" class="images-table" src="{% static 'images/placeholder.png' %}" alt="holderplace">
                         {% endif %}
