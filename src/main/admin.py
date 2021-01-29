@@ -25,7 +25,7 @@ class ContinentAdmin(TranslationAdmin):
     list_filter = ('is_published',)
     search_fields = ['title',]
     ordering = ('title',)
-    prepopulated_fields = {'slug': ('title',)}
+    prepopulated_fields = {'slug': ('title_en',)}
 
     class Media:
         js = (
@@ -45,7 +45,7 @@ class CountryAdmin(TranslationAdmin):
     list_filter = ('continent',)
     search_fields = ['title',]
     ordering = ('title',)
-    prepopulated_fields = {'slug': ('title',)}
+    prepopulated_fields = {'slug': ('title_en',)}
     inlines = [CupCountryInlinePost, CountryPlayerInlinePost]
     list_per_page = 20
 
@@ -67,7 +67,7 @@ class LeagueAdmin(TranslationAdmin):
     list_filter = ('country',)
     search_fields = ['title']
     ordering = ('title',)
-    prepopulated_fields = {'slug': ('title',)}
+    prepopulated_fields = {'slug': ('title_en',)}
     list_per_page = 20
 
     class Media:
@@ -80,7 +80,7 @@ class LeagueAdmin(TranslationAdmin):
             'screen': ('modeltranslation/css/tabbed_translation_fields.css',),
         }
 
-class KitsInlinePost(admin.TabularInline):
+class KitsInlinePost(admin.TabularInline, TranslationStackedInline):
     model = Kits
     extra = 0
 
@@ -132,7 +132,7 @@ class ClubAdmin(TranslationAdmin):
     search_fields = ('title', 'id')
     ordering = ('-id',)
     inlines = [KitsInlinePost, PlayerClubInlinePost, CupClubInlinePost]
-    prepopulated_fields = {'slug': ('title',)}
+    prepopulated_fields = {'slug': ('title_en',)}
     list_per_page = 20
 
     class Media:
@@ -153,7 +153,7 @@ class CupAdmin(TranslationAdmin):
     list_filter = ('region',)
     search_fields = ['title']
     ordering = ('title',)
-    prepopulated_fields = {'slug': ('title',)}
+    prepopulated_fields = {'slug': ('title_en',)}
     inlines = [PlayerCupInlinePost, CupClubInlinePost, CupCountryInlinePost]
     list_per_page = 20
 
@@ -176,7 +176,7 @@ class PlayerAdmin(TranslationAdmin):
     search_fields = ['title', ]
     ordering = ('title',)
     inlines = [FifaInlinePost, PlayerClubInlinePost, PlayerCupInlinePost]
-    prepopulated_fields = {'slug': ('title',)}
+    prepopulated_fields = {'slug': ('title_en',)}
     list_per_page = 20
 
     class Media:
